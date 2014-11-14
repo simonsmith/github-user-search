@@ -40,7 +40,7 @@ var Search = React.createClass({
       data: {q: query},
       type: 'json'
     }).then(function(data) {
-      this.setState({results: data})
+      this.setState({results: data, query: query})
     }.bind(this))
   },
   componentWillReceiveProps: function(nextProps) {
@@ -53,7 +53,7 @@ var Search = React.createClass({
     return (
       <div className="Search">
         <h1 className="Search-title">Search for a user</h1>
-        <SearchForm onUserSearch={this.handleSearchFormSubmit} ref="searchForm" />
+        <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
         <ResultsList results={this.state.results} />
       </div>
     )
@@ -64,7 +64,7 @@ var ResultsList = React.createClass({
   render: function() {
     var results = this.props.results.items.map(function(user) {
       return (
-        <li className="ResultsList-item">
+        <li key={user.id} className="ResultsList-item">
           <Result username={user.login} />
         </li>
       )
@@ -89,13 +89,23 @@ var Result = React.createClass({
 });
 
 var SearchForm = React.createClass({
+  getInitialState: function() {
+    return {value: ''};
+  },
+  componentWillReceiveProps: function(nextProps) {
+    console.log(arguments);
+    this.setState({value: nextProps.query});
+  },
+  handleChange: function(event) {
+    this.setState({value: event.target.value});
+  },
   getSearchTerm: function () {
     return this.refs.input.getDOMNode().value
   },
   render: function() {
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>
-        <input className="SearchForm-input" placeholder="e.g simonsmith, AlecRust" type="text" ref="input" />
+        <input className="SearchForm-input" placeholder="e.g simonsmith, AlecRust" type="text" ref="input" value={this.state.value} onChange={this.handleChange} />
         <button className="SearchForm-btn Button" type="submit">Go</button>
       </form>
     )
