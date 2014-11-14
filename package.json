@@ -1,0 +1,21 @@
+{
+  "name": "github-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.12.0",
+    "react-router": "^0.10.2",
+    "reqwest": "^1.1.5"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.11.2",
+    "webpack": "^1.4.7",
+    "gulp": "^3.8.10"
+  }
+}
