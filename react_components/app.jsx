@@ -24,16 +24,18 @@ var App = React.createClass({
 var Search = React.createClass({
   mixins: [Navigation],
   getInitialState: function () {
-    return { results: {
-      items: []
-    }}
+    return { results: { items: [] }}
   },
   handleSearchFormSubmit: function(event) {
     event.preventDefault();
     this.transitionTo('search', { username: this.refs.searchForm.getSearchTerm() })
   },
   getUsers: function(query) {
-    if (!query) return;
+    this.setState({results: { items: [] }, query: query})
+
+    if (!query) {
+      return
+    }
 
     req({
       url: 'https://api.github.com/search/users',
@@ -93,7 +95,6 @@ var SearchForm = React.createClass({
     return {value: ''};
   },
   componentWillReceiveProps: function(nextProps) {
-    console.log(arguments);
     this.setState({value: nextProps.query});
   },
   handleChange: function(event) {
@@ -105,7 +106,7 @@ var SearchForm = React.createClass({
   render: function() {
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>
-        <input className="SearchForm-input" placeholder="e.g simonsmith, AlecRust" type="text" ref="input" value={this.state.value} onChange={this.handleChange} />
+        <input className="SearchForm-input" placeholder="e.g simonsmith" type="text" ref="input" value={this.state.value} onChange={this.handleChange} />
         <button className="SearchForm-btn Button" type="submit">Go</button>
       </form>
     )
