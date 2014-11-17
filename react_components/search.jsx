@@ -11,13 +11,13 @@ module.exports = React.createClass({
   },
   handleSearchFormSubmit: function(event) {
     event.preventDefault();
-    this.transitionTo('search', { username: this.refs.searchForm.getSearchTerm() })
+    this.transitionTo('users', { username: this.refs.searchForm.getSearchTerm() });
   },
   getUsers: function(query) {
     this.setState({results: { items: [] }, query: query})
 
     if (!query) {
-      return
+      return;
     }
 
     req({
@@ -25,7 +25,7 @@ module.exports = React.createClass({
       data: {q: query},
       type: 'json'
     }).then(function(data) {
-      this.setState({results: data, query: query})
+      this.setState({results: data, query: query});
     }.bind(this))
   },
   componentWillReceiveProps: function(nextProps) {

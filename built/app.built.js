@@ -52,11 +52,13 @@
 
 	var Layout =  __webpack_require__(200);
 	var Search =  __webpack_require__(201);
+	var Profile = __webpack_require__(206);
 
 	var routes = (
 	  React.createElement(Routes, null, 
 	    React.createElement(Route, {name: "layout", path: "/", handler: Layout}, 
-	      React.createElement(Route, {name: "search", path: "/:username", handler: Search}), 
+	      React.createElement(Route, {name: "users", path: "/users/:username", handler: Search}), 
+	      React.createElement(Route, {name: "user", path: "/user/:username", handler: Profile}), 
 	      React.createElement(DefaultRoute, {handler: Search})
 	    )
 	  )
@@ -25105,13 +25107,13 @@
 	  },
 	  handleSearchFormSubmit: function(event) {
 	    event.preventDefault();
-	    this.transitionTo('search', { username: this.refs.searchForm.getSearchTerm() })
+	    this.transitionTo('users', { username: this.refs.searchForm.getSearchTerm() });
 	  },
 	  getUsers: function(query) {
 	    this.setState({results: { items: [] }, query: query})
 
 	    if (!query) {
-	      return
+	      return;
 	    }
 
 	    req({
@@ -25119,7 +25121,7 @@
 	      data: {q: query},
 	      type: 'json'
 	    }).then(function(data) {
-	      this.setState({results: data, query: query})
+	      this.setState({results: data, query: query});
 	    }.bind(this))
 	  },
 	  componentWillReceiveProps: function(nextProps) {
@@ -25145,14 +25147,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React =  __webpack_require__(1);
-	var Result = __webpack_require__(203)
+	var ProfileCard = __webpack_require__(205)
 
 	module.exports = React.createClass({displayName: 'exports',
 	  render: function() {
 	    var results = this.props.results.items.map(function(user) {
 	      return (
 	        React.createElement("li", {key: user.id, className: "ResultsList-item"}, 
-	          React.createElement(Result, {username: user.login})
+	          React.createElement(ProfileCard, {username: user.login, avatar: user.avatar_url})
 	        )
 	      )
 	    })
@@ -25167,16 +25169,44 @@
 
 
 /***/ },
-/* 203 */
+/* 203 */,
+/* 204 */,
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React =  __webpack_require__(1);
+	var Link = __webpack_require__(3).Link
 
 	module.exports = React.createClass({displayName: 'exports',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "Result"}, 
-	        React.createElement("h2", {className: "Result-username"}, this.props.username)
+	      React.createElement("div", {className: "ProfileCard Media"}, 
+	        React.createElement(Link, {to: "user", params: { username: this.props.username}}, 
+	          React.createElement("div", {className: "Media-object"}, 
+	            React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40"})
+	          ), 
+	          React.createElement("div", {className: "Media-body"}, 
+	            React.createElement("h2", {className: "ProfileCard-username Media-heading"}, this.props.username)
+	          )
+	        )
+	      )
+	    )
+	  }
+	});
+
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React =       __webpack_require__(1);
+	var req =         __webpack_require__(2);
+
+	module.exports = React.createClass({displayName: 'exports',
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "Profile"}, 
+	        React.createElement("p", null, "Hello")
 	      )
 	    )
 	  }

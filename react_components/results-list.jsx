@@ -1,12 +1,12 @@
 var React =  require('react');
-var Result = require('./result.jsx')
+var ProfileCard = require('./profile-card.jsx')
 
 module.exports = React.createClass({
   render: function() {
     var results = this.props.results.items.map(function(user) {
       return (
         <li key={user.id} className="ResultsList-item">
-          <Result username={user.login} />
+          <ProfileCard username={user.login} avatar={user.avatar_url} />
         </li>
       )
     })

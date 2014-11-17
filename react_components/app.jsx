@@ -6,12 +6,14 @@ var DefaultRoute =  Router.DefaultRoute;
 
 var Layout =  require('./layout.jsx');
 var Search =  require('./search.jsx');
+var Profile = require('./profile.jsx');
 
 var routes = (
   <Routes>
     <Route name="layout" path="/" handler={Layout}>
-      <Route name="search" path="/:username" handler={Search} />
-      <DefaultRoute handler={Search}/>
+      <Route name="users" path="/users/:username" handler={Search} />
+      <Route name="user" path="/user/:username" handler={Profile} />
+      <DefaultRoute handler={Search} />
     </Route>
   </Routes>
 );
