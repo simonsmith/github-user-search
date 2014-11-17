@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './react_components/app.jsx'
+    app: './app/components/app.jsx'
   },
   output: {
     path: './built',
@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       'node_modules',
-      'react_components'
+      'app'
     ]
   },
   module: {

@@ -2,17 +2,21 @@ var React = require('react');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return {value: ''};
+    return { value: '' };
   },
+
   componentWillReceiveProps: function(nextProps) {
-    this.setState({value: nextProps.query});
+    this.setState({ value: nextProps.query });
   },
+
   handleChange: function(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   },
+
   getSearchTerm: function () {
     return this.refs.input.getDOMNode().value
   },
+
   render: function() {
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>

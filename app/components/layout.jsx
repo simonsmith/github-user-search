@@ -5,7 +5,7 @@ module.exports = React.createClass({
     return (
       <div className="Container">
         <div className="Content">
-          <this.props.activeRouteHandler/>
+          <this.props.activeRouteHandler />
         </div>
       </div>
     )

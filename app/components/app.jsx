@@ -11,8 +11,9 @@ var Profile = require('./profile.jsx');
 var routes = (
   <Routes>
     <Route name="layout" path="/" handler={Layout}>
-      <Route name="users" path="/users/:username" handler={Search} />
-      <Route name="user" path="/user/:username" handler={Profile} />
+      <Route name="users" path="/users/:username" handler={Search}>
+        <Route name="user" path="/user/:username" handler={Profile} />
+      </Route>
       <DefaultRoute handler={Search} />
     </Route>
   </Routes>
