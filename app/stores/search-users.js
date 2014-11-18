@@ -7,7 +7,20 @@ module.exports = Reflux.createStore({
     this.listenTo(UserActions.searchUser, this.onSearchUsers);
   },
 
-  onSearchUsers: function(username) {
+  fetchFromCache: function(username) {
+    var cached = sessionStorage.getItem(username);
+
+    if (cached) {
+      this.trigger({
+        results: JSON.parse(cached),
+        query: username
+      });
+    }
+
+    return !!cached;
+  },
+
+  fetchFromServer: function(username) {
     req({
       url: 'https://api.github.com/search/users',
       data: { q: username },
@@ -17,6 +30,13 @@ module.exports = Reflux.createStore({
         results: data,
         query: username
       });
+      sessionStorage.setItem(username, JSON.stringify(data));
     }.bind(this));
+  },
+
+  onSearchUsers: function(username) {
+    if (!this.fetchFromCache.call(this, username)) {
+      this.fetchFromServer.call(this, username);
+    }
   }
 });
