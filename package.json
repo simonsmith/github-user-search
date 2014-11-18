@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch-js": "webpack --watch",
+    "watch-css": "watch-run -p 'app/suit/*.css' suitcss app/suit/main.css built/app.css"
   },
   "author": "",
   "license": "ISC",
@@ -16,8 +17,9 @@
     "suitcss": "^0.6.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.10",
     "jsx-loader": "^0.12.1",
-    "webpack": "^1.4.13",
-    "gulp": "^3.8.10"
+    "suitcss-preprocessor": "^0.4.0",
+    "webpack": "^1.4.13"
   }
 }

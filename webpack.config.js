@@ -4,7 +4,7 @@ module.exports = {
   },
   output: {
     path: './built',
-    filename: '[name].built.js'
+    filename: '[name].js'
   },
   resolve: {
     modulesDirectories: [
