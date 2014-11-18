@@ -12,7 +12,8 @@
     "react": "^0.12.0",
     "react-router": "^0.10.2",
     "reflux": "^0.1.15",
-    "reqwest": "^1.1.5"
+    "reqwest": "^1.1.5",
+    "suitcss": "^0.6.0"
   },
   "devDependencies": {
     "jsx-loader": "^0.12.1",
