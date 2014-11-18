@@ -259,14 +259,14 @@
 	    var total = results.total_count;
 	    if (total) {
 	      var totalMessage = (
-	        React.createElement("p", {className: "Results"}, 
+	        React.createElement("p", {className: "Results-total"}, 
 	          React.createElement("b", null, total), " result", total == 1 ? '' : 's', " for ", React.createElement("mark", null, this.props.query)
 	        )
 	      );
 	    }
 
 	    return (
-	      React.createElement("div", {className: "Results"}, 
+	      React.createElement("div", {className: "Results u-cf"}, 
 	        totalMessage, 
 	        React.createElement("ul", {className: "Results-list"}, 
 	          items
@@ -537,14 +537,10 @@
 	module.exports = React.createClass({displayName: 'exports',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "ProfileCard Media"}, 
-	        React.createElement(Link, {className: "ProfileCard-link", to: "user", params: { username: this.props.username}}, 
-	          React.createElement("div", {className: "Media-object"}, 
-	            React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40"})
-	          ), 
-	          React.createElement("div", {className: "Media-body"}, 
-	            React.createElement("h2", {className: "ProfileCard-username Media-heading"}, this.props.username)
-	          )
+	      React.createElement("div", {className: "ProfileCard"}, 
+	        React.createElement(Link, {className: "ProfileCard-link u-cf u-block", to: "user", params: { username: this.props.username}}, 
+	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40"}), 
+	          React.createElement("h2", {className: "ProfileCard-username"}, this.props.username)
 	        )
 	      )
 	    )

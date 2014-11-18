@@ -1,0 +1,23 @@
+/** @define Results; use strict */
+
+@import "suitcss-utils-layout";
+@import "./profile-card.css";
+
+.Results {}
+
+.Results-item {
+  padding-bottom: 20px;
+}
+
+@media (--sm-viewport) {
+  .Results-item {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media (--md-viewport) {
+  .Results-item {
+    width: 25%;
+  }
+}

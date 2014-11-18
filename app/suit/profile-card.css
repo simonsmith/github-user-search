@@ -1,0 +1,24 @@
+/** @define ProfileCard; use strict */
+
+@import "suitcss-utils-display";
+@import "suitcss-utils-layout";
+
+.ProfileCard {
+  padding: 10px;
+}
+
+.ProfileCard-username {
+  overflow: hidden;
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.ProfileCard-avatar {
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+

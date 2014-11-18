@@ -15,14 +15,14 @@ module.exports = React.createClass({
     var total = results.total_count;
     if (total) {
       var totalMessage = (
-        <p className="Results">
+        <p className="Results-total">
           <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query}</mark>
         </p>
       );
     }
 
     return (
-      <div className="Results">
+      <div className="Results u-cf">
         {totalMessage}
         <ul className="Results-list">
           {items}
