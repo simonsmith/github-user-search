@@ -1,4 +1,4 @@
-var React =  require('react');
+var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
 
 module.exports = React.createClass({
@@ -14,9 +14,11 @@ module.exports = React.createClass({
 
     var total = results.total_count;
     if (total) {
-      var totalMessage = <p className="Results">
-                    <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query}</mark>
-                  </p>
+      var totalMessage = (
+        <p className="Results">
+          <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query}</mark>
+        </p>
+      );
     }
 
     return (
