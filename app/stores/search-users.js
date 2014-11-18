@@ -4,7 +4,7 @@ var UserActions = require('../actions/user');
 
 module.exports = Reflux.createStore({
   init: function() {
-    this.listenTo(UserActions.searchUsername, this.onSearchUsers);
+    this.listenTo(UserActions.searchUser, this.onSearchUsers);
   },
 
   onSearchUsers: function(username) {

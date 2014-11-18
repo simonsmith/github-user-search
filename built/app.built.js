@@ -57,9 +57,8 @@
 	var routes = (
 	  React.createElement(Routes, null, 
 	    React.createElement(Route, {name: "layout", path: "/", handler: Layout}, 
-	      React.createElement(Route, {name: "users", path: "/users/:username", handler: Search}, 
-	        React.createElement(Route, {name: "user", path: "/user/:username", handler: Profile})
-	      ), 
+	      React.createElement(Route, {name: "users", path: "/users", handler: Search}), 
+	      React.createElement(Route, {name: "user", path: "/users/:username", handler: Profile}), 
 	      React.createElement(DefaultRoute, {handler: Search})
 	    )
 	  )
@@ -115,22 +114,22 @@
 	  handleSearchFormSubmit: function(event) {
 	    event.preventDefault();
 
-	    this.transitionTo('users', {
-	      username: this.refs.searchForm.getSearchTerm()
+	    this.transitionTo('users', {}, {
+	      user: this.refs.searchForm.getSearchTerm()
 	    });
 	  },
 
-	  search: function(username) {
+	  search: function(user) {
 	    // Clear results before loading new set
 	    this.setState({
 	      results: {
 	        items: []
 	      },
-	      query: username
+	      query: user
 	    });
 
-	    if (username) {
-	      UserActions.searchUsername(username);
+	    if (user) {
+	      UserActions.searchUser(user);
 	    }
 	  },
 
@@ -140,14 +139,14 @@
 
 	  componentWillReceiveProps: function(nextProps) {
 	    // Search if route param changes
-	    this.search(nextProps.params.username);
+	    this.search(nextProps.query.user);
 	  },
 
 	  componentDidMount: function() {
 	    this.listenTo(SearchUserStore, this.onResults);
 
 	    // Search if URL params are present on page render
-	    this.search(this.props.params.username);
+	    this.search(this.props.query.user);
 	  },
 
 	  render: function() {
@@ -155,8 +154,7 @@
 	      React.createElement("div", {className: "Search"}, 
 	        React.createElement("h1", {className: "Search-title"}, "Search for a user"), 
 	        React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"}), 
-	        React.createElement(ResultsList, {results: this.state.results}), 
-	        React.createElement(this.props.activeRouteHandler, null)
+	        React.createElement(ResultsList, {results: this.state.results})
 	      )
 	    )
 	  }
@@ -168,7 +166,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React =       __webpack_require__(4);
-	var req =         __webpack_require__(12);
 
 	module.exports = React.createClass({displayName: 'exports',
 	  render: function() {
@@ -26175,7 +26172,7 @@
 	var Reflux = __webpack_require__(23);
 
 	module.exports = {
-	  searchUsername: Reflux.createAction()
+	  searchUser: Reflux.createAction()
 	};
 
 
@@ -26190,7 +26187,7 @@
 
 	module.exports = Reflux.createStore({
 	  init: function() {
-	    this.listenTo(UserActions.searchUsername, this.onSearchUsers);
+	    this.listenTo(UserActions.searchUser, this.onSearchUsers);
 	  },
 
 	  onSearchUsers: function(username) {
