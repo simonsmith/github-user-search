@@ -9,8 +9,9 @@
 
 .ProfileCard-username {
   overflow: hidden;
-  margin-top: 8px;
-  font-size: 18px;
+  margin-top: .5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 
 .ProfileCard-avatar {
@@ -18,7 +19,7 @@
   border: 2px solid #aaa;
   display: block;
   float: left;
-  margin-right: 10px;
+  margin-right: .625rem;
 }
 
 

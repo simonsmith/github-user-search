@@ -60,7 +60,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="Search">
-        <h1 className="Search-title">Search for a user</h1>
+        <h1 className="Search-title">Search for a GitHub user</h1>
         <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
         <ResultsList results={this.state.results} query={this.state.query} />
       </div>

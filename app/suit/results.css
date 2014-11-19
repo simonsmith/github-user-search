@@ -6,7 +6,7 @@
 .Results {}
 
 .Results-item {
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 @media (--sm-viewport) {

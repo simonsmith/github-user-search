@@ -152,7 +152,7 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Search"}, 
-	        React.createElement("h1", {className: "Search-title"}, "Search for a user"), 
+	        React.createElement("h1", {className: "Search-title"}, "Search for a GitHub user"), 
 	        React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"}), 
 	        React.createElement(ResultsList, {results: this.state.results, query: this.state.query})
 	      )
