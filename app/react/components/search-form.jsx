@@ -6,7 +6,7 @@ module.exports = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    this.setState({ value: nextProps.query });
+    this.setState({ value: nextProps.query.q });
   },
 
   handleChange: function(event) {

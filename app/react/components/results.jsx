@@ -18,14 +18,14 @@ module.exports = React.createClass({
     if (total) {
       var totalMessage = (
         <p className="Results-total">
-          <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query}</mark>
+          <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query.q}</mark>
         </p>
       );
     }
 
-    if (this.props.query && !results.items) {
+    if (this.props.query && !results.items.length) {
       var noResults = (
-        <p>Nothing found for <mark>{this.props.query}</mark></p>
+        <p>Nothing found for <mark>{this.props.query.q}</mark></p>
       );
     }
 

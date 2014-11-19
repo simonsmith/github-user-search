@@ -7,37 +7,43 @@ module.exports = Reflux.createStore({
     this.listenTo(UserActions.searchUser, this.onSearchUsers);
   },
 
-  fetchFromCache: function(username) {
-    var cached = sessionStorage.getItem(username);
+  cacheKey: function(user, page) {
+    return 'user:{user}:page:{page}'
+      .replace('{user}', user)
+      .replace('{page}', page);
+  },
+
+  fetchFromCache: function(query) {
+    var cached = sessionStorage.getItem(this.cacheKey(query.q, query.page));
 
     if (cached) {
       this.trigger({
         results: JSON.parse(cached),
-        query: username
+        query: query
       });
     }
 
     return !!cached;
   },
 
-  fetchFromServer: function(username) {
+  fetchFromServer: function(query) {
     req({
       url: 'https://api.github.com/search/users',
-      data: { q: username },
+      data: query,
       type: 'json'
     }).then(function(data) {
       this.trigger({
         results: data,
-        query: username
+        query: query
       });
 
-      sessionStorage.setItem(username, JSON.stringify(data));
+      sessionStorage.setItem(this.cacheKey(query.q, query.page), JSON.stringify(data));
     }.bind(this));
   },
 
-  onSearchUsers: function(username) {
-    if (!this.fetchFromCache.call(this, username)) {
-      this.fetchFromServer.call(this, username);
+  onSearchUsers: function(query) {
+    if (!this.fetchFromCache.call(this, query)) {
+      this.fetchFromServer.call(this, query);
     }
   }
 });

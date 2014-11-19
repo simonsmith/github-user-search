@@ -106,8 +106,7 @@
 	    return {
 	      results: {
 	        items: []
-	      },
-	      query: ''
+	      }
 	    };
 	  },
 
@@ -115,21 +114,25 @@
 	    event.preventDefault();
 
 	    this.transitionTo('users', {}, {
-	      user: this.refs.searchForm.getSearchTerm()
+	      q: this.refs.searchForm.getSearchTerm()
 	    });
 	  },
 
-	  search: function(user) {
+	  isEmpty: function(obj) {
+	    return Object.keys(obj).length === 0;
+	  },
+
+	  search: function(query) {
 	    // Clear results before loading new set
 	    this.setState({
 	      results: {
 	        items: []
 	      },
-	      query: user
+	      query: ''
 	    });
 
-	    if (user) {
-	      UserActions.searchUser(user);
+	    if (!query || !this.isEmpty(query)) {
+	      UserActions.searchUser(query);
 	    }
 	  },
 
@@ -139,14 +142,14 @@
 
 	  componentWillReceiveProps: function(nextProps) {
 	    // Search if route param changes
-	    this.search(nextProps.query.user);
+	    this.search(nextProps.query);
 	  },
 
 	  componentDidMount: function() {
 	    this.listenTo(SearchUserStore, this.onResults);
 
 	    // Search if URL params are present on page render
-	    this.search(this.props.query.user);
+	    this.search(this.props.query);
 	  },
 
 	  render: function() {
@@ -197,7 +200,7 @@
 	  },
 
 	  componentWillReceiveProps: function(nextProps) {
-	    this.setState({ value: nextProps.query });
+	    this.setState({ value: nextProps.query.q });
 	  },
 
 	  handleChange: function(event) {
@@ -243,14 +246,14 @@
 	    if (total) {
 	      var totalMessage = (
 	        React.createElement("p", {className: "Results-total"}, 
-	          React.createElement("b", null, total), " result", total == 1 ? '' : 's', " for ", React.createElement("mark", null, this.props.query)
+	          React.createElement("b", null, total), " result", total == 1 ? '' : 's', " for ", React.createElement("mark", null, this.props.query.q)
 	        )
 	      );
 	    }
 
-	    if (this.props.query && !results.items) {
+	    if (this.props.query && !results.items.length) {
 	      var noResults = (
-	        React.createElement("p", null, "Nothing found for ", React.createElement("mark", null, this.props.query))
+	        React.createElement("p", null, "Nothing found for ", React.createElement("mark", null, this.props.query.q))
 	      );
 	    }
 
@@ -291,37 +294,43 @@
 	    this.listenTo(UserActions.searchUser, this.onSearchUsers);
 	  },
 
-	  fetchFromCache: function(username) {
-	    var cached = sessionStorage.getItem(username);
+	  cacheKey: function(user, page) {
+	    return 'user:{user}:page:{page}'
+	      .replace('{user}', user)
+	      .replace('{page}', page);
+	  },
+
+	  fetchFromCache: function(query) {
+	    var cached = sessionStorage.getItem(this.cacheKey(query.q, query.page));
 
 	    if (cached) {
 	      this.trigger({
 	        results: JSON.parse(cached),
-	        query: username
+	        query: query
 	      });
 	    }
 
 	    return !!cached;
 	  },
 
-	  fetchFromServer: function(username) {
+	  fetchFromServer: function(query) {
 	    req({
 	      url: 'https://api.github.com/search/users',
-	      data: { q: username },
+	      data: query,
 	      type: 'json'
 	    }).then(function(data) {
 	      this.trigger({
 	        results: data,
-	        query: username
+	        query: query
 	      });
 
-	      sessionStorage.setItem(username, JSON.stringify(data));
+	      sessionStorage.setItem(this.cacheKey(query.q, query.page), JSON.stringify(data));
 	    }.bind(this));
 	  },
 
-	  onSearchUsers: function(username) {
-	    if (!this.fetchFromCache.call(this, username)) {
-	      this.fetchFromServer.call(this, username);
+	  onSearchUsers: function(query) {
+	    if (!this.fetchFromCache.call(this, query)) {
+	      this.fetchFromServer.call(this, query);
 	    }
 	  }
 	});

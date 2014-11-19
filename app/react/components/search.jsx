@@ -14,8 +14,7 @@ module.exports = React.createClass({
     return {
       results: {
         items: []
-      },
-      query: ''
+      }
     };
   },
 
@@ -23,21 +22,25 @@ module.exports = React.createClass({
     event.preventDefault();
 
     this.transitionTo('users', {}, {
-      user: this.refs.searchForm.getSearchTerm()
+      q: this.refs.searchForm.getSearchTerm()
     });
   },
 
-  search: function(user) {
+  isEmpty: function(obj) {
+    return Object.keys(obj).length === 0;
+  },
+
+  search: function(query) {
     // Clear results before loading new set
     this.setState({
       results: {
         items: []
       },
-      query: user
+      query: ''
     });
 
-    if (user) {
-      UserActions.searchUser(user);
+    if (!query || !this.isEmpty(query)) {
+      UserActions.searchUser(query);
     }
   },
 
@@ -47,14 +50,14 @@ module.exports = React.createClass({
 
   componentWillReceiveProps: function(nextProps) {
     // Search if route param changes
-    this.search(nextProps.query.user);
+    this.search(nextProps.query);
   },
 
   componentDidMount: function() {
     this.listenTo(SearchUserStore, this.onResults);
 
     // Search if URL params are present on page render
-    this.search(this.props.query.user);
+    this.search(this.props.query);
   },
 
   render: function() {
