@@ -358,7 +358,7 @@
 	    return (
 	      React.createElement("div", {className: "ProfileCard"}, 
 	        React.createElement(Link, {className: "ProfileCard-link u-cf u-block", to: "user", params: { username: this.props.username}}, 
-	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40"}), 
+	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40", height: "40"}), 
 	          React.createElement("h2", {className: "ProfileCard-username"}, this.props.username)
 	        )
 	      )
