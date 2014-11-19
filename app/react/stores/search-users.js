@@ -30,6 +30,7 @@ module.exports = Reflux.createStore({
         results: data,
         query: username
       });
+      
       sessionStorage.setItem(username, JSON.stringify(data));
     }.bind(this));
   },
