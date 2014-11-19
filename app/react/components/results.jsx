@@ -23,7 +23,7 @@ module.exports = React.createClass({
       );
     }
 
-    if (this.props.query && results.items.length == 0) {
+    if (this.props.query && !results.items) {
       var noResults = (
         <p>Nothing found for <mark>{this.props.query}</mark></p>
       );
