@@ -246,15 +246,17 @@
 	var ProfileCard = __webpack_require__(11);
 
 	module.exports = React.createClass({displayName: 'exports',
+	  renderItem: function(user) {
+	    return (
+	      React.createElement("li", {key: user.id, className: "Results-item"}, 
+	        React.createElement(ProfileCard, {username: user.login, avatar: user.avatar_url})
+	      )
+	    )
+	  },
+
 	  render: function() {
 	    var results = this.props.results;
-	    var items = results.items.map(function(user) {
-	      return (
-	        React.createElement("li", {key: user.id, className: "Results-item"}, 
-	          React.createElement(ProfileCard, {username: user.login, avatar: user.avatar_url})
-	        )
-	      )
-	    });
+	    var items = results.items.map(this.renderItem);
 
 	    var total = results.total_count;
 	    if (total) {
@@ -265,9 +267,16 @@
 	      );
 	    }
 
+	    if (this.props.query && results.items.length == 0) {
+	      var noResults = (
+	        React.createElement("p", null, "Nothing found for ", React.createElement("mark", null, this.props.query))
+	      );
+	    }
+
 	    return (
 	      React.createElement("div", {className: "Results u-cf"}, 
 	        totalMessage, 
+	        noResults, 
 	        React.createElement("ul", {className: "Results-list"}, 
 	          items
 	        )

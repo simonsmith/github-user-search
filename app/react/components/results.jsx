@@ -2,15 +2,17 @@ var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
 
 module.exports = React.createClass({
+  renderItem: function(user) {
+    return (
+      <li key={user.id} className="Results-item">
+        <ProfileCard username={user.login} avatar={user.avatar_url} />
+      </li>
+    )
+  },
+
   render: function() {
     var results = this.props.results;
-    var items = results.items.map(function(user) {
-      return (
-        <li key={user.id} className="Results-item">
-          <ProfileCard username={user.login} avatar={user.avatar_url} />
-        </li>
-      )
-    });
+    var items = results.items.map(this.renderItem);
 
     var total = results.total_count;
     if (total) {
@@ -21,9 +23,16 @@ module.exports = React.createClass({
       );
     }
 
+    if (this.props.query && results.items.length == 0) {
+      var noResults = (
+        <p>Nothing found for <mark>{this.props.query}</mark></p>
+      );
+    }
+
     return (
       <div className="Results u-cf">
         {totalMessage}
+        {noResults}
         <ul className="Results-list">
           {items}
         </ul>
