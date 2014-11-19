@@ -1,6 +1,7 @@
 var React =       require('react');
 var Navigation =  require('react-router').Navigation;
 var Reflux =      require('reflux');
+var isEmpty =     require('lodash-node/modern/objects/isEmpty');
 
 var SearchForm =      require('./search-form.jsx');
 var ResultsList =     require('./results.jsx');
@@ -26,10 +27,6 @@ module.exports = React.createClass({
     });
   },
 
-  isEmpty: function(obj) {
-    return Object.keys(obj).length === 0;
-  },
-
   search: function(query) {
     // Clear results before loading new set
     this.setState({
@@ -39,7 +36,7 @@ module.exports = React.createClass({
       query: ''
     });
 
-    if (!query || !this.isEmpty(query)) {
+    if (!isEmpty(query)) {
       UserActions.searchUser(query);
     }
   },
