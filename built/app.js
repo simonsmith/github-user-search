@@ -103,7 +103,7 @@
 	module.exports = React.createClass({displayName: 'exports',
 	  mixins: [Navigation, Reflux.ListenerMixin],
 
-	  getInitialState: function () {
+	  getInitialState: function() {
 	    return {
 	      results: {
 	        items: []
@@ -125,7 +125,7 @@
 	      results: {
 	        items: []
 	      },
-	      query: ''
+	      query: query
 	    });
 
 	    if (!isEmpty(query)) {
@@ -248,7 +248,7 @@
 	      );
 	    }
 
-	    if (this.props.query && !results.items.length) {
+	    if (this.props.query && results.total_count == 0) {
 	      var noResults = (
 	        React.createElement("p", null, "Nothing found for ", React.createElement("mark", null, this.props.query.q))
 	      );

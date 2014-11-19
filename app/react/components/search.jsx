@@ -11,7 +11,7 @@ var SearchUserStore = require('../stores/search-users');
 module.exports = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin],
 
-  getInitialState: function () {
+  getInitialState: function() {
     return {
       results: {
         items: []
@@ -33,7 +33,7 @@ module.exports = React.createClass({
       results: {
         items: []
       },
-      query: ''
+      query: query
     });
 
     if (!isEmpty(query)) {
