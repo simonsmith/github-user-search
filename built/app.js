@@ -227,7 +227,7 @@
 	var ProfileCard = __webpack_require__(10);
 
 	module.exports = React.createClass({displayName: 'exports',
-	  renderItem: function(user) {
+	  renderResultsItem: function(user) {
 	    return (
 	      React.createElement("li", {key: user.id, className: "Results-item"}, 
 	        React.createElement(ProfileCard, {username: user.login, avatar: user.avatar_url})
@@ -235,31 +235,49 @@
 	    )
 	  },
 
-	  render: function() {
+	  renderResultsMessage: function() {
 	    var results = this.props.results;
-	    var items = results.items.map(this.renderItem);
-
 	    var total = results.total_count;
-	    if (total) {
-	      var totalMessage = (
-	        React.createElement("p", {className: "Results-total"}, 
+	    var resultsMessage;
+
+	    // Found some results
+	    if (total > 0) {
+	      resultsMessage = (
+	        React.createElement("span", null, 
 	          React.createElement("b", null, total), " result", total == 1 ? '' : 's', " for ", React.createElement("mark", null, this.props.query.q)
 	        )
 	      );
 	    }
 
-	    if (this.props.query && results.total_count == 0) {
-	      var noResults = (
-	        React.createElement("p", null, "Nothing found for ", React.createElement("mark", null, this.props.query.q))
+	    // Found zero results
+	    if (total == 0) {
+	      resultsMessage = (
+	        React.createElement("span", null, "No results for ", React.createElement("mark", null, this.props.query.q))
+	      );
+	    }
+
+	    // Found results, but no more pages
+	    if (total > 0 && !results.items.length) {
+	      resultsMessage = (
+	        React.createElement("span", null, "No more results for ", React.createElement("mark", null, this.props.query.q))
 	      );
 	    }
 
 	    return (
+	      React.createElement("p", {className: "Results-message"}, 
+	        resultsMessage
+	      )
+	    )
+	  },
+
+	  render: function() {
+	    var resultsItems = this.props.results.items.map(this.renderResultsItem);
+
+	    return (
 	      React.createElement("div", {className: "Results u-cf"}, 
-	        totalMessage, 
-	        noResults, 
+	        this.renderResultsMessage(), 
 	        React.createElement("ul", {className: "Results-list"}, 
-	          items
+	          resultsItems
 	        )
 	      )
 	    )

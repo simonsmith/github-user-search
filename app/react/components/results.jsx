@@ -2,7 +2,7 @@ var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
 
 module.exports = React.createClass({
-  renderItem: function(user) {
+  renderResultsItem: function(user) {
     return (
       <li key={user.id} className="Results-item">
         <ProfileCard username={user.login} avatar={user.avatar_url} />
@@ -10,31 +10,49 @@ module.exports = React.createClass({
     )
   },
 
-  render: function() {
+  renderResultsMessage: function() {
     var results = this.props.results;
-    var items = results.items.map(this.renderItem);
-
     var total = results.total_count;
-    if (total) {
-      var totalMessage = (
-        <p className="Results-total">
+    var resultsMessage;
+
+    // Found some results
+    if (total > 0) {
+      resultsMessage = (
+        <span>
           <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query.q}</mark>
-        </p>
+        </span>
       );
     }
 
-    if (this.props.query && results.total_count == 0) {
-      var noResults = (
-        <p>Nothing found for <mark>{this.props.query.q}</mark></p>
+    // Found zero results
+    if (total == 0) {
+      resultsMessage = (
+        <span>No results for <mark>{this.props.query.q}</mark></span>
+      );
+    }
+
+    // Found results, but no more pages
+    if (total > 0 && !results.items.length) {
+      resultsMessage = (
+        <span>No more results for <mark>{this.props.query.q}</mark></span>
       );
     }
 
     return (
+      <p className="Results-message">
+        {resultsMessage}
+      </p>
+    )
+  },
+
+  render: function() {
+    var resultsItems = this.props.results.items.map(this.renderResultsItem);
+
+    return (
       <div className="Results u-cf">
-        {totalMessage}
-        {noResults}
+        {this.renderResultsMessage()}
         <ul className="Results-list">
-          {items}
+          {resultsItems}
         </ul>
       </div>
     )
