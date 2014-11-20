@@ -7,12 +7,8 @@ module.exports = Reflux.createStore({
     this.listenTo(UserActions.searchUser, this.onSearchUsers);
   },
 
-  cacheKey: function(query) {
-    return JSON.stringify(query)
-  },
-
   fetchFromCache: function(query) {
-    var cached = sessionStorage.getItem(this.cacheKey(query));
+    var cached = sessionStorage.getItem(JSON.stringify(query));
 
     if (cached) {
       this.trigger({
@@ -35,7 +31,7 @@ module.exports = Reflux.createStore({
           results: data,
           query: query
         });
-        sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
+        sessionStorage.setItem(JSON.stringify(query), JSON.stringify(data));
       }.bind(this))
       .fail(function(xhr) {
         this.trigger({
