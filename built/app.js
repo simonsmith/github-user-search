@@ -309,14 +309,12 @@
 	    this.listenTo(UserActions.searchUser, this.onSearchUsers);
 	  },
 
-	  cacheKey: function(user, page) {
-	    return 'user:{user}:page:{page}'
-	      .replace('{user}', user)
-	      .replace('{page}', page);
+	  cacheKey: function(query) {
+	    return JSON.stringify(query)
 	  },
 
 	  fetchFromCache: function(query) {
-	    var cached = sessionStorage.getItem(this.cacheKey(query.q, query.page));
+	    var cached = sessionStorage.getItem(this.cacheKey(query));
 
 	    if (cached) {
 	      this.trigger({
@@ -339,7 +337,7 @@
 	        query: query
 	      });
 
-	      sessionStorage.setItem(this.cacheKey(query.q, query.page), JSON.stringify(data));
+	      sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
 	    }.bind(this));
 	  },
 
