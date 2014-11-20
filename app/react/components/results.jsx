@@ -18,7 +18,7 @@ module.exports = React.createClass({
     // Found some results
     if (total > 0) {
       resultsMessage = (
-        <span>
+        <span className="Results-found">
           <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query.q}</mark>
         </span>
       );
@@ -27,15 +27,22 @@ module.exports = React.createClass({
     // Found zero results
     if (total == 0) {
       resultsMessage = (
-        <span>No results for <mark>{this.props.query.q}</mark></span>
+        <span className="Results-notFound">No results for <mark>{this.props.query.q}</mark></span>
       );
     }
 
     // Found results, but no more pages
     if (total > 0 && !results.items.length) {
       resultsMessage = (
-        <span>No more results for <mark>{this.props.query.q}</mark></span>
+        <span className="Results-noneRemaining">No more results for <mark>{this.props.query.q}</mark></span>
       );
+    }
+
+    // No results because error
+    if (results.error) {
+      resultsMessage = (
+        <span className="Results-error"><b>Error:</b> {results.error.message}</span>
+      )
     }
 
     return (
@@ -46,7 +53,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var resultsItems = this.props.results.items.map(this.renderResultsItem);
+    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
 
     return (
       <div className="Results u-cf">

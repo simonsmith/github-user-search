@@ -29,14 +29,23 @@ module.exports = Reflux.createStore({
       url: 'https://api.github.com/search/users',
       data: query,
       type: 'json'
-    }).then(function(data) {
-      this.trigger({
-        results: data,
-        query: query
-      });
-
-      sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
-    }.bind(this));
+    })
+      .then(function(data) {
+        this.trigger({
+          results: data,
+          query: query
+        });
+        sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
+      }.bind(this))
+      .fail(function(xhr) {
+        this.trigger({
+          results: {
+            items: [],
+            error: JSON.parse(xhr.responseText)
+          },
+          query: query
+        })
+      }.bind(this))
   },
 
   onSearchUsers: function(query) {

@@ -243,7 +243,7 @@
 	    // Found some results
 	    if (total > 0) {
 	      resultsMessage = (
-	        React.createElement("span", null, 
+	        React.createElement("span", {className: "Results-found"}, 
 	          React.createElement("b", null, total), " result", total == 1 ? '' : 's', " for ", React.createElement("mark", null, this.props.query.q)
 	        )
 	      );
@@ -252,15 +252,22 @@
 	    // Found zero results
 	    if (total == 0) {
 	      resultsMessage = (
-	        React.createElement("span", null, "No results for ", React.createElement("mark", null, this.props.query.q))
+	        React.createElement("span", {className: "Results-notFound"}, "No results for ", React.createElement("mark", null, this.props.query.q))
 	      );
 	    }
 
 	    // Found results, but no more pages
 	    if (total > 0 && !results.items.length) {
 	      resultsMessage = (
-	        React.createElement("span", null, "No more results for ", React.createElement("mark", null, this.props.query.q))
+	        React.createElement("span", {className: "Results-noneRemaining"}, "No more results for ", React.createElement("mark", null, this.props.query.q))
 	      );
+	    }
+
+	    // No results because error
+	    if (results.error) {
+	      resultsMessage = (
+	        React.createElement("span", {className: "Results-error"}, React.createElement("b", null, "Error:"), " ", results.error.message)
+	      )
 	    }
 
 	    return (
@@ -271,7 +278,7 @@
 	  },
 
 	  render: function() {
-	    var resultsItems = this.props.results.items.map(this.renderResultsItem);
+	    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
 
 	    return (
 	      React.createElement("div", {className: "Results u-cf"}, 
@@ -331,14 +338,23 @@
 	      url: 'https://api.github.com/search/users',
 	      data: query,
 	      type: 'json'
-	    }).then(function(data) {
-	      this.trigger({
-	        results: data,
-	        query: query
-	      });
-
-	      sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
-	    }.bind(this));
+	    })
+	      .then(function(data) {
+	        this.trigger({
+	          results: data,
+	          query: query
+	        });
+	        sessionStorage.setItem(this.cacheKey(query), JSON.stringify(data));
+	      }.bind(this))
+	      .fail(function(xhr) {
+	        this.trigger({
+	          results: {
+	            items: [],
+	            error: JSON.parse(xhr.responseText)
+	          },
+	          query: query
+	        })
+	      }.bind(this))
 	  },
 
 	  onSearchUsers: function(query) {
