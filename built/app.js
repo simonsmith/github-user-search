@@ -314,9 +314,9 @@
 	    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
 
 	    return (
-	      React.createElement("div", {className: "Results u-cf"}, 
+	      React.createElement("div", {className: "Results"}, 
 	        this.renderResultsMessage(), 
-	        React.createElement("ul", {className: "Results-list"}, 
+	        React.createElement("ul", {className: "Results-list u-cf"}, 
 	          resultsItems
 	        ), 
 	        React.createElement(Pagination, {results: this.props.results})

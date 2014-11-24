@@ -57,9 +57,9 @@ module.exports = React.createClass({
     var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
 
     return (
-      <div className="Results u-cf">
+      <div className="Results">
         {this.renderResultsMessage()}
-        <ul className="Results-list">
+        <ul className="Results-list u-cf">
           {resultsItems}
         </ul>
         <Pagination results={this.props.results} />
