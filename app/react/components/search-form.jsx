@@ -3,7 +3,7 @@ var Router = require('react-router');
 var State = Router.State;
 var LinkedStateMixin = React.addons.LinkedStateMixin;
 
-module.exports = React.createClass({
+var SearchForm = React.createClass({
   mixins: [State, LinkedStateMixin],
 
   getInitialState: function() {
@@ -27,3 +27,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = SearchForm;

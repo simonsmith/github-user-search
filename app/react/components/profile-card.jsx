@@ -1,7 +1,7 @@
 var React =  require('react');
 var Link = require('react-router').Link;
 
-module.exports = React.createClass({
+var ProfileCard = React.createClass({
   render: function() {
     return (
       <div className="ProfileCard">
@@ -13,3 +13,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = ProfileCard;

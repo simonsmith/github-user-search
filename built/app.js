@@ -106,7 +106,7 @@
 	var UserActions =     __webpack_require__(8);
 	var SearchUserStore = __webpack_require__(9);
 
-	module.exports = React.createClass({displayName: 'exports',
+	var Search = React.createClass({displayName: 'Search',
 	  mixins: [Navigation, Reflux.ListenerMixin, State],
 
 	  getInitialState: function() {
@@ -166,14 +166,16 @@
 	  }
 	});
 
+	module.exports = Search;
+
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var React =       __webpack_require__(4);
+	/** @jsx React.DOM */var React = __webpack_require__(4);
 
-	module.exports = React.createClass({displayName: 'exports',
+	var Pagination = React.createClass({displayName: 'Pagination',
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Profile"}, 
@@ -182,6 +184,8 @@
 	    )
 	  }
 	});
+
+	module.exports = Pagination;
 
 
 /***/ },
@@ -222,7 +226,7 @@
 	var State = Router.State;
 	var LinkedStateMixin = React.addons.LinkedStateMixin;
 
-	module.exports = React.createClass({displayName: 'exports',
+	var SearchForm = React.createClass({displayName: 'SearchForm',
 	  mixins: [State, LinkedStateMixin],
 
 	  getInitialState: function() {
@@ -247,6 +251,8 @@
 	  }
 	});
 
+	module.exports = SearchForm;
+
 
 /***/ },
 /* 7 */
@@ -256,7 +262,7 @@
 	var ProfileCard = __webpack_require__(11);
 	var Pagination =  __webpack_require__(12);
 
-	module.exports = React.createClass({displayName: 'exports',
+	var Results = React.createClass({displayName: 'Results',
 	  renderResultsItem: function(user) {
 	    return (
 	      React.createElement("li", {key: user.id, className: "Results-item"}, 
@@ -321,6 +327,8 @@
 	    )
 	  }
 	});
+
+	module.exports = Results;
 
 
 /***/ },
@@ -590,7 +598,7 @@
 	/** @jsx React.DOM */var React =  __webpack_require__(4);
 	var Link = __webpack_require__(5).Link;
 
-	module.exports = React.createClass({displayName: 'exports',
+	var ProfileCard = React.createClass({displayName: 'ProfileCard',
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "ProfileCard"}, 
@@ -603,6 +611,8 @@
 	  }
 	});
 
+	module.exports = ProfileCard;
+
 
 /***/ },
 /* 12 */
@@ -611,7 +621,7 @@
 	/** @jsx React.DOM */var React = __webpack_require__(4);
 	var State = __webpack_require__(5).State;
 
-	module.exports = React.createClass({displayName: 'exports',
+	var Pagination = React.createClass({displayName: 'Pagination',
 	  mixins: [State],
 
 	  render: function() {
@@ -623,6 +633,8 @@
 	    )
 	  }
 	});
+
+	module.exports = Pagination;
 
 
 /***/ },

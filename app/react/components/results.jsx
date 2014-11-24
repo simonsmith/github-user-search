@@ -2,7 +2,7 @@ var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
 var Pagination =  require('./pagination.jsx');
 
-module.exports = React.createClass({
+var Results = React.createClass({
   renderResultsItem: function(user) {
     return (
       <li key={user.id} className="Results-item">
@@ -67,3 +67,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = Results;

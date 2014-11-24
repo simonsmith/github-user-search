@@ -1,7 +1,7 @@
 var React = require('react');
 var State = require('react-router').State;
 
-module.exports = React.createClass({
+var Pagination = React.createClass({
   mixins: [State],
 
   render: function() {
@@ -13,3 +13,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = Pagination;

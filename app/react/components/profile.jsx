@@ -1,6 +1,6 @@
-var React =       require('react');
+var React = require('react');
 
-module.exports = React.createClass({
+var Pagination = React.createClass({
   render: function() {
     return (
       <div className="Profile">
@@ -9,3 +9,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = Pagination;

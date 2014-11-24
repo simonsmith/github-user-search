@@ -10,7 +10,7 @@ var ResultsList =     require('./results.jsx');
 var UserActions =     require('../actions/user');
 var SearchUserStore = require('../stores/search-users');
 
-module.exports = React.createClass({
+var Search = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
 
   getInitialState: function() {
@@ -69,3 +69,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = Search;
