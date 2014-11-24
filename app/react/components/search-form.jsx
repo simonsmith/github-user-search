@@ -1,9 +1,10 @@
-var React =  require('react');
+var React =  require('react/addons');
 var Router = require('react-router');
 var State = Router.State;
+var LinkedStateMixin = React.addons.LinkedStateMixin;
 
 module.exports = React.createClass({
-  mixins: [State],
+  mixins: [State, LinkedStateMixin],
 
   getInitialState: function() {
     return { value: '' };
@@ -13,10 +14,6 @@ module.exports = React.createClass({
     this.setState({ value: this.getQuery().q });
   },
 
-  handleChange: function(event) {
-    this.setState({ value: event.target.value });
-  },
-
   getSearchTerm: function () {
     return this.refs.input.getDOMNode().value
   },
@@ -24,7 +21,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>
-        <input className="SearchForm-input" placeholder="e.g simonsmith" type="text" ref="input" value={this.state.value} onChange={this.handleChange} />
+        <input className="SearchForm-input" placeholder="e.g simonsmith" type="text" ref="input" valueLink={this.linkState('value')} />
         <button className="SearchForm-btn Button" type="submit">Go</button>
       </form>
     )
