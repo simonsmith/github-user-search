@@ -1,5 +1,7 @@
 var React =       require('react');
-var Navigation =  require('react-router').Navigation;
+var Router =      require('react-router');
+var Navigation =  Router.Navigation;
+var State =       Router.State;
 var Reflux =      require('reflux');
 var isEmpty =     require('lodash-node/modern/objects/isEmpty');
 
@@ -9,7 +11,7 @@ var UserActions =     require('../actions/user');
 var SearchUserStore = require('../stores/search-users');
 
 module.exports = React.createClass({
-  mixins: [Navigation, Reflux.ListenerMixin],
+  mixins: [Navigation, Reflux.ListenerMixin, State],
 
   getInitialState: function() {
     return {
@@ -45,16 +47,16 @@ module.exports = React.createClass({
     this.setState(data);
   },
 
-  componentWillReceiveProps: function(nextProps) {
+  componentWillReceiveProps: function() {
     // Search if route param changes
-    this.search(nextProps.query);
+    this.search(this.getQuery());
   },
 
   componentDidMount: function() {
     this.listenTo(SearchUserStore, this.onResults);
 
     // Search if URL params are present on page render
-    this.search(this.props.query);
+    this.search(this.getQuery());
   },
 
   render: function() {

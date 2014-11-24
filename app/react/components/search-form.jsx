@@ -1,12 +1,16 @@
-var React = require('react');
+var React =  require('react');
+var Router = require('react-router');
+var State = Router.State;
 
 module.exports = React.createClass({
+  mixins: [State],
+
   getInitialState: function() {
     return { value: '' };
   },
 
-  componentWillReceiveProps: function(nextProps) {
-    this.setState({ value: nextProps.query.q });
+  componentWillReceiveProps: function() {
+    this.setState({ value: this.getQuery().q });
   },
 
   handleChange: function(event) {

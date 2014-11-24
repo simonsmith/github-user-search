@@ -1,5 +1,6 @@
 var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
+var Pagination =  require('./pagination.jsx');
 
 module.exports = React.createClass({
   renderResultsItem: function(user) {
@@ -61,6 +62,7 @@ module.exports = React.createClass({
         <ul className="Results-list">
           {resultsItems}
         </ul>
+        <Pagination results={this.props.results} />
       </div>
     )
   }
