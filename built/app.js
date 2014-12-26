@@ -168,7 +168,7 @@
 	          React.createElement("div", {className: "Search-item"}, 
 	            React.createElement(Results, {results: this.state.results})
 	          ), 
-	          React.createElement("div", {className: "Search-item Search-wrapPagination"}, 
+	          React.createElement("div", {className: "Search-item u-mXA u-size8of10 u-md-size5of10"}, 
 	            React.createElement(Pagination, {results: this.state.results, perpage: "30"})
 	          )
 	        )
@@ -261,7 +261,7 @@
 	    return (
 	      React.createElement("form", {className: "SearchForm", onSubmit: this.props.onUserSearch}, 
 	        React.createElement("h1", {className: "SearchForm-title"}, "Search for a GitHub user"), 
-	        React.createElement("div", {className: "SearchForm-search"}, 
+	        React.createElement("div", {className: "SearchForm-search u-mXA u-size8of10 u-md-size5of10"}, 
 	          React.createElement("input", {className: "SearchForm-input FormControl u-inlineBlock", placeholder: "e.g simonsmith", type: "text", ref: "input", valueLink: this.linkState('value')}), 
 	          React.createElement("button", {className: "SearchForm-btn Button Button--default", type: "submit"}, "Go")
 	        )

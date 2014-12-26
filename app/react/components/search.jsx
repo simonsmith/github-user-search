@@ -74,7 +74,7 @@ var Search = React.createClass({
           <div className="Search-item">
             <Results results={this.state.results} />
           </div>
-          <div className="Search-item Search-wrapPagination">
+          <div className="Search-item u-mXA u-size8of10 u-md-size5of10">
             <Pagination results={this.state.results} perpage="30" />
           </div>
         </div>

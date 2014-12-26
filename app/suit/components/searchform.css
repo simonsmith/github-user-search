@@ -1,6 +1,8 @@
 /** @define SearchForm; use strict */
 
 @import "./button.css";
+@import "suitcss-utils-size";
+@import "../utils/space.css";
 
 .SearchForm {
   padding-bottom: 1.25rem;
@@ -10,11 +12,6 @@
   margin-bottom: .625rem;
   text-align: center;
   font-size: 1.6rem;
-}
-
-.SearchForm-search {
-  width: 80%;
-  margin: 0 auto;
 }
 
 .SearchForm-input {
@@ -29,10 +26,4 @@
   height: 48px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-@media (--md-viewport) {
-  .SearchForm-search {
-    width: 50%;
-  }
 }

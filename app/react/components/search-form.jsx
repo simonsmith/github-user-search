@@ -22,7 +22,7 @@ var SearchForm = React.createClass({
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>
         <h1 className="SearchForm-title">Search for a GitHub user</h1>
-        <div className="SearchForm-search">
+        <div className="SearchForm-search u-mXA u-size8of10 u-md-size5of10">
           <input className="SearchForm-input FormControl u-inlineBlock" placeholder="e.g simonsmith" type="text" ref="input" valueLink={this.linkState('value')} />
           <button className="SearchForm-btn Button Button--default" type="submit">Go</button>
         </div>

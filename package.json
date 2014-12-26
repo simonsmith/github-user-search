@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch-js": "webpack --watch",
-    "watch-css": "watch-run -p 'app/suit/*.css' suitcss app/suit/app.css built/app.css"
+    "watch-css": "watch-run -p 'app/suit/**/*.css' suitcss app/suit/app.css built/app.css"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "suitcss-components-media": "^0.1.1",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-layout": "^0.4.2",
+    "suitcss-utils-size": "^0.7.2",
     "suitcss-utils-text": "^0.4.2"
   },
   "devDependencies": {
