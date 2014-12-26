@@ -11,9 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "lodash-node": "^2.4.1",
-    "react": "^0.12.1",
-    "react-router": "^0.11.1",
-    "reflux": "^0.2.0",
+    "react": "^0.12.2",
+    "react-router": "^0.11.6",
+    "reflux": "^0.2.1",
     "reqwest": "^1.1.5",
     "suitcss-base": "^0.8.0",
     "suitcss-components-media": "^0.1.1",
@@ -24,6 +24,6 @@
     "gulp": "^3.8.10",
     "jsx-loader": "^0.12.2",
     "suitcss-preprocessor": "^0.4.0",
-    "webpack": "^1.4.13"
+    "webpack": "^1.4.14"
   }
 }
