@@ -158,8 +158,12 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Search"}, 
-	        React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"}), 
-	        React.createElement(ResultsList, {results: this.state.results, query: this.state.query})
+	        React.createElement("div", {className: "Search-item"}, 
+	          React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"})
+	        ), 
+	        React.createElement("div", {className: "Search-item"}, 
+	          React.createElement(ResultsList, {results: this.state.results, query: this.state.query})
+	        )
 	      )
 	    )
 	  }

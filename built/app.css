@@ -628,122 +628,7 @@ input[type="search"] {
   max-width: 1020px;
 }
 
-/** @define Results; use strict */
-
-/**
- * Contain floats
- *
- * Make an element expand to contain floated children.
- * Uses pseudo-elements (micro clearfix).
- *
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of the
- *    element.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.u-cf:before,
-.u-cf:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
-}
-
-.u-cf:after {
-  clear: both;
-}
-
-/**
- * New block formatting context
- *
- * This affords some useful properties to the element. It won't wrap under
- * floats. Will also contain any floated children.
-
- * N.B. This will clip overflow. Use the alternative method below if this is
- * problematic.
- */
-
-.u-nbfc {
-  overflow: hidden !important;
-}
-
-/**
- * New block formatting context (alternative)
- *
- * Alternative method when overflow must not be clipped.
- *
- * 1. Create a new block formatting context (NBFC).
- * 2. Avoid shrink-wrap behaviour of table-cell.
- *
- * N.B. This breaks down in some browsers when elements within this element
- * exceed its width.
- */
-
-.u-nbfcAlt {
-  display: table-cell !important;
-  /* 1 */
-  width: 10000px !important;
-  /* 2 */
-}
-
-/**
- * Floats
- */
-
-.u-floatLeft {
-  float: left !important;
-}
-
-.u-floatRight {
-  float: right !important;
-}
-
-/** @define ProfileCard; use strict */
-
-.ProfileCard {
-  padding: 10px;
-}
-
-.ProfileCard-username {
-  overflow: hidden;
-  margin-top: .5rem;
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
-.ProfileCard-avatar {
-  border-radius: 50%;
-  border: 2px solid #aaa;
-  display: block;
-  float: left;
-  margin-right: .625rem;
-}
-
-.Results-item {
-  padding-bottom: 1.25rem;
-}
-
-@media (min-width: 36.25em) {
-  .Results-item {
-    float: left;
-    width: 50%;
-  }
-}
-
-@media (min-width: 49.375em) {
-  .Results-item {
-    width: 25%;
-  }
-}
-
-/** @define Content; use strict */
-
-.Content {
-  padding: 1.25rem 0;
-}
+/** @define Search; use strict */
 
 /** @define SearchForm; use strict */
 
@@ -884,4 +769,129 @@ input[type="search"] {
   height: 48px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.Search-item {
+  margin-bottom: 1.5rem;
+}
+
+.Search-item:last-child {
+  margin-bottom: 0;
+}
+
+/** @define Results; use strict */
+
+/**
+ * Contain floats
+ *
+ * Make an element expand to contain floated children.
+ * Uses pseudo-elements (micro clearfix).
+ *
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of the
+ *    element.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.u-cf:before,
+.u-cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.u-cf:after {
+  clear: both;
+}
+
+/**
+ * New block formatting context
+ *
+ * This affords some useful properties to the element. It won't wrap under
+ * floats. Will also contain any floated children.
+
+ * N.B. This will clip overflow. Use the alternative method below if this is
+ * problematic.
+ */
+
+.u-nbfc {
+  overflow: hidden !important;
+}
+
+/**
+ * New block formatting context (alternative)
+ *
+ * Alternative method when overflow must not be clipped.
+ *
+ * 1. Create a new block formatting context (NBFC).
+ * 2. Avoid shrink-wrap behaviour of table-cell.
+ *
+ * N.B. This breaks down in some browsers when elements within this element
+ * exceed its width.
+ */
+
+.u-nbfcAlt {
+  display: table-cell !important;
+  /* 1 */
+  width: 10000px !important;
+  /* 2 */
+}
+
+/**
+ * Floats
+ */
+
+.u-floatLeft {
+  float: left !important;
+}
+
+.u-floatRight {
+  float: right !important;
+}
+
+/** @define ProfileCard; use strict */
+
+.ProfileCard {
+  padding: 10px;
+}
+
+.ProfileCard-username {
+  overflow: hidden;
+  margin-top: .5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.ProfileCard-avatar {
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  display: block;
+  float: left;
+  margin-right: .625rem;
+}
+
+.Results-item {
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 36.25em) {
+  .Results-item {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media (min-width: 49.375em) {
+  .Results-item {
+    width: 25%;
+  }
+}
+
+/** @define Content; use strict */
+
+.Content {
+  padding: 1.25rem 0;
 }

@@ -62,8 +62,12 @@ var Search = React.createClass({
   render: function() {
     return (
       <div className="Search">
-        <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
-        <ResultsList results={this.state.results} query={this.state.query} />
+        <div className="Search-item">
+          <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
+        </div>
+        <div className="Search-item">
+          <ResultsList results={this.state.results} query={this.state.query} />
+        </div>
       </div>
     )
   }
