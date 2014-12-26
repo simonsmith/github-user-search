@@ -523,6 +523,12 @@ a:active {
   text-decoration: underline;
 }
 
+mark {
+  background-color: #cee2ff;
+  padding: .1875rem;
+  border-radius: 3px;
+}
+
 /**
  * Display-type utilities
  */

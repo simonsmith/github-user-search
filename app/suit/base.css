@@ -21,3 +21,9 @@ a:active {
   color: var(--base-link-color);
   text-decoration: underline;
 }
+
+mark {
+  background-color: #cee2ff;
+  padding: .1875rem;
+  border-radius: 3px;
+}
