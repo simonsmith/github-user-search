@@ -1,7 +1,6 @@
 var React =       require('react');
 var pluralize =   require('pluralize');
 var ProfileCard = require('./profile-card.jsx');
-var Pagination =  require('./pagination.jsx');
 
 var Results = React.createClass({
   renderResultsItem: function(user) {
@@ -64,7 +63,6 @@ var Results = React.createClass({
           <ul className="Results-list u-cf">
             {resultsItems}
           </ul>
-          <Pagination results={this.props.results} perpage="30" />
         </div>
       </div>
     )

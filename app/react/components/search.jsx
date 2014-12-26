@@ -6,6 +6,7 @@ var Reflux =      require('reflux');
 var isEmpty =     require('lodash-node/modern/objects/isEmpty');
 
 var SearchForm =      require('./search-form.jsx');
+var Pagination =      require('./pagination.jsx');
 var ResultsList =     require('./results.jsx');
 var UserActions =     require('../actions/user');
 var SearchUserStore = require('../stores/search-users');
@@ -67,6 +68,11 @@ var Search = React.createClass({
         </div>
         <div className="Search-item">
           <ResultsList results={this.state.results} query={this.state.query} />
+        </div>
+        <div className="Search-item">
+          <div className="Container">
+            <Pagination results={this.state.results} perpage="30" />
+          </div>
         </div>
       </div>
     )

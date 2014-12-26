@@ -100,6 +100,7 @@
 	var isEmpty =     __webpack_require__(31);
 
 	var SearchForm =      __webpack_require__(6);
+	var Pagination =      __webpack_require__(13);
 	var ResultsList =     __webpack_require__(7);
 	var UserActions =     __webpack_require__(8);
 	var SearchUserStore = __webpack_require__(9);
@@ -161,6 +162,11 @@
 	        ), 
 	        React.createElement("div", {className: "Search-item"}, 
 	          React.createElement(ResultsList, {results: this.state.results, query: this.state.query})
+	        ), 
+	        React.createElement("div", {className: "Search-item"}, 
+	          React.createElement("div", {className: "Container"}, 
+	            React.createElement(Pagination, {results: this.state.results, perpage: "30"})
+	          )
 	        )
 	      )
 	    )
@@ -272,7 +278,6 @@
 	/** @jsx React.DOM */var React =       __webpack_require__(4);
 	var pluralize =   __webpack_require__(57);
 	var ProfileCard = __webpack_require__(12);
-	var Pagination =  __webpack_require__(13);
 
 	var Results = React.createClass({displayName: 'Results',
 	  renderResultsItem: function(user) {
@@ -334,8 +339,7 @@
 	        React.createElement("div", {className: "Container"}, 
 	          React.createElement("ul", {className: "Results-list u-cf"}, 
 	            resultsItems
-	          ), 
-	          React.createElement(Pagination, {results: this.props.results, perpage: "30"})
+	          )
 	        )
 	      )
 	    )
