@@ -1,6 +1,7 @@
 /** @define Search; use strict */
 
 @import "./searchform.css";
+@import "./results-message.css";
 
 .Search-item {
   margin-bottom: 1.5rem;

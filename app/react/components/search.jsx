@@ -8,6 +8,7 @@ var isEmpty =     require('lodash-node/modern/objects/isEmpty');
 var SearchForm =      require('./search-form.jsx');
 var Pagination =      require('./pagination.jsx');
 var Results =         require('./results.jsx');
+var ResultsMessage =  require('./results-message.jsx');
 var UserActions =     require('../actions/user');
 var SearchUserStore = require('../stores/search-users');
 
@@ -66,15 +67,14 @@ var Search = React.createClass({
         <div className="Search-item Search-item--bordered">
           <div className="Container">
             <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
+            <ResultsMessage results={this.state.results} query={this.state.query} />
           </div>
         </div>
-        <div className="Search-item">
-          <div className="Container">
-            <Results results={this.state.results} query={this.state.query} />
+        <div className="Container">
+          <div className="Search-item">
+            <Results results={this.state.results} />
           </div>
-        </div>
-        <div className="Search-item">
-          <div className="Container">
+          <div className="Search-item">
             <Pagination results={this.state.results} perpage="30" />
           </div>
         </div>

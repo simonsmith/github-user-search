@@ -102,6 +102,7 @@
 	var SearchForm =      __webpack_require__(6);
 	var Pagination =      __webpack_require__(13);
 	var Results =         __webpack_require__(7);
+	var ResultsMessage =  __webpack_require__(273);
 	var UserActions =     __webpack_require__(8);
 	var SearchUserStore = __webpack_require__(9);
 
@@ -159,16 +160,15 @@
 	      React.createElement("div", {className: "Search"}, 
 	        React.createElement("div", {className: "Search-item Search-item--bordered"}, 
 	          React.createElement("div", {className: "Container"}, 
-	            React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"})
+	            React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"}), 
+	            React.createElement(ResultsMessage, {results: this.state.results, query: this.state.query})
 	          )
 	        ), 
-	        React.createElement("div", {className: "Search-item"}, 
-	          React.createElement("div", {className: "Container"}, 
-	            React.createElement(Results, {results: this.state.results, query: this.state.query})
-	          )
-	        ), 
-	        React.createElement("div", {className: "Search-item"}, 
-	          React.createElement("div", {className: "Container"}, 
+	        React.createElement("div", {className: "Container"}, 
+	          React.createElement("div", {className: "Search-item"}, 
+	            React.createElement(Results, {results: this.state.results})
+	          ), 
+	          React.createElement("div", {className: "Search-item"}, 
 	            React.createElement(Pagination, {results: this.state.results, perpage: "30"})
 	          )
 	        )
@@ -278,7 +278,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React =       __webpack_require__(4);
-	var pluralize =   __webpack_require__(57);
 	var ProfileCard = __webpack_require__(12);
 
 	var Results = React.createClass({displayName: 'Results',
@@ -290,54 +289,11 @@
 	    )
 	  },
 
-	  renderResultsMessage: function() {
-	    var results = this.props.results;
-	    var total = results.total_count;
-	    var resultsMessage;
-
-	    // Found some results
-	    if (total > 0) {
-	      resultsMessage = (
-	        React.createElement("span", null, 
-	          React.createElement("b", null, total), " ", pluralize('results', total), " for ", React.createElement("mark", null, this.props.query.q)
-	        )
-	      );
-	    }
-
-	    // Found zero results
-	    if (total == 0) {
-	      resultsMessage = (
-	        React.createElement("span", null, "No results for ", React.createElement("mark", null, this.props.query.q))
-	      );
-	    }
-
-	    // Found results, but no more pages
-	    if (total > 0 && !results.items.length) {
-	      resultsMessage = (
-	        React.createElement("span", null, "No more results for ", React.createElement("mark", null, this.props.query.q))
-	      );
-	    }
-
-	    // No results because error
-	    if (results.error) {
-	      resultsMessage = (
-	        React.createElement("span", null, React.createElement("b", null, "Error:"), " ", results.error.message)
-	      )
-	    }
-
-	    return (
-	      React.createElement("p", {className: "Results-message"}, 
-	        resultsMessage
-	      )
-	    )
-	  },
-
 	  render: function() {
 	    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
 
 	    return (
 	      React.createElement("div", {className: "Results"}, 
-	        this.renderResultsMessage(), 
 	        React.createElement("ul", {className: "Results-list u-cf"}, 
 	          resultsItems
 	        )
@@ -30140,6 +30096,62 @@
 
 	module.exports = map;
 
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React =     __webpack_require__(4);
+	var pluralize = __webpack_require__(57);
+
+	var ResultsMessage = React.createClass({displayName: 'ResultsMessage',
+	  render: function() {
+	    var results = this.props.results;
+	    var total = results.total_count;
+	    var resultsMessage;
+
+	    // Found some results
+	    if (total > 0) {
+	      resultsMessage = (
+	        React.createElement("span", null, 
+	          React.createElement("b", null, total), " ", pluralize('results', total), " for ", React.createElement("mark", null, this.props.query.q)
+	        )
+	      );
+	    }
+
+	    // Found zero results
+	    if (total == 0) {
+	      resultsMessage = (
+	        React.createElement("span", null, "No results for ", React.createElement("mark", null, this.props.query.q)
+	        )
+	      );
+	    }
+
+	    // Found results, but no more pages
+	    if (total > 0 && !results.items.length) {
+	      resultsMessage = (
+	        React.createElement("span", null, "No more results for ", React.createElement("mark", null, this.props.query.q)
+	        )
+	      );
+	    }
+
+	    // No results because error
+	    if (results.error) {
+	      resultsMessage = (
+	        React.createElement("span", null, 
+	          React.createElement("b", null, "Error:"), " ", results.error.message)
+	      )
+	    }
+
+	    return (
+	      React.createElement("p", {className: "ResultsMessage"}, 
+	        resultsMessage
+	      )
+	    )
+	  }
+	});
+
+	module.exports = ResultsMessage;
 
 /***/ }
 /******/ ])

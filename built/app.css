@@ -775,6 +775,13 @@ input[type="search"] {
   border-bottom-left-radius: 0;
 }
 
+/** @define ResultsMessage */
+
+.ResultsMessage {
+  text-align: center;
+  margin-bottom: .9375rem;
+}
+
 .Search-item {
   margin-bottom: 1.5rem;
 }
@@ -969,11 +976,6 @@ input[type="search"] {
 
 .Results-item {
   padding-bottom: 1.25rem;
-}
-
-.Results-message {
-  text-align: center;
-  margin-bottom: .9375rem;
 }
 
 @media (min-width: 36.25em) {
