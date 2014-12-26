@@ -4,7 +4,7 @@
 @import "./profile-card.css";
 
 .Results-item {
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.5%;
 }
 
 @media (min-width: 28.125em) {
@@ -29,6 +29,7 @@
   .Results-item {
     width: 32.6%;
     margin-right: 1%;
+    margin-bottom: 1%;
   }
 
   .Results-item:nth-child(3n) {
@@ -41,6 +42,7 @@
   .Results-item {
     width: 24.25%;
     margin-right: 1%;
+    margin-bottom: 1%;
   }
 
   .Results-item:nth-child(4n) {
