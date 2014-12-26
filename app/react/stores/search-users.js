@@ -1,10 +1,20 @@
 var req =         require('reqwest');
 var Reflux =      require('reflux');
 var UserActions = require('../actions/user');
+var pick =        require('lodash-node/modern/objects/pick');
+var map =         require('lodash-node/modern/collections/map');
 
 module.exports = Reflux.createStore({
   init: function() {
     this.listenTo(UserActions.searchUser, this.onSearchUsers);
+  },
+
+  filterResults: function(data) {
+    data = pick(data, 'items', 'total_count');
+    data.items = map(data.items, function(item) {
+      return pick(item, 'avatar_url', 'id', 'login');
+    });
+    return data;
   },
 
   fetchFromCache: function(query) {
@@ -31,7 +41,7 @@ module.exports = Reflux.createStore({
           results: data,
           query: query
         });
-        sessionStorage.setItem(JSON.stringify(query), JSON.stringify(data));
+        sessionStorage.setItem(JSON.stringify(query), JSON.stringify(this.filterResults(data)));
       }.bind(this))
       .fail(function(xhr) {
         this.trigger({
@@ -40,7 +50,7 @@ module.exports = Reflux.createStore({
             error: JSON.parse(xhr.responseText)
           },
           query: query
-        })
+        });
       }.bind(this))
   },
 
