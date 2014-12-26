@@ -1,0 +1,24 @@
+/** @define SearchForm; use strict */
+
+@import "./button.css";
+
+.SearchForm-title {
+  margin-bottom: .625rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.SearchForm-search {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.SearchForm-input {
+  width: calc(100% - 84px);
+  margin-right: .625rem;
+}
+
+.SearchForm-btn {
+  width: 48px;
+  height: 48px;
+}

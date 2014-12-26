@@ -17,6 +17,7 @@
     "reflux": "^0.2.1",
     "reqwest": "^1.1.5",
     "suitcss-base": "^0.8.0",
+    "suitcss-components-button": "^4.0.0",
     "suitcss-components-media": "^0.1.1",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-layout": "^0.4.2"
