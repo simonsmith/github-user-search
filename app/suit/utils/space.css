@@ -2,3 +2,43 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.u-mZ {
+  margin: 0 !important;
+}
+
+.u-pZ {
+  padding: 0 !important;
+}
+
+.u-mtZ {
+  margin-top: 0 !important;
+}
+
+.u-mrZ {
+  margin-right: 0 !important;
+}
+
+.u-mbZ {
+  margin-bottom: 0 !important;
+}
+
+.u-mlZ {
+  margin-left: 0 !important;
+}
+
+.u-ptZ {
+  padding-top: 0 !important;
+}
+
+.u-prZ {
+  padding-right: 0 !important;
+}
+
+.u-pbZ {
+  padding-bottom: 0 !important;
+}
+
+.u-plZ {
+  padding-left: 0 !important;
+}

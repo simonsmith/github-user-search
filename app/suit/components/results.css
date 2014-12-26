@@ -3,17 +3,9 @@
 @import "suitcss-utils-layout";
 @import "./profile-card.css";
 
-.Results {}
-
 .Results-item {
-  padding-bottom: 1.25rem;
+  margin-bottom: 0.7rem;
 }
-
-/*
-(max-width: 49.375em);
-(min-width: 49.375em) and (max-width: 72.1875em);
-(min-width: 72.1875em);
-*/
 
 @media (min-width: 28.125em) {
   .Results-item {

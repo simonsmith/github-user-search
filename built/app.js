@@ -165,7 +165,7 @@
 	          )
 	        ), 
 	        React.createElement("div", {className: "Container"}, 
-	          React.createElement("div", {className: "Search-item"}, 
+	          React.createElement("div", {className: "Search-item u-mbZ"}, 
 	            React.createElement(Results, {results: this.state.results})
 	          ), 
 	          React.createElement("div", {className: "Search-item u-mXA u-size8of10 u-md-size5of10"}, 

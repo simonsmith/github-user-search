@@ -1514,14 +1514,8 @@ input[type="search"] {
 }
 
 .Results-item {
-  padding-bottom: 1.25rem;
+  margin-bottom: 0.7rem;
 }
-
-/*
-(max-width: 49.375em);
-(min-width: 49.375em) and (max-width: 72.1875em);
-(min-width: 72.1875em);
-*/
 
 @media (min-width: 28.125em) {
   .Results-item {
@@ -1685,6 +1679,46 @@ input[type="search"] {
 .u-mXA {
   margin-left: auto;
   margin-right: auto;
+}
+
+.u-mZ {
+  margin: 0 !important;
+}
+
+.u-pZ {
+  padding: 0 !important;
+}
+
+.u-mtZ {
+  margin-top: 0 !important;
+}
+
+.u-mrZ {
+  margin-right: 0 !important;
+}
+
+.u-mbZ {
+  margin-bottom: 0 !important;
+}
+
+.u-mlZ {
+  margin-left: 0 !important;
+}
+
+.u-ptZ {
+  padding-top: 0 !important;
+}
+
+.u-prZ {
+  padding-right: 0 !important;
+}
+
+.u-pbZ {
+  padding-bottom: 0 !important;
+}
+
+.u-plZ {
+  padding-left: 0 !important;
 }
 
 .SearchForm {
