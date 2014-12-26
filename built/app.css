@@ -746,6 +746,11 @@ input[type="search"] {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+.SearchForm {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #ddd;
+}
+
 .SearchForm-title {
   margin-bottom: .625rem;
   text-align: center;
@@ -854,6 +859,92 @@ input[type="search"] {
 
 /** @define ProfileCard; use strict */
 
+/**
+ * Word breaking
+ *
+ * Break strings when their length exceeds the width of their container.
+ */
+
+.u-textBreak {
+  word-wrap: break-word !important;
+}
+
+/**
+ * Horizontal text alignment
+ */
+
+.u-textCenter {
+  text-align: center !important;
+}
+
+.u-textLeft {
+  text-align: left !important;
+}
+
+.u-textRight {
+  text-align: right !important;
+}
+
+/**
+ * Inherit the ancestor's text color.
+ */
+
+.u-textInheritColor {
+  color: inherit !important;
+}
+
+/**
+ * Enables font kerning in all browsers.
+ * http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+ *
+ * 1. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+ * 2. Chrome (not Windows), Firefox, IE 10+
+ * 3. Safari 7 and future browsers
+ */
+
+.u-textKern {
+  text-rendering: optimizeLegibility;
+  /* 1 */
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  /* 2 */
+  -webkit-font-kerning: normal;
+  -moz-font-kerning: normal;
+  font-kerning: normal;
+  /* 3 */
+}
+
+/**
+ * Prevent whitespace wrapping
+ */
+
+.u-textNoWrap {
+  white-space: nowrap !important;
+}
+
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+
+.u-textTruncate {
+  max-width: 100%;
+  /* 1 */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  /* 2 */
+}
+
 .ProfileCard {
   padding: 10px;
 }
@@ -875,6 +966,11 @@ input[type="search"] {
 
 .Results-item {
   padding-bottom: 1.25rem;
+}
+
+.Results-message {
+  text-align: center;
+  margin-bottom: .9375rem;
 }
 
 @media (min-width: 36.25em) {

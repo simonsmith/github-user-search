@@ -2,6 +2,7 @@
 
 @import "suitcss-utils-display";
 @import "suitcss-utils-layout";
+@import "suitcss-utils-text";
 
 .ProfileCard {
   padding: 10px;

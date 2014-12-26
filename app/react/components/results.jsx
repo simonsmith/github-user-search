@@ -60,10 +60,12 @@ var Results = React.createClass({
     return (
       <div className="Results">
         {this.renderResultsMessage()}
-        <ul className="Results-list u-cf">
-          {resultsItems}
-        </ul>
-        <Pagination results={this.props.results} perpage="30" />
+        <div className="Container">
+          <ul className="Results-list u-cf">
+            {resultsItems}
+          </ul>
+          <Pagination results={this.props.results} perpage="30" />
+        </div>
       </div>
     )
   }

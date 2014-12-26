@@ -78,10 +78,8 @@
 	var Layout = React.createClass({displayName: 'Layout',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "Container"}, 
-	        React.createElement("div", {className: "Content"}, 
-	          React.createElement(RouteHandler, null)
-	        )
+	      React.createElement("div", {className: "Content"}, 
+	        React.createElement(RouteHandler, null)
 	      )
 	    )
 	  }
@@ -252,10 +250,12 @@
 	  render: function() {
 	    return (
 	      React.createElement("form", {className: "SearchForm", onSubmit: this.props.onUserSearch}, 
-	        React.createElement("h1", {className: "SearchForm-title"}, "Search for a GitHub user"), 
-	        React.createElement("div", {className: "SearchForm-search"}, 
-	          React.createElement("input", {className: "SearchForm-input FormControl u-inlineBlock", placeholder: "e.g simonsmith", type: "text", ref: "input", valueLink: this.linkState('value')}), 
-	          React.createElement("button", {className: "SearchForm-btn Button Button--default", type: "submit"}, "Go")
+	        React.createElement("div", {className: "Container"}, 
+	          React.createElement("h1", {className: "SearchForm-title"}, "Search for a GitHub user"), 
+	          React.createElement("div", {className: "SearchForm-search"}, 
+	            React.createElement("input", {className: "SearchForm-input FormControl u-inlineBlock", placeholder: "e.g simonsmith", type: "text", ref: "input", valueLink: this.linkState('value')}), 
+	            React.createElement("button", {className: "SearchForm-btn Button Button--default", type: "submit"}, "Go")
+	          )
 	        )
 	      )
 	    )
@@ -331,10 +331,12 @@
 	    return (
 	      React.createElement("div", {className: "Results"}, 
 	        this.renderResultsMessage(), 
-	        React.createElement("ul", {className: "Results-list u-cf"}, 
-	          resultsItems
-	        ), 
-	        React.createElement(Pagination, {results: this.props.results, perpage: "30"})
+	        React.createElement("div", {className: "Container"}, 
+	          React.createElement("ul", {className: "Results-list u-cf"}, 
+	            resultsItems
+	          ), 
+	          React.createElement(Pagination, {results: this.props.results, perpage: "30"})
+	        )
 	      )
 	    )
 	  }
@@ -633,7 +635,7 @@
 	      React.createElement("div", {className: "ProfileCard"}, 
 	        React.createElement(Link, {className: "ProfileCard-link u-cf u-block", to: "user", params: { username: this.props.username}}, 
 	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40", height: "40"}), 
-	          React.createElement("h2", {className: "ProfileCard-username"}, this.props.username)
+	          React.createElement("h2", {className: "ProfileCard-username u-textTruncate"}, this.props.username)
 	        )
 	      )
 	    )

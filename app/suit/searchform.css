@@ -2,6 +2,11 @@
 
 @import "./button.css";
 
+.SearchForm {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #ddd;
+}
+
 .SearchForm-title {
   margin-bottom: .625rem;
   text-align: center;

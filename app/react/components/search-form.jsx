@@ -21,10 +21,12 @@ var SearchForm = React.createClass({
   render: function() {
     return (
       <form className="SearchForm" onSubmit={this.props.onUserSearch}>
-        <h1 className="SearchForm-title">Search for a GitHub user</h1>
-        <div className="SearchForm-search">
-          <input className="SearchForm-input FormControl u-inlineBlock" placeholder="e.g simonsmith" type="text" ref="input" valueLink={this.linkState('value')} />
-          <button className="SearchForm-btn Button Button--default" type="submit">Go</button>
+        <div className="Container">
+          <h1 className="SearchForm-title">Search for a GitHub user</h1>
+          <div className="SearchForm-search">
+            <input className="SearchForm-input FormControl u-inlineBlock" placeholder="e.g simonsmith" type="text" ref="input" valueLink={this.linkState('value')} />
+            <button className="SearchForm-btn Button Button--default" type="submit">Go</button>
+          </div>
         </div>
       </form>
     )
