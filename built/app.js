@@ -593,7 +593,7 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "ProfileCard"}, 
-	        React.createElement(Link, {className: "ProfileCard-link u-cf", to: "user", params: { username: this.props.username}}, 
+	        React.createElement(Link, {className: "ProfileCard-link u-cf u-linkClean", to: "user", params: { username: this.props.username}}, 
 	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40", height: "40"}), 
 	          React.createElement("h2", {className: "ProfileCard-username u-textTruncate"}, this.props.username)
 	        )

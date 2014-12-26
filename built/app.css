@@ -1494,6 +1494,61 @@ input[type="search"] {
   /* 2 */
 }
 
+/**
+ * Clean link
+ *
+ * A link without any text-decoration at all.
+ */
+
+.u-linkClean,
+.u-linkClean:hover,
+.u-linkClean:focus,
+.u-linkClean:active {
+  text-decoration: none !important;
+}
+
+/**
+ * Link complex
+ *
+ * A common pattern is to have a link with several pieces of text and/or an
+ * icon, where only one piece of text should display the underline when the
+ * link is the subject of user interaction.
+ *
+ * Example HTML:
+ *
+ * <a class="u-linkComplex" href="#">
+ *   Link complex
+ *   <span class="u-linkComplexTarget">target</span>
+ * </a>
+ */
+
+.u-linkComplex,
+.u-linkComplex:hover,
+.u-linkComplex:focus,
+.u-linkComplex:active {
+  text-decoration: none !important;
+}
+
+.u-linkComplex:hover .u-linkComplexTarget,
+.u-linkComplex:focus .u-linkComplexTarget,
+.u-linkComplex:active .u-linkComplexTarget {
+  text-decoration: underline !important;
+}
+
+/**
+ * Block-level link
+ *
+ * Combination of traits commonly used in vertical navigation lists.
+ */
+
+.u-linkBlock,
+.u-linkBlock:hover,
+.u-linkBlock:focus,
+.u-linkBlock:active {
+  display: block !important;
+  text-decoration: none !important;
+}
+
 .ProfileCard {
   background-color: #f2f2f2;
   border: 1px solid #ddd;
@@ -1502,6 +1557,11 @@ input[type="search"] {
 .ProfileCard-link {
   padding: .625rem;
   display: block;
+  color: #333;
+}
+
+.ProfileCard-link:hover {
+  color: inherit;
 }
 
 .ProfileCard-username {
@@ -1513,7 +1573,7 @@ input[type="search"] {
 
 .ProfileCard-avatar {
   border-radius: 50%;
-  border: 2px solid #aaa;
+  border: 1px solid #999;
   display: block;
   float: left;
   margin-right: .625rem;

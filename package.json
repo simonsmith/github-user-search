@@ -21,6 +21,7 @@
     "suitcss-components-media": "^0.1.1",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-utils-layout": "^0.4.2",
+    "suitcss-utils-link": "^0.5.2",
     "suitcss-utils-size": "^0.7.2",
     "suitcss-utils-text": "^0.4.2"
   },

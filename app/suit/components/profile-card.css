@@ -2,6 +2,7 @@
 
 @import "suitcss-utils-layout";
 @import "suitcss-utils-text";
+@import "suitcss-utils-link";
 
 .ProfileCard {
   background-color: #f2f2f2;
@@ -11,6 +12,11 @@
 .ProfileCard-link {
   padding: .625rem;
   display: block;
+  color: #333;
+}
+
+.ProfileCard-link:hover {
+  color: inherit;
 }
 
 .ProfileCard-username {
@@ -22,7 +28,7 @@
 
 .ProfileCard-avatar {
   border-radius: 50%;
-  border: 2px solid #aaa;
+  border: 1px solid #999;
   display: block;
   float: left;
   margin-right: .625rem;
