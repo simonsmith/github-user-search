@@ -165,7 +165,7 @@
 	          )
 	        ), 
 	        React.createElement("div", {className: "Container"}, 
-	          React.createElement("div", {className: "Search-item u-mbZ"}, 
+	          React.createElement("div", {className: "Search-item"}, 
 	            React.createElement(Results, {results: this.state.results})
 	          ), 
 	          React.createElement("div", {className: "Search-item u-mXA u-size8of10 u-md-size5of10"}, 
@@ -593,7 +593,7 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "ProfileCard"}, 
-	        React.createElement(Link, {className: "ProfileCard-link u-cf u-block", to: "user", params: { username: this.props.username}}, 
+	        React.createElement(Link, {className: "ProfileCard-link u-cf", to: "user", params: { username: this.props.username}}, 
 	          React.createElement("img", {className: "ProfileCard-avatar", src: this.props.avatar, width: "40", height: "40"}), 
 	          React.createElement("h2", {className: "ProfileCard-username u-textTruncate"}, this.props.username)
 	        )

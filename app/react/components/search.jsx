@@ -71,7 +71,7 @@ var Search = React.createClass({
           </div>
         </div>
         <div className="Container">
-          <div className="Search-item u-mbZ">
+          <div className="Search-item">
             <Results results={this.state.results} />
           </div>
           <div className="Search-item u-mXA u-size8of10 u-md-size5of10">

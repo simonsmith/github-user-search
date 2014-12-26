@@ -1,11 +1,16 @@
 /** @define ProfileCard; use strict */
 
-@import "suitcss-utils-display";
 @import "suitcss-utils-layout";
 @import "suitcss-utils-text";
 
 .ProfileCard {
-  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+.ProfileCard-link {
+  padding: .625rem;
+  display: block;
 }
 
 .ProfileCard-username {

@@ -1495,7 +1495,13 @@ input[type="search"] {
 }
 
 .ProfileCard {
-  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+.ProfileCard-link {
+  padding: .625rem;
+  display: block;
 }
 
 .ProfileCard-username {
@@ -1759,7 +1765,7 @@ input[type="search"] {
 }
 
 .Search-item {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .Search-item:last-child {
