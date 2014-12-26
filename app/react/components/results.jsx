@@ -1,4 +1,5 @@
 var React =       require('react');
+var pluralize =   require('pluralize');
 var ProfileCard = require('./profile-card.jsx');
 var Pagination =  require('./pagination.jsx');
 
@@ -19,8 +20,8 @@ var Results = React.createClass({
     // Found some results
     if (total > 0) {
       resultsMessage = (
-        <span className="Results-found">
-          <b>{total}</b> result{total == 1 ? '' : 's'} for <mark>{this.props.query.q}</mark>
+        <span>
+          <b>{total}</b> {pluralize('results', total)} for <mark>{this.props.query.q}</mark>
         </span>
       );
     }
@@ -28,21 +29,21 @@ var Results = React.createClass({
     // Found zero results
     if (total == 0) {
       resultsMessage = (
-        <span className="Results-notFound">No results for <mark>{this.props.query.q}</mark></span>
+        <span>No results for <mark>{this.props.query.q}</mark></span>
       );
     }
 
     // Found results, but no more pages
     if (total > 0 && !results.items.length) {
       resultsMessage = (
-        <span className="Results-noneRemaining">No more results for <mark>{this.props.query.q}</mark></span>
+        <span>No more results for <mark>{this.props.query.q}</mark></span>
       );
     }
 
     // No results because error
     if (results.error) {
       resultsMessage = (
-        <span className="Results-error"><b>Error:</b> {results.error.message}</span>
+        <span><b>Error:</b> {results.error.message}</span>
       )
     }
 
