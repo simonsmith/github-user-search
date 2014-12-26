@@ -619,12 +619,7 @@
 
 	  renderNextLink: function() {
 	    var query = this.getQuery();
-
-	    if (query.page >= 1) {
-	      query.page = ++query.page;
-	    } else {
-	      query.page = 2;
-	    }
+	    query.page = query.page >= 1 ? ++query.page : 2;
 
 	    return (
 	      React.createElement(Link, {className: "Pagination-next u-block u-floatRight", to: "users", query: query}, 

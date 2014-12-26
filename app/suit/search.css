@@ -25,6 +25,5 @@
 @media (--md-viewport) {
   .Search-wrapPagination {
     width: 50%;
-    margin: 0 auto;
   }
 }

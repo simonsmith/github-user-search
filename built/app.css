@@ -1011,7 +1011,6 @@ input[type="search"] {
 @media (min-width: 49.375em) {
   .Search-wrapPagination {
     width: 50%;
-    margin: 0 auto;
   }
 }
 
