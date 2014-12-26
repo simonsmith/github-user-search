@@ -1,0 +1,8 @@
+/** @define Pagination; use strict */
+
+@import "suitcss-utils-layout";
+@import "suitcss-utils-display";
+
+.Pagination a {
+  color: #333;
+}

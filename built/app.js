@@ -158,7 +158,7 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Search"}, 
-	        React.createElement("div", {className: "Search-item Search-item--bordered"}, 
+	        React.createElement("div", {className: "Search-item Search-wrapSearchForm"}, 
 	          React.createElement("div", {className: "Container"}, 
 	            React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"}), 
 	            React.createElement(ResultsMessage, {results: this.state.results, query: this.state.query})
@@ -168,7 +168,7 @@
 	          React.createElement("div", {className: "Search-item"}, 
 	            React.createElement(Results, {results: this.state.results})
 	          ), 
-	          React.createElement("div", {className: "Search-item"}, 
+	          React.createElement("div", {className: "Search-item Search-wrapPagination"}, 
 	            React.createElement(Pagination, {results: this.state.results, perpage: "30"})
 	          )
 	        )
@@ -609,10 +609,10 @@
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var React = __webpack_require__(4);
-	var Router = __webpack_require__(5);
-	var State = Router.State;
-	var Link = Router.Link;
+	/** @jsx React.DOM */var React =   __webpack_require__(4);
+	var Router =  __webpack_require__(5);
+	var State =   Router.State;
+	var Link =    Router.Link;
 
 	var Pagination = React.createClass({displayName: 'Pagination',
 	  mixins: [State],
@@ -627,7 +627,9 @@
 	    }
 
 	    return (
-	      React.createElement(Link, {className: "Pagination-next", to: "users", query: query}, "Next")
+	      React.createElement(Link, {className: "Pagination-next u-block u-floatRight", to: "users", query: query}, 
+	        "Next ", React.createElement("span", {'aria-hidden': "true"}, "»")
+	      )
 	    )
 	  },
 
@@ -636,13 +638,17 @@
 	    query.page = --query.page;
 
 	    if (query.page > 0) {
-	      return React.createElement(Link, {className: "Pagination-prev", to: "users", query: query}, "Previous")
+	      return (
+	        React.createElement(Link, {className: "Pagination-prev u-block u-floatLeft", to: "users", query: query}, 
+	          React.createElement("span", {'aria-hidden': "true"}, "«"), " Previous"
+	        )
+	      )
 	    }
 	  },
 
 	  render: function() {
 	    var component = (
-	      React.createElement("div", {className: "Pagination"}, 
+	      React.createElement("div", {className: "Pagination u-cf"}, 
 	        this.renderPrevLink(), 
 	        this.renderNextLink()
 	      )

@@ -1,7 +1,7 @@
-var React = require('react');
-var Router = require('react-router');
-var State = Router.State;
-var Link = Router.Link;
+var React =   require('react');
+var Router =  require('react-router');
+var State =   Router.State;
+var Link =    Router.Link;
 
 var Pagination = React.createClass({
   mixins: [State],
@@ -16,7 +16,9 @@ var Pagination = React.createClass({
     }
 
     return (
-      <Link className="Pagination-next" to="users" query={query}>Next</Link>
+      <Link className="Pagination-next u-block u-floatRight" to="users" query={query}>
+        Next <span aria-hidden="true">&raquo;</span>
+      </Link>
     )
   },
 
@@ -25,13 +27,17 @@ var Pagination = React.createClass({
     query.page = --query.page;
 
     if (query.page > 0) {
-      return <Link className="Pagination-prev" to="users" query={query}>Previous</Link>
+      return (
+        <Link className="Pagination-prev u-block u-floatLeft" to="users" query={query}>
+          <span aria-hidden="true">&laquo;</span> Previous
+        </Link>
+      )
     }
   },
 
   render: function() {
     var component = (
-      <div className="Pagination">
+      <div className="Pagination u-cf">
         {this.renderPrevLink()}
         {this.renderNextLink()}
       </div>

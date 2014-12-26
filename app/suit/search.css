@@ -1,7 +1,9 @@
 /** @define Search; use strict */
 
+@import "./results.css";
 @import "./searchform.css";
 @import "./results-message.css";
+@import "./pagination.css";
 
 .Search-item {
   margin-bottom: 1.5rem;
@@ -11,6 +13,18 @@
   margin-bottom: 0;
 }
 
-.Search-item--bordered {
+.Search-wrapSearchForm {
   border-bottom: 1px solid #ddd;
+}
+
+.Search-wrapPagination {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (--md-viewport) {
+  .Search-wrapPagination {
+    width: 50%;
+    margin: 0 auto;
+  }
 }

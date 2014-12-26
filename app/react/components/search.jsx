@@ -64,7 +64,7 @@ var Search = React.createClass({
   render: function() {
     return (
       <div className="Search">
-        <div className="Search-item Search-item--bordered">
+        <div className="Search-item Search-wrapSearchForm">
           <div className="Container">
             <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
             <ResultsMessage results={this.state.results} query={this.state.query} />
@@ -74,7 +74,7 @@ var Search = React.createClass({
           <div className="Search-item">
             <Results results={this.state.results} />
           </div>
-          <div className="Search-item">
+          <div className="Search-item Search-wrapPagination">
             <Pagination results={this.state.results} perpage="30" />
           </div>
         </div>

@@ -630,170 +630,6 @@ input[type="search"] {
 
 /** @define Search; use strict */
 
-/** @define SearchForm; use strict */
-
-/** @define Button; use strict */
-
-
-
-/**
- * The button classes are best applied to links, buttons, and submit inputs.
- * These components can be used in forms, as calls to action, or as part of the
- * general UI of the site/app.
- */
-
-/**
- * 1. Corrects inability to style clickable `input` types in iOS.
- * 2. Normalize `box-sizing` across all elements that this component could be
- *    applied to.
- * 3. Inherit text color from ancestor.
- * 4. Inherit font styles from ancestor.
- * 5. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
- * 6. Prevent button text from being selectable.
- * 7. Make sure `input` will wrap text across multiple lines.
- */
-
-.Button {
-  -webkit-appearance: none;
-  /* 1 */
-  background: transparent;
-  border-color: currentcolor;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  /* 2 */
-  color: inherit;
-  /* 3 */
-  cursor: pointer;
-  display: inline-block;
-  font: inherit;
-  /* 4 */
-  line-height: normal;
-  /* 5 */
-  margin: 0;
-  padding: 0.4em 0.75em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  /* 6 */
-  white-space: normal;
-  /* 7 */
-}
-
-/**
- * Remove excess padding and border in Firefox 4+
- */
-
-.Button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/**
- * Work around a Firefox/IE bug where the transparent `button` background
- * results in a loss of the default `button` focus styles.
- */
-
-.Button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
-/**
- * UI states
- */
-
-.Button:hover,
-.Button:focus,
-.Button:active {
-  text-decoration: none;
-}
-
-.Button:disabled,
-.Button.is-disabled {
-  cursor: default;
-  opacity: 0.6;
-}
-
-.Button--default {
-  background-color: #eee;
-  color: #444;
-  border-color: #d9d9d9 #d9d9d9 #ccc;
-  border-radius: 4px;
-}
-
-.Button--default:hover,
-.Button--default:focus,
-.Button--default:active,
-.Button--default.is-pressed {
-  background-color: #f5f5f5;
-  color: #222;
-  border-color: #c6c6c6 #c6c6c6 #bbb;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.Button--default:focus {
-  outline: 0;
-}
-
-.Button--default:active,
-.Button--default.is-pressed {
-  background-color: #ccc;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.SearchForm {
-  padding-bottom: 1.25rem;
-}
-
-.SearchForm-title {
-  margin-bottom: .625rem;
-  text-align: center;
-  font-size: 1.6rem;
-}
-
-.SearchForm-search {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.SearchForm-input {
-  width: calc(100% - 84px);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.SearchForm-btn {
-  width: 48px;
-  height: 48px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-/** @define ResultsMessage */
-
-.ResultsMessage {
-  text-align: center;
-  margin-bottom: .9375rem;
-}
-
-.Search-item {
-  margin-bottom: 1.5rem;
-}
-
-.Search-item:last-child {
-  margin-bottom: 0;
-}
-
-.Search-item--bordered {
-  border-bottom: 1px solid #ddd;
-}
-
 /** @define Results; use strict */
 
 /**
@@ -988,6 +824,194 @@ input[type="search"] {
 @media (min-width: 49.375em) {
   .Results-item {
     width: 25%;
+  }
+}
+
+/** @define SearchForm; use strict */
+
+/** @define Button; use strict */
+
+
+
+/**
+ * The button classes are best applied to links, buttons, and submit inputs.
+ * These components can be used in forms, as calls to action, or as part of the
+ * general UI of the site/app.
+ */
+
+/**
+ * 1. Corrects inability to style clickable `input` types in iOS.
+ * 2. Normalize `box-sizing` across all elements that this component could be
+ *    applied to.
+ * 3. Inherit text color from ancestor.
+ * 4. Inherit font styles from ancestor.
+ * 5. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
+ * 6. Prevent button text from being selectable.
+ * 7. Make sure `input` will wrap text across multiple lines.
+ */
+
+.Button {
+  -webkit-appearance: none;
+  /* 1 */
+  background: transparent;
+  border-color: currentcolor;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  /* 2 */
+  color: inherit;
+  /* 3 */
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  /* 4 */
+  line-height: normal;
+  /* 5 */
+  margin: 0;
+  padding: 0.4em 0.75em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* 6 */
+  white-space: normal;
+  /* 7 */
+}
+
+/**
+ * Remove excess padding and border in Firefox 4+
+ */
+
+.Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+.Button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * UI states
+ */
+
+.Button:hover,
+.Button:focus,
+.Button:active {
+  text-decoration: none;
+}
+
+.Button:disabled,
+.Button.is-disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.Button--default {
+  background-color: #eee;
+  color: #444;
+  border-color: #d9d9d9 #d9d9d9 #ccc;
+  border-radius: 4px;
+}
+
+.Button--default:hover,
+.Button--default:focus,
+.Button--default:active,
+.Button--default.is-pressed {
+  background-color: #f5f5f5;
+  color: #222;
+  border-color: #c6c6c6 #c6c6c6 #bbb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.Button--default:focus {
+  outline: 0;
+}
+
+.Button--default:active,
+.Button--default.is-pressed {
+  background-color: #ccc;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.SearchForm {
+  padding-bottom: 1.25rem;
+}
+
+.SearchForm-title {
+  margin-bottom: .625rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.SearchForm-search {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.SearchForm-input {
+  width: calc(100% - 84px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.SearchForm-btn {
+  width: 48px;
+  height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@media (min-width: 49.375em) {
+  .SearchForm-search {
+    width: 50%;
+  }
+}
+
+/** @define ResultsMessage */
+
+.ResultsMessage {
+  text-align: center;
+  margin-bottom: .9375rem;
+}
+
+/** @define Pagination; use strict */
+
+.Pagination a {
+  color: #333;
+}
+
+.Search-item {
+  margin-bottom: 1.5rem;
+}
+
+.Search-item:last-child {
+  margin-bottom: 0;
+}
+
+.Search-wrapSearchForm {
+  border-bottom: 1px solid #ddd;
+}
+
+.Search-wrapPagination {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 49.375em) {
+  .Search-wrapPagination {
+    width: 50%;
+    margin: 0 auto;
   }
 }
 

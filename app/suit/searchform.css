@@ -13,7 +13,7 @@
 }
 
 .SearchForm-search {
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -29,4 +29,10 @@
   height: 48px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+@media (--md-viewport) {
+  .SearchForm-search {
+    width: 50%;
+  }
 }
