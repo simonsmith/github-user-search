@@ -62,7 +62,7 @@ var Results = React.createClass({
         <ul className="Results-list u-cf">
           {resultsItems}
         </ul>
-        <Pagination results={this.props.results} />
+        <Pagination results={this.props.results} perpage="30" />
       </div>
     )
   }
