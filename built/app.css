@@ -874,10 +874,14 @@ input[type="search"] {
 
 .SearchForm-input {
   width: calc(100% - 84px);
-  margin-right: .625rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
 }
 
 .SearchForm-btn {
   width: 48px;
   height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
