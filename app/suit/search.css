@@ -9,3 +9,7 @@
 .Search-item:last-child {
   margin-bottom: 0;
 }
+
+.Search-item--bordered {
+  border-bottom: 1px solid #ddd;
+}

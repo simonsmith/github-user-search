@@ -748,7 +748,6 @@ input[type="search"] {
 
 .SearchForm {
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid #ddd;
 }
 
 .SearchForm-title {
@@ -782,6 +781,10 @@ input[type="search"] {
 
 .Search-item:last-child {
   margin-bottom: 0;
+}
+
+.Search-item--bordered {
+  border-bottom: 1px solid #ddd;
 }
 
 /** @define Results; use strict */

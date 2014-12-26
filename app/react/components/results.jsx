@@ -59,11 +59,9 @@ var Results = React.createClass({
     return (
       <div className="Results">
         {this.renderResultsMessage()}
-        <div className="Container">
-          <ul className="Results-list u-cf">
-            {resultsItems}
-          </ul>
-        </div>
+        <ul className="Results-list u-cf">
+          {resultsItems}
+        </ul>
       </div>
     )
   }

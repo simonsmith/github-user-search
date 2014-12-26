@@ -101,7 +101,7 @@
 
 	var SearchForm =      __webpack_require__(6);
 	var Pagination =      __webpack_require__(13);
-	var ResultsList =     __webpack_require__(7);
+	var Results =         __webpack_require__(7);
 	var UserActions =     __webpack_require__(8);
 	var SearchUserStore = __webpack_require__(9);
 
@@ -157,11 +157,15 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Search"}, 
-	        React.createElement("div", {className: "Search-item"}, 
-	          React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"})
+	        React.createElement("div", {className: "Search-item Search-item--bordered"}, 
+	          React.createElement("div", {className: "Container"}, 
+	            React.createElement(SearchForm, {onUserSearch: this.handleSearchFormSubmit, query: this.state.query, ref: "searchForm"})
+	          )
 	        ), 
 	        React.createElement("div", {className: "Search-item"}, 
-	          React.createElement(ResultsList, {results: this.state.results, query: this.state.query})
+	          React.createElement("div", {className: "Container"}, 
+	            React.createElement(Results, {results: this.state.results, query: this.state.query})
+	          )
 	        ), 
 	        React.createElement("div", {className: "Search-item"}, 
 	          React.createElement("div", {className: "Container"}, 
@@ -256,12 +260,10 @@
 	  render: function() {
 	    return (
 	      React.createElement("form", {className: "SearchForm", onSubmit: this.props.onUserSearch}, 
-	        React.createElement("div", {className: "Container"}, 
-	          React.createElement("h1", {className: "SearchForm-title"}, "Search for a GitHub user"), 
-	          React.createElement("div", {className: "SearchForm-search"}, 
-	            React.createElement("input", {className: "SearchForm-input FormControl u-inlineBlock", placeholder: "e.g simonsmith", type: "text", ref: "input", valueLink: this.linkState('value')}), 
-	            React.createElement("button", {className: "SearchForm-btn Button Button--default", type: "submit"}, "Go")
-	          )
+	        React.createElement("h1", {className: "SearchForm-title"}, "Search for a GitHub user"), 
+	        React.createElement("div", {className: "SearchForm-search"}, 
+	          React.createElement("input", {className: "SearchForm-input FormControl u-inlineBlock", placeholder: "e.g simonsmith", type: "text", ref: "input", valueLink: this.linkState('value')}), 
+	          React.createElement("button", {className: "SearchForm-btn Button Button--default", type: "submit"}, "Go")
 	        )
 	      )
 	    )
@@ -336,10 +338,8 @@
 	    return (
 	      React.createElement("div", {className: "Results"}, 
 	        this.renderResultsMessage(), 
-	        React.createElement("div", {className: "Container"}, 
-	          React.createElement("ul", {className: "Results-list u-cf"}, 
-	            resultsItems
-	          )
+	        React.createElement("ul", {className: "Results-list u-cf"}, 
+	          resultsItems
 	        )
 	      )
 	    )
