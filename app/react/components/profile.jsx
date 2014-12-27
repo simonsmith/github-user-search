@@ -5,6 +5,9 @@ var Profile = React.createClass({
     return (
       <div className="Profile">
         <h1>{this.props.user.name}</h1>
+        <pre>
+          {this.props.user}
+        </pre>
       </div>
     )
   }

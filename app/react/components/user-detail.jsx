@@ -9,6 +9,7 @@ var ProfileStore = require('../stores/profile');
 var RepoStore =    require('../stores/repos');
 
 var Profile =      require('./profile.jsx');
+var Repos =        require('./repos.jsx');
 
 var UserDetail = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -44,6 +45,7 @@ var UserDetail = React.createClass({
     return (
       <div className="UserDetail">
         <Profile user={this.state.user} />
+        <Repos repos={this.state.repos} />
       </div>
     )
   }

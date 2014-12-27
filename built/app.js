@@ -190,7 +190,10 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Profile"}, 
-	        React.createElement("h1", null, this.props.user.name)
+	        React.createElement("h1", null, this.props.user.name), 
+	        React.createElement("pre", null, 
+	          this.props.user
+	        )
 	      )
 	    )
 	  }
@@ -30212,6 +30215,7 @@
 	var RepoStore =    __webpack_require__(278);
 
 	var Profile =      __webpack_require__(3);
+	var Repos =        __webpack_require__(360);
 
 	var UserDetail = React.createClass({displayName: 'UserDetail',
 	  mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -30246,7 +30250,8 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "UserDetail"}, 
-	        React.createElement(Profile, {user: this.state.user})
+	        React.createElement(Profile, {user: this.state.user}), 
+	        React.createElement(Repos, {repos: this.state.repos})
 	      )
 	    )
 	  }
@@ -30309,6 +30314,109 @@
 	      }.bind(this));
 	  }
 	});
+
+/***/ },
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(4);
+
+	var Repos = React.createClass({displayName: 'Repos',
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "Repos"}, 
+	        React.createElement("h1", null, "Popular Repositories"), 
+	        React.createElement("pre", null, 
+	          this.props.repos
+	        )
+	      )
+	    )
+	  }
+	});
+
+	module.exports = Repos;
+
 
 /***/ }
 /******/ ])
