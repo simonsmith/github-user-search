@@ -10,7 +10,7 @@ module.exports = Reflux.createStore({
 
   onUserProfile: function(username) {
     req({
-      url: 'https://api.github.com/users/' + username,
+      url: 'https://api.github.com/users/{username}'.replace('{username}', username),
       type: 'json'
     })
       .then(function(data) {
