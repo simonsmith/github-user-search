@@ -5,8 +5,18 @@
 @import "suitcss-utils-link";
 
 .ProfileCard {
+  border: 1px solid #ccc;
+  border-radius: 3px;
   background-color: #f2f2f2;
-  border: 1px solid #ddd;
+  transition: background-color .2s ease;
+}
+
+.ProfileCard:hover {
+  background-color: #e6e6e6;
+}
+
+.ProfileCard:hover .ProfileCard-avatar {
+  opacity: 1;
 }
 
 .ProfileCard-link {
@@ -28,6 +38,8 @@
 
 .ProfileCard-avatar {
   border-radius: 50%;
+  opacity: .8;
+  transition: opacity .2s ease;;
   border: 1px solid #999;
   display: block;
   float: left;
