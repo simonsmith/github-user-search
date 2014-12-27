@@ -5,10 +5,10 @@ var pick =        require('lodash-node/modern/objects/pick');
 
 module.exports = Reflux.createStore({
   init: function() {
-    this.listenTo(UserActions.userProfile, this.onGetUserProfile);
+    this.listenTo(UserActions.userProfile, this.onUserProfile);
   },
 
-  onGetUserProfile: function(username) {
+  onUserProfile: function(username) {
     req({
       url: 'https://api.github.com/users/' + username,
       type: 'json'

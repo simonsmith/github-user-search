@@ -313,7 +313,8 @@
 
 	module.exports = {
 	  searchUser: Reflux.createAction(),
-	  userProfile: Reflux.createAction()
+	  userProfile: Reflux.createAction(),
+	  userRepos: Reflux.createAction()
 	};
 
 
@@ -30168,10 +30169,10 @@
 
 	module.exports = Reflux.createStore({
 	  init: function() {
-	    this.listenTo(UserActions.userProfile, this.onGetUserProfile);
+	    this.listenTo(UserActions.userProfile, this.onUserProfile);
 	  },
 
-	  onGetUserProfile: function(username) {
+	  onUserProfile: function(username) {
 	    req({
 	      url: 'https://api.github.com/users/' + username,
 	      type: 'json'
@@ -30200,14 +30201,15 @@
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var React =       __webpack_require__(4);
-	var Router =      __webpack_require__(5);
-	var Navigation =  Router.Navigation;
-	var State =       Router.State;
-	var Reflux =      __webpack_require__(30);
+	/** @jsx React.DOM */var React =        __webpack_require__(4);
+	var Router =       __webpack_require__(5);
+	var Navigation =   Router.Navigation;
+	var State =        Router.State;
+	var Reflux =       __webpack_require__(30);
 
 	var UserActions =  __webpack_require__(8);
 	var ProfileStore = __webpack_require__(276);
+	var RepoStore =    __webpack_require__(278);
 
 	var Profile =      __webpack_require__(3);
 
@@ -30216,25 +30218,29 @@
 
 	  getInitialState: function() {
 	    return {
-	      user: {}
+	      user: {},
+	      repos: []
 	    };
 	  },
 
-	  getProfile: function(user) {
+	  getUserData: function(user) {
 	    UserActions.userProfile(user);
+	    UserActions.userRepos(user);
 	  },
 
-	  onProfileData: function(data) {
+	  onReceiveData: function(data) {
 	    this.setState(data);
 	  },
 
 	  componentWillReceiveProps: function() {
-	    this.getProfile(this.getParams().username);
+	    this.getUserData(this.getParams().username);
 	  },
 
 	  componentDidMount: function() {
-	    this.listenTo(ProfileStore, this.onProfileData);
-	    this.getProfile(this.getParams().username);
+	    this.listenTo(ProfileStore, this.onReceiveData);
+	    this.listenTo(RepoStore, this.onReceiveData);
+
+	    this.getUserData(this.getParams().username);
 	  },
 
 	  render: function() {
@@ -30248,6 +30254,33 @@
 
 	module.exports = UserDetail;
 
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var req =         __webpack_require__(83);
+	var Reflux =      __webpack_require__(30);
+	var UserActions = __webpack_require__(8);
+	var pick =        __webpack_require__(259);
+
+	module.exports = Reflux.createStore({
+	  init: function() {
+	    this.listenTo(UserActions.userRepos, this.onUserRepos);
+	  },
+
+	  onUserRepos: function(username) {
+	    req({
+	      url: 'https://api.github.com/users/{username}/repos'.replace('{username}', username),
+	      type: 'json'
+	    })
+	      .then(function(data) {
+	        this.trigger({
+	          repos: data
+	        });
+	      }.bind(this));
+	  }
+	});
 
 /***/ }
 /******/ ])
