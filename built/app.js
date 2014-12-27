@@ -49,14 +49,14 @@
 	var Route =         Router.Route;
 	var DefaultRoute =  Router.DefaultRoute;
 
-	var Layout =  __webpack_require__(1);
-	var Search =  __webpack_require__(2);
-	var Profile = __webpack_require__(3);
+	var Layout =     __webpack_require__(1);
+	var Search =     __webpack_require__(2);
+	var UserDetail = __webpack_require__(277);
 
 	var routes = (
 	    React.createElement(Route, {name: "layout", path: "/", handler: Layout}, 
 	      React.createElement(Route, {name: "users", path: "/users", handler: Search}), 
-	      React.createElement(Route, {name: "user", path: "/users/:username", handler: Profile}), 
+	      React.createElement(Route, {name: "user", path: "/users/:username", handler: UserDetail}), 
 	      React.createElement(DefaultRoute, {handler: Search})
 	    )
 	);
@@ -186,17 +186,17 @@
 
 	/** @jsx React.DOM */var React = __webpack_require__(4);
 
-	var Pagination = React.createClass({displayName: 'Pagination',
+	var Profile = React.createClass({displayName: 'Profile',
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Profile"}, 
-	        React.createElement("p", null, "Hello")
+	        React.createElement("h1", null, this.props.user.name)
 	      )
 	    )
 	  }
 	});
 
-	module.exports = Pagination;
+	module.exports = Profile;
 
 
 /***/ },
@@ -312,7 +312,8 @@
 	var Reflux = __webpack_require__(30);
 
 	module.exports = {
-	  searchUser: Reflux.createAction()
+	  searchUser: Reflux.createAction(),
+	  userProfile: Reflux.createAction()
 	};
 
 
@@ -30153,6 +30154,100 @@
 	});
 
 	module.exports = ResultsMessage;
+
+/***/ },
+/* 274 */,
+/* 275 */,
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var req =         __webpack_require__(83);
+	var Reflux =      __webpack_require__(30);
+	var UserActions = __webpack_require__(8);
+	var pick =        __webpack_require__(259);
+
+	module.exports = Reflux.createStore({
+	  init: function() {
+	    this.listenTo(UserActions.userProfile, this.onGetUserProfile);
+	  },
+
+	  onGetUserProfile: function(username) {
+	    req({
+	      url: 'https://api.github.com/users/' + username,
+	      type: 'json'
+	    })
+	      .then(function(data) {
+	        this.trigger({
+	          user: pick(data,
+	            'avatar_url',
+	            'bio',
+	            'blog',
+	            'followers',
+	            'following',
+	            'id',
+	            'location',
+	            'login',
+	            'name',
+	            'company',
+	            'html_url'
+	          )
+	        });
+	      }.bind(this));
+	  }
+	});
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React =       __webpack_require__(4);
+	var Router =      __webpack_require__(5);
+	var Navigation =  Router.Navigation;
+	var State =       Router.State;
+	var Reflux =      __webpack_require__(30);
+
+	var UserActions =  __webpack_require__(8);
+	var ProfileStore = __webpack_require__(276);
+
+	var Profile =      __webpack_require__(3);
+
+	var UserDetail = React.createClass({displayName: 'UserDetail',
+	  mixins: [Navigation, Reflux.ListenerMixin, State],
+
+	  getInitialState: function() {
+	    return {
+	      user: {}
+	    };
+	  },
+
+	  getProfile: function(user) {
+	    UserActions.userProfile(user);
+	  },
+
+	  onProfileData: function(data) {
+	    this.setState(data);
+	  },
+
+	  componentWillReceiveProps: function() {
+	    this.getProfile(this.getParams().username);
+	  },
+
+	  componentDidMount: function() {
+	    this.listenTo(ProfileStore, this.onProfileData);
+	    this.getProfile(this.getParams().username);
+	  },
+
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "UserDetail"}, 
+	        React.createElement(Profile, {user: this.state.user})
+	      )
+	    )
+	  }
+	});
+
+	module.exports = UserDetail;
+
 
 /***/ }
 /******/ ])

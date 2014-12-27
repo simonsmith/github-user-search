@@ -1,13 +1,13 @@
 var React = require('react');
 
-var Pagination = React.createClass({
+var Profile = React.createClass({
   render: function() {
     return (
       <div className="Profile">
-        <p>Hello</p>
+        <h1>{this.props.user.name}</h1>
       </div>
     )
   }
 });
 
-module.exports = Pagination;
+module.exports = Profile;

@@ -1,5 +1,6 @@
 var Reflux = require('reflux');
 
 module.exports = {
-  searchUser: Reflux.createAction()
+  searchUser: Reflux.createAction(),
+  userProfile: Reflux.createAction()
 };
