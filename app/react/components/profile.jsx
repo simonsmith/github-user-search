@@ -1,7 +1,14 @@
 var React = require('react');
+var ProfileStatGroup = require('./profile-stat-group.jsx');
 
 var Profile = React.createClass({
   render: function() {
+    var stats = {
+      'Followers': this.props.user.followers,
+      'Following': this.props.user.following,
+      'Repos': this.props.user.public_repos
+    };
+
     return (
       <div className="Profile u-cf">
         <div className="Profile-avatar">
@@ -14,20 +21,7 @@ var Profile = React.createClass({
             <p className="Profile-userItem">{this.props.user.location}</p>
             <p className="Profile-userItem"><a href={this.props.user.blog} target="_blank">{this.props.user.blog}</a></p>
           </div>
-          <ul className="Profile-statGroup">
-            <li className="Profile-stat">
-              <span className="Profile-statValue">{this.props.user.followers}</span>
-              <span className="Profile-statTitle">Followers</span>
-            </li>
-            <li className="Profile-stat">
-              <span className="Profile-statValue">{this.props.user.following}</span>
-              <span className="Profile-statTitle">Following</span>
-            </li>
-            <li className="Profile-stat">
-              <span className="Profile-statValue">{this.props.user.public_repos}</span>
-              <span className="Profile-statTitle">Repositories</span>
-            </li>
-          </ul>
+          <ProfileStatGroup stats={stats} />
         </div>
       </div>
     )

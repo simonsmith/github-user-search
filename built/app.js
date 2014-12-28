@@ -431,9 +431,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(10);
+	var ProfileStatGroup = __webpack_require__(278);
 
 	var Profile = React.createClass({displayName: 'Profile',
 	  render: function() {
+	    var stats = {
+	      'Followers': this.props.user.followers,
+	      'Following': this.props.user.following,
+	      'Repos': this.props.user.public_repos
+	    };
+
 	    return (
 	      React.createElement("div", {className: "Profile u-cf"}, 
 	        React.createElement("div", {className: "Profile-avatar"}, 
@@ -446,20 +453,7 @@
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.location), 
 	            React.createElement("p", {className: "Profile-userItem"}, React.createElement("a", {href: this.props.user.blog, target: "_blank"}, this.props.user.blog))
 	          ), 
-	          React.createElement("ul", {className: "Profile-statGroup"}, 
-	            React.createElement("li", {className: "Profile-stat"}, 
-	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.followers), 
-	              React.createElement("span", {className: "Profile-statTitle"}, "Followers")
-	            ), 
-	            React.createElement("li", {className: "Profile-stat"}, 
-	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.following), 
-	              React.createElement("span", {className: "Profile-statTitle"}, "Following")
-	            ), 
-	            React.createElement("li", {className: "Profile-stat"}, 
-	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.public_repos), 
-	              React.createElement("span", {className: "Profile-statTitle"}, "Repositories")
-	            )
-	          )
+	          React.createElement(ProfileStatGroup, {stats: stats})
 	        )
 	      )
 	    )
@@ -30430,6 +30424,57 @@
 	module.exports = toArray;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(112)))
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React =       __webpack_require__(10);
+	var ProfileStat = __webpack_require__(279);
+	var map =         __webpack_require__(22);
+
+	var ProfileStatGroup = React.createClass({displayName: 'ProfileStatGroup',
+	  renderStatItems: function() {
+	    return map(this.props.stats, function(value, key) {
+	      return (
+	        React.createElement("li", {key: key, className: "ProfileStatGroup-item"}, 
+	          React.createElement(ProfileStat, {value: value, title: key})
+	        )
+	      );
+	    });
+	  },
+
+	  render: function() {
+	    return (
+	      React.createElement("ul", {className: "ProfileStatGroup"}, 
+	        this.renderStatItems()
+	      )
+	    )
+	  }
+	});
+
+	module.exports = ProfileStatGroup;
+
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(10);
+
+	var ProfileStat = React.createClass({displayName: 'ProfileStat',
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "ProfileStat"}, 
+	        React.createElement("span", {className: "ProfileStat-value"}, this.props.value), 
+	        React.createElement("span", {className: "ProfileStat-title"}, this.props.title)
+	      )
+	    )
+	  }
+	});
+
+	module.exports = ProfileStat;
+
 
 /***/ }
 /******/ ])
