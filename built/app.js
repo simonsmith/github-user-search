@@ -510,7 +510,7 @@
 	    return data;
 	  },
 
-	  getFromServer: function(query) {
+	  getData: function(query) {
 	    req({
 	      url: 'https://api.github.com/search/users',
 	      data: query,
@@ -544,7 +544,7 @@
 	        query: query
 	      });
 	    } else {
-	      this.getFromServer(query);
+	      this.getData(query);
 	    }
 	  }
 	});
@@ -558,34 +558,55 @@
 	var Reflux =      __webpack_require__(18);
 	var UserActions = __webpack_require__(11);
 	var pick =        __webpack_require__(20);
+	var cache =       __webpack_require__(39);
 
 	module.exports = Reflux.createStore({
 	  init: function() {
 	    this.listenTo(UserActions.userProfile, this.onUserProfile);
 	  },
 
-	  onUserProfile: function(username) {
+	  cacheKey: function(username) {
+	    return 'profile:{username}'.replace('{username}', username);
+	  },
+
+	  getData: function(username) {
 	    req({
 	      url: 'https://api.github.com/users/{username}'.replace('{username}', username),
 	      type: 'json'
 	    })
 	      .then(function(data) {
+	        data = pick(data,
+	          'avatar_url',
+	          'bio',
+	          'blog',
+	          'followers',
+	          'following',
+	          'id',
+	          'location',
+	          'login',
+	          'name',
+	          'company',
+	          'html_url'
+	        );
+
 	        this.trigger({
-	          user: pick(data,
-	            'avatar_url',
-	            'bio',
-	            'blog',
-	            'followers',
-	            'following',
-	            'id',
-	            'location',
-	            'login',
-	            'name',
-	            'company',
-	            'html_url'
-	          )
+	          user: data
 	        });
+
+	        cache.setItem(this.cacheKey(username), data);
 	      }.bind(this));
+	  },
+
+	  onUserProfile: function(username) {
+	    var cached = cache.getItem(this.cacheKey(username));
+
+	    if (cached) {
+	      this.trigger({
+	        user: cached
+	      });
+	    } else {
+	      this.getData(username);
+	    }
 	  }
 	});
 
@@ -597,6 +618,7 @@
 	var Reflux =      __webpack_require__(18);
 	var UserActions = __webpack_require__(11);
 	var pick =        __webpack_require__(20);
+	var cache =       __webpack_require__(39);
 
 	module.exports = Reflux.createStore({
 	  init: function() {
@@ -625,7 +647,11 @@
 	    )
 	  },
 
-	  onUserRepos: function(username) {
+	  cacheKey: function(username) {
+	    return 'repos:{username}'.replace('{username}', username);
+	  },
+
+	  getData: function(username) {
 	    req({
 	      url: 'https://api.github.com/users/{username}/repos'.replace('{username}', username),
 	      type: 'json'
@@ -640,7 +666,21 @@
 	        this.trigger({
 	          repos: data
 	        });
+
+	        cache.setItem(this.cacheKey(username), data);
 	      }.bind(this));
+	  },
+
+	  onUserRepos: function(username) {
+	    var cached = cache.getItem(this.cacheKey(username));
+
+	    if (cached) {
+	      this.trigger({
+	        repos: cached
+	      });
+	    } else {
+	      this.getData(username);
+	    }
 	  }
 	});
 
