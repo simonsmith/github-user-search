@@ -1986,10 +1986,37 @@ input[type="search"] {
 
 /** @define Profile; use strict */
 
+/** @define ProfileStat; use strict */
+
+.ProfileStat {
+  text-align: center;
+}
+
+.ProfileStat-value {
+  display: block;
+  font-size: 1.375rem;
+}
+
+.ProfileStat-title {
+  display: block;
+  font-size: .75em;
+}
+
+/** @define ProfileStatGroup; use strict */
+
+.ProfileStatGroup-item {
+  display: inline-block;
+  margin-right: 1.2rem;
+}
+
 .u-imgResponsive {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.Profile {
+  text-align: center;
 }
 
 .Profile-avatarImg {
@@ -2016,7 +2043,15 @@ input[type="search"] {
   color: #777;
 }
 
+.Profile-wrapProfileStatGroup {
+  margin-top: 15px;
+}
+
 @media (min-width: 36.25em) {
+  .Profile {
+    text-align: left;
+  }
+
   .Profile-avatar {
     float: left;
     margin-right: .625rem;

@@ -1,0 +1,15 @@
+/** @define ProfileStat; use strict */
+
+.ProfileStat {
+  text-align: center;
+}
+
+.ProfileStat-value {
+  display: block;
+  font-size: 1.375rem;
+}
+
+.ProfileStat-title {
+  display: block;
+  font-size: .75em;
+}

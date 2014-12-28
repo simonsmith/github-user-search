@@ -1,7 +1,13 @@
 /** @define Profile; use strict */
 
 @import "suitcss-utils-layout";
+@import "./profile-stat.css";
+@import "./profile-stat-group.css";
 @import "../utils/img.css";
+
+.Profile {
+  text-align: center;
+}
 
 .Profile-avatarImg {
   margin-left: auto;
@@ -27,7 +33,15 @@
   color: #777;
 }
 
+.Profile-wrapProfileStatGroup {
+  margin-top: 15px;
+}
+
 @media (--sm-viewport) {
+  .Profile {
+    text-align: left;
+  }
+
   .Profile-avatar {
     float: left;
     margin-right: .625rem;

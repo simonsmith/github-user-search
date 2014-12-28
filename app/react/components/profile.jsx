@@ -21,7 +21,9 @@ var Profile = React.createClass({
             <p className="Profile-userItem">{this.props.user.location}</p>
             <p className="Profile-userItem"><a href={this.props.user.blog} target="_blank">{this.props.user.blog}</a></p>
           </div>
-          <ProfileStatGroup stats={stats} />
+          <div className="Profile-wrapProfileStatGroup">
+            <ProfileStatGroup stats={stats} />
+          </div>
         </div>
       </div>
     )

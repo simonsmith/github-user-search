@@ -454,7 +454,9 @@
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.location), 
 	            React.createElement("p", {className: "Profile-userItem"}, React.createElement("a", {href: this.props.user.blog, target: "_blank"}, this.props.user.blog))
 	          ), 
-	          React.createElement(ProfileStatGroup, {stats: stats})
+	          React.createElement("div", {className: "Profile-wrapProfileStatGroup"}, 
+	            React.createElement(ProfileStatGroup, {stats: stats})
+	          )
 	        )
 	      )
 	    )

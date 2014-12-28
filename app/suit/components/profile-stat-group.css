@@ -1,0 +1,6 @@
+/** @define ProfileStatGroup; use strict */
+
+.ProfileStatGroup-item {
+  display: inline-block;
+  margin-right: 1.2rem;
+}
