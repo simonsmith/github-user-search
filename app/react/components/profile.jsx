@@ -24,6 +24,7 @@ var Profile = React.createClass({
           <div className="Profile-wrapProfileStatGroup">
             <ProfileStatGroup stats={stats} />
           </div>
+          <a href={this.props.user.html_url} className="Profile-externalUrl">View on Github</a>
         </div>
       </div>
     )

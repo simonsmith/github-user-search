@@ -456,7 +456,8 @@
 	          ), 
 	          React.createElement("div", {className: "Profile-wrapProfileStatGroup"}, 
 	            React.createElement(ProfileStatGroup, {stats: stats})
-	          )
+	          ), 
+	          React.createElement("a", {href: this.props.user.html_url, className: "Profile-externalUrl"}, "View on Github")
 	        )
 	      )
 	    )
