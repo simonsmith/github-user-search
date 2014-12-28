@@ -230,8 +230,17 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "UserDetail"}, 
-	        React.createElement(Profile, {user: this.state.user}), 
-	        React.createElement(Repos, {repos: this.state.repos})
+	        React.createElement("div", {className: "Container"}, 
+	          React.createElement("h1", {className: "u-hiddenVisually"}, "Github user detail"), 
+	          React.createElement("div", {className: "Grid Grid--withGutter"}, 
+	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
+	              React.createElement(Profile, {user: this.state.user})
+	            ), 
+	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
+	              React.createElement(Repos, {repos: this.state.repos})
+	            )
+	          )
+	        )
 	      )
 	    )
 	  }
@@ -431,10 +440,8 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Profile"}, 
-	        React.createElement("h1", null, this.props.user.name), 
-	        React.createElement("pre", null, 
-	          this.props.user
-	        )
+	        React.createElement("h2", null, this.props.user.name), 
+	        this.props.user
 	      )
 	    )
 	  }
@@ -453,10 +460,8 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Repos"}, 
-	        React.createElement("h1", null, "Popular Repositories"), 
-	        React.createElement("pre", null, 
-	          this.props.repos
-	        )
+	        React.createElement("h2", null, "Popular Repositories"), 
+	        this.props.repos
 	      )
 	    )
 	  }

@@ -4,10 +4,8 @@ var Profile = React.createClass({
   render: function() {
     return (
       <div className="Profile">
-        <h1>{this.props.user.name}</h1>
-        <pre>
-          {this.props.user}
-        </pre>
+        <h2>{this.props.user.name}</h2>
+        {this.props.user}
       </div>
     )
   }

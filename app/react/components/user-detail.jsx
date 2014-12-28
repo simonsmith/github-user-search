@@ -44,8 +44,17 @@ var UserDetail = React.createClass({
   render: function() {
     return (
       <div className="UserDetail">
-        <Profile user={this.state.user} />
-        <Repos repos={this.state.repos} />
+        <div className="Container">
+          <h1 className="u-hiddenVisually">Github user detail</h1>
+          <div className="Grid Grid--withGutter">
+            <div className="Grid-cell u-sm-size1of2">
+              <Profile user={this.state.user} />
+            </div>
+            <div className="Grid-cell u-sm-size1of2">
+              <Repos repos={this.state.repos} />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

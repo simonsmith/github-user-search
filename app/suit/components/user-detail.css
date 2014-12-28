@@ -1,0 +1,5 @@
+/** @define UserDetail; use strict */
+
+@import "suitcss-utils-display";
+@import "suitcss-components-grid";
+@import "suitcss-utils-size";
