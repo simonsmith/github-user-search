@@ -78,9 +78,7 @@
 	var Layout = React.createClass({displayName: 'Layout',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "Content"}, 
-	        React.createElement(RouteHandler, null)
-	      )
+	      React.createElement(RouteHandler, null)
 	    )
 	  }
 	});
@@ -230,16 +228,14 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "UserDetail"}, 
-	        React.createElement("div", {className: "Container"}, 
-	          React.createElement("h1", {className: "u-hiddenVisually"}, "Github user detail"), 
-	          React.createElement("div", {className: "Grid Grid--withGutter"}, 
-	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
-	              React.createElement(Profile, {user: this.state.user})
-	            ), 
-	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
-	              React.createElement(Repos, {repos: this.state.repos})
-	            )
+	        React.createElement("h1", {className: "u-hiddenVisually"}, "Github user detail"), 
+	        React.createElement("div", {className: "UserDetail-item UserDetail-header"}, 
+	          React.createElement("div", {className: "Container"}, 
+	            React.createElement(Profile, {user: this.state.user})
 	          )
+	        ), 
+	        React.createElement("div", {className: "UserDetail-item"}
+
 	        )
 	      )
 	    )
@@ -439,9 +435,18 @@
 	var Profile = React.createClass({displayName: 'Profile',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "Profile"}, 
-	        React.createElement("h2", null, this.props.user.name), 
-	        this.props.user
+	      React.createElement("div", {className: "Profile u-cf"}, 
+	        React.createElement("div", {className: "Profile-avatar"}, 
+	          React.createElement("img", {className: "Profile-avatarImg u-imgResponsive", src: this.props.user.avatar_url, width: "190", height: "190"})
+	        ), 
+	        React.createElement("div", {className: "Profile-body"}, 
+	          React.createElement("h2", {className: "Profile-name"}, this.props.user.name), 
+	          React.createElement("div", {className: "Profile-userInfo"}, 
+	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.login), 
+	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.location), 
+	            React.createElement("p", {className: "Profile-userItem"}, React.createElement("a", {href: this.props.user.blog, target: "_blank"}, this.props.user.blog))
+	          )
+	        )
 	      )
 	    )
 	  }

@@ -6,9 +6,7 @@ var RouteHandler = Router.RouteHandler;
 var Layout = React.createClass({
   render: function() {
     return (
-      <div className="Content">
-        <RouteHandler />
-      </div>
+      <RouteHandler />
     )
   }
 });

@@ -7,6 +7,10 @@
 @import "./pagination.css";
 @import "../utils/space.css";
 
+.Search {
+  padding: 1.25rem 0;
+}
+
 .Search-item {
   margin-bottom: 1.5rem;
 }
