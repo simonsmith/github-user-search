@@ -30433,12 +30433,13 @@
 	/** @jsx React.DOM */var React =       __webpack_require__(10);
 	var ProfileStat = __webpack_require__(279);
 	var map =         __webpack_require__(22);
+	var uniqueId =    __webpack_require__(281);
 
 	var ProfileStatGroup = React.createClass({displayName: 'ProfileStatGroup',
 	  renderStatItems: function() {
 	    return map(this.props.stats, function(value, key) {
 	      return (
-	        React.createElement("li", {key: key, className: "ProfileStatGroup-item"}, 
+	        React.createElement("li", {key: uniqueId(), className: "ProfileStatGroup-item"}, 
 	          React.createElement(ProfileStat, {value: value, title: key})
 	        )
 	      );
@@ -30475,6 +30476,47 @@
 	});
 
 	module.exports = ProfileStat;
+
+
+/***/ },
+/* 280 */,
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+
+	/** Used to generate unique IDs */
+	var idCounter = 0;
+
+	/**
+	 * Generates a unique ID. If `prefix` is provided the ID will be appended to it.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Utilities
+	 * @param {string} [prefix] The value to prefix the ID with.
+	 * @returns {string} Returns the unique ID.
+	 * @example
+	 *
+	 * _.uniqueId('contact_');
+	 * // => 'contact_104'
+	 *
+	 * _.uniqueId();
+	 * // => '105'
+	 */
+	function uniqueId(prefix) {
+	  var id = ++idCounter;
+	  return String(prefix == null ? '' : prefix) + id;
+	}
+
+	module.exports = uniqueId;
 
 
 /***/ }
