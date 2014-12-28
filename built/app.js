@@ -344,6 +344,7 @@
 
 	/** @jsx React.DOM */var React =       __webpack_require__(10);
 	var ProfileCard = __webpack_require__(17);
+	var map =         __webpack_require__(22);
 
 	var Results = React.createClass({displayName: 'Results',
 	  renderResultsItem: function(user) {
@@ -355,7 +356,7 @@
 	  },
 
 	  render: function() {
-	    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
+	    var resultsItems = this.props.results && map(this.props.results.items, this.renderResultsItem);
 
 	    return (
 	      React.createElement("div", {className: "Results"}, 

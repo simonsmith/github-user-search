@@ -1,5 +1,6 @@
 var React =       require('react');
 var ProfileCard = require('./profile-card.jsx');
+var map =         require('lodash-node/modern/collections/map');
 
 var Results = React.createClass({
   renderResultsItem: function(user) {
@@ -11,7 +12,7 @@ var Results = React.createClass({
   },
 
   render: function() {
-    var resultsItems = this.props.results && this.props.results.items.map(this.renderResultsItem);
+    var resultsItems = this.props.results && map(this.props.results.items, this.renderResultsItem);
 
     return (
       <div className="Results">
