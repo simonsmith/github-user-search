@@ -11,7 +11,7 @@ module.exports = Reflux.createStore({
     this.listenTo(UserActions.searchUser, this.onSearchUsers);
   },
 
-  filterResults: function(data) {
+  trimData: function(data) {
     data = pick(data, 'items', 'total_count');
     data.items = map(data.items, function(item) {
       return pick(item, 'avatar_url', 'id', 'login');
@@ -26,11 +26,12 @@ module.exports = Reflux.createStore({
       type: 'json'
     })
       .then(function(data) {
+        data = this.trimData(data);
         this.trigger({
           results: data,
           query: query
         });
-        cache.setItem(JSON.stringify(query), this.filterResults(data));
+        cache.setItem(JSON.stringify(query), data);
       }.bind(this))
       .fail(function(xhr) {
         this.trigger({
