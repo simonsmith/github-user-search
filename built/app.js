@@ -445,6 +445,20 @@
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.login), 
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.location), 
 	            React.createElement("p", {className: "Profile-userItem"}, React.createElement("a", {href: this.props.user.blog, target: "_blank"}, this.props.user.blog))
+	          ), 
+	          React.createElement("ul", {className: "Profile-statGroup"}, 
+	            React.createElement("li", {className: "Profile-stat"}, 
+	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.followers), 
+	              React.createElement("span", {className: "Profile-statTitle"}, "Followers")
+	            ), 
+	            React.createElement("li", {className: "Profile-stat"}, 
+	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.following), 
+	              React.createElement("span", {className: "Profile-statTitle"}, "Following")
+	            ), 
+	            React.createElement("li", {className: "Profile-stat"}, 
+	              React.createElement("span", {className: "Profile-statValue"}, this.props.user.public_repos), 
+	              React.createElement("span", {className: "Profile-statTitle"}, "Repositories")
+	            )
 	          )
 	        )
 	      )
@@ -587,15 +601,13 @@
 	      .then(function(data) {
 	        data = pick(data,
 	          'avatar_url',
-	          'bio',
 	          'blog',
 	          'followers',
 	          'following',
-	          'id',
 	          'location',
 	          'login',
 	          'name',
-	          'company',
+	          'public_repos',
 	          'html_url'
 	        );
 

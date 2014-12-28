@@ -2003,6 +2003,10 @@ input[type="search"] {
   margin-bottom: .1875rem;
 }
 
+.Profile-userItem:empty {
+  margin-bottom: 0;
+}
+
 .Profile-name {
   font-size: 1.8rem;
   margin-bottom: .5rem;

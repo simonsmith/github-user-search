@@ -14,6 +14,20 @@ var Profile = React.createClass({
             <p className="Profile-userItem">{this.props.user.location}</p>
             <p className="Profile-userItem"><a href={this.props.user.blog} target="_blank">{this.props.user.blog}</a></p>
           </div>
+          <ul className="Profile-statGroup">
+            <li className="Profile-stat">
+              <span className="Profile-statValue">{this.props.user.followers}</span>
+              <span className="Profile-statTitle">Followers</span>
+            </li>
+            <li className="Profile-stat">
+              <span className="Profile-statValue">{this.props.user.following}</span>
+              <span className="Profile-statTitle">Following</span>
+            </li>
+            <li className="Profile-stat">
+              <span className="Profile-statValue">{this.props.user.public_repos}</span>
+              <span className="Profile-statTitle">Repositories</span>
+            </li>
+          </ul>
         </div>
       </div>
     )

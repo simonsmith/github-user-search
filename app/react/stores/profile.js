@@ -21,15 +21,13 @@ module.exports = Reflux.createStore({
       .then(function(data) {
         data = pick(data,
           'avatar_url',
-          'bio',
           'blog',
           'followers',
           'following',
-          'id',
           'location',
           'login',
           'name',
-          'company',
+          'public_repos',
           'html_url'
         );
 
