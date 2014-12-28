@@ -234,8 +234,8 @@
 	            React.createElement(Profile, {user: this.state.user})
 	          )
 	        ), 
-	        React.createElement("div", {className: "UserDetail-item"}
-
+	        React.createElement("div", {className: "UserDetail-item Container"}, 
+	          React.createElement(Repos, {repos: this.state.repos})
 	        )
 	      )
 	    )

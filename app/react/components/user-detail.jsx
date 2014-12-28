@@ -50,8 +50,8 @@ var UserDetail = React.createClass({
             <Profile user={this.state.user} />
           </div>
         </div>
-        <div className="UserDetail-item">
-
+        <div className="UserDetail-item Container">
+          <Repos repos={this.state.repos} />
         </div>
       </div>
     )
