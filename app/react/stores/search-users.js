@@ -1,8 +1,10 @@
 var req =         require('reqwest');
 var Reflux =      require('reflux');
-var UserActions = require('../actions/user');
+var UserActions = require('actions/user');
 var pick =        require('lodash-node/modern/objects/pick');
 var map =         require('lodash-node/modern/collections/map');
+var cache =       require('mixins/cache');
+
 
 module.exports = Reflux.createStore({
   init: function() {
@@ -17,20 +19,7 @@ module.exports = Reflux.createStore({
     return data;
   },
 
-  fetchFromCache: function(query) {
-    var cached = sessionStorage.getItem(JSON.stringify(query));
-
-    if (cached) {
-      this.trigger({
-        results: JSON.parse(cached),
-        query: query
-      });
-    }
-
-    return !!cached;
-  },
-
-  fetchFromServer: function(query) {
+  getFromServer: function(query) {
     req({
       url: 'https://api.github.com/search/users',
       data: query,
@@ -41,7 +30,7 @@ module.exports = Reflux.createStore({
           results: data,
           query: query
         });
-        sessionStorage.setItem(JSON.stringify(query), JSON.stringify(this.filterResults(data)));
+        cache.setItem(JSON.stringify(query), this.filterResults(data));
       }.bind(this))
       .fail(function(xhr) {
         this.trigger({
@@ -55,8 +44,15 @@ module.exports = Reflux.createStore({
   },
 
   onSearchUsers: function(query) {
-    if (!this.fetchFromCache.call(this, query)) {
-      this.fetchFromServer.call(this, query);
+    var cached = cache.getItem(JSON.stringify(query));
+
+    if (cached) {
+      this.trigger({
+        results: cached,
+        query: query
+      });
+    } else {
+      this.getFromServer(query);
     }
   }
 });

@@ -9,8 +9,8 @@ var SearchForm =      require('./search-form.jsx');
 var Pagination =      require('./pagination.jsx');
 var Results =         require('./results.jsx');
 var ResultsMessage =  require('./results-message.jsx');
-var UserActions =     require('../actions/user');
-var SearchUserStore = require('../stores/search-users');
+var UserActions =     require('actions/user');
+var SearchUserStore = require('stores/search-users');
 
 var Search = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],

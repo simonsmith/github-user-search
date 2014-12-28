@@ -16,7 +16,7 @@ module.exports = Reflux.createStore({
     return b.stargazers_count - a.stargazers_count;
   },
 
-  trimObjectKeys: function(repo) {
+  trimData: function(repo) {
     return pick(repo,
       'id',
       'name',
@@ -39,7 +39,7 @@ module.exports = Reflux.createStore({
         data = data
           .filter(this.removeForks)
           .sort(this.sortByPopular)
-          .map(this.trimObjectKeys)
+          .map(this.trimData)
           .slice(0, 5);
 
         this.trigger({

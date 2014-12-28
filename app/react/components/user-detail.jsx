@@ -4,9 +4,9 @@ var Navigation =   Router.Navigation;
 var State =        Router.State;
 var Reflux =       require('reflux');
 
-var UserActions =  require('../actions/user');
-var ProfileStore = require('../stores/profile');
-var RepoStore =    require('../stores/repos');
+var UserActions =  require('actions/user');
+var ProfileStore = require('stores/profile');
+var RepoStore =    require('stores/repos');
 
 var Profile =      require('./profile.jsx');
 var Repos =        require('./repos.jsx');

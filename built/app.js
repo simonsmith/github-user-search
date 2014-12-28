@@ -330,6 +330,8 @@
 	var UserActions = __webpack_require__(8);
 	var pick =        __webpack_require__(259);
 	var map =         __webpack_require__(272);
+	var cache =       __webpack_require__(362);
+
 
 	module.exports = Reflux.createStore({
 	  init: function() {
@@ -344,20 +346,7 @@
 	    return data;
 	  },
 
-	  fetchFromCache: function(query) {
-	    var cached = sessionStorage.getItem(JSON.stringify(query));
-
-	    if (cached) {
-	      this.trigger({
-	        results: JSON.parse(cached),
-	        query: query
-	      });
-	    }
-
-	    return !!cached;
-	  },
-
-	  fetchFromServer: function(query) {
+	  getFromServer: function(query) {
 	    req({
 	      url: 'https://api.github.com/search/users',
 	      data: query,
@@ -368,7 +357,7 @@
 	          results: data,
 	          query: query
 	        });
-	        sessionStorage.setItem(JSON.stringify(query), JSON.stringify(this.filterResults(data)));
+	        cache.setItem(JSON.stringify(query), this.filterResults(data));
 	      }.bind(this))
 	      .fail(function(xhr) {
 	        this.trigger({
@@ -382,8 +371,15 @@
 	  },
 
 	  onSearchUsers: function(query) {
-	    if (!this.fetchFromCache.call(this, query)) {
-	      this.fetchFromServer.call(this, query);
+	    var cached = cache.getItem(JSON.stringify(query));
+
+	    if (cached) {
+	      this.trigger({
+	        results: cached,
+	        query: query
+	      });
+	    } else {
+	      this.getFromServer(query);
 	    }
 	  }
 	});
@@ -30282,7 +30278,7 @@
 	    return b.stargazers_count - a.stargazers_count;
 	  },
 
-	  trimObjectKeys: function(repo) {
+	  trimData: function(repo) {
 	    return pick(repo,
 	      'id',
 	      'name',
@@ -30305,7 +30301,7 @@
 	        data = data
 	          .filter(this.removeForks)
 	          .sort(this.sortByPopular)
-	          .map(this.trimObjectKeys)
+	          .map(this.trimData)
 	          .slice(0, 5);
 
 	        this.trigger({
@@ -30417,6 +30413,45 @@
 
 	module.exports = Repos;
 
+
+/***/ },
+/* 361 */,
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	  setItem: setItem,
+	  getItem: getItem,
+	  removeItem: removeItem
+	};
+
+	function getItem(key) {
+	  var item = sessionStorage.getItem(key);
+
+	  try {
+	    item = JSON.parse(item);
+	  } catch (e) {}
+
+	  return item;
+	}
+
+	function setItem(key, value) {
+	  var type = toType(value);
+
+	  if (/object|array/.test(type)) {
+	    value = JSON.stringify(value);
+	  }
+
+	  sessionStorage.setItem(key, value);
+	}
+
+	function removeItem(key) {
+	  sessionStorage.removeItem(key);
+	}
+
+	function toType(obj) {
+	  return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
+	}
 
 /***/ }
 /******/ ])
