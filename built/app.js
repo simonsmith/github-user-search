@@ -30421,7 +30421,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React =       __webpack_require__(10);
-	var ProfileStat = __webpack_require__(279);
+	var Stat =        __webpack_require__(284);
 	var map =         __webpack_require__(22);
 	var uniqueId =    __webpack_require__(281);
 
@@ -30430,7 +30430,7 @@
 	    return map(this.props.stats, function(value, key) {
 	      return (
 	        React.createElement("li", {key: uniqueId(), className: "ProfileStatGroup-item"}, 
-	          React.createElement(ProfileStat, {value: value, title: key})
+	          React.createElement(Stat, {value: value, title: key})
 	        )
 	      );
 	    });
@@ -30449,26 +30449,7 @@
 
 
 /***/ },
-/* 279 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */var React = __webpack_require__(10);
-
-	var ProfileStat = React.createClass({displayName: 'ProfileStat',
-	  render: function() {
-	    return (
-	      React.createElement("div", {className: "ProfileStat"}, 
-	        React.createElement("span", {className: "ProfileStat-value"}, this.props.value), 
-	        React.createElement("span", {className: "ProfileStat-title"}, this.props.title)
-	      )
-	    )
-	  }
-	});
-
-	module.exports = ProfileStat;
-
-
-/***/ },
+/* 279 */,
 /* 280 */,
 /* 281 */
 /***/ function(module, exports, __webpack_require__) {
@@ -30558,6 +30539,26 @@
 	});
 
 	module.exports = Repo;
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(10);
+
+	var Stat = React.createClass({displayName: 'Stat',
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "Stat"}, 
+	        React.createElement("span", {className: "Stat-value"}, this.props.value), 
+	        React.createElement("span", {className: "Stat-title"}, this.props.title)
+	      )
+	    )
+	  }
+	});
+
+	module.exports = Stat;
+
 
 /***/ }
 /******/ ])

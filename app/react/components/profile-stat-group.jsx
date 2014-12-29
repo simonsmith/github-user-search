@@ -1,5 +1,5 @@
 var React =       require('react');
-var ProfileStat = require('./profile-stat.jsx');
+var Stat =        require('./stat.jsx');
 var map =         require('lodash-node/modern/collections/map');
 var uniqueId =    require('lodash-node/modern/utilities/uniqueId');
 
@@ -8,7 +8,7 @@ var ProfileStatGroup = React.createClass({
     return map(this.props.stats, function(value, key) {
       return (
         <li key={uniqueId()} className="ProfileStatGroup-item">
-          <ProfileStat value={value} title={key} />
+          <Stat value={value} title={key} />
         </li>
       );
     });

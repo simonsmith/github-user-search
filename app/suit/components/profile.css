@@ -1,7 +1,7 @@
 /** @define Profile; use strict */
 
 @import "suitcss-utils-layout";
-@import "./profile-stat.css";
+@import "./stat.css";
 @import "./profile-stat-group.css";
 @import "../utils/img.css";
 
