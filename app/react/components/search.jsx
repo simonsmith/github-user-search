@@ -27,7 +27,8 @@ var Search = React.createClass({
     event.preventDefault();
 
     this.transitionTo('users', {}, {
-      q: this.refs.searchForm.getSearchTerm()
+      q: this.refs.searchForm.getSearchTerm(),
+      page: 1
     });
   },
 

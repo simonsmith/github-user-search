@@ -119,7 +119,8 @@
 	    event.preventDefault();
 
 	    this.transitionTo('users', {}, {
-	      q: this.refs.searchForm.getSearchTerm()
+	      q: this.refs.searchForm.getSearchTerm(),
+	      page: 1
 	    });
 	  },
 
@@ -453,7 +454,9 @@
 	          React.createElement("img", {className: "Profile-avatarImg u-imgResponsive", src: this.props.user.avatar_url, width: "190", height: "190"})
 	        ), 
 	        React.createElement("div", {className: "Profile-body"}, 
-	          React.createElement("h2", {className: "Profile-name"}, this.props.user.name), 
+	          React.createElement("h2", {className: "Profile-name"}, this.props.user.name, 
+	            React.createElement("small", null, React.createElement("a", {href: this.props.user.html_url, className: "Profile-externalUrl"}, "View on Github"))
+	          ), 
 	          React.createElement("div", {className: "Profile-userInfo"}, 
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.login), 
 	            React.createElement("p", {className: "Profile-userItem"}, this.props.user.location), 
@@ -461,8 +464,7 @@
 	          ), 
 	          React.createElement("div", {className: "Profile-wrapProfileStatGroup"}, 
 	            React.createElement(ProfileStatGroup, {stats: stats})
-	          ), 
-	          React.createElement("a", {href: this.props.user.html_url, className: "Profile-externalUrl"}, "View on Github")
+	          )
 	        )
 	      )
 	    )

@@ -15,7 +15,9 @@ var Profile = React.createClass({
           <img className="Profile-avatarImg u-imgResponsive" src={this.props.user.avatar_url} width="190" height="190" />
         </div>
         <div className="Profile-body">
-          <h2 className="Profile-name">{this.props.user.name}</h2>
+          <h2 className="Profile-name">{this.props.user.name}
+            <small><a href={this.props.user.html_url} className="Profile-externalUrl">View on Github</a></small>
+          </h2>
           <div className="Profile-userInfo">
             <p className="Profile-userItem">{this.props.user.login}</p>
             <p className="Profile-userItem">{this.props.user.location}</p>
@@ -24,7 +26,6 @@ var Profile = React.createClass({
           <div className="Profile-wrapProfileStatGroup">
             <ProfileStatGroup stats={stats} />
           </div>
-          <a href={this.props.user.html_url} className="Profile-externalUrl">View on Github</a>
         </div>
       </div>
     )

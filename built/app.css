@@ -2049,11 +2049,10 @@ input[type="search"] {
 }
 
 .Profile-externalUrl {
-  position: absolute;
   text-transform: lowercase;
   font-size: .875rem;
-  top: 5px;
-  right: 0;
+  font-weight: normal;
+  margin-left: 10px;
 }
 
 @media (min-width: 36.25em) {
