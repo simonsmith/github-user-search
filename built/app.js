@@ -193,7 +193,7 @@
 	var RepoStore =    __webpack_require__(14);
 
 	var Profile =      __webpack_require__(8);
-	var Repos =        __webpack_require__(9);
+	var Repos =        __webpack_require__(282);
 
 	var UserDetail = React.createClass({displayName: 'UserDetail',
 	  mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -228,14 +228,19 @@
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "UserDetail"}, 
-	        React.createElement("h1", {className: "u-hiddenVisually"}, "Github user detail"), 
-	        React.createElement("div", {className: "UserDetail-item UserDetail-header"}, 
+	        React.createElement("header", {className: "UserDetail-item UserDetail-header"}, 
+	          React.createElement("h1", {className: "u-hiddenVisually"}, "Github user detail"), 
 	          React.createElement("div", {className: "Container"}, 
 	            React.createElement(Profile, {user: this.state.user})
 	          )
 	        ), 
 	        React.createElement("div", {className: "UserDetail-item Container"}, 
-	          React.createElement(Repos, {repos: this.state.repos})
+	          React.createElement("div", {className: "Grid"}, 
+	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
+	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Popular Repositories"), 
+	              React.createElement(Repos, {repos: this.state.repos})
+	            )
+	          )
 	        )
 	      )
 	    )
@@ -468,26 +473,7 @@
 
 
 /***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */var React = __webpack_require__(10);
-
-	var Repos = React.createClass({displayName: 'Repos',
-	  render: function() {
-	    return (
-	      React.createElement("div", {className: "Repos"}, 
-	        React.createElement("h2", null, "Popular Repositories"), 
-	        this.props.repos
-	      )
-	    )
-	  }
-	});
-
-	module.exports = Repos;
-
-
-/***/ },
+/* 9 */,
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -662,8 +648,7 @@
 	      'stargazers_count',
 	      'watchers_count',
 	      'language',
-	      'forks_count',
-	      'homepage'
+	      'forks_count'
 	    )
 	  },
 
@@ -30521,6 +30506,56 @@
 
 	module.exports = uniqueId;
 
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(10);
+	var Repo =  __webpack_require__(283);
+	var map =   __webpack_require__(22);
+
+	var RepoList = React.createClass({displayName: 'RepoList',
+	  render: function() {
+	    var repos = map(this.props.repos, function(repo) {
+	      return (
+	        React.createElement("li", {className: "RepoList-item", key: repo.id}, 
+	          React.createElement(Repo, {data: repo})
+	        )
+	      );
+	    });
+
+	    return (
+	      React.createElement("ul", {className: "RepoList"}, 
+	        repos
+	      )
+	    )
+	  }
+	});
+
+	module.exports = RepoList;
+
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(10);
+
+	var Repo = React.createClass({displayName: 'Repo',
+	  render: function() {
+	    return (
+	      React.createElement("div", {className: "Repo"}, 
+	        React.createElement("a", {className: "Repo-link", href: this.props.data.html_url}, 
+	          React.createElement("h3", {className: "Repo-name"}, this.props.data.name), 
+	          React.createElement("p", {className: "Repo-description"}, this.props.data.description)
+	        )
+	      )
+	    )
+	  }
+	});
+
+	module.exports = Repo;
 
 /***/ }
 /******/ ])

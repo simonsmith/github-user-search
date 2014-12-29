@@ -9,7 +9,7 @@ var ProfileStore = require('stores/profile');
 var RepoStore =    require('stores/repos');
 
 var Profile =      require('./profile.jsx');
-var Repos =        require('./repos.jsx');
+var Repos =        require('./repo-list.jsx');
 
 var UserDetail = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -44,14 +44,19 @@ var UserDetail = React.createClass({
   render: function() {
     return (
       <div className="UserDetail">
-        <h1 className="u-hiddenVisually">Github user detail</h1>
-        <div className="UserDetail-item UserDetail-header">
+        <header className="UserDetail-item UserDetail-header">
+          <h1 className="u-hiddenVisually">Github user detail</h1>
           <div className="Container">
             <Profile user={this.state.user} />
           </div>
-        </div>
+        </header>
         <div className="UserDetail-item Container">
-          <Repos repos={this.state.repos} />
+          <div className="Grid">
+            <div className="Grid-cell u-sm-size1of2">
+              <h2 className="UserDetail-itemHeader">Popular Repositories</h2>
+              <Repos repos={this.state.repos} />
+            </div>
+          </div>
         </div>
       </div>
     )

@@ -26,8 +26,7 @@ module.exports = Reflux.createStore({
       'stargazers_count',
       'watchers_count',
       'language',
-      'forks_count',
-      'homepage'
+      'forks_count'
     )
   },
 
