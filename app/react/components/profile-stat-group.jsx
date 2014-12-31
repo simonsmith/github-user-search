@@ -8,7 +8,7 @@ var ProfileStatGroup = React.createClass({
     return map(this.props.stats, function(value, key) {
       return (
         <li key={uniqueId()} className="ProfileStatGroup-item">
-          <Stat value={value} title={key} />
+          <Stat value={value} title={key} className="Stat--large" />
         </li>
       );
     });

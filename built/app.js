@@ -30430,7 +30430,7 @@
 	    return map(this.props.stats, function(value, key) {
 	      return (
 	        React.createElement("li", {key: uniqueId(), className: "ProfileStatGroup-item"}, 
-	          React.createElement(Stat, {value: value, title: key})
+	          React.createElement(Stat, {value: value, title: key, className: "Stat--large"})
 	        )
 	      );
 	    });
@@ -30544,12 +30544,13 @@
 /* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var React = __webpack_require__(10);
+	/** @jsx React.DOM */var React =       __webpack_require__(10);
+	var joinClasses = __webpack_require__(285);
 
 	var Stat = React.createClass({displayName: 'Stat',
 	  render: function() {
 	    return (
-	      React.createElement("div", {className: "Stat"}, 
+	      React.createElement("div", {className: joinClasses('Stat', this.props.className)}, 
 	        React.createElement("span", {className: "Stat-value"}, this.props.value), 
 	        React.createElement("span", {className: "Stat-title"}, this.props.title)
 	      )
@@ -30559,6 +30560,50 @@
 
 	module.exports = Stat;
 
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule joinClasses
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * Combines multiple className strings into one.
+	 * http://jsperf.com/joinclasses-args-vs-array
+	 *
+	 * @param {...?string} classes
+	 * @return {string}
+	 */
+	function joinClasses(className/*, ... */) {
+	  if (!className) {
+	    className = '';
+	  }
+	  var nextClass;
+	  var argLength = arguments.length;
+	  if (argLength > 1) {
+	    for (var ii = 1; ii < argLength; ii++) {
+	      nextClass = arguments[ii];
+	      if (nextClass) {
+	        className = (className ? className + ' ' : '') + nextClass;
+	      }
+	    }
+	  }
+	  return className;
+	}
+
+	module.exports = joinClasses;
 
 /***/ }
 /******/ ])
