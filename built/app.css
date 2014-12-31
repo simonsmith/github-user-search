@@ -2077,6 +2077,25 @@ input[type="search"] {
 
 /** @define Repo; use strict */
 
+.Repo {
+  position: relative;
+}
+
+.Repo-name {
+  margin-bottom: .3125rem;
+}
+
+.Repo-description {
+  font-size: .9375rem;
+  max-width: 85%;
+}
+
+.Repo-wrapStat {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
 .Repo-link {
   color: inherit;
 }

@@ -30530,8 +30530,10 @@
 	      React.createElement("div", {className: "Repo"}, 
 	        React.createElement("a", {className: "Repo-link u-linkBlock", href: this.props.data.html_url}, 
 	          React.createElement("h3", {className: "Repo-name"}, this.props.data.name), 
-	          React.createElement("p", {className: "Repo-description"}, this.props.data.description), 
-	          React.createElement(Stat, {value: this.props.data.stargazers_count, title: "Stars"})
+	          React.createElement("p", {className: "Repo-description u-textTruncate"}, this.props.data.description), 
+	          React.createElement("div", {className: "Repo-wrapStat"}, 
+	            React.createElement(Stat, {value: this.props.data.stargazers_count, title: "Stars"})
+	          )
 	        )
 	      )
 	    )
