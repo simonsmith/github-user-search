@@ -4,6 +4,7 @@
 @import "suitcss-components-grid";
 @import "suitcss-utils-size";
 @import "./profile.css";
+@import "./repo-list.css";
 
 .UserDetail-item {
   margin-bottom: 1.5rem;
@@ -13,6 +14,10 @@
   padding-top: 1.25rem;
   padding-bottom: 1rem;
   background-color: #f2f2f2;
+  margin-bottom: 1rem;
+}
+
+.UserDetail-itemHeader {
   margin-bottom: 1rem;
 }
 

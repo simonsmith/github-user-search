@@ -1,0 +1,7 @@
+/** @define Repo; use strict */
+
+@import "suitcss-utils-link";
+
+.Repo-link {
+  color: inherit;
+}

@@ -1992,9 +1992,12 @@ input[type="search"] {
   text-align: center;
 }
 
+.Stat--large .Stat-value {
+  font-size: 1.375rem;
+}
+
 .Stat-value {
   display: block;
-  font-size: 1.375rem;
 }
 
 .Stat-title {
@@ -2070,6 +2073,18 @@ input[type="search"] {
   }
 }
 
+/** @define RepoList; use strict */
+
+/** @define Repo; use strict */
+
+.Repo-link {
+  color: inherit;
+}
+
+.RepoList-item {
+  margin-bottom: 1rem;
+}
+
 .UserDetail-item {
   margin-bottom: 1.5rem;
 }
@@ -2078,6 +2093,10 @@ input[type="search"] {
   padding-top: 1.25rem;
   padding-bottom: 1rem;
   background-color: #f2f2f2;
+  margin-bottom: 1rem;
+}
+
+.UserDetail-itemHeader {
   margin-bottom: 1rem;
 }
 

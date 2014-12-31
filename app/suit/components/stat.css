@@ -4,9 +4,12 @@
   text-align: center;
 }
 
+.Stat--large .Stat-value {
+  font-size: 1.375rem;
+}
+
 .Stat-value {
   display: block;
-  font-size: 1.375rem;
 }
 
 .Stat-title {

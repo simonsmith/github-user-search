@@ -194,7 +194,7 @@
 	var RepoStore =    __webpack_require__(14);
 
 	var Profile =      __webpack_require__(8);
-	var Repos =        __webpack_require__(282);
+	var RepoList =     __webpack_require__(282);
 
 	var UserDetail = React.createClass({displayName: 'UserDetail',
 	  mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -239,7 +239,7 @@
 	          React.createElement("div", {className: "Grid"}, 
 	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
 	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Popular Repositories"), 
-	              React.createElement(Repos, {repos: this.state.repos})
+	              React.createElement(RepoList, {repos: this.state.repos})
 	            )
 	          )
 	        )
@@ -648,9 +648,7 @@
 	      'html_url',
 	      'description',
 	      'stargazers_count',
-	      'watchers_count',
-	      'language',
-	      'forks_count'
+	      'language'
 	    )
 	  },
 
@@ -30524,14 +30522,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(10);
+	var Stat =  __webpack_require__(284);
 
 	var Repo = React.createClass({displayName: 'Repo',
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Repo"}, 
-	        React.createElement("a", {className: "Repo-link", href: this.props.data.html_url}, 
+	        React.createElement("a", {className: "Repo-link u-linkBlock", href: this.props.data.html_url}, 
 	          React.createElement("h3", {className: "Repo-name"}, this.props.data.name), 
-	          React.createElement("p", {className: "Repo-description"}, this.props.data.description)
+	          React.createElement("p", {className: "Repo-description"}, this.props.data.description), 
+	          React.createElement(Stat, {value: this.props.data.stargazers_count, title: "Stars"})
 	        )
 	      )
 	    )
