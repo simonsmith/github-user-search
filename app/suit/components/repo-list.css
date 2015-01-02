@@ -4,4 +4,10 @@
 
 .RepoList-item {
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dotted #ddd;
+}
+
+.RepoList-item:last-child {
+  border-bottom: none;
 }

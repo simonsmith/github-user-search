@@ -2092,16 +2092,30 @@ input[type="search"] {
 
 .Repo-wrapStat {
   position: absolute;
-  top: 6px;
+  top: 25%;
   right: 10px;
 }
 
 .Repo-link {
+  padding: .625rem;
+  border-radius: 5px;
+  -webkit-transition: background-color .2s ease;
+  transition: background-color .2s ease;
   color: inherit;
+}
+
+.Repo-link:hover {
+  background-color: #f4f4f4;
 }
 
 .RepoList-item {
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dotted #ddd;
+}
+
+.RepoList-item:last-child {
+  border-bottom: none;
 }
 
 .UserDetail-item {

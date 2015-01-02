@@ -18,10 +18,17 @@
 
 .Repo-wrapStat {
   position: absolute;
-  top: 6px;
+  top: 25%;
   right: 10px;
 }
 
 .Repo-link {
+  padding: .625rem;
+  border-radius: 5px;
+  transition: background-color .2s ease;
   color: inherit;
+}
+
+.Repo-link:hover {
+  background-color: #f4f4f4;
 }
