@@ -183,18 +183,19 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var React =        __webpack_require__(4);
-	var Router =       __webpack_require__(9);
-	var Navigation =   Router.Navigation;
-	var State =        Router.State;
-	var Reflux =       __webpack_require__(19);
+	/** @jsx React.DOM */var React =           __webpack_require__(4);
+	var Router =          __webpack_require__(9);
+	var Navigation =      Router.Navigation;
+	var State =           Router.State;
+	var Reflux =          __webpack_require__(19);
 
-	var UserActions =  __webpack_require__(12);
-	var ProfileStore = __webpack_require__(14);
-	var RepoStore =    __webpack_require__(15);
+	var UserActions =     __webpack_require__(12);
+	var ProfileStore =    __webpack_require__(14);
+	var RepoStore =       __webpack_require__(15);
+	var StarredStore =    __webpack_require__(283);
 
-	var Profile =      __webpack_require__(10);
-	var RepoList =     __webpack_require__(11);
+	var Profile =         __webpack_require__(10);
+	var RepoList =        __webpack_require__(11);
 
 	var UserDetail = React.createClass({displayName: 'UserDetail',
 	  mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -202,7 +203,8 @@
 	  getInitialState: function() {
 	    return {
 	      user: {},
-	      repos: []
+	      repos: [],
+	      starred: []
 	    };
 	  },
 
@@ -215,8 +217,9 @@
 	  },
 
 	  componentDidMount: function() {
-	    this.listenTo(ProfileStore, this.onReceiveData);
-	    this.listenTo(RepoStore, this.onReceiveData);
+	    [ProfileStore, RepoStore, StarredStore].forEach(function(store) {
+	      this.listenTo(store, this.onReceiveData);
+	    }, this);
 
 	    UserActions.userProfile(this.getParams().username);
 	  },
@@ -231,10 +234,13 @@
 	          )
 	        ), 
 	        React.createElement("div", {className: "UserDetail-item Container"}, 
-	          React.createElement("div", {className: "Grid"}, 
+	          React.createElement("div", {className: "Grid Grid--withGutter"}, 
 	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
 	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Popular Repositories"), 
 	              React.createElement(RepoList, {repos: this.state.repos})
+	            ), 
+	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
+	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Recently Starred")
 	            )
 	          )
 	        )
@@ -542,8 +548,7 @@
 
 	module.exports = {
 	  searchUser: Reflux.createAction(),
-	  userProfile: Reflux.createAction(),
-	  userRepos: Reflux.createAction()
+	  userProfile: Reflux.createAction()
 	};
 
 
@@ -30602,6 +30607,61 @@
 	module.exports = toArray;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(115)))
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var req =          __webpack_require__(97);
+	var Reflux =       __webpack_require__(19);
+	var ProfileStore = __webpack_require__(14);
+	var pick =         __webpack_require__(40);
+	var cache =        __webpack_require__(41);
+
+	module.exports = Reflux.createStore({
+	  init: function() {
+	    this.listenTo(ProfileStore, this.onUserProfile);
+	  },
+
+	  cacheKey: function(username) {
+	    return 'starred:{username}'.replace('{username}', username);
+	  },
+
+	  getStarredData: function(url, username) {
+	    req({
+	      url: url.replace(/\{\/[a-z]+}/g, ''),
+	      type: 'json'
+	    })
+	      .then(function(data) {
+	        data = data.map(function(repo) {
+	          return pick(repo,
+	            'id',
+	            'name',
+	            'html_url',
+	            'description'
+	          )
+	        });
+
+	        this.trigger({
+	          starred: data
+	        });
+
+	        cache.setItem(this.cacheKey(username), data);
+	      }.bind(this));
+	  },
+
+	  onUserProfile: function(data) {
+	    var cached = cache.getItem(this.cacheKey(data.user.login));
+
+	    if (cached) {
+	      this.trigger({
+	        starred: cached
+	      });
+	    } else {
+	      this.getStarredData(data.user.starred_url, data.user.login);
+	    }
+	  }
+	});
 
 /***/ }
 /******/ ])

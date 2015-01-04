@@ -1,15 +1,16 @@
-var React =        require('react');
-var Router =       require('react-router');
-var Navigation =   Router.Navigation;
-var State =        Router.State;
-var Reflux =       require('reflux');
+var React =           require('react');
+var Router =          require('react-router');
+var Navigation =      Router.Navigation;
+var State =           Router.State;
+var Reflux =          require('reflux');
 
-var UserActions =  require('actions/user');
-var ProfileStore = require('stores/profile');
-var RepoStore =    require('stores/repos');
+var UserActions =     require('actions/user');
+var ProfileStore =    require('stores/profile');
+var RepoStore =       require('stores/repos');
+var StarredStore =    require('stores/starred');
 
-var Profile =      require('./profile.jsx');
-var RepoList =     require('./repo-list.jsx');
+var Profile =         require('./profile.jsx');
+var RepoList =        require('./repo-list.jsx');
 
 var UserDetail = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -17,7 +18,8 @@ var UserDetail = React.createClass({
   getInitialState: function() {
     return {
       user: {},
-      repos: []
+      repos: [],
+      starred: []
     };
   },
 
@@ -30,8 +32,9 @@ var UserDetail = React.createClass({
   },
 
   componentDidMount: function() {
-    this.listenTo(ProfileStore, this.onReceiveData);
-    this.listenTo(RepoStore, this.onReceiveData);
+    [ProfileStore, RepoStore, StarredStore].forEach(function(store) {
+      this.listenTo(store, this.onReceiveData);
+    }, this);
 
     UserActions.userProfile(this.getParams().username);
   },
@@ -46,10 +49,13 @@ var UserDetail = React.createClass({
           </div>
         </header>
         <div className="UserDetail-item Container">
-          <div className="Grid">
+          <div className="Grid Grid--withGutter">
             <div className="Grid-cell u-sm-size1of2">
               <h2 className="UserDetail-itemHeader">Popular Repositories</h2>
               <RepoList repos={this.state.repos} />
+            </div>
+            <div className="Grid-cell u-sm-size1of2">
+              <h2 className="UserDetail-itemHeader">Recently Starred</h2>
             </div>
           </div>
         </div>
