@@ -38,11 +38,8 @@
   margin-top: 15px;
 }
 
-.Profile-externalUrl {
-  text-transform: lowercase;
-  font-size: .875rem;
-  font-weight: normal;
-  margin-left: 10px;
+.Profile-link {
+  color: inherit;
 }
 
 @media (--sm-viewport) {
