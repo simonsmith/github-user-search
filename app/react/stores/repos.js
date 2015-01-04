@@ -1,12 +1,12 @@
-var req =         require('reqwest');
-var Reflux =      require('reflux');
-var UserActions = require('../actions/user');
-var pick =        require('lodash-node/modern/objects/pick');
-var cache =       require('mixins/cache');
+var req =          require('reqwest');
+var Reflux =       require('reflux');
+var ProfileStore = require('stores/profile');
+var pick =         require('lodash-node/modern/objects/pick');
+var cache =        require('mixins/cache');
 
 module.exports = Reflux.createStore({
   init: function() {
-    this.listenTo(UserActions.userRepos, this.onUserRepos);
+    this.listenTo(ProfileStore, this.onUserProfile);
   },
 
   removeForks: function(item) {
@@ -32,9 +32,9 @@ module.exports = Reflux.createStore({
     return 'repos:{username}'.replace('{username}', username);
   },
 
-  getData: function(username) {
+  getRepoData: function(url, username) {
     req({
-      url: 'https://api.github.com/users/{username}/repos'.replace('{username}', username),
+      url: url,
       type: 'json'
     })
       .then(function(data) {
@@ -52,15 +52,15 @@ module.exports = Reflux.createStore({
       }.bind(this));
   },
 
-  onUserRepos: function(username) {
-    var cached = cache.getItem(this.cacheKey(username));
+  onUserProfile: function(data) {
+    var cached = cache.getItem(this.cacheKey(data.user.login));
 
     if (cached) {
       this.trigger({
         repos: cached
       });
     } else {
-      this.getData(username);
+      this.getRepoData(data.user.repos_url, data.user.login);
     }
   }
 });

@@ -19,7 +19,7 @@ module.exports = Reflux.createStore({
     return data;
   },
 
-  getData: function(query) {
+  getProfileData: function(query) {
     req({
       url: 'https://api.github.com/search/users',
       data: query,
@@ -53,7 +53,7 @@ module.exports = Reflux.createStore({
         query: query
       });
     } else {
-      this.getData(query);
+      this.getProfileData(query);
     }
   }
 });

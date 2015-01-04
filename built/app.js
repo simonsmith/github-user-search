@@ -208,7 +208,6 @@
 
 	  getUserData: function(user) {
 	    UserActions.userProfile(user);
-	    UserActions.userRepos(user);
 	  },
 
 	  onReceiveData: function(data) {
@@ -577,7 +576,7 @@
 	    return data;
 	  },
 
-	  getData: function(query) {
+	  getProfileData: function(query) {
 	    req({
 	      url: 'https://api.github.com/search/users',
 	      data: query,
@@ -611,7 +610,7 @@
 	        query: query
 	      });
 	    } else {
-	      this.getData(query);
+	      this.getProfileData(query);
 	    }
 	  }
 	});
@@ -636,7 +635,7 @@
 	    return 'profile:{username}'.replace('{username}', username);
 	  },
 
-	  getData: function(username) {
+	  getProfileData: function(username) {
 	    req({
 	      url: 'https://api.github.com/users/{username}'.replace('{username}', username),
 	      type: 'json'
@@ -647,6 +646,8 @@
 	          'blog',
 	          'followers',
 	          'following',
+	          'repos_url',
+	          'starred_url',
 	          'location',
 	          'login',
 	          'name',
@@ -670,7 +671,7 @@
 	        user: cached
 	      });
 	    } else {
-	      this.getData(username);
+	      this.getProfileData(username);
 	    }
 	  }
 	});
@@ -679,15 +680,15 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var req =         __webpack_require__(97);
-	var Reflux =      __webpack_require__(19);
-	var UserActions = __webpack_require__(12);
-	var pick =        __webpack_require__(40);
-	var cache =       __webpack_require__(41);
+	var req =          __webpack_require__(97);
+	var Reflux =       __webpack_require__(19);
+	var ProfileStore = __webpack_require__(14);
+	var pick =         __webpack_require__(40);
+	var cache =        __webpack_require__(41);
 
 	module.exports = Reflux.createStore({
 	  init: function() {
-	    this.listenTo(UserActions.userRepos, this.onUserRepos);
+	    this.listenTo(ProfileStore, this.onUserProfile);
 	  },
 
 	  removeForks: function(item) {
@@ -713,9 +714,9 @@
 	    return 'repos:{username}'.replace('{username}', username);
 	  },
 
-	  getData: function(username) {
+	  getRepoData: function(url, username) {
 	    req({
-	      url: 'https://api.github.com/users/{username}/repos'.replace('{username}', username),
+	      url: url,
 	      type: 'json'
 	    })
 	      .then(function(data) {
@@ -733,15 +734,15 @@
 	      }.bind(this));
 	  },
 
-	  onUserRepos: function(username) {
-	    var cached = cache.getItem(this.cacheKey(username));
+	  onUserProfile: function(data) {
+	    var cached = cache.getItem(this.cacheKey(data.user.login));
 
 	    if (cached) {
 	      this.trigger({
 	        repos: cached
 	      });
 	    } else {
-	      this.getData(username);
+	      this.getRepoData(data.user.repos_url, data.user.login);
 	    }
 	  }
 	});

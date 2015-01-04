@@ -13,7 +13,7 @@ module.exports = Reflux.createStore({
     return 'profile:{username}'.replace('{username}', username);
   },
 
-  getData: function(username) {
+  getProfileData: function(username) {
     req({
       url: 'https://api.github.com/users/{username}'.replace('{username}', username),
       type: 'json'
@@ -24,6 +24,8 @@ module.exports = Reflux.createStore({
           'blog',
           'followers',
           'following',
+          'repos_url',
+          'starred_url',
           'location',
           'login',
           'name',
@@ -47,7 +49,7 @@ module.exports = Reflux.createStore({
         user: cached
       });
     } else {
-      this.getData(username);
+      this.getProfileData(username);
     }
   }
 });

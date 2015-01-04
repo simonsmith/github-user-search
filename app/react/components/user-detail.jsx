@@ -23,7 +23,6 @@ var UserDetail = React.createClass({
 
   getUserData: function(user) {
     UserActions.userProfile(user);
-    UserActions.userRepos(user);
   },
 
   onReceiveData: function(data) {
