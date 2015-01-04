@@ -706,8 +706,7 @@
 	      'name',
 	      'html_url',
 	      'description',
-	      'stargazers_count',
-	      'language'
+	      'stargazers_count'
 	    )
 	  },
 
