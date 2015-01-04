@@ -56,6 +56,7 @@ var UserDetail = React.createClass({
             </div>
             <div className="Grid-cell u-sm-size1of2">
               <h2 className="UserDetail-itemHeader">Recently Starred</h2>
+              <RepoList repos={this.state.starred} />
             </div>
           </div>
         </div>

@@ -240,7 +240,8 @@
 	              React.createElement(RepoList, {repos: this.state.repos})
 	            ), 
 	            React.createElement("div", {className: "Grid-cell u-sm-size1of2"}, 
-	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Recently Starred")
+	              React.createElement("h2", {className: "UserDetail-itemHeader"}, "Recently Starred"), 
+	              React.createElement(RepoList, {repos: this.state.starred})
 	            )
 	          )
 	        )
@@ -1236,15 +1237,25 @@
 	var Stat =  __webpack_require__(83);
 
 	var Repo = React.createClass({displayName: 'Repo',
+	  renderStat: function() {
+	    if (this.props.data.stargazers_count) {
+	      return (
+	        React.createElement("div", {className: "Repo-wrapStat"}, 
+	          React.createElement(Stat, {value: this.props.data.stargazers_count, title: "Stars"})
+	        )
+	      )
+	    } else {
+	      return null;
+	    }
+	  },
+
 	  render: function() {
 	    return (
 	      React.createElement("div", {className: "Repo"}, 
 	        React.createElement("a", {className: "Repo-link u-linkBlock", href: this.props.data.html_url}, 
 	          React.createElement("h3", {className: "Repo-name"}, this.props.data.name), 
 	          React.createElement("p", {className: "Repo-description u-textTruncate"}, this.props.data.description), 
-	          React.createElement("div", {className: "Repo-wrapStat"}, 
-	            React.createElement(Stat, {value: this.props.data.stargazers_count, title: "Stars"})
-	          )
+	          this.renderStat()
 	        )
 	      )
 	    )
@@ -30639,7 +30650,7 @@
 	            'html_url',
 	            'description'
 	          )
-	        });
+	        }).slice(0, 5);
 
 	        this.trigger({
 	          starred: data

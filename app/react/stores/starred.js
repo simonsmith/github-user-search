@@ -26,7 +26,7 @@ module.exports = Reflux.createStore({
             'html_url',
             'description'
           )
-        });
+        }).slice(0, 5);
 
         this.trigger({
           starred: data
