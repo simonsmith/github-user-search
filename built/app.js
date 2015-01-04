@@ -206,23 +206,19 @@
 	    };
 	  },
 
-	  getUserData: function(user) {
-	    UserActions.userProfile(user);
-	  },
-
 	  onReceiveData: function(data) {
 	    this.setState(data);
 	  },
 
 	  componentWillReceiveProps: function() {
-	    this.getUserData(this.getParams().username);
+	    UserActions.userProfile(this.getParams().username);
 	  },
 
 	  componentDidMount: function() {
 	    this.listenTo(ProfileStore, this.onReceiveData);
 	    this.listenTo(RepoStore, this.onReceiveData);
 
-	    this.getUserData(this.getParams().username);
+	    UserActions.userProfile(this.getParams().username);
 	  },
 
 	  render: function() {
