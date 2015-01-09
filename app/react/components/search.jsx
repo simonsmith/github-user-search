@@ -9,8 +9,9 @@ var SearchForm =      require('./search-form.jsx');
 var Pagination =      require('./pagination.jsx');
 var Results =         require('./results.jsx');
 var ResultsMessage =  require('./results-message.jsx');
-var UserActions =     require('actions/user');
-var SearchUserStore = require('stores/search-users');
+
+var User =            require('actions/user');
+var SearchStore =     require('stores/search');
 
 var Search = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -42,7 +43,7 @@ var Search = React.createClass({
     });
 
     if (!isEmpty(query)) {
-      UserActions.searchUser(query);
+      User.search(query);
     }
   },
 
@@ -56,7 +57,7 @@ var Search = React.createClass({
   },
 
   componentDidMount: function() {
-    this.listenTo(SearchUserStore, this.onResults);
+    this.listenTo(SearchStore, this.onResults);
 
     // Search if URL params are present on page render
     this.search(this.getQuery());

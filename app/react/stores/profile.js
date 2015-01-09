@@ -6,7 +6,7 @@ var cache =       require('mixins/cache');
 
 module.exports = Reflux.createStore({
   init: function() {
-    this.listenTo(UserActions.userProfile, this.onUserProfile);
+    //this.listenTo(UserActions.userProfile, this.onUserProfile);
   },
 
   cacheKey: function(username) {

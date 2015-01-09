@@ -14,7 +14,7 @@
     "pluralize": "^1.1.0",
     "react": "^0.12.2",
     "react-router": "^0.11.6",
-    "reflux": "^0.2.1",
+    "reflux": "^0.2.3",
     "reqwest": "^1.1.5",
     "suitcss-base": "^0.8.0",
     "suitcss-components-button": "^4.0.0",
@@ -30,6 +30,6 @@
     "gulp": "^3.8.10",
     "jsx-loader": "^0.12.2",
     "suitcss-preprocessor": "^0.4.0",
-    "webpack": "^1.4.14"
+    "webpack": "^1.4.15"
   }
 }
