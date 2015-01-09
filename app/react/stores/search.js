@@ -5,12 +5,12 @@ var map =         require('lodash-node/modern/collections/map');
 var cache =       require('mixins/cache');
 
 module.exports = Reflux.createStore({
-  init: function() {
+  init() {
     this.listenTo(User.search.completed, this.onCompleted);
     this.listenTo(User.search.failed, this.onFailed);
   },
 
-  onCompleted: function(query, data) {
+  onCompleted(query, data) {
     data = this.trimData(data);
     cache.setItem(JSON.stringify(query), data);
 
@@ -20,7 +20,7 @@ module.exports = Reflux.createStore({
     });
   },
 
-  onFailed: function(query, xhr) {
+  onFailed(query, xhr) {
     this.trigger({
       results: {
         items: [],
@@ -30,9 +30,9 @@ module.exports = Reflux.createStore({
     });
   },
 
-  trimData: function(data) {
+  trimData(data) {
     data = pick(data, 'items', 'total_count');
-    data.items = map(data.items, function(item) {
+    data.items = map(data.items, item => {
       return pick(item, 'avatar_url', 'id', 'login');
     });
     return data;

@@ -27,6 +27,8 @@
     "suitcss-utils-text": "^0.4.2"
   },
   "devDependencies": {
+    "6to5": "^2.9.3",
+    "6to5-loader": "^2.0.0",
     "gulp": "^3.8.10",
     "jsx-loader": "^0.12.2",
     "suitcss-preprocessor": "^0.4.0",

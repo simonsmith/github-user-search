@@ -1,6 +1,5 @@
-var req =         require('reqwest');
 var Reflux =      require('reflux');
-var UserActions = require('../actions/user');
+var User =        require('../actions/user');
 var pick =        require('lodash-node/modern/objects/pick');
 var cache =       require('mixins/cache');
 
