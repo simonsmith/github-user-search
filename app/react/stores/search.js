@@ -1,10 +1,8 @@
-var req =         require('reqwest');
 var Reflux =      require('reflux');
 var User =        require('actions/user');
 var pick =        require('lodash-node/modern/objects/pick');
 var map =         require('lodash-node/modern/collections/map');
 var cache =       require('mixins/cache');
-
 
 module.exports = Reflux.createStore({
   init: function() {
