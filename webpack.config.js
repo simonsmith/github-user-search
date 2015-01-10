@@ -4,8 +4,10 @@ module.exports = {
   },
   output: {
     path: './built',
-    filename: '[name].js'
+    filename: '[name].js',
+    sourceMapFilename: '[file].map'
   },
+  devtool: 'source-map',
   resolve: {
     modulesDirectories: [
       'node_modules',
