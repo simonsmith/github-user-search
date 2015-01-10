@@ -2359,9 +2359,16 @@
 
 	"use strict";
 	
-	var Reflux = __webpack_require__(12);
-	var req = __webpack_require__(172);
-	var cache = __webpack_require__(90);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var Reflux = _interopRequire(__webpack_require__(12));
+	
+	var req = _interopRequire(__webpack_require__(172));
+	
+	var getItem = __webpack_require__(90).getItem;
+	
 	
 	var User = Reflux.createActions({
 	  search: { asyncResult: true },
@@ -2371,7 +2378,7 @@
 	});
 	
 	User.search.listen(function (query) {
-	  var cachedData = cache.getItem(JSON.stringify(query));
+	  var cachedData = getItem(JSON.stringify(query));
 	
 	  if (cachedData) {
 	    return this.completed(query, cachedData);
@@ -2383,7 +2390,7 @@
 	    type: "json"
 	  }).then(this.completed.bind(this, query)).fail(this.failed.bind(this, query));
 	});
-
+	
 	module.exports = User;
 
 /***/ },
@@ -2392,12 +2399,19 @@
 
 	"use strict";
 	
-	var Reflux = __webpack_require__(12);
-	var User = __webpack_require__(36);
-	var pick = __webpack_require__(83);
-	var map = __webpack_require__(19);
-	var cache = __webpack_require__(90);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
 	
+	var Reflux = _interopRequire(__webpack_require__(12));
+	
+	var User = _interopRequire(__webpack_require__(36));
+	
+	var pick = _interopRequire(__webpack_require__(83));
+	
+	var map = _interopRequire(__webpack_require__(19));
+	
+	var setItem = __webpack_require__(90).setItem;
 	module.exports = Reflux.createStore({
 	  init: function init() {
 	    this.listenTo(User.search.completed, this.onCompleted);
@@ -2406,7 +2420,7 @@
 	
 	  onCompleted: function onCompleted(query, data) {
 	    data = this.trimData(data);
-	    cache.setItem(JSON.stringify(query), data);
+	    setItem(JSON.stringify(query), data);
 	
 	    this.trigger({
 	      results: data,
@@ -10988,12 +11002,6 @@
 
 	"use strict";
 	
-	module.exports = {
-	  setItem: setItem,
-	  getItem: getItem,
-	  removeItem: removeItem
-	};
-	
 	function getItem(key) {
 	  var item = sessionStorage.getItem(key);
 	
@@ -11021,6 +11029,10 @@
 	function toType(obj) {
 	  return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
 	}
+	
+	exports.getItem = getItem;
+	exports.setItem = setItem;
+	exports.removeItem = removeItem;
 
 /***/ },
 /* 91 */

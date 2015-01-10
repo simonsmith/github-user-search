@@ -1,9 +1,3 @@
-module.exports = {
-  setItem: setItem,
-  getItem: getItem,
-  removeItem: removeItem
-};
-
 function getItem(key) {
   var item = sessionStorage.getItem(key);
 
@@ -31,3 +25,5 @@ function removeItem(key) {
 function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
 }
+
+export { getItem, setItem, removeItem }

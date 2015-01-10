@@ -1,10 +1,10 @@
-var Reflux =      require('reflux');
-var User =        require('actions/user');
-var pick =        require('lodash-node/modern/objects/pick');
-var map =         require('lodash-node/modern/collections/map');
-var cache =       require('mixins/cache');
+import Reflux from 'reflux';
+import User from 'actions/user';
+import pick from 'lodash-node/modern/objects/pick';
+import map from 'lodash-node/modern/collections/map';
+import { setItem } from 'mixins/cache';
 
-module.exports = Reflux.createStore({
+export default Reflux.createStore({
   init() {
     this.listenTo(User.search.completed, this.onCompleted);
     this.listenTo(User.search.failed, this.onFailed);
@@ -12,11 +12,11 @@ module.exports = Reflux.createStore({
 
   onCompleted(query, data) {
     data = this.trimData(data);
-    cache.setItem(JSON.stringify(query), data);
+    setItem(JSON.stringify(query), data);
 
     this.trigger({
       results: data,
-      query: query
+      query
     });
   },
 
@@ -26,7 +26,7 @@ module.exports = Reflux.createStore({
         items: [],
         error: JSON.parse(xhr.responseText)
       },
-      query: query
+      query
     });
   },
 

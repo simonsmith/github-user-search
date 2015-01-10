@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
-var req =    require('reqwest');
-var cache =  require('mixins/cache');
+import Reflux from 'reflux';
+import req from 'reqwest';
+import { getItem } from 'mixins/cache';
 
 var User = Reflux.createActions({
   'search': { asyncResult: true },
@@ -10,7 +10,7 @@ var User = Reflux.createActions({
 });
 
 User.search.listen(function(query) {
-  var cachedData = cache.getItem(JSON.stringify(query));
+  var cachedData = getItem(JSON.stringify(query));
 
   if (cachedData) {
     return this.completed(query, cachedData);
@@ -25,4 +25,4 @@ User.search.listen(function(query) {
     .fail(this.failed.bind(this, query));
 });
 
-module.exports = User;
+export default User
