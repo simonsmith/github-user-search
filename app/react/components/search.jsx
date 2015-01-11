@@ -1,22 +1,20 @@
-var React =       require('react');
-var Router =      require('react-router');
-var Navigation =  Router.Navigation;
-var State =       Router.State;
-var Reflux =      require('reflux');
-var isEmpty =     require('lodash-node/modern/objects/isEmpty');
+import React from 'react';
+import Router, { Navigation, State } from 'react-router'
+import Reflux from 'reflux';
+import isEmpty from 'lodash-node/modern/objects/isEmpty';
 
-var SearchForm =      require('./search-form.jsx');
-var Pagination =      require('./pagination.jsx');
-var Results =         require('./results.jsx');
-var ResultsMessage =  require('./results-message.jsx');
+import SearchForm from './search-form.jsx';
+import Pagination from './pagination.jsx';
+import Results from './results.jsx';
+import ResultsMessage from './results-message.jsx';
 
-var User =            require('actions/user');
-var SearchStore =     require('stores/search');
+import User from 'actions/user';
+import SearchStore from 'stores/search';
 
 var Search = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       results: {
         items: []
@@ -24,7 +22,7 @@ var Search = React.createClass({
     };
   },
 
-  handleSearchFormSubmit: function(event) {
+  handleSearchFormSubmit(event) {
     event.preventDefault();
 
     this.transitionTo('users', {}, {
@@ -33,13 +31,13 @@ var Search = React.createClass({
     });
   },
 
-  search: function(query) {
+  search(query) {
     // Clear results before loading new set
     this.setState({
       results: {
         items: []
       },
-      query: query
+      query
     });
 
     if (!isEmpty(query)) {
@@ -47,23 +45,23 @@ var Search = React.createClass({
     }
   },
 
-  onResults: function(data) {
+  onResults(data) {
     this.setState(data);
   },
 
-  componentWillReceiveProps: function() {
+  componentWillReceiveProps() {
     // Search if route param changes
     this.search(this.getQuery());
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.listenTo(SearchStore, this.onResults);
 
     // Search if URL params are present on page render
     this.search(this.getQuery());
   },
 
-  render: function() {
+  render() {
     return (
       <div className="Search">
         <div className="Search-item Search-wrapSearchForm">
@@ -85,4 +83,4 @@ var Search = React.createClass({
   }
 });
 
-module.exports = Search;
+export default Search;
