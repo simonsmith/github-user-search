@@ -10,9 +10,11 @@ export default Reflux.createStore({
     this.listenTo(User.search.failed, this.onFailed);
   },
 
-  onCompleted(query, data) {
-    data = this.trimData(data);
-    setItem(JSON.stringify(query), data);
+  onCompleted(query, data, fromCache) {
+    if (!fromCache) {
+      data = this.trimData(data);
+      setItem(JSON.stringify(query), data);
+    }
 
     this.trigger({
       results: data,

@@ -13,7 +13,7 @@ User.search.listen(function(query) {
   var cachedData = getItem(JSON.stringify(query));
 
   if (cachedData) {
-    return this.completed(query, cachedData);
+    return this.completed(query, cachedData, true);
   }
 
   req({

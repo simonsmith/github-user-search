@@ -735,9 +735,11 @@
 	    this.listenTo(User.search.failed, this.onFailed);
 	  },
 	
-	  onCompleted: function onCompleted(query, data) {
-	    data = this.trimData(data);
-	    setItem(JSON.stringify(query), data);
+	  onCompleted: function onCompleted(query, data, fromCache) {
+	    if (!fromCache) {
+	      data = this.trimData(data);
+	      setItem(JSON.stringify(query), data);
+	    }
 	
 	    this.trigger({
 	      results: data,
