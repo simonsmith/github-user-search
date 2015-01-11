@@ -190,7 +190,7 @@
 	var State =           Router.State;
 	var Reflux =          __webpack_require__(12);
 	
-	var UserActions =     __webpack_require__(36);
+	var User =     __webpack_require__(36);
 	var ProfileStore =    __webpack_require__(38);
 	var RepoStore =       __webpack_require__(39);
 	var StarredStore =    __webpack_require__(40);
@@ -214,7 +214,7 @@
 	  },
 	
 	  componentWillReceiveProps: function() {
-	    UserActions.userProfile(this.getParams().username);
+	    User.profile(this.getParams().username);
 	  },
 	
 	  componentDidMount: function() {
@@ -222,7 +222,7 @@
 	      this.listenTo(store, this.onReceiveData);
 	    }, this);
 	
-	    UserActions.userProfile(this.getParams().username);
+	    User.profile(this.getParams().username);
 	  },
 	
 	  render: function() {
@@ -2391,6 +2391,19 @@
 	  }).then(this.completed.bind(this, query)).fail(this.failed.bind(this, query));
 	});
 	
+	User.profile.listen(function (username) {
+	  var cachedData = getItem("profile:" + username);
+	
+	  if (cachedData) {
+	    return this.completed(cachedData, true);
+	  }
+	
+	  req({
+	    url: "https://api.github.com/users/" + username,
+	    type: "json"
+	  }).then(this.completed).fail(this.failed);
+	});
+	
 	module.exports = User;
 
 /***/ },
@@ -2453,46 +2466,33 @@
 
 	"use strict";
 	
-	var Reflux = __webpack_require__(12);
-	var User = __webpack_require__(36);
-	var pick = __webpack_require__(83);
-	var cache = __webpack_require__(90);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
 	
+	var Reflux = _interopRequire(__webpack_require__(12));
+	
+	var User = _interopRequire(__webpack_require__(36));
+	
+	var pick = _interopRequire(__webpack_require__(83));
+	
+	var setItem = __webpack_require__(90).setItem;
 	module.exports = Reflux.createStore({
-	  init: function () {},
-	
-	  cacheKey: function (username) {
-	    return "profile:{username}".replace("{username}", username);
+	  init: function init() {
+	    this.listenTo(User.profile.completed, this.onCompleted);
 	  },
 	
-	  getProfileData: function (username) {
-	    req({
-	      url: "https://api.github.com/users/{username}".replace("{username}", username),
-	      type: "json"
-	    }).then((function (data) {
+	  onCompleted: function onCompleted(data, fromCache) {
+	    if (!fromCache) {
 	      data = pick(data, "avatar_url", "blog", "followers", "following", "repos_url", "starred_url", "location", "login", "name", "public_repos", "html_url");
-	
-	      this.trigger({
-	        user: data
-	      });
-	
-	      cache.setItem(this.cacheKey(username), data);
-	    }).bind(this));
-	  },
-	
-	  onUserProfile: function (username) {
-	    var cached = cache.getItem(this.cacheKey(username));
-	
-	    if (cached) {
-	      this.trigger({
-	        user: cached
-	      });
-	    } else {
-	      this.getProfileData(username);
+	      setItem("profile:" + data.login, data);
 	    }
+	
+	    this.trigger({
+	      user: data
+	    });
 	  }
 	});
-	//this.listenTo(UserActions.userProfile, this.onUserProfile);
 
 /***/ },
 /* 39 */

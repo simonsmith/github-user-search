@@ -4,7 +4,7 @@ var Navigation =      Router.Navigation;
 var State =           Router.State;
 var Reflux =          require('reflux');
 
-var UserActions =     require('actions/user');
+var User =     require('actions/user');
 var ProfileStore =    require('stores/profile');
 var RepoStore =       require('stores/repos');
 var StarredStore =    require('stores/starred');
@@ -28,7 +28,7 @@ var UserDetail = React.createClass({
   },
 
   componentWillReceiveProps: function() {
-    UserActions.userProfile(this.getParams().username);
+    User.profile(this.getParams().username);
   },
 
   componentDidMount: function() {
@@ -36,7 +36,7 @@ var UserDetail = React.createClass({
       this.listenTo(store, this.onReceiveData);
     }, this);
 
-    UserActions.userProfile(this.getParams().username);
+    User.profile(this.getParams().username);
   },
 
   render: function() {
