@@ -1,7 +1,5 @@
-var React =  require('react');
-var Router = require('react-router');
-
-var RouteHandler = Router.RouteHandler;
+import React from 'react';
+import Router, { RouteHandler } from 'react-router'
 
 var Layout = React.createClass({
   render: function() {
@@ -11,4 +9,4 @@ var Layout = React.createClass({
   }
 });
 
-module.exports = Layout;
+export default Layout;

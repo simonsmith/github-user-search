@@ -1,11 +1,9 @@
-var React =         require('react');
-var Router =        require('react-router');
-var Route =         Router.Route;
-var DefaultRoute =  Router.DefaultRoute;
+import React from 'react';
+import Router, { Route, DefaultRoute } from 'react-router'
 
-var Layout =     require('./layout.jsx');
-var Search =     require('./search.jsx');
-var UserDetail = require('./user-detail.jsx');
+import Layout from './layout.jsx';
+import Search from './search.jsx';
+import UserDetail from './user-detail.jsx';
 
 var routes = (
     <Route name="layout" path="/" handler={Layout}>

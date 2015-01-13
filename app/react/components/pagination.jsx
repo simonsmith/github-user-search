@@ -1,12 +1,10 @@
-var React =   require('react');
-var Router =  require('react-router');
-var State =   Router.State;
-var Link =    Router.Link;
+import React from 'react';
+import Router, { State, Link } from 'react-router'
 
 var Pagination = React.createClass({
   mixins: [State],
 
-  renderNextLink: function() {
+  renderNextLink() {
     var query = this.getQuery();
     query.page = query.page >= 1 ? ++query.page : 2;
 
@@ -17,7 +15,7 @@ var Pagination = React.createClass({
     )
   },
 
-  renderPrevLink: function() {
+  renderPrevLink() {
     var query = this.getQuery();
     query.page = --query.page;
 
@@ -30,7 +28,7 @@ var Pagination = React.createClass({
     }
   },
 
-  render: function() {
+  render() {
     var component = (
       <div className="Pagination u-cf">
         {this.renderPrevLink()}
@@ -38,10 +36,8 @@ var Pagination = React.createClass({
       </div>
     );
 
-    return (
-      this.props.results.total_count > this.props.perpage ? component : null
-    )
+    return this.props.results.total_count > this.props.perpage ? component : null
   }
 });
 
-module.exports = Pagination;
+export default Pagination;
