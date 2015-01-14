@@ -606,8 +606,13 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var ProfileStatGroup = __webpack_require__(21);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var ProfileStatGroup = _interopRequire(__webpack_require__(21));
 	
 	var Profile = React.createClass({
 	  displayName: "Profile",
@@ -979,8 +984,14 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
 	var Link = __webpack_require__(9).Link;
+	
 	
 	var ProfileCard = React.createClass({
 	  displayName: "ProfileCard",

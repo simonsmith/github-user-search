@@ -1,5 +1,5 @@
-var React = require('react');
-var ProfileStatGroup = require('./profile-stat-group.jsx');
+import React from 'react';
+import ProfileStatGroup from './profile-stat-group.jsx';
 
 var Profile = React.createClass({
   render: function() {
@@ -34,4 +34,4 @@ var Profile = React.createClass({
   }
 });
 
-module.exports = Profile;
+export default Profile;
