@@ -1,5 +1,5 @@
-var React =       require('react');
-var joinClasses = require('utils/joinClasses');
+import React from 'react';
+import joinClasses from 'utils/joinClasses';
 
 var Stat = React.createClass({
   render: function() {
@@ -12,4 +12,4 @@ var Stat = React.createClass({
   }
 });
 
-module.exports = Stat;
+export default Stat;

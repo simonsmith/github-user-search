@@ -1,6 +1,5 @@
-var React =  require('react/addons');
-var Router = require('react-router');
-var State = Router.State;
+import React from 'react/addons';
+import Router, { State } from 'react-router';
 var LinkedStateMixin = React.addons.LinkedStateMixin;
 
 var SearchForm = React.createClass({
@@ -31,4 +30,4 @@ var SearchForm = React.createClass({
   }
 });
 
-module.exports = SearchForm;
+export default SearchForm;

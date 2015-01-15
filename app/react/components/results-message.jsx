@@ -1,5 +1,5 @@
-var React =     require('react');
-var pluralize = require('pluralize');
+import React from 'react';
+import pluralize from 'pluralize';
 
 var ResultsMessage = React.createClass({
   render: function() {
@@ -48,4 +48,4 @@ var ResultsMessage = React.createClass({
   }
 });
 
-module.exports = ResultsMessage;
+export default ResultsMessage;

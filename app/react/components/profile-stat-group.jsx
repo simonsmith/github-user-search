@@ -1,7 +1,7 @@
-var React =       require('react');
-var Stat =        require('./stat.jsx');
-var map =         require('lodash-node/modern/collections/map');
-var uniqueId =    require('lodash-node/modern/utilities/uniqueId');
+import React from 'react';
+import Stat from './stat.jsx';
+import map from 'lodash-node/modern/collections/map';
+import uniqueId from 'lodash-node/modern/utilities/uniqueId';
 
 var ProfileStatGroup = React.createClass({
   renderStatItems: function() {
@@ -23,4 +23,4 @@ var ProfileStatGroup = React.createClass({
   }
 });
 
-module.exports = ProfileStatGroup;
+export default ProfileStatGroup;

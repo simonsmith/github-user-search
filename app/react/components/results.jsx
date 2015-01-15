@@ -1,6 +1,6 @@
-var React =       require('react');
-var ProfileCard = require('./profile-card.jsx');
-var map =         require('lodash-node/modern/collections/map');
+import React from 'react';
+import ProfileCard from './profile-card.jsx';
+import map from 'lodash-node/modern/collections/map';
 
 var Results = React.createClass({
   renderResultsItem: function(user) {
@@ -24,4 +24,4 @@ var Results = React.createClass({
   }
 });
 
-module.exports = Results;
+export default Results;

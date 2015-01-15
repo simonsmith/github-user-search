@@ -1,5 +1,5 @@
-var React = require('react');
-var Stat =  require('components/stat.jsx');
+import React from 'react';
+import Stat from './stat.jsx';
 
 var Repo = React.createClass({
   renderStat: function() {
@@ -27,4 +27,4 @@ var Repo = React.createClass({
   }
 });
 
-module.exports = Repo;
+export default Repo;

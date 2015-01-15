@@ -1,16 +1,14 @@
-var React =           require('react');
-var Router =          require('react-router');
-var Navigation =      Router.Navigation;
-var State =           Router.State;
-var Reflux =          require('reflux');
+import React from 'react';
+import Router, { Navigation, State } from 'react-router'
+import Reflux from 'reflux';
 
-var User =     require('actions/user');
-var ProfileStore =    require('stores/profile');
-var RepoStore =       require('stores/repos');
-var StarredStore =    require('stores/starred');
+import User from 'actions/user';
+import ProfileStore from 'stores/profile';
+import RepoStore from 'stores/repos';
+import StarredStore from 'stores/starred';
 
-var Profile =         require('./profile.jsx');
-var RepoList =        require('./repo-list.jsx');
+import Profile from './profile.jsx';
+import RepoList from './repo-list.jsx';
 
 var UserDetail = React.createClass({
   mixins: [Navigation, Reflux.ListenerMixin, State],
@@ -32,10 +30,7 @@ var UserDetail = React.createClass({
   },
 
   componentDidMount: function() {
-    [ProfileStore, RepoStore, StarredStore].forEach(function(store) {
-      this.listenTo(store, this.onReceiveData);
-    }, this);
-
+    [ProfileStore, RepoStore, StarredStore].forEach((store) => this.listenTo(store, this.onReceiveData));
     User.profile(this.getParams().username);
   },
 
@@ -65,4 +60,4 @@ var UserDetail = React.createClass({
   }
 });
 
-module.exports = UserDetail;
+export default UserDetail;

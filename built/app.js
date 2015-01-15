@@ -223,19 +223,29 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var Router = __webpack_require__(9);
-	var Navigation = Router.Navigation;
-	var State = Router.State;
-	var Reflux = __webpack_require__(17);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
 	
-	var User = __webpack_require__(12);
-	var ProfileStore = __webpack_require__(14);
-	var RepoStore = __webpack_require__(15);
-	var StarredStore = __webpack_require__(16);
+	var React = _interopRequire(__webpack_require__(4));
 	
-	var Profile = __webpack_require__(10);
-	var RepoList = __webpack_require__(11);
+	var Router = _interopRequire(__webpack_require__(9));
+	
+	var Navigation = __webpack_require__(9).Navigation;
+	var State = __webpack_require__(9).State;
+	var Reflux = _interopRequire(__webpack_require__(17));
+	
+	var User = _interopRequire(__webpack_require__(12));
+	
+	var ProfileStore = _interopRequire(__webpack_require__(14));
+	
+	var RepoStore = _interopRequire(__webpack_require__(15));
+	
+	var StarredStore = _interopRequire(__webpack_require__(16));
+	
+	var Profile = _interopRequire(__webpack_require__(10));
+	
+	var RepoList = _interopRequire(__webpack_require__(11));
 	
 	var UserDetail = React.createClass({
 	  displayName: "UserDetail",
@@ -258,10 +268,10 @@
 	  },
 	
 	  componentDidMount: function () {
+	    var _this = this;
 	    [ProfileStore, RepoStore, StarredStore].forEach(function (store) {
-	      this.listenTo(store, this.onReceiveData);
-	    }, this);
-	
+	      return _this.listenTo(store, _this.onReceiveData);
+	    });
 	    User.profile(this.getParams().username);
 	  },
 	
@@ -330,9 +340,15 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(18);
-	var Router = __webpack_require__(9);
-	var State = Router.State;
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(18));
+	
+	var Router = _interopRequire(__webpack_require__(9));
+	
+	var State = __webpack_require__(9).State;
 	var LinkedStateMixin = React.addons.LinkedStateMixin;
 	
 	var SearchForm = React.createClass({
@@ -452,9 +468,15 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var ProfileCard = __webpack_require__(19);
-	var map = __webpack_require__(24);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var ProfileCard = _interopRequire(__webpack_require__(19));
+	
+	var map = _interopRequire(__webpack_require__(24));
 	
 	var Results = React.createClass({
 	  displayName: "Results",
@@ -489,8 +511,13 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var pluralize = __webpack_require__(45);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var pluralize = _interopRequire(__webpack_require__(45));
 	
 	var ResultsMessage = React.createClass({
 	  displayName: "ResultsMessage",
@@ -684,9 +711,15 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var Repo = __webpack_require__(22);
-	var map = __webpack_require__(24);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var Repo = _interopRequire(__webpack_require__(22));
+	
+	var map = _interopRequire(__webpack_require__(24));
 	
 	var RepoList = React.createClass({
 	  displayName: "RepoList",
@@ -1212,10 +1245,17 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var Stat = __webpack_require__(70);
-	var map = __webpack_require__(24);
-	var uniqueId = __webpack_require__(86);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var Stat = _interopRequire(__webpack_require__(70));
+	
+	var map = _interopRequire(__webpack_require__(24));
+	
+	var uniqueId = _interopRequire(__webpack_require__(86));
 	
 	var ProfileStatGroup = React.createClass({
 	  displayName: "ProfileStatGroup",
@@ -1246,8 +1286,13 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var Stat = __webpack_require__(70);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var Stat = _interopRequire(__webpack_require__(70));
 	
 	var Repo = React.createClass({
 	  displayName: "Repo",
@@ -9961,8 +10006,13 @@
 
 	/** @jsx React.DOM */"use strict";
 	
-	var React = __webpack_require__(4);
-	var joinClasses = __webpack_require__(182);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
+	
+	var React = _interopRequire(__webpack_require__(4));
+	
+	var joinClasses = _interopRequire(__webpack_require__(182));
 	
 	var Stat = React.createClass({
 	  displayName: "Stat",

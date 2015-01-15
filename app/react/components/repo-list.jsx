@@ -1,6 +1,6 @@
-var React = require('react');
-var Repo =  require('./repo.jsx');
-var map =   require('lodash-node/modern/collections/map');
+import React from 'react';
+import Repo from  './repo.jsx';
+import map from 'lodash-node/modern/collections/map';
 
 var RepoList = React.createClass({
   render: function() {
@@ -20,4 +20,4 @@ var RepoList = React.createClass({
   }
 });
 
-module.exports = RepoList;
+export default RepoList;
