@@ -34,9 +34,7 @@ export default Reflux.createStore({
 
   trimData(data) {
     data = pick(data, 'items', 'total_count');
-    data.items = map(data.items, item => {
-      return pick(item, 'avatar_url', 'id', 'login');
-    });
+    data.items = map(data.items, item => pick(item, 'avatar_url', 'id', 'login'));
     return data;
   }
 });

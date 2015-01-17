@@ -19,14 +19,9 @@ module.exports = Reflux.createStore({
       type: 'json'
     })
       .then(function(data) {
-        data = data.map(function(repo) {
-          return pick(repo,
-            'id',
-            'name',
-            'html_url',
-            'description'
-          )
-        }).slice(0, 5);
+        data = data
+          .map((repo) => pick(repo, 'id', 'name', 'html_url', 'description'))
+          .slice(0, 5);
 
         this.trigger({
           starred: data
