@@ -1,6 +1,6 @@
 # Github user search
 
-Search and view users via the Github API.
+Search and view users via the Github API - http://simonsmith.github.io/github-user-search/
 
 Built with
 
