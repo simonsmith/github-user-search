@@ -1,6 +1,7 @@
 import Reflux from 'reflux';
 import req from 'reqwest';
 import { getItem } from 'mixins/cache';
+import partial from 'lodash-node/modern/functions/partial'
 
 var User = Reflux.createActions({
   search: { asyncResult: true },
@@ -21,8 +22,8 @@ User.search.listen(function(query) {
     data: query,
     type: 'json'
   })
-    .then(this.completed.bind(this, query))
-    .fail(this.failed.bind(this, query));
+    .then(partial(this.completed, query))
+    .fail(partial(this.failed, query));
 });
 
 User.profile.listen(function(username) {

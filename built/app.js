@@ -757,7 +757,7 @@
 	var req = _interopRequire(__webpack_require__(90));
 	
 	var getItem = __webpack_require__(42).getItem;
-	
+	var partial = _interopRequire(__webpack_require__(286));
 	
 	var User = Reflux.createActions({
 	  search: { asyncResult: true },
@@ -777,7 +777,7 @@
 	    url: "https://api.github.com/search/users",
 	    data: query,
 	    type: "json"
-	  }).then(this.completed.bind(this, query)).fail(this.failed.bind(this, query));
+	  }).then(partial(this.completed, query)).fail(partial(this.failed, query));
 	});
 	
 	User.profile.listen(function (username) {
@@ -31115,6 +31115,46 @@
 	module.exports = toArray;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(95)))
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
+	 * Build: `lodash modularize modern exports="node" -o ./modern/`
+	 * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
+	 * Based on Underscore.js 1.5.2 <http://underscorejs.org/LICENSE>
+	 * Copyright 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <http://lodash.com/license>
+	 */
+	var createWrapper = __webpack_require__(259),
+	    slice = __webpack_require__(260);
+	
+	/**
+	 * Creates a function that, when called, invokes `func` with any additional
+	 * `partial` arguments prepended to those provided to the new function. This
+	 * method is similar to `_.bind` except it does **not** alter the `this` binding.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @category Functions
+	 * @param {Function} func The function to partially apply arguments to.
+	 * @param {...*} [arg] Arguments to be partially applied.
+	 * @returns {Function} Returns the new partially applied function.
+	 * @example
+	 *
+	 * var greet = function(greeting, name) { return greeting + ' ' + name; };
+	 * var hi = _.partial(greet, 'hi');
+	 * hi('fred');
+	 * // => 'hi fred'
+	 */
+	function partial(func) {
+	  return createWrapper(func, 16, slice(arguments, 1));
+	}
+	
+	module.exports = partial;
+
 
 /***/ }
 /******/ ])
