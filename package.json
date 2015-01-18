@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "lodash-node": "^2.4.1",
-    "pluralize": "^1.1.0",
+    "pluralize": "^1.1.1",
     "react": "^0.12.2",
     "react-router": "^0.11.6",
     "reflux": "^0.2.3",
@@ -27,11 +27,11 @@
     "suitcss-utils-text": "^0.4.2"
   },
   "devDependencies": {
-    "6to5": "^2.9.3",
+    "6to5": "^2.13.1",
     "6to5-loader": "^2.0.0",
     "gulp": "^3.8.10",
     "jsx-loader": "^0.12.2",
     "suitcss-preprocessor": "^0.4.0",
-    "webpack": "^1.4.15"
+    "webpack": "^1.5.1"
   }
 }
