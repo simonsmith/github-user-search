@@ -806,6 +806,19 @@
 	  }).then(this.completed).fail(this.failed);
 	});
 	
+	User.starred.listen(function (url, username) {
+	  var cachedData = getItem("starred:" + username);
+	
+	  if (cachedData) {
+	    return this.completed(cachedData, true);
+	  }
+	
+	  req({
+	    url: url,
+	    type: "json"
+	  }).then(this.completed).fail(this.failed);
+	});
+	
 	module.exports = User;
 
 /***/ },
@@ -929,13 +942,13 @@
 	  onReposCompleted: function onReposCompleted(data, fromCache) {
 	    if (!fromCache) {
 	      data = data.filter(this.removeForks).sort(this.sortByPopular).map(this.trimData).slice(0, 5);
+	
+	      setItem("repos:" + this.username, data);
 	    }
 	
 	    this.trigger({
 	      repos: data
 	    });
-	
-	    setItem("repos:" + this.username, data);
 	  },
 	
 	  removeForks: function removeForks(item) {
@@ -957,48 +970,40 @@
 
 	"use strict";
 	
-	var req = __webpack_require__(90);
-	var Reflux = __webpack_require__(17);
-	var ProfileStore = __webpack_require__(14);
-	var pick = __webpack_require__(41);
-	var cache = __webpack_require__(42);
+	var _interopRequire = function (obj) {
+	  return obj && (obj["default"] || obj);
+	};
 	
+	var Reflux = _interopRequire(__webpack_require__(17));
+	
+	var User = _interopRequire(__webpack_require__(12));
+	
+	var pick = _interopRequire(__webpack_require__(41));
+	
+	var setItem = __webpack_require__(42).setItem;
 	module.exports = Reflux.createStore({
-	  init: function () {
-	    this.listenTo(ProfileStore, this.onUserProfile);
+	  init: function init() {
+	    this.listenTo(User.profile.completed, this.onProfileCompleted);
+	    this.listenTo(User.starred.completed, this.onStarredCompleted);
 	  },
 	
-	  cacheKey: function (username) {
-	    return "starred:{username}".replace("{username}", username);
+	  onProfileCompleted: function onProfileCompleted(data) {
+	    this.username = data.login;
+	    User.starred(data.starred_url.replace(/\{\/[a-z]+}/g, ""), this.username);
 	  },
 	
-	  getStarredData: function (url, username) {
-	    req({
-	      url: url.replace(/\{\/[a-z]+}/g, ""),
-	      type: "json"
-	    }).then((function (data) {
+	  onStarredCompleted: function onStarredCompleted(data, fromCache) {
+	    if (!fromCache) {
 	      data = data.map(function (repo) {
 	        return pick(repo, "id", "name", "html_url", "description");
 	      }).slice(0, 5);
 	
-	      this.trigger({
-	        starred: data
-	      });
-	
-	      cache.setItem(this.cacheKey(username), data);
-	    }).bind(this));
-	  },
-	
-	  onUserProfile: function (data) {
-	    var cached = cache.getItem(this.cacheKey(data.user.login));
-	
-	    if (cached) {
-	      this.trigger({
-	        starred: cached
-	      });
-	    } else {
-	      this.getStarredData(data.user.starred_url, data.user.login);
+	      setItem("starred:" + this.username, data);
 	    }
+	
+	    this.trigger({
+	      starred: data
+	    });
 	  }
 	});
 

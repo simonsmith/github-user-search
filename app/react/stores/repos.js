@@ -21,13 +21,13 @@ export default Reflux.createStore({
         .sort(this.sortByPopular)
         .map(this.trimData)
         .slice(0, 5);
+
+      setItem(`repos:${this.username}`, data);
     }
 
     this.trigger({
       repos: data
     });
-
-    setItem(`repos:${this.username}`, data);
   },
 
   removeForks(item) {

@@ -1,45 +1,30 @@
-var req =          require('reqwest');
-var Reflux =       require('reflux');
-var ProfileStore = require('stores/profile');
-var pick =         require('lodash-node/modern/objects/pick');
-var cache =        require('mixins/cache');
+import Reflux from 'reflux';
+import User from 'actions/user';
+import pick from 'lodash-node/modern/objects/pick';
+import { setItem } from 'mixins/cache';
 
-module.exports = Reflux.createStore({
-  init: function() {
-    this.listenTo(ProfileStore, this.onUserProfile);
+export default Reflux.createStore({
+  init() {
+    this.listenTo(User.profile.completed, this.onProfileCompleted);
+    this.listenTo(User.starred.completed, this.onStarredCompleted);
   },
 
-  cacheKey: function(username) {
-    return 'starred:{username}'.replace('{username}', username);
+  onProfileCompleted(data) {
+    this.username = data.login;
+    User.starred(data.starred_url.replace(/\{\/[a-z]+}/g, ''), this.username);
   },
 
-  getStarredData: function(url, username) {
-    req({
-      url: url.replace(/\{\/[a-z]+}/g, ''),
-      type: 'json'
-    })
-      .then(function(data) {
-        data = data
-          .map((repo) => pick(repo, 'id', 'name', 'html_url', 'description'))
-          .slice(0, 5);
+  onStarredCompleted(data, fromCache) {
+    if (!fromCache) {
+      data = data
+        .map((repo) => pick(repo, 'id', 'name', 'html_url', 'description'))
+        .slice(0, 5);
 
-        this.trigger({
-          starred: data
-        });
-
-        cache.setItem(this.cacheKey(username), data);
-      }.bind(this));
-  },
-
-  onUserProfile: function(data) {
-    var cached = cache.getItem(this.cacheKey(data.user.login));
-
-    if (cached) {
-      this.trigger({
-        starred: cached
-      });
-    } else {
-      this.getStarredData(data.user.starred_url, data.user.login);
+      setItem(`starred:${this.username}`, data);
     }
+
+    this.trigger({
+      starred: data
+    });
   }
 });

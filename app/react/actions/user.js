@@ -55,4 +55,19 @@ User.repos.listen(function(url, username) {
     .fail(this.failed);
 });
 
+User.starred.listen(function(url, username) {
+  var cachedData = getItem(`starred:${username}`);
+
+  if (cachedData) {
+    return this.completed(cachedData, true);
+  }
+
+  req({
+    url,
+    type: 'json'
+  })
+    .then(this.completed)
+    .fail(this.failed);
+});
+
 export default User
