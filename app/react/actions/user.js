@@ -40,4 +40,19 @@ User.profile.listen(function(username) {
     .fail(this.failed);
 });
 
+User.repos.listen(function(url, username) {
+  var cachedData = getItem(`repos:${username}`);
+
+  if (cachedData) {
+    return this.completed(cachedData, true);
+  }
+
+  req({
+    url,
+    type: 'json'
+  })
+    .then(this.completed)
+    .fail(this.failed);
+});
+
 export default User
