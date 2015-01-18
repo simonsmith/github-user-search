@@ -1,5 +1,4 @@
 import Reflux from 'reflux';
-import req from 'reqwest';
 import User from 'actions/user';
 import pick from 'lodash-node/modern/objects/pick';
 import { setItem } from 'mixins/cache';
