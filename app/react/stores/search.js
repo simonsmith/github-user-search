@@ -6,11 +6,11 @@ import { setItem } from 'mixins/cache';
 
 export default Reflux.createStore({
   init() {
-    this.listenTo(User.search.completed, this.onCompleted);
-    this.listenTo(User.search.failed, this.onFailed);
+    this.listenTo(User.search.completed, this.onSearchCompleted);
+    this.listenTo(User.search.failed, this.onSearchFailed);
   },
 
-  onCompleted(query, data, fromCache) {
+  onSearchCompleted(query, data, fromCache) {
     if (!fromCache) {
       data = this.trimData(data);
       setItem(JSON.stringify(query), data);
@@ -22,7 +22,7 @@ export default Reflux.createStore({
     });
   },
 
-  onFailed(query, xhr) {
+  onSearchFailed(query, xhr) {
     this.trigger({
       results: {
         items: [],

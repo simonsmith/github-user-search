@@ -5,10 +5,10 @@ import { setItem } from 'mixins/cache';
 
 export default Reflux.createStore({
   init() {
-    this.listenTo(User.profile.completed, this.onCompleted);
+    this.listenTo(User.profile.completed, this.onProfileCompleted);
   },
 
-  onCompleted(data, fromCache) {
+  onProfileCompleted(data, fromCache) {
     if (!fromCache) {
       data = pick(data,
         'avatar_url',
