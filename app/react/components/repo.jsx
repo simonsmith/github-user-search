@@ -6,7 +6,7 @@ var Repo = React.createClass({
     if (this.props.data.stargazers_count) {
       return (
         <div className="Repo-wrapStat">
-          <Stat value={this.props.data.stargazers_count} title="Stars" />
+          <Stat value={this.props.data.stargazers_count} title="Star" />
         </div>
       )
     } else {
