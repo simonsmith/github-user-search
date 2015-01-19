@@ -5,6 +5,7 @@
 
 .Repo {
   position: relative;
+  min-height: 65px;
 }
 
 .Repo-name {

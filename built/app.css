@@ -2076,6 +2076,7 @@ input[type="search"] {
 
 .Repo {
   position: relative;
+  min-height: 65px;
 }
 
 .Repo-name {
