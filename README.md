@@ -14,5 +14,4 @@ It also caches results in sessionStorage to lower the hits on the API.
 
 ### To do
 
-- Move async calls into actions instead of stores
 - Add some more profile information
