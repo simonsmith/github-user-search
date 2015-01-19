@@ -26,49 +26,25 @@ User.search.listen(function(query) {
     .fail(partial(this.failed, query));
 });
 
+function fetchData(cacheKey, url, username) {
+  var cachedData = getItem(`${cacheKey}:${username}`);
+
+  if (cachedData) {
+    return this.completed(cachedData, true);
+  }
+
+  req({
+    url,
+    type: 'json'
+  })
+    .then(this.completed)
+    .fail(this.failed);
+}
+
 User.profile.listen(function(username) {
-  var cachedData = getItem(`profile:${username}`);
-
-  if (cachedData) {
-    return this.completed(cachedData, true);
-  }
-
-  req({
-    url: `https://api.github.com/users/${username}`,
-    type: 'json'
-  })
-    .then(this.completed)
-    .fail(this.failed);
+  fetchData.call(this, 'profile', `https://api.github.com/users/${username}`, username);
 });
-
-User.repos.listen(function(url, username) {
-  var cachedData = getItem(`repos:${username}`);
-
-  if (cachedData) {
-    return this.completed(cachedData, true);
-  }
-
-  req({
-    url,
-    type: 'json'
-  })
-    .then(this.completed)
-    .fail(this.failed);
-});
-
-User.starred.listen(function(url, username) {
-  var cachedData = getItem(`starred:${username}`);
-
-  if (cachedData) {
-    return this.completed(cachedData, true);
-  }
-
-  req({
-    url,
-    type: 'json'
-  })
-    .then(this.completed)
-    .fail(this.failed);
-});
+User.repos.listen(partial(fetchData, 'repos'));
+User.starred.listen(partial(fetchData, 'starred'));
 
 export default User
