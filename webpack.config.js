@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   entry: {
     app: './app/react/components/app.jsx'
@@ -19,5 +21,12 @@ module.exports = {
       {test: /\.jsx$/, loader: 'jsx-loader?insertPragma=React.DOM'},
       {test: /\.js$|\.jsx/, exclude: /node_modules/, loader: "6to5-loader"}
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
 };
