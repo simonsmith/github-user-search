@@ -1,14 +1,10 @@
 {
   "name": "github-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Browse users with the Github API",
   "main": "index.js",
-  "scripts": {
-    "watch-js": "webpack --watch",
-    "watch-css": "watch-run -p 'app/suit/**/*.css' suitcss app/suit/app.css built/app.css"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "Simon Smith",
+  "license": "MIT",
   "dependencies": {
     "lodash-node": "^2.4.1",
     "pluralize": "^1.1.1",
@@ -30,8 +26,13 @@
     "6to5": "^2.13.1",
     "6to5-loader": "^2.0.0",
     "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-notify": "^2.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-rework": "^1.0.2",
+    "gulp-webpack": "^1.1.2",
     "jsx-loader": "^0.12.2",
-    "suitcss-preprocessor": "^0.4.0",
+    "rework-suit": "^4.0.0",
     "webpack": "^1.5.1"
   }
 }
