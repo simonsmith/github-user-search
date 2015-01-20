@@ -3,6 +3,7 @@ import User from 'actions/user';
 import pick from 'lodash-node/modern/objects/pick';
 import map from 'lodash-node/modern/collections/map';
 import { setItem } from 'mixins/cache';
+import parseLinkHeader from 'utils/parseLinkHeader';
 
 export default Reflux.createStore({
   init() {
@@ -10,16 +11,28 @@ export default Reflux.createStore({
     this.listenTo(User.search.failed, this.onSearchFailed);
   },
 
-  onSearchCompleted(query, data, fromCache) {
+  onSearchCompleted(response, fromCache) {
     if (!fromCache) {
-      data = this.trimData(data);
-      setItem(JSON.stringify(query), data);
-    }
+      // Only take data that's needed
+      let results = pick(response.data, 'items', 'total_count');
+      results.items = map(response.data.items, item => pick(item, 'avatar_url', 'id', 'login'));
 
-    this.trigger({
-      results: data,
-      query
-    });
+      // Construct data to cache
+      let data = {
+        results,
+        query: response.query,
+        pagination: parseLinkHeader(response.xhr.getResponseHeader('Link'))
+      }
+
+      // Cache it
+      setItem(JSON.stringify(data.query), data);
+
+      // Notify the views
+      this.trigger(data);
+    } else {
+      // Data came from cache, so send straight to views
+      this.trigger(response);
+    }
   },
 
   onSearchFailed(query, xhr) {
@@ -30,11 +43,5 @@ export default Reflux.createStore({
       },
       query
     });
-  },
-
-  trimData(data) {
-    data = pick(data, 'items', 'total_count');
-    data.items = map(data.items, item => pick(item, 'avatar_url', 'id', 'login'));
-    return data;
   }
 });

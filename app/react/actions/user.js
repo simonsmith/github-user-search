@@ -1,5 +1,5 @@
 import Reflux from 'reflux';
-import req from 'reqwest';
+import request from 'reqwest';
 import { getItem } from 'mixins/cache';
 import partial from 'lodash-node/modern/functions/partial'
 
@@ -14,15 +14,19 @@ User.search.listen(function(query) {
   var cachedData = getItem(JSON.stringify(query));
 
   if (cachedData) {
-    return this.completed(query, cachedData, true);
+    return this.completed(cachedData, true);
   }
 
-  req({
+  var r = request({
     url: 'https://api.github.com/search/users',
     data: query,
     type: 'json'
   })
-    .then(partial(this.completed, query))
+    .then(data => this.completed({
+      data,
+      query,
+      xhr: r.request
+    }, false))
     .fail(partial(this.failed, query));
 });
 
@@ -33,7 +37,7 @@ function fetchData(cacheKey, url, username) {
     return this.completed(cachedData, true);
   }
 
-  req({
+  request({
     url,
     type: 'json'
   })
