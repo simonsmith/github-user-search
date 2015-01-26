@@ -56,6 +56,7 @@
 	
 	var Route = __webpack_require__(5).Route;
 	var DefaultRoute = __webpack_require__(5).DefaultRoute;
+	var Redirect = __webpack_require__(5).Redirect;
 	var Layout = _interopRequire(__webpack_require__(1));
 	
 	var Search = _interopRequire(__webpack_require__(2));
@@ -65,9 +66,10 @@
 	var routes = React.createElement(
 	  Route,
 	  { name: "layout", path: "/", handler: Layout },
-	  React.createElement(Route, { name: "users", path: "/users", handler: Search }),
+	  React.createElement(Route, { name: "users", path: "search/users", handler: Search }),
 	  React.createElement(Route, { name: "user", path: "/users/:username", handler: UserDetail }),
-	  React.createElement(DefaultRoute, { handler: Search })
+	  React.createElement(DefaultRoute, { handler: Search }),
+	  React.createElement(Redirect, { from: "/", to: "users" })
 	);
 	
 	Router.run(routes, function (Handler) {
