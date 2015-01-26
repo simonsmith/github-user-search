@@ -6,7 +6,7 @@ import forEach from 'lodash-node/modern/collections/forEach';
 
 export default function parseLinkHeader(header) {
   if (header.length == 0) {
-    return;
+    return {};
   }
 
   // Split parts by comma

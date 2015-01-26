@@ -18,7 +18,9 @@ var Search = React.createClass({
     return {
       results: {
         items: []
-      }
+      },
+      query: {},
+      pagination: {}
     };
   },
 
@@ -36,7 +38,8 @@ var Search = React.createClass({
       results: {
         items: []
       },
-      query
+      query,
+      pagination: {}
     });
 
     if (!isEmpty(query)) {
