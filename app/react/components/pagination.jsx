@@ -29,14 +29,11 @@ var Pagination = React.createClass({
   },
 
   render() {
-    var component = (
+    return (
       <div className="Pagination u-cf">
-        {this.renderPrevLink()}
-        {this.renderNextLink()}
+
       </div>
     );
-
-    return this.props.results.total_count > this.props.perpage ? component : null
   }
 });
 

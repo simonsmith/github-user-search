@@ -77,7 +77,7 @@ var Search = React.createClass({
             <Results results={this.state.results} />
           </div>
           <div className="Search-item u-mXA u-size8of10 u-md-size5of10">
-            <Pagination results={this.state.results} perpage="30" />
+            <Pagination pagination={this.state.pagination} />
           </div>
         </div>
       </div>
