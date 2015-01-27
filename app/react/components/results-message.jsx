@@ -11,7 +11,7 @@ var ResultsMessage = React.createClass({
     if (total > 0) {
       resultsMessage = (
         <span>
-          <b>{total}</b> {pluralize('results', total)} for <mark>{this.props.query.q}</mark>
+          <b>{total}</b> {pluralize('results', total)} for <mark>{this.props.query}</mark>
         </span>
       );
     }
@@ -19,24 +19,21 @@ var ResultsMessage = React.createClass({
     // Found zero results
     if (total == 0) {
       resultsMessage = (
-        <span>No results for <mark>{this.props.query.q}</mark>
-        </span>
+        <span>No results for <mark>{this.props.query}</mark></span>
       );
     }
 
     // Found results, but no more pages
     if (total > 0 && !results.items.length) {
       resultsMessage = (
-        <span>No more results for <mark>{this.props.query.q}</mark>
-        </span>
+        <span>No more results for <mark>{this.props.query}</mark></span>
       );
     }
 
     // No results because error
     if (results.error) {
       resultsMessage = (
-        <span>
-          <b>Error:</b> {results.error.message}</span>
+        <span><b>Error:</b> {results.error.message}</span>
       )
     }
 

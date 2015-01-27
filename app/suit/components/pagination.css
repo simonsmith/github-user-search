@@ -3,6 +3,7 @@
 @import "suitcss-utils-layout";
 @import "suitcss-utils-display";
 
-.Pagination a {
+.Pagination-link {
   color: #333;
+  display: inline-block;
 }

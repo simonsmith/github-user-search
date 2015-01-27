@@ -20,12 +20,12 @@ export default Reflux.createStore({
       // Construct data to cache
       let data = {
         results,
-        query: response.query,
+        url: response.url,
         pagination: parseLinkHeader(response.xhr.getResponseHeader('Link') || '')
       };
 
       // Cache it
-      setItem(JSON.stringify(data.query), data);
+      setItem(data.url, data);
 
       // Notify the views
       this.trigger(data);

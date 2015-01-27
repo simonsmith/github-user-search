@@ -19,7 +19,7 @@ var Search = React.createClass({
       results: {
         items: []
       },
-      query: {},
+      url: '',
       pagination: {}
     };
   },
@@ -32,18 +32,18 @@ var Search = React.createClass({
     });
   },
 
-  search(query) {
+  search(url) {
     // Clear results before loading new set
     this.setState({
       results: {
         items: []
       },
-      query,
+      url: '',
       pagination: {}
     });
 
-    if (!isEmpty(query)) {
-      User.search(query);
+    if (url) {
+      User.search(url);
     }
   },
 
@@ -53,14 +53,14 @@ var Search = React.createClass({
 
   componentWillReceiveProps() {
     // Search if route param changes
-    this.search(this.getQuery());
+    this.search(this.getPath());
   },
 
   componentDidMount() {
     this.listenTo(SearchStore, this.onResults);
 
     // Search if URL params are present on page render
-    this.search(this.getQuery());
+    this.search(this.getPath());
   },
 
   render() {
@@ -69,7 +69,7 @@ var Search = React.createClass({
         <div className="Search-item Search-wrapSearchForm">
           <div className="Container">
             <SearchForm onUserSearch={this.handleSearchFormSubmit} query={this.state.query} ref="searchForm" />
-            <ResultsMessage results={this.state.results} query={this.state.query} />
+            <ResultsMessage results={this.state.results} query={this.getQuery().q} />
           </div>
         </div>
         <div className="Container">

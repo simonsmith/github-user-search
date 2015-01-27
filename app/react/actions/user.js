@@ -3,6 +3,8 @@ import request from 'reqwest';
 import { getItem } from 'mixins/cache';
 import partial from 'lodash-node/modern/functions/partial'
 
+const API_ROOT_URL = 'https://api.github.com';
+
 var User = Reflux.createActions({
   search: { asyncResult: true },
   profile: { asyncResult: true },
@@ -10,24 +12,23 @@ var User = Reflux.createActions({
   starred: { asyncResult: true }
 });
 
-User.search.listen(function(query) {
-  var cachedData = getItem(JSON.stringify(query));
+User.search.listen(function(url) {
+  var cachedData = getItem(url);
 
   if (cachedData) {
     return this.completed(cachedData, true);
   }
 
   var r = request({
-    url: 'https://api.github.com/search/users',
-    data: query,
+    url: `${API_ROOT_URL}${url}`,
     type: 'json'
   })
     .then(data => this.completed({
       data,
-      query,
+      url,
       xhr: r.request
     }, false))
-    .fail(partial(this.failed, query));
+    .fail(partial(this.failed, url));
 });
 
 function fetchData(cacheKey, url, username) {

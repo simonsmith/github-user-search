@@ -5,24 +5,44 @@ var Pagination = React.createClass({
   mixins: [State],
 
   renderNextLink() {
-    var query = this.getQuery();
-    query.page = query.page >= 1 ? ++query.page : 2;
-
-    return (
-      <Link className="Pagination-next u-block u-floatRight" to="users" query={query}>
-        Next <span aria-hidden="true">&raquo;</span>
-      </Link>
-    )
+    if (this.props.pagination.next) {
+      let url = new URL(this.props.pagination.next);
+      return (
+        <Link className="Pagination-link Pagination-link--next" to={`${url.pathname}${url.search}`}>
+          Next <span aria-hidden="true">&raquo;</span>
+        </Link>
+      )
+    }
   },
 
   renderPrevLink() {
-    var query = this.getQuery();
-    query.page = --query.page;
-
-    if (query.page > 0) {
+    if (this.props.pagination.prev) {
+      let url = new URL(this.props.pagination.prev);
       return (
-        <Link className="Pagination-prev u-block u-floatLeft" to="users" query={query}>
+        <Link className="Pagination-link Pagination-link--prev" to={`${url.pathname}${url.search}`}>
           <span aria-hidden="true">&laquo;</span> Previous
+        </Link>
+      )
+    }
+  },
+
+  renderFirstLink() {
+    if (this.props.pagination.first) {
+      let url = new URL(this.props.pagination.first);
+      return (
+        <Link className="Pagination-link Pagination-link--first" to={`${url.pathname}${url.search}`}>
+          <span aria-hidden="true">&laquo;&laquo;</span> First
+        </Link>
+      )
+    }
+  },
+
+  renderLastLink() {
+    if (this.props.pagination.last) {
+      let url = new URL(this.props.pagination.last);
+      return (
+        <Link className="Pagination-link Pagination-link--last" to={`${url.pathname}${url.search}`}>
+          Last <span aria-hidden="true">&raquo;&raquo;</span>
         </Link>
       )
     }
@@ -31,7 +51,10 @@ var Pagination = React.createClass({
   render() {
     return (
       <div className="Pagination u-cf">
-
+        {this.renderFirstLink()}
+        {this.renderPrevLink()}
+        {this.renderNextLink()}
+        {this.renderLastLink()}
       </div>
     );
   }
