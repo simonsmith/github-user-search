@@ -14,17 +14,12 @@ import User from 'actions/user';
 import SearchStore from 'stores/search';
 
 var Search = React.createClass({
-  mixins: [Navigation, Reflux.ListenerMixin, State],
-
-  getInitialState() {
-    return {
-      results: {
-        items: []
-      },
-      url: '',
-      pagination: {}
-    };
-  },
+  mixins: [
+    Navigation,
+    Reflux.connect(SearchStore),
+    Reflux.ListenerMixin,
+    State
+  ],
 
   handleSearchFormSubmit(event) {
     event.preventDefault();
@@ -36,21 +31,11 @@ var Search = React.createClass({
 
   search(url) {
     // Clear results before loading new set
-    this.setState({
-      results: {
-        items: []
-      },
-      url: '',
-      pagination: {}
-    });
+    this.setState(SearchStore.getInitialState());
 
     if (isString(url) && !isEmpty(this.getQuery())) {
       User.search(url);
     }
-  },
-
-  onResults(data) {
-    this.setState(data);
   },
 
   componentWillReceiveProps() {
@@ -59,8 +44,6 @@ var Search = React.createClass({
   },
 
   componentDidMount() {
-    this.listenTo(SearchStore, this.onResults);
-
     // Search if URL params are present on page render
     this.search(this.getPath());
   },

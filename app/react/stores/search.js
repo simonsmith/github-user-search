@@ -11,6 +11,16 @@ export default Reflux.createStore({
     this.listenTo(User.search.failed, this.onSearchFailed);
   },
 
+  getInitialState() {
+    return {
+      results: {
+        items: []
+      },
+      url: '',
+      pagination: {}
+    };
+  },
+
   onSearchCompleted(response, fromCache) {
     if (!fromCache) {
       // Only take data that's needed
