@@ -2,6 +2,9 @@ import React from 'react';
 import Router, { Navigation, State } from 'react-router'
 import Reflux from 'reflux';
 
+import isEmpty from 'lodash-node/modern/lang/isEmpty';
+import isString from 'lodash-node/modern/lang/isString';
+
 import SearchForm from './search-form.jsx';
 import Pagination from './pagination.jsx';
 import Results from './results.jsx';
@@ -41,7 +44,7 @@ var Search = React.createClass({
       pagination: {}
     });
 
-    if (url) {
+    if (isString(url) && !isEmpty(this.getQuery())) {
       User.search(url);
     }
   },
