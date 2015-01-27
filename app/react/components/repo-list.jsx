@@ -1,6 +1,6 @@
 import React from 'react';
 import Repo from  './repo.jsx';
-import map from 'lodash-node/modern/collections/map';
+import map from 'lodash-node/modern/collection/map';
 
 var RepoList = React.createClass({
   render: function() {

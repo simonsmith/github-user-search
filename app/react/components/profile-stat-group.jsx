@@ -1,7 +1,7 @@
 import React from 'react';
 import Stat from './stat.jsx';
-import map from 'lodash-node/modern/collections/map';
-import uniqueId from 'lodash-node/modern/utilities/uniqueId';
+import map from 'lodash-node/modern/collection/map';
+import uniqueId from 'lodash-node/modern/utility/uniqueId';
 
 var ProfileStatGroup = React.createClass({
   renderStatItems: function() {

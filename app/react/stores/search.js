@@ -1,7 +1,7 @@
 import Reflux from 'reflux';
 import User from 'actions/user';
-import pick from 'lodash-node/modern/objects/pick';
-import map from 'lodash-node/modern/collections/map';
+import pick from 'lodash-node/modern/object/pick';
+import map from 'lodash-node/modern/collection/map';
 import { setItem } from 'mixins/cache';
 import parseLinkHeader from 'utils/parseLinkHeader';
 

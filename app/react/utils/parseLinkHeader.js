@@ -2,7 +2,7 @@
  * Extract pagination links from Link header in GitHub API
  * */
 
-import forEach from 'lodash-node/modern/collections/forEach';
+import forEach from 'lodash-node/modern/collection/forEach';
 
 export default function parseLinkHeader(header) {
   if (header.length == 0) {

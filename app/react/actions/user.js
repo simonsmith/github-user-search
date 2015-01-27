@@ -1,7 +1,7 @@
 import Reflux from 'reflux';
 import request from 'reqwest';
 import { getItem } from 'mixins/cache';
-import partial from 'lodash-node/modern/functions/partial'
+import partial from 'lodash-node/modern/function/partial'
 
 const API_ROOT_URL = 'https://api.github.com';
 

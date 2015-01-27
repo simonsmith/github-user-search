@@ -1,6 +1,6 @@
 import Reflux from 'reflux';
 import User from 'actions/user';
-import pick from 'lodash-node/modern/objects/pick';
+import pick from 'lodash-node/modern/object/pick';
 import { setItem } from 'mixins/cache';
 
 export default Reflux.createStore({

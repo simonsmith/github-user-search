@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileCard from './profile-card.jsx';
-import map from 'lodash-node/modern/collections/map';
+import map from 'lodash-node/modern/collection/map';
 
 var Results = React.createClass({
   renderResultsItem: function(user) {

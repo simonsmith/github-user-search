@@ -1,7 +1,6 @@
 import React from 'react';
 import Router, { Navigation, State } from 'react-router'
 import Reflux from 'reflux';
-import isEmpty from 'lodash-node/modern/objects/isEmpty';
 
 import SearchForm from './search-form.jsx';
 import Pagination from './pagination.jsx';
