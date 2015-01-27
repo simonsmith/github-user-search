@@ -8,8 +8,8 @@ var Pagination = React.createClass({
     if (this.props.pagination.next) {
       let url = new URL(this.props.pagination.next);
       return (
-        <Link className="Pagination-link Pagination-link--next" to={`${url.pathname}${url.search}`}>
-          Next <span aria-hidden="true">&raquo;</span>
+        <Link className="Pagination-link Pagination-link--next u-linkClean" to={`${url.pathname}${url.search}`}>
+          Next <span aria-hidden="true">&rsaquo;</span>
         </Link>
       )
     }
@@ -19,8 +19,8 @@ var Pagination = React.createClass({
     if (this.props.pagination.prev) {
       let url = new URL(this.props.pagination.prev);
       return (
-        <Link className="Pagination-link Pagination-link--prev" to={`${url.pathname}${url.search}`}>
-          <span aria-hidden="true">&laquo;</span> Previous
+        <Link className="Pagination-link Pagination-link--prev u-linkClean" to={`${url.pathname}${url.search}`}>
+          <span aria-hidden="true">&lsaquo;</span> Previous
         </Link>
       )
     }
@@ -30,8 +30,8 @@ var Pagination = React.createClass({
     if (this.props.pagination.first) {
       let url = new URL(this.props.pagination.first);
       return (
-        <Link className="Pagination-link Pagination-link--first" to={`${url.pathname}${url.search}`}>
-          <span aria-hidden="true">&laquo;&laquo;</span> First
+        <Link className="Pagination-link Pagination-link--first u-linkClean" to={`${url.pathname}${url.search}`}>
+          <span aria-hidden="true">&laquo;</span> First
         </Link>
       )
     }
@@ -41,8 +41,8 @@ var Pagination = React.createClass({
     if (this.props.pagination.last) {
       let url = new URL(this.props.pagination.last);
       return (
-        <Link className="Pagination-link Pagination-link--last" to={`${url.pathname}${url.search}`}>
-          Last <span aria-hidden="true">&raquo;&raquo;</span>
+        <Link className="Pagination-link Pagination-link--last u-linkClean" to={`${url.pathname}${url.search}`}>
+          Last <span aria-hidden="true">&raquo;</span>
         </Link>
       )
     }

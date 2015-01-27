@@ -1836,9 +1836,22 @@ input[type="search"] {
 
 /** @define Pagination; use strict */
 
+.Pagination {
+  text-align: center;
+}
+
 .Pagination-link {
   color: #333;
   display: inline-block;
+  padding: 3px 6px;
+}
+
+.Pagination-link--prev {
+  margin-right: 8px;
+}
+
+.Pagination-link--next {
+  margin-left: 8px;
 }
 
 .Search {
