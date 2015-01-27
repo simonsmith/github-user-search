@@ -1,6 +1,6 @@
 {
   "name": "github-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Browse users with the Github API",
   "main": "index.js",
   "author": "Simon Smith",
