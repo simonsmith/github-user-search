@@ -11,26 +11,20 @@ import Profile from './profile.jsx';
 import RepoList from './repo-list.jsx';
 
 var UserDetail = React.createClass({
-  mixins: [Navigation, Reflux.ListenerMixin, State],
-
-  getInitialState: function() {
-    return {
-      user: {},
-      repos: [],
-      starred: []
-    };
-  },
-
-  onReceiveData: function(data) {
-    this.setState(data);
-  },
+  mixins: [
+    Navigation,
+    Reflux.connect(ProfileStore),
+    Reflux.connect(RepoStore),
+    Reflux.connect(StarredStore),
+    Reflux.ListenerMixin,
+    State
+  ],
 
   componentWillReceiveProps: function() {
     User.profile(this.getParams().username);
   },
 
   componentDidMount: function() {
-    [ProfileStore, RepoStore, StarredStore].forEach((store) => this.listenTo(store, this.onReceiveData));
     User.profile(this.getParams().username);
   },
 

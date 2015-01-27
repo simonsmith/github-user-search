@@ -8,6 +8,12 @@ export default Reflux.createStore({
     this.listenTo(User.profile.completed, this.onProfileCompleted);
   },
 
+  getInitialState: function() {
+    return {
+      user: {}
+    };
+  },
+
   onProfileCompleted(data, fromCache) {
     if (!fromCache) {
       data = pick(data,

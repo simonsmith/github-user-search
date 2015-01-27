@@ -9,6 +9,12 @@ export default Reflux.createStore({
     this.listenTo(User.starred.completed, this.onStarredCompleted);
   },
 
+  getInitialState: function() {
+    return {
+      starred: {}
+    };
+  },
+
   onProfileCompleted(data) {
     this.username = data.login;
     User.starred(data.starred_url.replace(/\{\/[a-z]+}/g, ''), this.username);

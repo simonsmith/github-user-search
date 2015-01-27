@@ -9,6 +9,12 @@ export default Reflux.createStore({
     this.listenTo(User.repos.completed, this.onReposCompleted);
   },
 
+  getInitialState: function() {
+    return {
+      repos: {}
+    };
+  },
+
   onProfileCompleted(data) {
     this.username = data.login;
     User.repos(data.repos_url, this.username);
