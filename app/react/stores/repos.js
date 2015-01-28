@@ -9,7 +9,7 @@ export default Reflux.createStore({
     this.listenTo(User.repos.completed, this.onReposCompleted);
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       repos: {}
     };

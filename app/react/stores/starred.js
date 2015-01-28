@@ -9,7 +9,7 @@ export default Reflux.createStore({
     this.listenTo(User.starred.completed, this.onStarredCompleted);
   },
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       starred: {}
     };
