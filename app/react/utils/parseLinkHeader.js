@@ -2,27 +2,18 @@
  * Extract pagination links from Link header in GitHub API
  * */
 
-import forEach from 'lodash-node/modern/collection/forEach';
-
-export default function parseLinkHeader(header) {
-  if (header.length == 0) {
+export default function parseLinkHeader(link) {
+  if (!link) {
     return {};
   }
 
-  // Split parts by comma
-  var parts = header.split(',');
-  var links = {};
+  let parsed = {};
+  let reg = /<(.*?)>; rel="(.*)"/;
 
-  // Parse each part into a named link
-  forEach(parts, function(p) {
-    var section = p.split(';');
-    if (section.length != 2) {
-      throw new Error("section could not be split on ';'");
-    }
-    var url = section[0].replace(/<(.*)>/, '$1').trim();
-    var name = section[1].replace(/rel="(.*)"/, '$1').trim();
-    links[name] = url;
+  link.split(',').forEach(function(part) {
+    var r = reg.exec(part);
+    parsed[r[2]] = r[1];
   });
 
-  return links;
+  return parsed;
 }
