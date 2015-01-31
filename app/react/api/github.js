@@ -13,9 +13,9 @@ function gitHubAPI(url) {
     url: requestUrl,
     type: 'json'
   })
-    .then(data => {
+    .then(apiData => {
       return {
-        data,
+        results: apiData,
         url,
         pagination: parseLinkHeader(req.request.getResponseHeader('Link'))
       };

@@ -21,27 +21,27 @@ export default Reflux.createStore({
     };
   },
 
-  onSearchCompleted(response, fromCache) {
+  onSearchCompleted(data, fromCache) {
     if (!fromCache) {
       // Only take data that's needed
-      let results = pick(response.data, 'items', 'total_count');
-      results.items = map(response.data.items, item => pick(item, 'avatar_url', 'id', 'login'));
+      let results = pick(data.results, 'items', 'total_count');
+      results.items = map(data.results.items, item => pick(item, 'avatar_url', 'id', 'login'));
 
-      // Construct data to cache
-      let data = {
+      // Don't mutate the data param
+      let newData = {
         results,
-        url: response.url,
-        pagination: response.pagination
+        url: data.url,
+        pagination: data.pagination
       };
 
       // Cache it
-      setItem(data.url, data);
+      setItem(newData.url, newData);
 
       // Notify the views
-      this.trigger(data);
+      this.trigger(newData);
     } else {
       // Response came from cache, so send straight to views
-      this.trigger(response);
+      this.trigger(data);
     }
   },
 
