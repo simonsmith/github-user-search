@@ -31,7 +31,7 @@ export default Reflux.createStore({
       let data = {
         results,
         url: response.url,
-        pagination: parseLinkHeader(response.xhr.getResponseHeader('Link') || '')
+        pagination: response.pagination
       };
 
       // Cache it
@@ -40,7 +40,7 @@ export default Reflux.createStore({
       // Notify the views
       this.trigger(data);
     } else {
-      // Data came from cache, so send straight to views
+      // Response came from cache, so send straight to views
       this.trigger(response);
     }
   },

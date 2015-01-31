@@ -12,6 +12,7 @@ function gitHubAPI(url) {
     .then(data => {
       return {
         data,
+        url,
         pagination: parseLinkHeader(req.request.getResponseHeader('Link'))
       }
     });

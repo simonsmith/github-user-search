@@ -1,6 +1,7 @@
 import Reflux from 'reflux';
 import request from 'reqwest';
 import { getItem } from 'mixins/cache';
+import gitHubAPI from 'api/github';
 import partial from 'lodash-node/modern/function/partial'
 
 const API_ROOT_URL = 'https://api.github.com';
@@ -19,15 +20,8 @@ User.search.listen(function(url) {
     return this.completed(cachedData, true);
   }
 
-  var r = request({
-    url: `${API_ROOT_URL}${url}`,
-    type: 'json'
-  })
-    .then(data => this.completed({
-      data,
-      url,
-      xhr: r.request
-    }, false))
+  gitHubAPI(url)
+    .then(this.completed)
     .fail(partial(this.failed, url));
 });
 
