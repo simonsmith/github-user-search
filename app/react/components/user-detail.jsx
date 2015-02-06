@@ -21,11 +21,11 @@ var UserDetail = React.createClass({
   ],
 
   componentWillReceiveProps: function() {
-    User.profile(this.getParams().username);
+    User.profile(this.getPath(), this.getParams().username);
   },
 
   componentDidMount: function() {
-    User.profile(this.getParams().username);
+    User.profile(this.getPath(), this.getParams().username);
   },
 
   render: function() {

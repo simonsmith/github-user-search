@@ -16,7 +16,8 @@ export default Reflux.createStore({
 
   onProfileCompleted(data, fromCache) {
     if (!fromCache) {
-      data = pick(data,
+      // Only take properties that are needed
+      let results = pick(data.results,
         'avatar_url',
         'blog',
         'followers',
@@ -27,13 +28,11 @@ export default Reflux.createStore({
         'login',
         'name',
         'public_repos',
-        'html_url'
-      );
-      setItem(`profile:${data.login}`, data);
+        'html_url');
+      setItem(`${results.login}:profile`, results);
+      this.trigger({ user: results });
+    } else {
+      this.trigger({ user: data });
     }
-
-    this.trigger({
-      user: data
-    });
   }
 });

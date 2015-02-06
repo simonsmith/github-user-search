@@ -4,8 +4,6 @@ import { getItem } from 'mixins/cache';
 import gitHubAPI from 'api/github';
 import partial from 'lodash-node/modern/function/partial'
 
-const API_ROOT_URL = 'https://api.github.com';
-
 var User = Reflux.createActions({
   search: { asyncResult: true },
   profile: { asyncResult: true },
@@ -14,36 +12,24 @@ var User = Reflux.createActions({
 });
 
 User.search.listen(function(url) {
-  var cachedData = getItem(url);
+  // Use the url as the cachekey
+  getAPIItem.call(this, url, url);
+});
 
-  if (cachedData) {
-    return this.completed(cachedData, true);
+function getAPIItem(cacheKey, url, username) {
+  var cached = getItem(`${username}:${cacheKey}`);
+
+  if (cached) {
+    return this.completed(cached, true);
   }
 
   gitHubAPI(url)
     .then(this.completed)
-    .fail(partial(this.failed, url));
-});
-
-function fetchData(cacheKey, url, username) {
-  var cachedData = getItem(`${cacheKey}:${username}`);
-
-  if (cachedData) {
-    return this.completed(cachedData, true);
-  }
-
-  request({
-    url,
-    type: 'json'
-  })
-    .then(this.completed)
     .fail(this.failed);
 }
 
-User.profile.listen(function(username) {
-  fetchData.call(this, 'profile', `https://api.github.com/users/${username}`, username);
-});
-User.repos.listen(partial(fetchData, 'repos'));
-User.starred.listen(partial(fetchData, 'starred'));
+User.profile.listen(partial(getAPIItem, 'profile'));
+User.repos.listen(partial(getAPIItem, 'repos'));
+User.starred.listen(partial(getAPIItem, 'starred'));
 
 export default User
