@@ -18,8 +18,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.jsx$/, loader: 'jsx-loader?insertPragma=React.DOM'},
-      {test: /\.js$|\.jsx/, exclude: /node_modules/, loader: "6to5-loader"}
+      {test: /\.js$|\.jsx/, exclude: /node_modules/, loader: "babel-loader"}
     ]
   }
 };

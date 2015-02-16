@@ -23,15 +23,14 @@
     "suitcss-utils-text": "^0.4.2"
   },
   "devDependencies": {
-    "6to5": "^2.13.7",
-    "6to5-loader": "^2.0.0",
+    "babel-core": "^4.0.1",
+    "babel-loader": "^4.0.0",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
     "gulp-rework": "^1.0.2",
     "gulp-webpack": "^1.1.2",
-    "jsx-loader": "^0.12.2",
     "rework-suit": "^4.0.0",
     "webpack": "^1.5.3"
   }
