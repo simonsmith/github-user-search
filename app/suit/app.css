@@ -1,9 +1,0 @@
-@custom-media --sm-viewport (min-width: 36.25em);
-@custom-media --md-viewport (min-width: 48em);
-@custom-media --lg-viewport (min-width: 64em);
-
-@import "./base.css";
-@import "./forms.css";
-@import "./components/container.css";
-@import "./components/search.css";
-@import "./components/user-detail.css";
