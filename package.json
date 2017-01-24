@@ -1,0 +1,34 @@
+{
+  "name": "github-user-search",
+  "version": "2.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:simonsmith/github-user-search.git",
+  "author": "Simon Smith <simonsmith@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "eslint": "eslint src webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "github-api": "^3.0.0",
+    "lodash": "^4.17.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.8",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "flow-bin": "^0.38.0",
+    "webpack": "beta",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
