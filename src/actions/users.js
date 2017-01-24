@@ -27,3 +27,13 @@ export function userSearchSuccess(response: Object) {
     totalResults: data.length,
   };
 }
+
+export const USER_SEARCH_FAILURE: string = 'USER_SEARCH_FAILURE';
+export function userSearchFailure(error: Object) {
+  const {response, message} = error;
+  return {
+    type: USER_SEARCH_FAILURE,
+    response,
+    message,
+  };
+}

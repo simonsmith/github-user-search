@@ -19,3 +19,15 @@ describe('when receiving a set of users', () => {
     ).toMatchSnapshot();
   });
 });
+
+describe('when an error occurs during a request', () => {
+  it('should dispatch a USER_SEARCH_FAILURE action', () => {
+    const error = new Error('something broke');
+    error.response = {
+      statusText: '404',
+    };
+    expect(
+      actions.userSearchFailure(error)
+    ).toMatchSnapshot();
+  });
+});
