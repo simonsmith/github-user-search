@@ -8,7 +8,11 @@
   "scripts": {
     "build": "webpack",
     "eslint": "eslint src webpack.config.js",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "jest"
+  },
+  "jest": {
+    "testRegex": "test/.*\\.spec\\.js$"
   },
   "dependencies": {
     "github-api": "^3.0.0",
@@ -28,6 +32,8 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.38.0",
+    "jest": "^18.1.0",
+    "nock": "^9.0.2",
     "webpack": "beta",
     "webpack-dev-server": "^1.16.2"
   }
