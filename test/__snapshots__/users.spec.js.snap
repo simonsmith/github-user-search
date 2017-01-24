@@ -1,3 +1,20 @@
+exports[`when receiving a set of users should dispatch a USER_SEARCH_SUCCESS with only necessary data 1`] = `
+Object {
+  "totalResults": 2,
+  "type": "USER_SEARCH_SUCCESS",
+  "users": Array [
+    Object {
+      "id": 123,
+      "login": "foo",
+    },
+    Object {
+      "id": 456,
+      "login": "baz",
+    },
+  ],
+}
+`;
+
 exports[`when requesting users via a search term should dispatch a USER_SEARCH_REQUEST action 1`] = `
 Object {
   "searchTerm": "simon",
