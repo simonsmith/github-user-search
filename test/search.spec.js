@@ -10,12 +10,17 @@ describe('when requesting users via a search term', () => {
 
 describe('when receiving a set of users', () => {
   it('should dispatch a SEARCH_SUCCESS action with the necessary data', () => {
-    const users = [
-      {login: 'foo', id: 123, other: 'test'},
-      {login: 'baz', id: 456, other: 'test'},
-    ];
+    const data = {
+      entities: {
+        users: {
+          123: {login: 'foo', id: 123, other: 'test'},
+          456: {login: 'baz', id: 456, other: 'test'},
+        },
+      },
+      result: [123, 456],
+    };
     expect(
-      actions.searchSuccess({data: users})
+      actions.searchSuccess(data)
     ).toMatchSnapshot();
   });
 });
