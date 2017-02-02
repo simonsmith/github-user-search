@@ -11,13 +11,17 @@ Object {
 exports[`when receiving a set of users should dispatch a SEARCH_SUCCESS action with the necessary data 1`] = `
 Object {
   "entities": Object {
-    "123": Object {
-      "id": 123,
-      "login": "foo",
-    },
-    "456": Object {
-      "id": 456,
-      "login": "baz",
+    "users": Object {
+      "123": Object {
+        "id": 123,
+        "login": "foo",
+        "other": "test",
+      },
+      "456": Object {
+        "id": 456,
+        "login": "baz",
+        "other": "test",
+      },
     },
   },
   "totalResults": 2,

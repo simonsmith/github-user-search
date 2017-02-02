@@ -1,4 +1,4 @@
-import * as actions from '../src/actions/search';
+import * as actions from '../../src/actions/search';
 
 describe('when requesting users via a search term', () => {
   it('should dispatch a SEARCH_REQUEST action', () => {
