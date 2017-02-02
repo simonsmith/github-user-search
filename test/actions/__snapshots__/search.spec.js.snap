@@ -1,4 +1,4 @@
-exports[`when an error occurs during a request should dispatch a SEARCH_FAILURE action 1`] = `
+exports[`Actions: search when an error occurs during a request should dispatch a SEARCH_FAILURE action 1`] = `
 Object {
   "message": "something broke",
   "response": Object {
@@ -8,7 +8,7 @@ Object {
 }
 `;
 
-exports[`when receiving a set of users should dispatch a SEARCH_SUCCESS action with the necessary data 1`] = `
+exports[`Actions: search when receiving a set of users should dispatch a SEARCH_SUCCESS action with the necessary data 1`] = `
 Object {
   "entities": Object {
     "users": Object {
@@ -33,7 +33,7 @@ Object {
 }
 `;
 
-exports[`when requesting users via a search term should dispatch a SEARCH_REQUEST action 1`] = `
+exports[`Actions: search when requesting users via a search term should dispatch a SEARCH_REQUEST action 1`] = `
 Object {
   "searchTerm": "simon",
   "type": "SEARCH_REQUEST",
