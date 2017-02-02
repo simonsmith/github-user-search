@@ -12,6 +12,7 @@
     "comma-dangle": ["error", "always-multiline"],
     "no-use-before-define": ["error", {"functions": false}],
     "object-curly-spacing": ["error", "never"],
-    "lodash-fp/no-extraneous-args": 0
+    "lodash-fp/no-extraneous-args": 0,
+    "func-names": 0
   }
 }
