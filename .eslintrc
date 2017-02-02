@@ -11,6 +11,7 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "no-use-before-define": ["error", {"functions": false}],
-    "object-curly-spacing": ["error", "never"]
+    "object-curly-spacing": ["error", "never"],
+    "lodash-fp/no-extraneous-args": 0
   }
 }
