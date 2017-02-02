@@ -4,9 +4,15 @@ import pick from 'lodash/fp/pick';
 import flow from 'lodash/fp/flow';
 import get from 'lodash/fp/get';
 import mapValues from 'lodash/fp/mapValues';
+import GitHub from 'github-api';
+import {normalize} from 'normalizr';
+import userListSchema from '../schema';
 
+const gh = new GitHub();
+
+const getUserState = get('entities.users');
 const pickUserData = flow(
-  get('entities.users'),
+  getUserState,
   mapValues(
     pick([
       'login',
@@ -16,11 +22,30 @@ const pickUserData = flow(
   )
 );
 
+export function searchUser({query}: {query: string}) {
+  return function (dispatch: Function, getState: Function) {
+    dispatch(searchRequest({query}));
+
+    return gh
+      .search({q: query})
+      .forUsers()
+      .then((response) => {
+        const normalizedData = normalize(response.data, userListSchema);
+        // Only take the properties of each user that are needed
+        const entities = {
+          users: pickUserData(normalizedData),
+        };
+        normalizedData.entities = entities;
+        return dispatch(searchSuccess(normalizedData));
+      });
+  };
+}
+
 export const SEARCH_REQUEST: string = 'SEARCH_REQUEST';
-export function searchRequest({searchTerm}: {searchTerm: string}) {
+export function searchRequest({query}: {query: string}) {
   return {
     type: SEARCH_REQUEST,
-    searchTerm,
+    query,
   };
 }
 
