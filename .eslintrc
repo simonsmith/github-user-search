@@ -1,10 +1,12 @@
 {
   "extends": [
     "airbnb",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:lodash-fp/recommended"
   ],
   "plugins": [
-    "flowtype"
+    "flowtype",
+    "lodash-fp"
   ],
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
