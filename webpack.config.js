@@ -2,7 +2,7 @@ const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
   entry: {
-    app: './src/App.js',
+    app: './src/',
   },
   output: {
     path: 'dist/assets',
