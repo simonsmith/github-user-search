@@ -20,15 +20,18 @@ describe('Reducer: entities', () => {
           },
         },
       };
-      const initial = {
+      const beforeState = {
         users: {
           789: {name: 'baz'},
         },
         other: {foo: 'bar'},
       };
+      const afterState = entitiesReducer(beforeState, action);
+
       expect(
-        entitiesReducer(initial, action)
+        afterState
       ).toMatchSnapshot();
+      expect(afterState).not.toEqual(beforeState);
     });
   });
 
