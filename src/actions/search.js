@@ -37,7 +37,8 @@ export function searchUser({query}: {query: string}) {
         };
         normalizedData.entities = entities;
         return dispatch(searchSuccess(normalizedData));
-      });
+      })
+      .catch(err => dispatch(searchFailure(err)));
   };
 }
 
