@@ -9,7 +9,7 @@
     "build": "webpack",
     "eslint": "eslint src webpack.config.js",
     "start": "webpack-dev-server",
-    "test": "jest --verbose"
+    "test": "jest --verbose && npm run eslint"
   },
   "jest": {
     "testRegex": "test/.*\\.spec\\.js$",
