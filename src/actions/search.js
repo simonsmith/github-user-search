@@ -23,7 +23,7 @@ const pickUserData = flow(
 );
 
 export function searchUser({query}: {query: string}) {
-  return function (dispatch: Function, getState: Function) {
+  return function (dispatch: Function) {
     dispatch(searchRequest({query}));
 
     return gh
@@ -36,7 +36,7 @@ export function searchUser({query}: {query: string}) {
           users: pickUserData(normalizedData),
         };
         normalizedData.entities = entities;
-        return dispatch(searchSuccess(normalizedData));
+        return dispatch(searchSuccess(query, normalizedData));
       })
       .catch(err => dispatch(searchFailure(err)));
   };
@@ -51,13 +51,14 @@ export function searchRequest({query}: {query: string}) {
 }
 
 export const SEARCH_SUCCESS: string = 'SEARCH_SUCCESS';
-export function searchSuccess(data: Object) {
+export function searchSuccess(query: string, data: Object) {
   const {result, entities} = data;
   return {
+    entities,
+    query,
+    totalResults: result.length,
     type: SEARCH_SUCCESS,
     users: result,
-    entities,
-    totalResults: result.length,
   };
 }
 

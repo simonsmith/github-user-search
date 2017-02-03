@@ -24,7 +24,7 @@ describe('Actions: search', () => {
         result: [123, 456],
       };
       expect(
-        actions.searchSuccess(data)
+        actions.searchSuccess('query', data)
       ).toMatchSnapshot();
     });
   });
