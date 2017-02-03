@@ -19,6 +19,7 @@ const config = {
     inline: true,
     port: '3001',
     publicPath: '/assets',
+    historyApiFallback: true,
   },
   devtool: devMode ? 'eval-source-map' : null,
 };
