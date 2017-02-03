@@ -1,3 +1,5 @@
+// @flow
+
 import {combineReducers} from 'redux';
 import entitiesReducer from './entities';
 import searchReducer from './search';

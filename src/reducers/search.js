@@ -1,3 +1,5 @@
+// @flow
+
 import pick from 'lodash/fp/pick';
 import mergeAll from 'lodash/fp/mergeAll';
 import {
@@ -14,7 +16,7 @@ const initialState = {
   totalResults: null,
 };
 
-export default function searchReducer(state = initialState, action) {
+export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
     case SEARCH_REQUEST:
       return {
