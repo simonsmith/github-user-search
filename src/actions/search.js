@@ -58,7 +58,7 @@ export function searchSuccess(query: string, data: Object) {
     query,
     totalResults: result.length,
     type: SEARCH_SUCCESS,
-    users: result,
+    result,
   };
 }
 
