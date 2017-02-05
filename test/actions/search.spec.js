@@ -5,7 +5,6 @@ import {
   searchRequest,
   searchSuccess,
   searchFailure,
-  __RewireAPI__ as SearchRewireApi,
 } from '../../src/store/Search/actions';
 
 describe('Actions: search', () => {
@@ -49,37 +48,32 @@ describe('Actions: search', () => {
 
   describe('Fetching users', () => {
     let store;
-    let mockStore;
-
-    beforeEach(() => {
-      mockStore = configureMockStore([thunk]);
-    });
 
     afterEach(() => {
       store.clearActions();
-      SearchRewireApi.__ResetDependency__('gh');
     });
 
     describe('when making a request with a search term', () => {
       it('should fetch the results from the API and normalize them', () => {
-        store = mockStore({
-          entities: {
-            users: {},
-          },
-        });
-
         const response = {
           data: [
             {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
             {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
           ],
         };
-
-        SearchRewireApi.__set__('gh', ({
+        const mockApi = {
           search: () => ({
             forUsers: () => Promise.resolve(response),
           }),
-        }));
+        };
+        const mockStore = configureMockStore([
+          thunk.withExtraArgument(mockApi),
+        ]);
+        store = mockStore({
+          entities: {
+            users: {},
+          },
+        });
 
         return store
           .dispatch(searchUser({query: 'alecrust'}))
@@ -89,6 +83,13 @@ describe('Actions: search', () => {
 
     describe('when the same request is made again', () => {
       it('should use the cached results and not call the API', (done) => {
+        const searchSpy = jest.fn();
+        const mockApi = {
+          search: searchSpy,
+        };
+        const mockStore = configureMockStore([
+          thunk.withExtraArgument(mockApi),
+        ]);
         store = mockStore({
           search: {
             query: 'alecrust',
@@ -101,16 +102,11 @@ describe('Actions: search', () => {
           },
         });
 
-        const spy = jest.fn();
-        SearchRewireApi.__set__('gh', ({
-          search: spy,
-        }));
-
         return store
           .dispatch(searchUser({query: 'alecrust'}))
           .then(() => {
             expect(store.getActions()).toMatchSnapshot();
-            expect(spy).not.toHaveBeenCalled();
+            expect(searchSpy).not.toHaveBeenCalled();
             done();
           });
       });

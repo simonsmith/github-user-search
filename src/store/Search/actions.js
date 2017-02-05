@@ -4,11 +4,8 @@ import pick from 'lodash/fp/pick';
 import flow from 'lodash/fp/flow';
 import get from 'lodash/fp/get';
 import mapValues from 'lodash/fp/mapValues';
-import GitHub from 'github-api';
 import {normalize} from 'normalizr';
 import userListSchema from '../schema';
-
-const gh = new GitHub();
 
 const getUserEntities = get('entities.users');
 const getSearchState = get('search');
@@ -53,7 +50,7 @@ function getCachedResults(dispatch, query, state) {
 }
 
 export function searchUser({query}: {query: string}) {
-  return function (dispatch: Function, getState: Function) {
+  return function (dispatch: Function, getState: Function, api: Object) {
     const state = getState();
     const lastQuery = getSearchQuery(state);
 
@@ -63,7 +60,7 @@ export function searchUser({query}: {query: string}) {
       return getCachedResults(dispatch, query, state);
     }
 
-    return gh
+    return api
       .search({q: query})
       .forUsers()
       .then(response => normalize(response.data, userListSchema))
