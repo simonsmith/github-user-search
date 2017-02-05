@@ -13,7 +13,6 @@ const initialState = {
   isPending: false,
   query: '',
   result: [],
-  totalResults: null,
 };
 
 export default function searchReducer(state: Object = initialState, action: Object) {
@@ -26,7 +25,7 @@ export default function searchReducer(state: Object = initialState, action: Obje
     case SEARCH_SUCCESS:
       return mergeAll([
         state,
-        pick(['result', 'query', 'totalResults'], action),
+        pick(['result', 'query'], action),
         {isPending: false},
       ]);
     case SEARCH_FAILURE: {

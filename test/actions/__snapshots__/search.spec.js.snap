@@ -24,7 +24,6 @@ Array [
       123,
       456,
     ],
-    "totalResults": 2,
     "type": "SEARCH_SUCCESS",
   },
 ]
@@ -61,7 +60,6 @@ Object {
     123,
     456,
   ],
-  "totalResults": 2,
   "type": "SEARCH_SUCCESS",
 }
 `;

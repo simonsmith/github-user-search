@@ -59,7 +59,6 @@ export function searchSuccess(query: string, data: Object) {
   return {
     entities,
     query,
-    totalResults: result.length,
     type: SEARCH_SUCCESS,
     result,
   };
