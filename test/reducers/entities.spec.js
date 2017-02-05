@@ -1,4 +1,4 @@
-import entitiesReducer from '../../src/reducers/entities';
+import entitiesReducer from '../../src/store/Entities/reducer';
 
 describe('Reducer: entities', () => {
 

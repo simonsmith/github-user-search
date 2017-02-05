@@ -6,7 +6,7 @@ import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
-} from '../actions/search';
+} from './actions';
 
 const initialState = {
   error: null,

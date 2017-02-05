@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
-import rootReducer from '../../src/reducers/root';
-import searchReducer from '../../src/reducers/search';
-import entitiesReducer from '../../src/reducers/entities';
+import rootReducer from '../../src/store/reducer';
+import searchReducer from '../../src/store/Search/reducer';
+import entitiesReducer from '../../src/store/Entities/reducer/';
 
 describe('Reducer: root', () => {
 

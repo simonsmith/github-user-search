@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import * as actions from '../../src/actions/search';
+import * as actions from '../../src/store/Search/actions';
 
 describe('Actions: search', () => {
 
