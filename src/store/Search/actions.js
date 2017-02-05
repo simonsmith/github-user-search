@@ -10,9 +10,8 @@ import userListSchema from '../schema';
 
 const gh = new GitHub();
 
-const getUserState = get('entities.users');
 const pickUserData = flow(
-  getUserState,
+  get('entities.users'),
   mapValues(
     pick([
       'login',
@@ -22,6 +21,16 @@ const pickUserData = flow(
   )
 );
 
+function transformEntities(data) {
+  const entities = {
+    users: pickUserData(data),
+  };
+  return {
+    ...data,
+    entities,
+  };
+}
+
 export function searchUser({query}: {query: string}) {
   return function (dispatch: Function) {
     dispatch(searchRequest({query}));
@@ -29,15 +38,9 @@ export function searchUser({query}: {query: string}) {
     return gh
       .search({q: query})
       .forUsers()
-      .then((response) => {
-        const normalizedData = normalize(response.data, userListSchema);
-        // Only take the properties of each user that are needed
-        const entities = {
-          users: pickUserData(normalizedData),
-        };
-        normalizedData.entities = entities;
-        return dispatch(searchSuccess(query, normalizedData));
-      })
+      .then(response => normalize(response.data, userListSchema))
+      .then(transformEntities)
+      .then(response => dispatch(searchSuccess(query, response)))
       .catch(err => dispatch(searchFailure(err)));
   };
 }
