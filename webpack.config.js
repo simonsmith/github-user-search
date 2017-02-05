@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
@@ -14,6 +16,11 @@ const config = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
     ],
   },
+  plugins: [
+    new webpack.EnvironmentPlugin([
+      'USER_SEARCH_OAUTH',
+    ]),
+  ],
   devServer: {
     contentBase: 'dist',
     inline: true,
