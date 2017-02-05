@@ -3,7 +3,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default function Search() {
+export default function SearchScreen() {
   return (
     <div>
       Search scene
