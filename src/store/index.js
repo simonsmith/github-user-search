@@ -3,6 +3,7 @@ import {
   applyMiddleware,
 } from 'redux';
 import thunk from 'redux-thunk';
+import flow from 'lodash/fp/flow';
 import createLogger from 'redux-logger';
 import rootReducer from './reducer';
 
@@ -13,6 +14,9 @@ const logger = createLogger({
 export default function configureStore() {
   return createStore(
     rootReducer,
-    applyMiddleware(thunk, logger)
+    flow(
+      window.devToolsExtension ? window.devToolsExtension() : f => f,
+      applyMiddleware(thunk, logger)
+    )
   );
 }
