@@ -3,6 +3,7 @@
   "plugins": [
     "transform-flow-strip-types",
     "transform-object-rest-spread",
+    "transform-class-properties",
     "rewire"
    ]
 }
