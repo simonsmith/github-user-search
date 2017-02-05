@@ -2,10 +2,11 @@
 
 import React from 'react';
 
-export default function App() {
+export default function Profile() {
   return (
     <div>
-      hello there!
+      Profile scene
     </div>
   );
 }
+
