@@ -10,7 +10,7 @@ import userListSchema from '../schema';
 
 const gh = new GitHub();
 
-const getUserState = get('entities.users');
+const getUserEntities = get('entities.users');
 const getSearchState = get('search');
 const getSearchQuery = flow(
   getSearchState,
@@ -18,7 +18,7 @@ const getSearchQuery = flow(
 );
 
 const pickUserData = flow(
-  getUserState,
+  getUserEntities,
   mapValues(
     pick([
       'login',
@@ -43,7 +43,7 @@ function getCachedResults(dispatch, query, state) {
   const payload = {
     ...searchState,
     entities: {
-      user: getUserState(state),
+      user: getUserEntities(state),
     },
   };
 
