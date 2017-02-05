@@ -8,4 +8,3 @@ export default combineReducers({
   entities: entitiesReducer,
   search: searchReducer,
 });
-
