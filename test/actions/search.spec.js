@@ -1,13 +1,19 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import * as actions from '../../src/store/Search/actions';
+import {
+  searchUser,
+  searchRequest,
+  searchSuccess,
+  searchFailure,
+  __RewireAPI__ as SearchRewireApi,
+} from '../../src/store/Search/actions';
 
 describe('Actions: search', () => {
 
   describe('when requesting users via a search term', () => {
     it('should dispatch a SEARCH_REQUEST action', () => {
       expect(
-        actions.searchRequest({query: 'simon'})
+        searchRequest({query: 'simon'})
       ).toMatchSnapshot();
     });
   });
@@ -24,7 +30,7 @@ describe('Actions: search', () => {
         result: [123, 456],
       };
       expect(
-        actions.searchSuccess('query', data)
+        searchSuccess('query', data)
       ).toMatchSnapshot();
     });
   });
@@ -36,7 +42,7 @@ describe('Actions: search', () => {
         statusText: '404',
       };
       expect(
-        actions.searchFailure(error)
+        searchFailure(error)
       ).toMatchSnapshot();
     });
   });
@@ -51,19 +57,32 @@ describe('Actions: search', () => {
 
     afterEach(() => {
       store.clearActions();
+      SearchRewireApi.__ResetDependency__('gh');
     });
 
     describe('when making a request with a search term', () => {
       it('should fetch the results from the API and normalize them', () => {
-        jest.mock('github-api');
         store = mockStore({
           entities: {
             users: {},
           },
         });
 
+        const response = {
+          data: [
+            {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
+            {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
+          ],
+        };
+
+        SearchRewireApi.__set__('gh', ({
+          search: () => ({
+            forUsers: () => Promise.resolve(response),
+          }),
+        }));
+
         return store
-          .dispatch(actions.searchUser({query: 'alecrust'}))
+          .dispatch(searchUser({query: 'alecrust'}))
           .then(() => expect(store.getActions()).toMatchSnapshot());
       });
     });
