@@ -87,6 +87,35 @@ describe('Actions: search', () => {
       });
     });
 
+    describe('when the same request is made again', () => {
+      it('should use the cached results and not call the API', (done) => {
+        store = mockStore({
+          search: {
+            query: 'alecrust',
+            result: [123],
+          },
+          entities: {
+            users: {
+              123: {id: 123, login: 'alecrust'},
+            },
+          },
+        });
+
+        const spy = jest.fn();
+        SearchRewireApi.__set__('gh', ({
+          search: spy,
+        }));
+
+        return store
+          .dispatch(searchUser({query: 'alecrust'}))
+          .then(() => {
+            expect(store.getActions()).toMatchSnapshot();
+            expect(spy).not.toHaveBeenCalled();
+            done();
+          });
+      });
+    });
+
   });
 
 });
