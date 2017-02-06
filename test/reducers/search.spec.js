@@ -31,12 +31,10 @@ describe('Reducer: search', () => {
         isPending: true,
         query: '',
         result: [],
-        totalResults: null,
       };
       const action = {
         entities: {},
         query: 'simon',
-        totalResults: 3,
         type: 'SEARCH_SUCCESS',
         result: [1, 2],
       };
@@ -56,7 +54,6 @@ describe('Reducer: search', () => {
         isPending: true,
         query: '',
         result: [],
-        totalResults: null,
       };
       const action = {
         response: {},
