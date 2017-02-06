@@ -37,7 +37,7 @@ Array [
   },
   Object {
     "entities": Object {
-      "user": Object {
+      "users": Object {
         "123": Object {
           "id": 123,
           "login": "alecrust",

@@ -4,6 +4,7 @@ import pick from 'lodash/fp/pick';
 import flow from 'lodash/fp/flow';
 import get from 'lodash/fp/get';
 import mapValues from 'lodash/fp/mapValues';
+import assignAll from 'lodash/fp/assignAll';
 import {normalize} from 'normalizr';
 import userListSchema from '../schema';
 
@@ -25,24 +26,25 @@ const pickUserData = flow(
   )
 );
 
-function transformEntities(data) {
-  const entities = {
-    users: pickUserData(data),
-  };
+function createEntitiesObject(users: Object) {
   return {
-    ...data,
-    entities,
+    entities: {users},
   };
+}
+
+function transformEntities(data) {
+  return assignAll([
+    data,
+    flow(pickUserData, createEntitiesObject)(data),
+  ]);
 }
 
 function getCachedResults(dispatch, query, state) {
   const searchState = getSearchState(state);
-  const payload = {
-    ...searchState,
-    entities: {
-      user: getUserEntities(state),
-    },
-  };
+  const payload = assignAll([
+    searchState,
+    flow(getUserEntities, createEntitiesObject)(state),
+  ]);
 
   return Promise
     .resolve()
