@@ -1,4 +1,20 @@
-exports[`Actions: search Fetching users when making a request with a search term should fetch the results from the API and normalize them 1`] = `
+exports[`Actions: search Fetching users when making a request with a search term and it fails should send error details in the action 1`] = `
+Array [
+  Object {
+    "query": "alecrust",
+    "type": "SEARCH_REQUEST",
+  },
+  Object {
+    "message": "404",
+    "response": Object {
+      "foo": "bar",
+    },
+    "type": "SEARCH_FAILURE",
+  },
+]
+`;
+
+exports[`Actions: search Fetching users when making a request with a search term and it is successful should fetch the results from the API and normalize them 1`] = `
 Array [
   Object {
     "query": "alecrust",

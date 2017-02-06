@@ -54,30 +54,59 @@ describe('Actions: search', () => {
     });
 
     describe('when making a request with a search term', () => {
-      it('should fetch the results from the API and normalize them', () => {
-        const response = {
-          data: [
-            {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
-            {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
-          ],
-        };
-        const mockApi = {
-          search: () => ({
-            forUsers: () => Promise.resolve(response),
-          }),
-        };
-        const mockStore = configureMockStore([
-          thunk.withExtraArgument(mockApi),
-        ]);
-        store = mockStore({
-          entities: {
-            users: {},
-          },
-        });
+      describe('and it is successful', () => {
+        it('should fetch the results from the API and normalize them', () => {
+          const response = {
+            data: [
+              {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
+              {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
+            ],
+          };
+          const mockApi = {
+            search: () => ({
+              forUsers: () => Promise.resolve(response),
+            }),
+          };
+          const mockStore = configureMockStore([
+            thunk.withExtraArgument(mockApi),
+          ]);
+          store = mockStore({
+            entities: {
+              users: {},
+            },
+          });
 
-        return store
-          .dispatch(searchUser({query: 'alecrust'}))
-          .then(() => expect(store.getActions()).toMatchSnapshot());
+          return store
+            .dispatch(searchUser({query: 'alecrust'}))
+            .then(() => expect(store.getActions()).toMatchSnapshot());
+        });
+      });
+
+      describe('and it fails', () => {
+        it('should send error details in the action', () => {
+          const error = new Error('404');
+          error.response = {
+            foo: 'bar',
+          };
+          const mockApi = {
+            search: () => ({
+              forUsers: () => Promise.reject(error),
+            }),
+          };
+          const mockStore = configureMockStore([
+            thunk.withExtraArgument(mockApi),
+          ]);
+          store = mockStore({
+            search: {},
+            entities: {
+              users: {},
+            },
+          });
+
+          return store
+            .dispatch(searchUser({query: 'alecrust'}))
+            .then(() => expect(store.getActions()).toMatchSnapshot());
+        });
       });
     });
   });
