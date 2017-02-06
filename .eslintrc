@@ -15,10 +15,12 @@
     "comma-dangle": ["error", "always-multiline"],
     "func-names": 0,
     "arrow-body-style": 0,
+    "block-spacing": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "no-use-before-define": ["error", {"functions": false}],
     "object-curly-spacing": ["error", "never"],
     "react/jsx-filename-extension": 0,
-    "react/jsx-boolean-value": ["error", "always"]
+    "react/jsx-boolean-value": ["error", "always"],
+    "react/sort-comp": 0
   }
 }
