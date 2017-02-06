@@ -1,0 +1,27 @@
+exports[`Component: SearchForm should render as expected 1`] = `
+<form
+  onSubmit={[Function]}>
+  <label
+    htmlFor="searchInput">
+    Search for a user
+  </label>
+  <input
+    id="searchInput"
+    onChange={[Function]}
+    type="text"
+    value="" />
+  <button
+    type="submit">
+    Submit
+  </button>
+</form>
+`;
+
+exports[`Component: SearchForm when the form is submitted and the state has an input value should push the query as a new route 1`] = `
+Array [
+  Object {
+    "path": "/",
+    "search": "query=test",
+  },
+]
+`;
