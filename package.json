@@ -41,6 +41,7 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "enzyme": "^2.7.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-flowtype": "^2.30.0",
@@ -50,6 +51,8 @@
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.38.0",
     "jest": "^18.1.0",
+    "react-addons-test-utils": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "redux-mock-store": "^1.2.2",
     "webpack": "beta",
     "webpack-dev-server": "^1.16.2"
