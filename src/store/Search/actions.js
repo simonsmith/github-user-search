@@ -9,12 +9,6 @@ import {normalize} from 'normalizr';
 import userListSchema from '../schema';
 
 const getUserEntities = get('entities.users');
-const getSearchState = get('search');
-const getSearchQuery = flow(
-  getSearchState,
-  get('query')
-);
-
 const pickUserData = flow(
   getUserEntities,
   mapValues(
@@ -39,28 +33,9 @@ function transformEntities(data) {
   ]);
 }
 
-function getCachedResults(dispatch, query, state) {
-  const searchState = getSearchState(state);
-  const payload = assignAll([
-    searchState,
-    flow(getUserEntities, createEntitiesObject)(state),
-  ]);
-
-  return Promise
-    .resolve()
-    .then(() => dispatch(searchSuccess(query, payload)));
-}
-
 export function searchUser({query}: {query: string}) {
   return function (dispatch: Function, getState: Function, api: Object) {
-    const state = getState();
-    const lastQuery = getSearchQuery(state);
-
     dispatch(searchRequest({query}));
-
-    if (lastQuery === query) {
-      return getCachedResults(dispatch, query, state);
-    }
 
     return api
       .search({q: query})

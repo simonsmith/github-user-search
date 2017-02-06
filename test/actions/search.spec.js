@@ -80,38 +80,6 @@ describe('Actions: search', () => {
           .then(() => expect(store.getActions()).toMatchSnapshot());
       });
     });
-
-    describe('when the same request is made again', () => {
-      it('should use the cached results and not call the API', (done) => {
-        const searchSpy = jest.fn();
-        const mockApi = {
-          search: searchSpy,
-        };
-        const mockStore = configureMockStore([
-          thunk.withExtraArgument(mockApi),
-        ]);
-        store = mockStore({
-          search: {
-            query: 'alecrust',
-            result: [123],
-          },
-          entities: {
-            users: {
-              123: {id: 123, login: 'alecrust'},
-            },
-          },
-        });
-
-        return store
-          .dispatch(searchUser({query: 'alecrust'}))
-          .then(() => {
-            expect(store.getActions()).toMatchSnapshot();
-            expect(searchSpy).not.toHaveBeenCalled();
-            done();
-          });
-      });
-    });
-
   });
 
 });
