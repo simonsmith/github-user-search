@@ -12,24 +12,24 @@ describe('Component: SearchForm', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  describe('when an initialQuery prop is absent', () => {
+  describe('when an searchQuery prop is absent', () => {
     it('should set inputValue to an empty string', () => {
       const wrapper = shallow(<SearchForm pushRoute={jest.fn()} />);
       expect(wrapper.state('inputValue')).toEqual('');
     });
   });
 
-  describe('when a different initialQuery is set', () => {
+  describe('when a different searchQuery is set', () => {
     it('should update the state', () => {
       const wrapper = shallow(
         <SearchForm
-          initialQuery={'hello'}
+          searchQuery={'hello'}
           pushRoute={jest.fn()}
         />
       );
       expect(wrapper.state('inputValue')).toEqual('hello');
       wrapper.setProps({
-        initialQuery: 'foo',
+        searchQuery: 'foo',
       });
       expect(wrapper.state('inputValue')).toEqual('foo');
     });
