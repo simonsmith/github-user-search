@@ -35,7 +35,6 @@ Array [
         },
       },
     },
-    "query": "alecrust",
     "result": Array [
       123,
       456,
@@ -71,7 +70,6 @@ Object {
       },
     },
   },
-  "query": "query",
   "result": Array [
     123,
     456,

@@ -42,7 +42,7 @@ export function searchUser({query}: {query: string}) {
       .forUsers()
       .then(response => normalize(response.data, userListSchema))
       .then(transformEntities)
-      .then(response => dispatch(searchSuccess(query, response)))
+      .then(response => dispatch(searchSuccess(response)))
       .catch(err => dispatch(searchFailure(err)));
   };
 }
@@ -56,11 +56,10 @@ export function searchRequest({query}: {query: string}) {
 }
 
 export const SEARCH_SUCCESS: string = 'SEARCH_SUCCESS';
-export function searchSuccess(query: string, data: Object) {
+export function searchSuccess(data: Object) {
   const {result, entities} = data;
   return {
     entities,
-    query,
     type: SEARCH_SUCCESS,
     result,
   };
