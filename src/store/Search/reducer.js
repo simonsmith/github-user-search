@@ -1,7 +1,7 @@
 // @flow
 
 import pick from 'lodash/fp/pick';
-import mergeAll from 'lodash/fp/mergeAll';
+import assignAll from 'lodash/fp/assignAll';
 import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
@@ -18,26 +18,31 @@ const initialState = {
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
     case SEARCH_REQUEST:
-      return {
-        ...state,
-        isPending: true,
-      };
+      return assignAll([
+        state,
+        {isPending: true},
+      ]);
     case SEARCH_SUCCESS:
-      return mergeAll([
+      return assignAll([
         state,
         pick(['result', 'query'], action),
-        {isPending: false},
+        {
+          isPending: false,
+          error: null,
+        },
       ]);
     case SEARCH_FAILURE: {
       const {response, message} = action;
-      return {
-        ...state,
-        isPending: false,
-        error: {
-          response,
-          message,
+      return assignAll([
+        state,
+        {
+          isPending: false,
+          error: {
+            response,
+            message,
+          },
         },
-      };
+      ]);
     }
     default:
       return state;
