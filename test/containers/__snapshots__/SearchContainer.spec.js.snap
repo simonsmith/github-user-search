@@ -1,0 +1,23 @@
+exports[`Component: SearchContainer when a query prop changes should call the search action with the new value 1`] = `
+Array [
+  Object {
+    "query": "testing",
+  },
+]
+`;
+
+exports[`Component: SearchContainer when a query prop changes should call the search action with the new value 2`] = `
+Array [
+  Object {
+    "query": "foobar",
+  },
+]
+`;
+
+exports[`Component: SearchContainer when a query prop is present should call the search action 1`] = `
+Array [
+  Object {
+    "query": "testing",
+  },
+]
+`;

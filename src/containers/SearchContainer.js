@@ -13,7 +13,7 @@ type Props = {
   query: string,
 };
 
-class SearchContainer extends Component {
+export class SearchContainer extends Component {
 
   static propTypes = {
     pushRoute: PropTypes.func.isRequired,
