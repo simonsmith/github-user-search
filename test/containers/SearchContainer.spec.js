@@ -13,6 +13,9 @@ describe('Component: SearchContainer', () => {
           query={''}
           searchUser={spy}
           onSubmit={jest.fn()}
+          userEntities={{}}
+          userResults={[]}
+          totalResults={0}
         />
       );
       expect(spy).not.toHaveBeenCalled();
@@ -27,6 +30,9 @@ describe('Component: SearchContainer', () => {
           query={'testing'}
           searchUser={spy}
           onSubmit={jest.fn()}
+          userEntities={{}}
+          userResults={[]}
+          totalResults={0}
         />
       );
       expect(spy.mock.calls[0]).toMatchSnapshot();
@@ -41,6 +47,9 @@ describe('Component: SearchContainer', () => {
           query={'testing'}
           searchUser={spy}
           onSubmit={jest.fn()}
+          userEntities={{}}
+          userResults={[]}
+          totalResults={0}
         />
       );
       expect(spy.mock.calls[0]).toMatchSnapshot();
