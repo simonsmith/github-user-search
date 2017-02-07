@@ -48,6 +48,7 @@ export class SearchContainer extends Component {
     const {
       onSubmit,
       query,
+      totalResults,
       userEntities,
       userResults,
     } = this.props;
@@ -59,8 +60,10 @@ export class SearchContainer extends Component {
           initialInputValue={query}
         />
         <SearchResults
+          query={query}
           results={userResults}
           entities={userEntities}
+          total={totalResults}
         />
       </div>
     );
