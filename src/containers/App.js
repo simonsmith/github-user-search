@@ -12,8 +12,8 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/" component={SearchScreen} />
-        <Route exact path="/:username" component={Profile} />
+        <Route exact={true} path="/" component={SearchScreen} />
+        <Route exact={true} path="/:username" component={Profile} />
       </div>
     </Router>
   );
