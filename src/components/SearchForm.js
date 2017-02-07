@@ -8,7 +8,7 @@ import queryString from 'query-string';
 
 type Props = {
   pushRoute: Function,
-  searchQuery: string,
+  query: string,
 };
 
 type State = {
@@ -25,19 +25,19 @@ class SearchForm extends Component {
   };
 
   static defaultProps = {
-    searchQuery: '',
+    query: '',
   };
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      inputValue: this.props.searchQuery,
+      inputValue: this.props.query,
     };
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.searchQuery !== this.props.searchQuery) {
-      this.setInputValueState(nextProps.searchQuery);
+    if (nextProps.query !== this.props.query) {
+      this.setInputValueState(nextProps.query);
     }
   }
 

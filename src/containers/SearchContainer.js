@@ -47,7 +47,7 @@ export class SearchContainer extends Component {
       <div>
         <SearchForm
           pushRoute={pushRoute}
-          searchQuery={query}
+          query={query}
         />
       </div>
     );
