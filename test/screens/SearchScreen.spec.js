@@ -35,4 +35,19 @@ describe('Screen: SearchScreen', () => {
     });
   });
 
+  describe('pushUrlQuery function', () => {
+    it('should push a search query on the URL', () => {
+      const spy = jest.fn();
+      const wrapper = shallow(
+        <SearchScreen
+          push={spy}
+          location={location}
+        />
+      );
+      wrapper.instance().pushUrlQuery('testing');
+      expect(spy.mock.calls[0]).toMatchSnapshot();
+
+    });
+  });
+
 });

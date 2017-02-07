@@ -7,14 +7,14 @@ import SearchForm from '../../src/components/SearchForm';
 describe('Component: SearchForm', () => {
 
   it('should render as expected', () => {
-    const component = renderer.create(<SearchForm pushRoute={jest.fn()} />);
+    const component = renderer.create(<SearchForm onSubmit={jest.fn()} />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   describe('when an initialInputValue prop is absent', () => {
     it('should set inputValue to an empty string', () => {
-      const wrapper = shallow(<SearchForm pushRoute={jest.fn()} />);
+      const wrapper = shallow(<SearchForm onSubmit={jest.fn()} />);
       expect(wrapper.state('inputValue')).toEqual('');
     });
   });
@@ -24,7 +24,7 @@ describe('Component: SearchForm', () => {
       const wrapper = shallow(
         <SearchForm
           initialInputValue={'hello'}
-          pushRoute={jest.fn()}
+          onSubmit={jest.fn()}
         />
       );
       expect(wrapper.state('inputValue')).toEqual('hello');
@@ -37,11 +37,11 @@ describe('Component: SearchForm', () => {
 
   describe('when the form is submitted', () => {
     describe('and the state has an input value', () => {
-      it('should push the query as a new route', () => {
+      it('should pass the value to the onSubmit function', () => {
         const spy = jest.fn();
         const wrapper = shallow(
           <SearchForm
-            pushRoute={spy}
+            onSubmit={spy}
           />
         );
         wrapper.setState({inputValue: 'test'});
@@ -51,11 +51,11 @@ describe('Component: SearchForm', () => {
     });
 
     describe('and the state has no inputValue', () => {
-      it('should not call the pushRoute function', () => {
+      it('should not call the onSubmit function', () => {
         const spy = jest.fn();
         const wrapper = shallow(
           <SearchForm
-            pushRoute={spy}
+            onSubmit={spy}
           />
         );
         wrapper.simulate('submit', {preventDefault: f => f});

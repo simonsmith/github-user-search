@@ -27,6 +27,15 @@ class SearchScreen extends Component {
     return isUndefined(query) ? '' : query;
   }
 
+  pushUrlQuery = (value: string): void => {
+    this.props.push({
+      path: '/',
+      search: queryString.stringify({
+        query: value,
+      }),
+    });
+  }
+
   render() {
     const {
       location,
@@ -39,6 +48,7 @@ class SearchScreen extends Component {
         <SearchContainer
           pushRoute={push}
           query={query}
+          onSubmit={this.pushUrlQuery}
         />
       </div>
     );

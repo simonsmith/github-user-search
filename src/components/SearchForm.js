@@ -4,10 +4,9 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import queryString from 'query-string';
 
 type Props = {
-  pushRoute: Function,
+  onSubmit: Function,
   initialInputValue: string,
 };
 
@@ -21,7 +20,7 @@ class SearchForm extends Component {
   state: State;
 
   static propTypes = {
-    pushRoute: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -41,15 +40,6 @@ class SearchForm extends Component {
     }
   }
 
-  pushUrlQuery(value: string): void {
-    this.props.pushRoute({
-      path: '/',
-      search: queryString.stringify({
-        query: value,
-      }),
-    });
-  }
-
   setInputValueState(inputValue: string): void {
     this.setState(() => ({inputValue}));
   }
@@ -62,7 +52,7 @@ class SearchForm extends Component {
   handleOnSubmit = (event: Object): void => {
     event.preventDefault();
     if (!this.state.inputValue) {return;}
-    this.pushUrlQuery(this.state.inputValue);
+    this.props.onSubmit(this.state.inputValue);
   }
 
   render() {

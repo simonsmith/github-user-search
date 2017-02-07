@@ -8,7 +8,7 @@ import SearchForm from '../components/SearchForm';
 import connect from './SearchConnect';
 
 type Props = {
-  pushRoute: Function,
+  onSubmit: Function,
   searchUser: Function,
   query: string,
 };
@@ -16,7 +16,7 @@ type Props = {
 export class SearchContainer extends Component {
 
   static propTypes = {
-    pushRoute: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     searchUser: PropTypes.func.isRequired,
     query: PropTypes.string.isRequired,
   };
@@ -40,13 +40,13 @@ export class SearchContainer extends Component {
   render() {
     const {
       query,
-      pushRoute,
+      onSubmit,
     } = this.props;
 
     return (
       <div>
         <SearchForm
-          pushRoute={pushRoute}
+          onSubmit={onSubmit}
           initialInputValue={query}
         />
       </div>

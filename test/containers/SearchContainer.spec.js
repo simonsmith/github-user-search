@@ -12,7 +12,7 @@ describe('Component: SearchContainer', () => {
         <SearchContainer
           query={''}
           searchUser={spy}
-          pushRoute={jest.fn()}
+          onSubmit={jest.fn()}
         />
       );
       expect(spy).not.toHaveBeenCalled();
@@ -26,7 +26,7 @@ describe('Component: SearchContainer', () => {
         <SearchContainer
           query={'testing'}
           searchUser={spy}
-          pushRoute={jest.fn()}
+          onSubmit={jest.fn()}
         />
       );
       expect(spy.mock.calls[0]).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('Component: SearchContainer', () => {
         <SearchContainer
           query={'testing'}
           searchUser={spy}
-          pushRoute={jest.fn()}
+          onSubmit={jest.fn()}
         />
       );
       expect(spy.mock.calls[0]).toMatchSnapshot();
