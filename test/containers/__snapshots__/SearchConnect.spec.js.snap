@@ -1,0 +1,18 @@
+exports[`SearchConnect: mapStateToProps when given the state should return relevant properties 1`] = `
+Object {
+  "totalResults": 3,
+  "userEntities": Object {
+    "1": Object {
+      "id": 1,
+    },
+    "2": Object {
+      "id": 2,
+    },
+  },
+  "userResults": Array [
+    1,
+    2,
+    3,
+  ],
+}
+`;
