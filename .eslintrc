@@ -12,15 +12,16 @@
     "browser": true
   },
   "rules": {
+    "arrow-body-style": 0,
+    "arrow-parens": ["error", "as-needed"],
+    "block-spacing": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "func-names": 0,
-    "arrow-body-style": 0,
-    "block-spacing": ["error", "never"],
-    "arrow-parens": ["error", "as-needed"],
     "no-use-before-define": ["error", {"functions": false}],
     "object-curly-spacing": ["error", "never"],
-    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": ["error", "always"],
+    "react/jsx-filename-extension": 0,
     "react/sort-comp": 0
   }
 }
