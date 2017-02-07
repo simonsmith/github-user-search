@@ -17,6 +17,7 @@
     "block-spacing": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "func-names": 0,
+    "import/no-named-as-default": 0,
     "no-use-before-define": ["error", {"functions": false}],
     "object-curly-spacing": ["error", "never"],
     "react/forbid-prop-types": 0,
