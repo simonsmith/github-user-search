@@ -4,57 +4,52 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import queryString from 'query-string';
 import SearchForm from '../components/SearchForm';
 import connect from './SearchConnect';
 
 type Props = {
-  push: Function,
+  pushRoute: Function,
   searchUser: Function,
-  location: Object,
+  query: string,
 };
 
 class SearchContainer extends Component {
 
   static propTypes = {
-    push: PropTypes.func.isRequired,
+    pushRoute: PropTypes.func.isRequired,
     searchUser: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
+    query: PropTypes.string.isRequired,
   };
-
-  static getQueryFromUrl(search: string) {
-    return queryString.parse(search).query;
-  }
 
   constructor(props: Props) {
     super(props);
-    this.handleSearchUser(props.location.search);
+    this.handleSearchUser(props.query);
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.location.search !== this.props.location.search) {
-      this.handleSearchUser(nextProps.location.search);
+    if (nextProps.query !== this.props.query) {
+      this.handleSearchUser(nextProps.query);
     }
   }
 
-  handleSearchUser(search: string) {
-    if (!search) {return;}
-    const query = SearchContainer.getQueryFromUrl(location.search);
+  handleSearchUser(query: string): void {
+    if (!query) {return;}
     this.props.searchUser({query});
   }
 
   render() {
     const {
-      push,
-      location,
+      query,
+      pushRoute,
     } = this.props;
-    const query = SearchContainer.getQueryFromUrl(location.search);
 
     return (
-      <SearchForm
-        pushRoute={push}
-        searchQuery={query}
-      />
+      <div>
+        <SearchForm
+          pushRoute={pushRoute}
+          searchQuery={query}
+        />
+      </div>
     );
   }
 
