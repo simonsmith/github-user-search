@@ -1,13 +1,14 @@
 // @flow
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import SearchContainer from '../containers/SearchContainer';
 
-export default function SearchScreen() {
+function SearchScreen(props: Object) {
   return (
     <div>
-      Search scene
-      <Link to="/simonsmith">Go to profile</Link>
+      <SearchContainer {...props} />
     </div>
   );
 }
+
+export default SearchScreen;
