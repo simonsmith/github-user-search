@@ -25,23 +25,26 @@ describe('Reducer: search', () => {
   });
 
   describe('when a search request is successful', () => {
-    it('should update the state with the payload', () => {
-      const beforeState = {
-        error: null,
-        isPending: true,
-        userIds: [],
-      };
-      const action = {
-        entities: {},
-        type: 'SEARCH_SUCCESS',
-        userIds: [1, 2],
-      };
-      const afterState = searchReducer(beforeState, action);
+    describe('and the query is not cached', () => {
+      it('should update the state with the userIds and cache them', () => {
+        const beforeState = {
+          error: null,
+          isPending: true,
+          userIds: [],
+          cache: {},
+        };
+        const action = {
+          query: 'alecrust',
+          type: 'SEARCH_SUCCESS',
+          userIds: [1, 2],
+        };
+        const afterState = searchReducer(beforeState, action);
 
-      expect(
-        afterState
-      ).toMatchSnapshot();
-      expect(afterState).not.toEqual(beforeState);
+        expect(
+          afterState
+        ).toMatchSnapshot();
+        expect(afterState).not.toEqual(beforeState);
+      });
     });
   });
 

@@ -14,8 +14,14 @@ Object {
 }
 `;
 
-exports[`Reducer: search when a search request is successful should update the state with the payload 1`] = `
+exports[`Reducer: search when a search request is successful and the query is not cached should update the state with the userIds and cache them 1`] = `
 Object {
+  "cache": Object {
+    "alecrust": Array [
+      1,
+      2,
+    ],
+  },
   "error": null,
   "isPending": false,
   "userIds": Array [
@@ -27,6 +33,7 @@ Object {
 
 exports[`Reducer: search when passed no state should return the initial state 1`] = `
 Object {
+  "cache": Object {},
   "error": null,
   "isPending": false,
   "userIds": Array [],
