@@ -1,6 +1,5 @@
 // @flow
 
-import pick from 'lodash/fp/pick';
 import assignAll from 'lodash/fp/assignAll';
 import {
   SEARCH_REQUEST,
