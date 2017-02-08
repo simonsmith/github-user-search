@@ -23,18 +23,21 @@ export default function searchReducer(state: Object = initialState, action: Obje
       ]);
     case SEARCH_SUCCESS: {
       const {userIds, query} = action;
-      return assignAll([
+      const newState = assignAll([
         state,
         {
           userIds,
           isPending: false,
           error: null,
-          cache: assignAll([
-            state.cache,
-            {[query]: userIds},
-          ]),
         },
       ]);
+      if (!state.cache[query]) {
+        newState.cache = assignAll([
+          state.cache,
+          {[query]: userIds},
+        ]);
+      }
+      return newState;
     }
     case SEARCH_FAILURE: {
       const {response, message} = action;
