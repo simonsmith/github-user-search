@@ -16,11 +16,13 @@ const initialState = {
 
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
+
     case SEARCH_REQUEST:
       return assignAll([
         state,
         {isPending: true},
       ]);
+
     case SEARCH_SUCCESS: {
       const {userIds, query} = action;
       const newState = assignAll([
@@ -31,14 +33,17 @@ export default function searchReducer(state: Object = initialState, action: Obje
           error: null,
         },
       ]);
+
       if (!state.cache[query]) {
         newState.cache = assignAll([
           state.cache,
           {[query]: userIds},
         ]);
       }
+
       return newState;
     }
+
     case SEARCH_FAILURE: {
       const {response, message} = action;
       return assignAll([
@@ -52,7 +57,9 @@ export default function searchReducer(state: Object = initialState, action: Obje
         },
       ]);
     }
+
     default:
       return state;
+
   }
 }
