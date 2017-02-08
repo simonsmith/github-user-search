@@ -33,8 +33,19 @@ function transformEntities(data) {
   ]);
 }
 
+function getQueryFromCache(query: string, state: Object): Array<number> | void {
+  return get('search.cache', state)[query];
+}
+
 export function searchUser({query}: {query: string}) {
   return function (dispatch: Function, getState: Function, api: Object) {
+    const cachedQuery = getQueryFromCache(query, getState());
+    if (cachedQuery) {
+      return Promise
+        .resolve()
+        .then(() => dispatch(searchSuccess({result: cachedQuery}, query)));
+    }
+
     dispatch(searchRequest({query}));
 
     return api

@@ -1,3 +1,16 @@
+exports[`Actions: search Fetching users when making a request with a search term and it exists in the cache should fetch the results from the cache and not call the API 1`] = `
+Array [
+  Object {
+    "entities": undefined,
+    "query": "foo",
+    "type": "SEARCH_SUCCESS",
+    "userIds": Array [
+      1,
+    ],
+  },
+]
+`;
+
 exports[`Actions: search Fetching users when making a request with a search term and it fails should send error details in the action 1`] = `
 Array [
   Object {

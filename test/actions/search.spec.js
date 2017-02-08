@@ -82,6 +82,39 @@ describe('Actions: search', () => {
         });
       });
 
+      describe('and it exists in the cache', () => {
+        it.only('should fetch the results from the cache and not call the API', () => {
+          const spy = jest.fn();
+          const mockApi = {
+            search: spy,
+          };
+          const mockStore = configureMockStore([
+            thunk.withExtraArgument(mockApi),
+          ]);
+          store = mockStore({
+            entities: {
+              users: {
+                1: {id: 1, login: 'foo'},
+                2: {id: 2, login: 'bar'},
+              },
+            },
+            search: {
+              userIds: [1],
+              cache: {
+                foo: [1],
+              },
+            },
+          });
+
+          return store
+            .dispatch(searchUser({query: 'foo'}))
+            .then(() => {
+              expect(spy).not.toHaveBeenCalled();
+              return expect(store.getActions()).toMatchSnapshot();
+            });
+        });
+      });
+
       describe('and it fails', () => {
         it('should send error details in the action', () => {
           const error = new Error('404');
