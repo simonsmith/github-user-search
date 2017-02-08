@@ -11,7 +11,7 @@ import {
 const initialState = {
   error: null,
   isPending: false,
-  result: [],
+  userIds: [],
 };
 
 export default function searchReducer(state: Object = initialState, action: Object) {
@@ -24,7 +24,7 @@ export default function searchReducer(state: Object = initialState, action: Obje
     case SEARCH_SUCCESS:
       return assignAll([
         state,
-        pick(['result'], action),
+        pick(['userIds'], action),
         {
           isPending: false,
           error: null,

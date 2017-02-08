@@ -60,7 +60,7 @@ export function searchSuccess(data: Object, query: string) {
   const {result, entities} = data;
   return {
     entities,
-    result,
+    userIds: result,
     query,
     type: SEARCH_SUCCESS,
   };

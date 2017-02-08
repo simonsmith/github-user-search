@@ -5,11 +5,11 @@ import get from 'lodash/fp/get';
 import {searchUser} from '../store/Search/actions';
 
 export function mapStateToProps(state: Object): Object {
-  const userResults = get('search.result', state);
+  const userIds = get('search.userIds', state);
   return {
     userEntities: get('entities.users', state),
-    userResults,
-    totalResults: userResults.length,
+    userIds,
+    totalResults: userIds.length,
   };
 }
 

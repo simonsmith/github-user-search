@@ -12,7 +12,7 @@ type Props = {
   onSubmit: Function,
   searchUser: Function,
   userEntities: Object,
-  userResults: Array<number>,
+  userIds: Array<number>,
   totalResults: number,
   query: string,
 };
@@ -25,7 +25,7 @@ export class SearchContainer extends Component {
     searchUser: PropTypes.func.isRequired,
     totalResults: PropTypes.number.isRequired,
     userEntities: PropTypes.object.isRequired,
-    userResults: PropTypes.array.isRequired,
+    userIds: PropTypes.array.isRequired,
   };
 
   constructor(props: Props) {
@@ -50,7 +50,7 @@ export class SearchContainer extends Component {
       query,
       totalResults,
       userEntities,
-      userResults,
+      userIds,
     } = this.props;
 
     return (
@@ -61,7 +61,7 @@ export class SearchContainer extends Component {
         />
         <SearchResults
           query={query}
-          results={userResults}
+          ids={userIds}
           entities={userEntities}
           total={totalResults}
         />

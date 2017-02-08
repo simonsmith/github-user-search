@@ -5,7 +5,6 @@ Object {
     "response": Object {},
   },
   "isPending": false,
-  "result": Array [],
 }
 `;
 
@@ -19,7 +18,7 @@ exports[`Reducer: search when a search request is successful should update the s
 Object {
   "error": null,
   "isPending": false,
-  "result": Array [
+  "userIds": Array [
     1,
     2,
   ],
@@ -30,6 +29,6 @@ exports[`Reducer: search when passed no state should return the initial state 1`
 Object {
   "error": null,
   "isPending": false,
-  "result": Array [],
+  "userIds": Array [],
 }
 `;

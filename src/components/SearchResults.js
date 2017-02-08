@@ -10,7 +10,7 @@ import Result from './Result';
 type Props = {
   entities: Object,
   query: string,
-  results: Array<number>,
+  ids: Array<number>,
   total: number,
 };
 
@@ -37,12 +37,12 @@ function renderResultsMessage(query: string, total: number) {
   );
 }
 
-function SearchResults({entities, results, query, total}: Props) {
+function SearchResults({entities, ids, query, total}: Props) {
   return (
     <div>
       {renderResultsMessage(query, total)}
       <ul>
-        {map(renderSearchResult(entities), results)}
+        {map(renderSearchResult(entities), ids)}
       </ul>
     </div>
   );
@@ -51,7 +51,7 @@ function SearchResults({entities, results, query, total}: Props) {
 SearchResults.propTypes = {
   entities: PropTypes.object.isRequired,
   query: PropTypes.string.isRequired,
-  results: PropTypes.array.isRequired,
+  ids: PropTypes.array.isRequired,
   total: PropTypes.number.isRequired,
 };
 

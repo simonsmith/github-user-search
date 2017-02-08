@@ -36,11 +36,11 @@ Array [
       },
     },
     "query": "alecrust",
-    "result": Array [
+    "type": "SEARCH_SUCCESS",
+    "userIds": Array [
       123,
       456,
     ],
-    "type": "SEARCH_SUCCESS",
   },
 ]
 `;
@@ -72,11 +72,11 @@ Object {
     },
   },
   "query": "foo",
-  "result": Array [
+  "type": "SEARCH_SUCCESS",
+  "userIds": Array [
     123,
     456,
   ],
-  "type": "SEARCH_SUCCESS",
 }
 `;
 

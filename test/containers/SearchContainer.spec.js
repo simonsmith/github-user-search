@@ -14,7 +14,7 @@ describe('Component: SearchContainer', () => {
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
-          userResults={[]}
+          userIds={[]}
           totalResults={0}
         />
       );
@@ -31,7 +31,7 @@ describe('Component: SearchContainer', () => {
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
-          userResults={[]}
+          userIds={[]}
           totalResults={0}
         />
       );
@@ -48,7 +48,7 @@ describe('Component: SearchContainer', () => {
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
-          userResults={[]}
+          userIds={[]}
           totalResults={0}
         />
       );

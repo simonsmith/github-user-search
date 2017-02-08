@@ -6,7 +6,7 @@ describe('SearchConnect: mapStateToProps', () => {
     it('should return relevant properties', () => {
       const state = {
         search: {
-          result: [1, 2, 3],
+          userIds: [1, 2, 3],
         },
         entities: {
           users: {
