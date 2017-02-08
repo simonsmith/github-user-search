@@ -29,7 +29,7 @@ describe('Actions: search', () => {
         result: [123, 456],
       };
       expect(
-        searchSuccess(data)
+        searchSuccess(data, 'foo')
       ).toMatchSnapshot();
     });
   });
