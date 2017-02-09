@@ -3,28 +3,28 @@
 import get from 'lodash/fp/get';
 import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
-import pick from 'lodash/fp/pick';
 import userSchema from '../schema';
-
-function getQueryFromCache(query: string, state: Object): Array<number> | void {
-  return get('search.cache', state)[query];
-}
 
 function normalizeResponse(response: Object) {
   const normalized = normalize(response.items, userSchema);
+  const {total_count, pagination} = response;
   return assignAll([
     normalized,
-    pick(['total_count', 'pagination'], response),
+    {
+      totalResults: total_count,
+      pagination,
+    },
   ]);
 }
 
 export function searchUser({query}: {query: string}) {
   return function (dispatch: Function, getState: Function, api: Object) {
-    const cachedQuery = getQueryFromCache(query, getState());
-    if (cachedQuery) {
+    const cachedResult = get('search.cache', getState())[query];
+
+    if (cachedResult) {
       return Promise
         .resolve()
-        .then(() => dispatch(searchSuccess({result: cachedQuery}, query)));
+        .then(() => dispatch(searchSuccess(cachedResult, cachedResult.query)));
     }
 
     dispatch(searchRequest({query}));
@@ -47,20 +47,13 @@ export function searchRequest({query}: {query: string}) {
 
 export const SEARCH_SUCCESS: string = 'SEARCH_SUCCESS';
 export function searchSuccess(response: Object, query: string) {
-  const {
-    result,
-    entities,
-    pagination,
-    total_count: totalResults,
-  } = response;
-  return {
-    entities,
-    userIds: result,
-    query,
-    pagination,
-    totalResults,
-    type: SEARCH_SUCCESS,
-  };
+  return assignAll([
+    response,
+    {
+      type: SEARCH_SUCCESS,
+      query,
+    },
+  ]);
 }
 
 export const SEARCH_FAILURE: string = 'SEARCH_FAILURE';

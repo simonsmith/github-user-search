@@ -10,7 +10,9 @@ import {
 const initialState = {
   error: null,
   isPending: false,
-  userIds: [],
+  result: [],
+  pagination: null,
+  totalResults: 0,
   cache: {},
 };
 
@@ -24,11 +26,18 @@ export default function searchReducer(state: Object = initialState, action: Obje
       ]);
 
     case SEARCH_SUCCESS: {
-      const {userIds, query} = action;
+      const {
+        result,
+        totalResults,
+        pagination,
+        query,
+      } = action;
       const newState = assignAll([
         state,
         {
-          userIds,
+          pagination,
+          totalResults,
+          result,
           isPending: false,
           error: null,
         },
@@ -37,7 +46,12 @@ export default function searchReducer(state: Object = initialState, action: Obje
       if (!state.cache[query]) {
         newState.cache = assignAll([
           state.cache,
-          {[query]: userIds},
+          {[query]: {
+            result,
+            totalResults,
+            pagination,
+            query,
+          }},
         ]);
       }
 
