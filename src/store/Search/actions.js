@@ -20,7 +20,7 @@ function normalizeResponse(response: Object) {
 
 export function searchUser(search: string) {
   return function (dispatch: Function, getState: Function, api: Object) {
-    const cachedResult = get('search.cache', getState())[search];
+    const cachedResult = get(`search.cache.${search}`, getState());
 
     if (cachedResult) {
       return Promise
