@@ -6,10 +6,12 @@ import React, {
 } from 'react';
 import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
+import Pagination from '../components/Pagination';
 import connect from './SearchConnect';
 
 type Props = {
   onSubmit: Function,
+  pagination: Object,
   search: Object,
   search: string,
   searchUser: Function,
@@ -22,6 +24,7 @@ export class SearchContainer extends Component {
 
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    pagination: PropTypes.object,
     search: PropTypes.string.isRequired,
     searchTerm: PropTypes.string,
     searchUser: PropTypes.func.isRequired,
@@ -32,6 +35,7 @@ export class SearchContainer extends Component {
 
   static defaultProps = {
     searchTerm: '',
+    pagination: {},
   };
 
   constructor(props: Props) {
@@ -53,6 +57,7 @@ export class SearchContainer extends Component {
   render() {
     const {
       onSubmit,
+      pagination,
       searchTerm,
       totalResults,
       userEntities,
@@ -65,6 +70,7 @@ export class SearchContainer extends Component {
           onSubmit={onSubmit}
           initialInputValue={searchTerm}
         />
+        <Pagination {...pagination} />
         <SearchResults
           searchTerm={searchTerm}
           ids={userIds}
