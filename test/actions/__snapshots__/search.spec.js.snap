@@ -2,7 +2,9 @@ exports[`Actions: search Fetching users when making a request with a search term
 Array [
   Object {
     "entities": undefined,
+    "pagination": undefined,
     "query": "foo",
+    "totalResults": undefined,
     "type": "SEARCH_SUCCESS",
     "userIds": Array [
       1,
@@ -48,7 +50,9 @@ Array [
         },
       },
     },
+    "pagination": undefined,
     "query": "alecrust",
+    "totalResults": undefined,
     "type": "SEARCH_SUCCESS",
     "userIds": Array [
       123,
@@ -84,7 +88,9 @@ Object {
       },
     },
   },
+  "pagination": undefined,
   "query": "foo",
+  "totalResults": undefined,
   "type": "SEARCH_SUCCESS",
   "userIds": Array [
     123,
