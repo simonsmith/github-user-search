@@ -1,37 +1,8 @@
 // @flow
 
-import pick from 'lodash/fp/pick';
-import flow from 'lodash/fp/flow';
 import get from 'lodash/fp/get';
-import mapValues from 'lodash/fp/mapValues';
-import assignAll from 'lodash/fp/assignAll';
 import {normalize} from 'normalizr';
-import userListSchema from '../schema';
-
-const getUserEntities = get('entities.users');
-const pickUserData = flow(
-  getUserEntities,
-  mapValues(
-    pick([
-      'login',
-      'id',
-      'avatar_url',
-    ])
-  )
-);
-
-function createEntitiesObject(users: Object) {
-  return {
-    entities: {users},
-  };
-}
-
-function transformEntities(data) {
-  return assignAll([
-    data,
-    flow(pickUserData, createEntitiesObject)(data),
-  ]);
-}
+import userSchema from '../schema';
 
 function getQueryFromCache(query: string, state: Object): Array<number> | void {
   return get('search.cache', state)[query];
@@ -49,10 +20,8 @@ export function searchUser({query}: {query: string}) {
     dispatch(searchRequest({query}));
 
     return api
-      .search({q: query})
-      .forUsers()
-      .then(response => normalize(response.data, userListSchema))
-      .then(transformEntities)
+      .searchUsers({q: query})
+      .then(response => normalize(response.items, userSchema))
       .then(response => dispatch(searchSuccess(response, query)))
       .catch(err => dispatch(searchFailure(err)));
   };

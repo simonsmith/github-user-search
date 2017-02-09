@@ -57,15 +57,13 @@ describe('Actions: search', () => {
       describe('and it is successful', () => {
         it('should fetch the results from the API and normalize them', () => {
           const response = {
-            data: [
+            items: [
               {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
               {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
             ],
           };
           const mockApi = {
-            search: () => ({
-              forUsers: () => Promise.resolve(response),
-            }),
+            searchUsers: () => Promise.resolve(response),
           };
           const mockStore = configureMockStore([
             thunk.withExtraArgument(mockApi),
@@ -73,6 +71,9 @@ describe('Actions: search', () => {
           store = mockStore({
             entities: {
               users: {},
+            },
+            search: {
+              cache: {},
             },
           });
 
@@ -83,10 +84,10 @@ describe('Actions: search', () => {
       });
 
       describe('and it exists in the cache', () => {
-        it.only('should fetch the results from the cache and not call the API', () => {
+        it('should fetch the results from the cache and not call the API', () => {
           const spy = jest.fn();
           const mockApi = {
-            search: spy,
+            searchUsers: spy,
           };
           const mockStore = configureMockStore([
             thunk.withExtraArgument(mockApi),
@@ -122,15 +123,15 @@ describe('Actions: search', () => {
             foo: 'bar',
           };
           const mockApi = {
-            search: () => ({
-              forUsers: () => Promise.reject(error),
-            }),
+            searchUsers: () => Promise.reject(error),
           };
           const mockStore = configureMockStore([
             thunk.withExtraArgument(mockApi),
           ]);
           store = mockStore({
-            search: {},
+            search: {
+              cache: {},
+            },
             entities: {
               users: {},
             },
