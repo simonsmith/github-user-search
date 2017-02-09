@@ -31,7 +31,6 @@ describe('Screen: SearchScreen', () => {
       );
       wrapper.instance().pushUrlQuery('testing');
       expect(spy.mock.calls[0]).toMatchSnapshot();
-
     });
   });
 
