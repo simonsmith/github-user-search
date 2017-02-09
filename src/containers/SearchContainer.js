@@ -26,7 +26,7 @@ export class SearchContainer extends Component {
     onSubmit: PropTypes.func.isRequired,
     pagination: PropTypes.object,
     search: PropTypes.string.isRequired,
-    searchTerm: PropTypes.string,
+    searchTerm: PropTypes.string.isRequired,
     searchUser: PropTypes.func.isRequired,
     totalResults: PropTypes.number.isRequired,
     userEntities: PropTypes.object.isRequired,
@@ -54,14 +54,39 @@ export class SearchContainer extends Component {
     this.props.searchUser(search);
   }
 
+  renderSearchResults() {
+    const {
+      searchTerm,
+      userIds,
+      userEntities,
+      totalResults,
+    } = this.props;
+
+    if (!searchTerm) {return null;}
+
+    return (
+      <SearchResults
+        searchTerm={searchTerm}
+        ids={userIds}
+        entities={userEntities}
+        total={totalResults}
+      />
+    );
+  }
+
+  renderPagination() {
+    const {
+      pagination,
+      searchTerm,
+    } = this.props;
+    if (!searchTerm) {return null;}
+    return <Pagination {...pagination} />;
+  }
+
   render() {
     const {
       onSubmit,
-      pagination,
       searchTerm,
-      totalResults,
-      userEntities,
-      userIds,
     } = this.props;
 
     return (
@@ -70,13 +95,8 @@ export class SearchContainer extends Component {
           onSubmit={onSubmit}
           initialInputValue={searchTerm}
         />
-        <Pagination {...pagination} />
-        <SearchResults
-          searchTerm={searchTerm}
-          ids={userIds}
-          entities={userEntities}
-          total={totalResults}
-        />
+        {this.renderPagination()}
+        {this.renderSearchResults()}
       </div>
     );
   }

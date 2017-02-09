@@ -15,3 +15,89 @@ Array [
   "?q=test",
 ]
 `;
+
+exports[`Component: SearchContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}>
+    <label
+      htmlFor="searchInput">
+      Search for a user
+    </label>
+    <input
+      id="searchInput"
+      onChange={[Function]}
+      type="text"
+      value="" />
+    <button
+      type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Component: SearchContainer when the searchTerm is truthy should render pagination and results 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}>
+    <label
+      htmlFor="searchInput">
+      Search for a user
+    </label>
+    <input
+      id="searchInput"
+      onChange={[Function]}
+      type="text"
+      value="hello" />
+    <button
+      type="submit">
+      Submit
+    </button>
+  </form>
+  <div>
+    <a
+      href="/?q=test"
+      onClick={[Function]}>
+      Next
+    </a>
+  </div>
+  <div>
+    <p>
+      <b>
+        hello
+      </b>
+       found 
+      0
+       
+      results
+    </p>
+    <ul>
+      <li>
+        <div>
+          <p>
+            foo
+          </p>
+          <img
+            alt="foo"
+            height={130}
+            src=""
+            width={130} />
+        </div>
+      </li>
+      <li>
+        <div>
+          <p>
+            bar
+          </p>
+          <img
+            alt="bar"
+            height={130}
+            src=""
+            width={130} />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

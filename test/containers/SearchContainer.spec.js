@@ -1,5 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+import renderer from 'react-test-renderer';
 
 import {SearchContainer} from '../../src/containers/SearchContainer';
 
@@ -55,6 +59,48 @@ describe('Component: SearchContainer', () => {
       expect(spy.mock.calls[0]).toMatchSnapshot();
       wrapper.setProps({search: '?q=foobar'});
       expect(spy.mock.calls[1]).toMatchSnapshot();
+    });
+  });
+
+  describe('when the searchTerm is truthy', () => {
+    it('should render pagination and results', () => {
+      const spy = jest.fn();
+      const component = renderer.create(
+        <Router>
+          <SearchContainer
+            search={'?q=test'}
+            searchTerm={'hello'}
+            pagination={{next: {url: '?q=test'}}}
+            searchUser={spy}
+            onSubmit={jest.fn()}
+            userEntities={{
+              1: {login: 'foo', avatar_url: '', id: 1},
+              2: {login: 'bar', avatar_url: '', id: 2},
+            }}
+            userIds={[1, 2]}
+            totalResults={0}
+          />
+        </Router>
+      );
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('when the searchTerm is falsey', () => {
+    it('should not render the pagination or results', () => {
+      const spy = jest.fn();
+      const component = renderer.create(
+        <SearchContainer
+          search={'?q=test'}
+          searchTerm={''}
+          searchUser={spy}
+          onSubmit={jest.fn()}
+          userEntities={{}}
+          userIds={[]}
+          totalResults={0}
+        />
+      );
+      expect(component).toMatchSnapshot();
     });
   });
 
