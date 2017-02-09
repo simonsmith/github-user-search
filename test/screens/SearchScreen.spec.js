@@ -20,13 +20,25 @@ describe('Screen: SearchScreen', () => {
     });
   });
 
+  describe('constructTitle function', () => {
+    it('should use the base title when no search query is present', () => {
+      const title = SearchScreen.constructTitle({});
+      expect(title).toEqual('Github User Search');
+    });
+
+    it('should return a title describing current search and page', () => {
+      const title = SearchScreen.constructTitle({q: 'foo', page: 2});
+      expect(title).toEqual('foo - Page 2 - Github User Search');
+    });
+  });
+
   describe('pushUrlQuery function', () => {
     it('should push a search query on the URL', () => {
       const spy = jest.fn();
       const wrapper = shallow(
         <SearchScreen
           push={spy}
-          location={location}
+          location={{}}
         />
       );
       wrapper.instance().pushUrlQuery('testing');

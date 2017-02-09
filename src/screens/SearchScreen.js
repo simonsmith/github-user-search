@@ -5,6 +5,8 @@ import React, {
   PropTypes,
 } from 'react';
 import qs from 'query-string';
+import DocumentTitle from 'react-document-title';
+import isEmpty from 'lodash/fp/isEmpty';
 import SearchContainer from '../containers/SearchContainer';
 
 type Props = {
@@ -20,6 +22,13 @@ class SearchScreen extends Component {
     push: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
   };
+
+  static constructTitle(search: Object) {
+    const base = 'Github User Search';
+    if (isEmpty(search)) {return base;}
+    const {q, page} = search;
+    return `${q} - Page ${page} - ${base}`;
+  }
 
   pushUrlQuery = (value: string): void => {
     this.props.push({
@@ -37,16 +46,17 @@ class SearchScreen extends Component {
       push,
     } = this.props;
     const parsedSearch = qs.parse(location.search);
+    const title = SearchScreen.constructTitle(parsedSearch);
 
     return (
-      <div>
+      <DocumentTitle title={title}>
         <SearchContainer
           pushRoute={push}
           searchTerm={parsedSearch.q}
           search={qs.stringify(parsedSearch)}
           onSubmit={this.pushUrlQuery}
         />
-      </div>
+      </DocumentTitle>
     );
   }
 
