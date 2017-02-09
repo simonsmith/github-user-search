@@ -18,9 +18,10 @@
     }
   },
   "dependencies": {
-    "github-api": "^3.0.0",
+    "axios": "^0.15.3",
     "lodash": "^4.17.4",
     "normalizr": "^3.1.0",
+    "parse-link-header": "^0.4.1",
     "query-string": "^4.3.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
