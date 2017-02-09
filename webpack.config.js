@@ -12,8 +12,15 @@ const config = {
     publicPath: '/assets',
   },
   module: {
-    loaders: [
+    rules: [
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+        ],
+      },
     ],
   },
   plugins: [

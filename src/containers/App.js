@@ -5,6 +5,8 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+
+import 'suitcss-base';
 import SearchScreen from '../screens/SearchScreen';
 import Profile from '../screens/Profile';
 
