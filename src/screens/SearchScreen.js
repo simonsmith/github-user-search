@@ -26,6 +26,7 @@ class SearchScreen extends Component {
       path: '/',
       search: qs.stringify({
         q: value,
+        page: 1,
       }),
     });
   }
@@ -42,7 +43,7 @@ class SearchScreen extends Component {
         <SearchContainer
           pushRoute={push}
           searchTerm={parsedSearch.q}
-          search={location.search}
+          search={qs.stringify(parsedSearch)}
           onSubmit={this.pushUrlQuery}
         />
       </div>
