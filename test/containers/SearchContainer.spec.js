@@ -62,30 +62,6 @@ describe('Component: SearchContainer', () => {
     });
   });
 
-  describe('when the searchTerm is truthy', () => {
-    it('should render pagination and results', () => {
-      const spy = jest.fn();
-      const component = renderer.create(
-        <Router>
-          <SearchContainer
-            search={'?q=test'}
-            searchTerm={'hello'}
-            pagination={{next: {url: '?q=test'}}}
-            searchUser={spy}
-            onSubmit={jest.fn()}
-            userEntities={{
-              1: {login: 'foo', avatar_url: '', id: 1},
-              2: {login: 'bar', avatar_url: '', id: 2},
-            }}
-            userIds={[1, 2]}
-            totalResults={0}
-          />
-        </Router>
-      );
-      expect(component).toMatchSnapshot();
-    });
-  });
-
   describe('when the searchTerm is falsey', () => {
     it('should not render the pagination or results', () => {
       const spy = jest.fn();
