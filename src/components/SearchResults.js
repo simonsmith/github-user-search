@@ -30,8 +30,8 @@ const renderSearchResult = curry((entities, item) => {
   );
 });
 
-function renderResultsMessage(searchTerm: string, total: number) {
-  if (!searchTerm) {return null;}
+function renderResultsMessage(searchTerm: string, total: number, resultLength: number) {
+  if (!searchTerm || !resultLength) {return null;}
   return (
     <p><b>{searchTerm}</b> found {total} {total === 1 ? 'result' : 'results'}</p>
   );
@@ -40,7 +40,7 @@ function renderResultsMessage(searchTerm: string, total: number) {
 function SearchResults({entities, ids, searchTerm, total}: Props) {
   return (
     <div>
-      {renderResultsMessage(searchTerm, total)}
+      {renderResultsMessage(searchTerm, total, ids.length)}
       <ul>
         {map(renderSearchResult(entities), ids)}
       </ul>
