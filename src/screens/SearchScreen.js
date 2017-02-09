@@ -5,7 +5,6 @@ import React, {
   PropTypes,
 } from 'react';
 import queryString from 'query-string';
-import isUndefined from 'lodash/fp/isUndefined';
 import SearchContainer from '../containers/SearchContainer';
 
 type Props = {
@@ -22,16 +21,11 @@ class SearchScreen extends Component {
     location: PropTypes.object.isRequired,
   };
 
-  static getQueryFromUrl(search: string): string {
-    const query = queryString.parse(search).query;
-    return isUndefined(query) ? '' : query;
-  }
-
   pushUrlQuery = (value: string): void => {
     this.props.push({
       path: '/',
       search: queryString.stringify({
-        query: value,
+        q: value,
       }),
     });
   }
@@ -41,13 +35,13 @@ class SearchScreen extends Component {
       location,
       push,
     } = this.props;
-    const query = SearchScreen.getQueryFromUrl(location.search);
+    const search = queryString.parse(location.search);
 
     return (
       <div>
         <SearchContainer
           pushRoute={push}
-          query={query}
+          search={search}
           onSubmit={this.pushUrlQuery}
         />
       </div>

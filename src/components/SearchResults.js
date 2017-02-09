@@ -9,7 +9,7 @@ import Result from './Result';
 
 type Props = {
   entities: Object,
-  query: string,
+  searchTerm: string,
   ids: Array<number>,
   total: number,
 };
@@ -30,17 +30,17 @@ const renderSearchResult = curry((entities, item) => {
   );
 });
 
-function renderResultsMessage(query: string, total: number) {
-  if (total === 0) {return null;}
+function renderResultsMessage(searchTerm: string, total: number) {
+  if (!searchTerm) {return null;}
   return (
-    <p>Searching {query} found {total} {total === 1 ? 'result' : 'results'}</p>
+    <p><b>{searchTerm}</b> found {total} {total === 1 ? 'result' : 'results'}</p>
   );
 }
 
-function SearchResults({entities, ids, query, total}: Props) {
+function SearchResults({entities, ids, searchTerm, total}: Props) {
   return (
     <div>
-      {renderResultsMessage(query, total)}
+      {renderResultsMessage(searchTerm, total)}
       <ul>
         {map(renderSearchResult(entities), ids)}
       </ul>
@@ -50,7 +50,7 @@ function SearchResults({entities, ids, query, total}: Props) {
 
 SearchResults.propTypes = {
   entities: PropTypes.object.isRequired,
-  query: PropTypes.string.isRequired,
+  searchTerm: PropTypes.string.isRequired,
   ids: PropTypes.array.isRequired,
   total: PropTypes.number.isRequired,
 };

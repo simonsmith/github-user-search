@@ -14,14 +14,14 @@ type Props = {
   userEntities: Object,
   userIds: Array<number>,
   totalResults: number,
-  query: string,
+  search: Object,
 };
 
 export class SearchContainer extends Component {
 
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    query: PropTypes.string.isRequired,
+    search: PropTypes.object.isRequired,
     searchUser: PropTypes.func.isRequired,
     totalResults: PropTypes.number.isRequired,
     userEntities: PropTypes.object.isRequired,
@@ -30,12 +30,12 @@ export class SearchContainer extends Component {
 
   constructor(props: Props) {
     super(props);
-    this.handleSearchUser(props.query);
+    this.handleSearchUser(props.search.q);
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.query !== this.props.query) {
-      this.handleSearchUser(nextProps.query);
+    if (nextProps.search.q !== this.props.search.q) {
+      this.handleSearchUser(nextProps.search.q);
     }
   }
 
@@ -47,20 +47,21 @@ export class SearchContainer extends Component {
   render() {
     const {
       onSubmit,
-      query,
+      search,
       totalResults,
       userEntities,
       userIds,
     } = this.props;
+    const {q} = search;
 
     return (
       <div>
         <SearchForm
           onSubmit={onSubmit}
-          initialInputValue={query}
+          initialInputValue={q}
         />
         <SearchResults
-          query={query}
+          searchTerm={q}
           ids={userIds}
           entities={userEntities}
           total={totalResults}
