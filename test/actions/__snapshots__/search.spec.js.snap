@@ -1,14 +1,14 @@
 exports[`Actions: search Fetching users when making a request with a search term and it exists in the cache should fetch the results from the cache and not call the API 1`] = `
 Array [
   Object {
-    "entities": undefined,
-    "pagination": undefined,
+    "pagination": null,
     "query": "foo",
-    "totalResults": undefined,
-    "type": "SEARCH_SUCCESS",
-    "userIds": Array [
+    "result": Array [
       1,
+      2,
     ],
+    "totalResults": 10,
+    "type": "SEARCH_SUCCESS",
   },
 ]
 `;
@@ -16,7 +16,6 @@ Array [
 exports[`Actions: search Fetching users when making a request with a search term and it fails should send error details in the action 1`] = `
 Array [
   Object {
-    "query": "alecrust",
     "type": "SEARCH_REQUEST",
   },
   Object {
@@ -32,7 +31,6 @@ Array [
 exports[`Actions: search Fetching users when making a request with a search term and it is successful should fetch the results from the API and normalize them 1`] = `
 Array [
   Object {
-    "query": "alecrust",
     "type": "SEARCH_REQUEST",
   },
   Object {
@@ -50,14 +48,14 @@ Array [
         },
       },
     },
-    "pagination": undefined,
-    "query": "alecrust",
-    "totalResults": undefined,
-    "type": "SEARCH_SUCCESS",
-    "userIds": Array [
+    "pagination": null,
+    "query": "?q=alecrust",
+    "result": Array [
       123,
       456,
     ],
+    "totalResults": 2,
+    "type": "SEARCH_SUCCESS",
   },
 ]
 `;
@@ -74,34 +72,19 @@ Object {
 
 exports[`Actions: search when receiving a set of users should dispatch a SEARCH_SUCCESS action with the necessary data 1`] = `
 Object {
-  "entities": Object {
-    "users": Object {
-      "123": Object {
-        "id": 123,
-        "login": "foo",
-        "other": "test",
-      },
-      "456": Object {
-        "id": 456,
-        "login": "baz",
-        "other": "test",
-      },
-    },
-  },
-  "pagination": undefined,
+  "pagination": Object {},
   "query": "foo",
-  "totalResults": undefined,
-  "type": "SEARCH_SUCCESS",
-  "userIds": Array [
+  "result": Array [
     123,
     456,
   ],
+  "totalResults": 2,
+  "type": "SEARCH_SUCCESS",
 }
 `;
 
 exports[`Actions: search when requesting users via a search term should dispatch a SEARCH_REQUEST action 1`] = `
 Object {
-  "query": "simon",
   "type": "SEARCH_REQUEST",
 }
 `;

@@ -25,7 +25,7 @@ Object {
   },
   "error": null,
   "isPending": false,
-  "userIds": Array [
+  "result": Array [
     44,
   ],
 }
@@ -34,14 +34,16 @@ Object {
 exports[`Reducer: search when a search request is successful and the query is not cached should update the state with the userIds and cache them 1`] = `
 Object {
   "cache": Object {
-    "alecrust": Array [
-      1,
-      2,
-    ],
+    "?q=alecrust": Object {
+      "result": Array [
+        1,
+        2,
+      ],
+    },
   },
   "error": null,
   "isPending": false,
-  "userIds": Array [
+  "result": Array [
     1,
     2,
   ],
@@ -53,6 +55,8 @@ Object {
   "cache": Object {},
   "error": null,
   "isPending": false,
-  "userIds": Array [],
+  "pagination": null,
+  "result": Array [],
+  "totalResults": 0,
 }
 `;

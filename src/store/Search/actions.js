@@ -25,7 +25,7 @@ export function searchUser(search: string) {
     if (cachedResult) {
       return Promise
         .resolve()
-        .then(() => dispatch(searchSuccess(cachedResult, cachedResult.search)));
+        .then(() => dispatch(searchSuccess(cachedResult, search)));
     }
 
     dispatch(searchRequest(search));

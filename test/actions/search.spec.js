@@ -20,12 +20,8 @@ describe('Actions: search', () => {
   describe('when receiving a set of users', () => {
     it('should dispatch a SEARCH_SUCCESS action with the necessary data', () => {
       const data = {
-        entities: {
-          users: {
-            123: {login: 'foo', id: 123, other: 'test'},
-            456: {login: 'baz', id: 456, other: 'test'},
-          },
-        },
+        pagination: {},
+        totalResults: 2,
         result: [123, 456],
       };
       expect(
@@ -57,6 +53,8 @@ describe('Actions: search', () => {
       describe('and it is successful', () => {
         it('should fetch the results from the API and normalize them', () => {
           const response = {
+            pagination: null,
+            total_count: 2,
             items: [
               {id: 123, avatar_url: 'foo', login: 'alecrust', type: 'User'},
               {id: 456, avatar_url: 'foo', login: 'simonsmith', type: 'User'},
@@ -78,7 +76,7 @@ describe('Actions: search', () => {
           });
 
           return store
-            .dispatch(searchUser({query: 'alecrust'}))
+            .dispatch(searchUser('?q=alecrust'))
             .then(() => expect(store.getActions()).toMatchSnapshot());
         });
       });
@@ -100,15 +98,19 @@ describe('Actions: search', () => {
               },
             },
             search: {
-              userIds: [1],
+              result: [1],
               cache: {
-                foo: [1],
+                foo: {
+                  result: [1, 2],
+                  pagination: null,
+                  totalResults: 10,
+                },
               },
             },
           });
 
           return store
-            .dispatch(searchUser({query: 'foo'}))
+            .dispatch(searchUser('foo'))
             .then(() => {
               expect(spy).not.toHaveBeenCalled();
               return expect(store.getActions()).toMatchSnapshot();

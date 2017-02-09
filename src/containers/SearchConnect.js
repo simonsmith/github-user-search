@@ -9,6 +9,7 @@ export function mapStateToProps(state: Object): Object {
     userEntities: get('entities.users', state),
     userIds: get('search.result', state),
     totalResults: get('search.totalResults', state),
+    pagination: get('search.pagination', state),
   };
 }
 

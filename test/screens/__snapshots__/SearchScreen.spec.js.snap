@@ -2,7 +2,7 @@ exports[`Screen: SearchScreen pushUrlQuery function should push a search query o
 Array [
   Object {
     "path": "/",
-    "search": "query=testing",
+    "search": "q=testing",
   },
 ]
 `;

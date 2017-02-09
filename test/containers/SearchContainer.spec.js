@@ -5,12 +5,12 @@ import {SearchContainer} from '../../src/containers/SearchContainer';
 
 describe('Component: SearchContainer', () => {
 
-  describe('when a query prop is not present', () => {
+  describe('when the search prop is not present', () => {
     it('should not call the search action', () => {
       const spy = jest.fn();
       shallow(
         <SearchContainer
-          query={''}
+          search={''}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -22,12 +22,12 @@ describe('Component: SearchContainer', () => {
     });
   });
 
-  describe('when a query prop is present', () => {
+  describe('when the search prop is present', () => {
     it('should call the search action', () => {
       const spy = jest.fn();
       shallow(
         <SearchContainer
-          query={'testing'}
+          search={'?q=test'}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -39,12 +39,12 @@ describe('Component: SearchContainer', () => {
     });
   });
 
-  describe('when a query prop changes', () => {
+  describe('when the search prop changes', () => {
     it('should call the search action with the new value', () => {
       const spy = jest.fn();
       const wrapper = shallow(
         <SearchContainer
-          query={'testing'}
+          search={'?q=test'}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -53,7 +53,7 @@ describe('Component: SearchContainer', () => {
         />
       );
       expect(spy.mock.calls[0]).toMatchSnapshot();
-      wrapper.setProps({query: 'foobar'});
+      wrapper.setProps({search: '?q=foobar'});
       expect(spy.mock.calls[1]).toMatchSnapshot();
     });
   });

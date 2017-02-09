@@ -6,9 +6,9 @@ import SearchContainer from '../../src/containers/SearchContainer';
 describe('Screen: SearchScreen', () => {
 
   describe('when passed a location object', () => {
-    it('should parse the query and pass it to SearchContainer', () => {
+    it('should parse the searchTerm and pass it to SearchContainer', () => {
       const location = {
-        search: '?query=testing',
+        search: '?q=testing',
       };
       const wrapper = shallow(
         <SearchScreen
@@ -16,22 +16,7 @@ describe('Screen: SearchScreen', () => {
           location={location}
         />
       );
-      expect(wrapper.find(SearchContainer).first().props().query).toEqual('testing');
-    });
-
-    describe('and the search property is undefined', () => {
-      it('should pass an empty string to SearchContainer', () => {
-        const location = {
-          search: undefined,
-        };
-        const wrapper = shallow(
-          <SearchScreen
-            push={jest.fn()}
-            location={location}
-          />
-        );
-        expect(wrapper.find(SearchContainer).first().props().query).toEqual('');
-      });
+      expect(wrapper.find(SearchContainer).first().props().searchTerm).toEqual('testing');
     });
   });
 

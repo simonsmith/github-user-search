@@ -20,7 +20,6 @@ describe('Reducer: search', () => {
       expect(
         afterState
       ).toMatchSnapshot();
-      expect(afterState).not.toEqual(beforeState);
     });
   });
 
@@ -28,15 +27,14 @@ describe('Reducer: search', () => {
     describe('and the query is not cached', () => {
       it('should update the state with the userIds and cache them', () => {
         const beforeState = {
-          error: null,
           isPending: true,
-          userIds: [],
+          result: [],
           cache: {},
         };
         const action = {
-          query: 'alecrust',
+          result: [1, 2],
+          query: '?q=alecrust',
           type: 'SEARCH_SUCCESS',
-          userIds: [1, 2],
         };
         const afterState = searchReducer(beforeState, action);
 
@@ -52,7 +50,7 @@ describe('Reducer: search', () => {
         const beforeState = {
           error: null,
           isPending: true,
-          userIds: [1, 2, 3],
+          result: [1, 2, 3],
           cache: {
             foo: [1, 2, 3],
           },
@@ -60,7 +58,7 @@ describe('Reducer: search', () => {
         const action = {
           query: 'foo',
           type: 'SEARCH_SUCCESS',
-          userIds: [44],
+          result: [44],
         };
         const afterState = searchReducer(beforeState, action);
 

@@ -30,6 +30,10 @@ export class SearchContainer extends Component {
     userIds: PropTypes.array.isRequired,
   };
 
+  static defaultProps = {
+    searchTerm: '',
+  };
+
   constructor(props: Props) {
     super(props);
     this.handleSearchUser(props.search);
@@ -41,7 +45,7 @@ export class SearchContainer extends Component {
     }
   }
 
-  handleSearchUser(search: Object): void {
+  handleSearchUser(search: string): void {
     if (!search) {return;}
     this.props.searchUser(search);
   }
