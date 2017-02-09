@@ -49,10 +49,10 @@ function SearchResults({entities, ids, searchTerm, total}: Props) {
 }
 
 SearchResults.propTypes = {
-  entities: PropTypes.object.isRequired,
-  searchTerm: PropTypes.string.isRequired,
-  ids: PropTypes.array.isRequired,
-  total: PropTypes.number.isRequired,
+  entities: PropTypes.object,
+  searchTerm: PropTypes.string,
+  ids: PropTypes.array,
+  total: PropTypes.number,
 };
 
 export default SearchResults;

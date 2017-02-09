@@ -4,7 +4,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import queryString from 'query-string';
+import qs from 'query-string';
 import SearchContainer from '../containers/SearchContainer';
 
 type Props = {
@@ -24,7 +24,7 @@ class SearchScreen extends Component {
   pushUrlQuery = (value: string): void => {
     this.props.push({
       path: '/',
-      search: queryString.stringify({
+      search: qs.stringify({
         q: value,
       }),
     });
@@ -35,13 +35,14 @@ class SearchScreen extends Component {
       location,
       push,
     } = this.props;
-    const search = queryString.parse(location.search);
+    const parsedSearch = qs.parse(location.search);
 
     return (
       <div>
         <SearchContainer
           pushRoute={push}
-          search={search}
+          searchTerm={parsedSearch.q}
+          search={location.search}
           onSubmit={this.pushUrlQuery}
         />
       </div>

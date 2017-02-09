@@ -3,6 +3,7 @@
 import get from 'lodash/fp/get';
 import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
+import qs from 'query-string';
 import userSchema from '../schema';
 
 function normalizeResponse(response: Object) {
@@ -17,31 +18,30 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-export function searchUser({query}: {query: string}) {
+export function searchUser(search: string) {
   return function (dispatch: Function, getState: Function, api: Object) {
-    const cachedResult = get('search.cache', getState())[query];
+    const cachedResult = get('search.cache', getState())[search];
 
     if (cachedResult) {
       return Promise
         .resolve()
-        .then(() => dispatch(searchSuccess(cachedResult, cachedResult.query)));
+        .then(() => dispatch(searchSuccess(cachedResult, cachedResult.search)));
     }
 
-    dispatch(searchRequest({query}));
+    dispatch(searchRequest(search));
 
     return api
-      .searchUsers({q: query})
+      .searchUsers(qs.parse(search))
       .then(normalizeResponse)
-      .then(response => dispatch(searchSuccess(response, query)))
+      .then(response => dispatch(searchSuccess(response, search)))
       .catch(err => dispatch(searchFailure(err)));
   };
 }
 
 export const SEARCH_REQUEST: string = 'SEARCH_REQUEST';
-export function searchRequest({query}: {query: string}) {
+export function searchRequest() {
   return {
     type: SEARCH_REQUEST,
-    query,
   };
 }
 

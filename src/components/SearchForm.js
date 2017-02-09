@@ -21,6 +21,7 @@ class SearchForm extends Component {
 
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    initialInputValue: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
