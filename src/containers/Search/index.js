@@ -4,6 +4,10 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
+import {
+  StyleSheet,
+  css,
+} from 'aphrodite/no-important';
 import SearchForm from '../../components/SearchForm';
 import SearchResults from '../../components/SearchResults';
 import Pagination from '../../components/Pagination';
@@ -80,7 +84,12 @@ export class SearchContainer extends Component {
       searchTerm,
     } = this.props;
     if (!searchTerm) {return null;}
-    return <Pagination {...pagination} />;
+
+    return (
+      <div className={css(styles.SearchContainer_pagination)}>
+        <Pagination {...pagination} />
+      </div>
+    );
   }
 
   render() {
@@ -104,5 +113,12 @@ export class SearchContainer extends Component {
   }
 
 }
+
+const styles = StyleSheet.create({
+  SearchContainer_pagination: {
+    marginTop: 15,
+    marginBottom: 15,
+  },
+});
 
 export default connect(SearchContainer);

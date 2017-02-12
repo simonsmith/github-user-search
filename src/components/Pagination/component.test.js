@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
+import {StyleSheetTestUtils} from 'aphrodite';
 
 import Pagination from './';
 
@@ -15,6 +16,14 @@ function createComponent(props) {
 }
 
 describe('Component: Pagination', () => {
+
+  beforeAll(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterAll(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
 
   describe('when passed a next prop', () => {
     it('should render a next link', () => {

@@ -6,6 +6,11 @@ import React, {
 import {Link} from 'react-router-dom';
 import first from 'lodash/fp/first';
 import flow from 'lodash/fp/flow';
+import {
+  StyleSheet,
+  css,
+} from 'aphrodite/no-important';
+import Container from '../Container';
 
 type Props = {
   next: Object,
@@ -17,18 +22,20 @@ const getSearchQuery = flow(
   first
 );
 
-function renderLink(url: string, text: string) {
+function renderLink(url: string, text: string, style: Object) {
   if (!url) {return null;}
   const search = getSearchQuery(url);
-  return <Link to={{search}}>{text}</Link>;
+  return <Link to={{search}} className={css(style)}>{text}</Link>;
 }
 
 function Pagination({prev, next}: Props) {
   return (
-    <div>
-      {renderLink(prev.url, 'Previous')}
-      {renderLink(next.url, 'Next')}
-    </div>
+    <Container>
+      <div className={css(styles.Pagination)}>
+        {renderLink(prev.url, 'Previous', styles.Pagination_prev)}
+        {renderLink(next.url, 'Next', styles.Pagination_next)}
+      </div>
+    </Container>
   );
 }
 
@@ -41,5 +48,20 @@ Pagination.propTypes = {
   next: PropTypes.object,
   prev: PropTypes.object,
 };
+
+const styles = StyleSheet.create({
+  Pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+  Pagination_next: {
+    marginLeft: 'auto',
+  },
+
+  Pagination_prev: {
+    marginRight: 'auto',
+  },
+});
 
 export default Pagination;
