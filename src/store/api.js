@@ -1,7 +1,6 @@
 import axios from 'axios';
 import assignAll from 'lodash/fp/assignAll';
 import parseLinkHeader from 'parse-link-header';
-import pick from 'lodash/fp/pick';
 
 const github = axios.create({
   baseURL: 'https://api.github.com/',
@@ -12,20 +11,24 @@ if (token) {
   github.defaults.headers.common.Authorization = `token ${token}`;
 }
 
-function transformResponse(response) {
-  const {data} = response;
-  const pagination = parseLinkHeader(response.headers.link);
+function addPagination(response: Object): Object {
+  const {data, headers} = response;
+  const pagination = parseLinkHeader(headers.link);
   return assignAll([
-    pick(['total_count', 'items'], data),
+    data,
     {pagination},
   ]);
 }
-github.interceptors.response.use(transformResponse);
 
 function searchUsers(params: Object): Promise {
-  return github.get('/search/users', {
-    params,
-  });
+  const defaultParams = {
+    per_page: 45,
+  };
+  return github
+    .get('/search/users', {
+      params: assignAll([defaultParams, params]),
+    })
+    .then(addPagination);
 }
 
 export default {
