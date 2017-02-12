@@ -8,7 +8,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import 'suitcss-base';
-import SearchScreen from '../../screens/SearchScreen';
+import SearchScreen from '../../screens/Search';
 import Profile from '../../screens/Profile';
 
 export default function App() {
