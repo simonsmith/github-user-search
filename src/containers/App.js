@@ -5,7 +5,10 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-
+import {
+  StyleSheet,
+  css,
+} from 'aphrodite/no-important';
 import 'suitcss-base';
 import SearchScreen from '../screens/SearchScreen';
 import Profile from '../screens/Profile';
@@ -13,10 +16,17 @@ import Profile from '../screens/Profile';
 export default function App() {
   return (
     <Router>
-      <div className="App">
+      <div className={css(styles.App)}>
         <Route exact={true} path="/" component={SearchScreen} />
         <Route exact={true} path="/:username" component={Profile} />
       </div>
     </Router>
   );
 }
+
+const styles = StyleSheet.create({
+  App: {
+    padding: 15,
+    maxWidth: 1060,
+  },
+});

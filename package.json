@@ -18,6 +18,7 @@
     }
   },
   "dependencies": {
+    "aphrodite": "^1.1.0",
     "axios": "^0.15.3",
     "lodash": "^4.17.4",
     "normalizr": "^3.1.0",
