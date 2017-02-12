@@ -9,7 +9,7 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Result from './Result';
+import Result from '../Result';
 
 type Props = {
   entities: Object,

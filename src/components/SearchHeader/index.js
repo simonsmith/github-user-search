@@ -7,7 +7,7 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Container from './Container';
+import Container from '../Container';
 
 type Props = {
   children?: any,

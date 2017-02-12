@@ -8,7 +8,7 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import {Utils} from '../theme';
+import {Utils} from '../../theme';
 
 type Props = {
   onSubmit: Function,
