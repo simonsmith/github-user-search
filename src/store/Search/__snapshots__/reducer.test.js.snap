@@ -1,0 +1,62 @@
+exports[`Reducer: search when a search request fails should update the state with the error message 1`] = `
+Object {
+  "error": Object {
+    "message": "The server died",
+    "response": Object {},
+  },
+  "isPending": false,
+}
+`;
+
+exports[`Reducer: search when a search request is pending should set isPending to true 1`] = `
+Object {
+  "isPending": true,
+}
+`;
+
+exports[`Reducer: search when a search request is successful and the query is already cached should not merge the cached query back into the cache again 1`] = `
+Object {
+  "cache": Object {
+    "foo": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+  "error": null,
+  "isPending": false,
+  "result": Array [
+    44,
+  ],
+}
+`;
+
+exports[`Reducer: search when a search request is successful and the query is not cached should update the state with the userIds and cache them 1`] = `
+Object {
+  "cache": Object {
+    "?q=alecrust": Object {
+      "result": Array [
+        1,
+        2,
+      ],
+    },
+  },
+  "error": null,
+  "isPending": false,
+  "result": Array [
+    1,
+    2,
+  ],
+}
+`;
+
+exports[`Reducer: search when passed no state should return the initial state 1`] = `
+Object {
+  "cache": Object {},
+  "error": null,
+  "isPending": false,
+  "pagination": null,
+  "result": Array [],
+  "totalResults": 0,
+}
+`;
