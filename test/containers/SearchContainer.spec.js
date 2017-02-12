@@ -1,10 +1,19 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
+import {StyleSheetTestUtils} from 'aphrodite';
 
 import {SearchContainer} from '../../src/containers/SearchContainer';
 
 describe('Component: SearchContainer', () => {
+
+  beforeAll(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterAll(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
 
   describe('when the search prop is not present', () => {
     it('should not call the search action', () => {

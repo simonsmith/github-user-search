@@ -7,6 +7,7 @@ import React, {
 import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
 import Pagination from '../components/Pagination';
+import SearchHeader from '../components/SearchHeader';
 import connect from './SearchConnect';
 
 type Props = {
@@ -61,7 +62,6 @@ export class SearchContainer extends Component {
       userEntities,
       totalResults,
     } = this.props;
-
     if (!searchTerm) {return null;}
 
     return (
@@ -91,10 +91,12 @@ export class SearchContainer extends Component {
 
     return (
       <div>
-        <SearchForm
-          onSubmit={onSubmit}
-          initialInputValue={searchTerm}
-        />
+        <SearchHeader>
+          <SearchForm
+            onSubmit={onSubmit}
+            initialInputValue={searchTerm}
+          />
+        </SearchHeader>
         {this.renderPagination()}
         {this.renderSearchResults()}
       </div>

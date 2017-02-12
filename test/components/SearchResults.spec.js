@@ -12,8 +12,6 @@ describe('Component: SearchResults', () => {
 
   afterAll(() => {
     StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-    jest.useFakeTimers();
-    jest.runAllTimers()
   });
 
   describe('when given a set of results and entities', () => {
