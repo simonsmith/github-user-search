@@ -46,9 +46,10 @@ exports[`Component: SearchContainer when the searchTerm is falsey should not ren
               Search for a user
             </label>
             <input
+              className="SearchForm_input_1kxcxy3"
               id="searchInput"
               onChange={[Function]}
-              placeholder="Search for a user"
+              placeholder="Search for a user e.g. simonsmith"
               type="text"
               value="" />
             <button

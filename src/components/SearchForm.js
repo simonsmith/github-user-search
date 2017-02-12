@@ -71,9 +71,10 @@ class SearchForm extends Component {
           Search for a user
         </label>
         <input
+          className={css(styles.SearchForm_input)}
           type="text"
           id="searchInput"
-          placeholder="Search for a user"
+          placeholder="Search for a user e.g. simonsmith"
           value={this.state.inputValue}
           onChange={this.handleOnChange}
         />
@@ -82,5 +83,14 @@ class SearchForm extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  SearchForm_input: {
+    padding: 10,
+    width: '100%',
+    border: '1px solid #bbb',
+    boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, .1);',
+  },
+});
 
 export default SearchForm;
