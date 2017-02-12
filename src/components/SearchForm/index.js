@@ -9,6 +9,7 @@ import {
   css,
 } from 'aphrodite/no-important';
 import {Utils} from '../../theme';
+import SearchIcon from './search.svg';
 
 type Props = {
   onSubmit: Function,
@@ -63,7 +64,10 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleOnSubmit}>
+      <form
+        className={css(styles.SearchForm)}
+        onSubmit={this.handleOnSubmit}
+      >
         <label
           className={css(Utils.hiddenVisually)}
           htmlFor="searchInput"
@@ -74,22 +78,40 @@ class SearchForm extends Component {
           className={css(styles.SearchForm_input)}
           type="text"
           id="searchInput"
-          placeholder="Search for a user e.g. simonsmith"
+          placeholder="Search for a user, e.g. simonsmith"
           value={this.state.inputValue}
           onChange={this.handleOnChange}
         />
-        <button type="submit">Submit</button>
+        <button
+          className={css(styles.SearchForm_btn)}
+          type="submit"
+        >
+          <SearchIcon width={20} height={20} />
+          <span className={css(Utils.hiddenVisually)}>Submit</span>
+        </button>
       </form>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  SearchForm: {
+    position: 'relative',
+  },
+
   SearchForm_input: {
-    padding: 10,
+    padding: 8,
+    paddingRight: 40,
     width: '100%',
     border: '1px solid #bbb',
     boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, .1);',
+  },
+
+  SearchForm_btn: {
+    padding: '3px 14px',
+    position: 'absolute',
+    top: 4,
+    right: 0,
   },
 });
 
