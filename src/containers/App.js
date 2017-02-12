@@ -4,6 +4,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Redirect,
+  Switch,
 } from 'react-router-dom';
 import {
   StyleSheet,
@@ -17,8 +19,11 @@ export default function App() {
   return (
     <Router>
       <div className={css(styles.App)}>
-        <Route exact={true} path="/" component={SearchScreen} />
-        <Route exact={true} path="/:username" component={Profile} />
+        <Switch>
+          <Route exact={true} path="/search" component={SearchScreen} />
+          <Route exact={true} path="/:username" component={Profile} />
+          <Redirect to="/search" />
+        </Switch>
       </div>
     </Router>
   );
