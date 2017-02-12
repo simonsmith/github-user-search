@@ -2,7 +2,7 @@
 
 import {connect} from 'react-redux';
 import get from 'lodash/fp/get';
-import {searchUser} from '../store/Search/actions';
+import {searchUser} from '../../store/Search/actions';
 
 export function mapStateToProps(state: Object): Object {
   return {

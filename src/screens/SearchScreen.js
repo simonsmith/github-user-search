@@ -7,7 +7,7 @@ import React, {
 import qs from 'query-string';
 import DocumentTitle from 'react-document-title';
 import isEmpty from 'lodash/fp/isEmpty';
-import SearchContainer from '../containers/SearchContainer';
+import SearchContainer from '../containers/Search';
 
 type Props = {
   push: Function,

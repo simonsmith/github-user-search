@@ -4,11 +4,11 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import SearchForm from '../components/SearchForm';
-import SearchResults from '../components/SearchResults';
-import Pagination from '../components/Pagination';
-import SearchHeader from '../components/SearchHeader';
-import connect from './SearchConnect';
+import SearchForm from '../../components/SearchForm';
+import SearchResults from '../../components/SearchResults';
+import Pagination from '../../components/Pagination';
+import SearchHeader from '../../components/SearchHeader';
+import connect from './connect';
 
 type Props = {
   onSubmit: Function,

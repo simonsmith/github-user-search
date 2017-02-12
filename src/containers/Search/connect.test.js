@@ -1,4 +1,4 @@
-import {mapStateToProps} from '../../src/containers/SearchConnect';
+import {mapStateToProps} from './connect';
 
 describe('SearchConnect: mapStateToProps', () => {
 

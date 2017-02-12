@@ -1,0 +1,65 @@
+exports[`Component: SearchContainer when the search prop changes should call the search action with the new value 1`] = `
+Array [
+  "?q=test",
+]
+`;
+
+exports[`Component: SearchContainer when the search prop changes should call the search action with the new value 2`] = `
+Array [
+  "?q=foobar",
+]
+`;
+
+exports[`Component: SearchContainer when the search prop is present should call the search action 1`] = `
+Array [
+  "?q=test",
+]
+`;
+
+exports[`Component: SearchContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
+<div>
+  <div
+    className="SearchHeader_qw8dio">
+    <div
+      className="Container_inner_3jewic">
+      <div
+        className="SearchHeader_inner_1u3xhva">
+        <h1
+          className="SearchHeader_title_1cswrtu">
+          GitHub User Search
+        </h1>
+        <p
+          className="SearchHeader_intro_h76sf7">
+          Browse users and their profiles via 
+          <a
+            href="https://developer.github.com/v3/">
+            the GitHub API
+          </a>
+        </p>
+        <div
+          className="SearchHeader_children_w48k6q">
+          <form
+            onSubmit={[Function]}>
+            <label
+              className="hiddenVisually_1qrrm43"
+              htmlFor="searchInput">
+              Search for a user
+            </label>
+            <input
+              className="SearchForm_input_1kxcxy3"
+              id="searchInput"
+              onChange={[Function]}
+              placeholder="Search for a user e.g. simonsmith"
+              type="text"
+              value="" />
+            <button
+              type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
