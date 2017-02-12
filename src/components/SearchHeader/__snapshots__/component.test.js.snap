@@ -2,23 +2,26 @@ exports[`Component: SearchHeader should render 1`] = `
 <div
   className="SearchHeader_qw8dio">
   <div
-    className="Container_inner_3jewic">
+    className="Container_inner_txqaf5">
     <div
-      className="SearchHeader_inner_1u3xhva">
-      <h1
-        className="SearchHeader_title_1cswrtu">
-        GitHub User Search
-      </h1>
-      <p
-        className="SearchHeader_intro_h76sf7">
-        Browse users and their profiles via 
-        <a
-          href="https://developer.github.com/v3/">
-          the GitHub API
-        </a>
-      </p>
+      className="SearchHeader_inner_16l6lg7">
       <div
-        className="SearchHeader_children_w48k6q">
+        className="SearchHeader_text_mv0w51">
+        <h1
+          className="SearchHeader_title_1cswrtu">
+          GitHub User Search
+        </h1>
+        <p
+          className="SearchHeader_desc_h76sf7">
+          Browse users and their profiles via 
+          <a
+            href="https://developer.github.com/v3/">
+            the GitHub API
+          </a>
+        </p>
+      </div>
+      <div
+        className="SearchHeader_children_q7zmln">
         <div>
           inner component
         </div>

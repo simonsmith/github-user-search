@@ -22,7 +22,7 @@ export default function Container({extraStyle, children}: Props) {
 const styles = StyleSheet.create({
   Container_inner: {
     margin: '0 auto',
-    maxWidth: 1060,
+    maxWidth: 980,
     paddingLeft: 10,
     paddingRight: 10,
   },
