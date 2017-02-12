@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 
-import Pagination from '../../src/components/Pagination';
+import Pagination from './';
 
 function createComponent(props) {
   return renderer.create(

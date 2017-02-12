@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Result from '../../src/components/Result';
+import Result from './';
 
 describe('Component: Result', () => {
 

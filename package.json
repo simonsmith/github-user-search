@@ -12,7 +12,8 @@
     "test": "jest --verbose && npm run eslint"
   },
   "jest": {
-    "testRegex": "test/.*\\.spec\\.js$",
+    "testRegex": "test.js$",
+    "testPathDirs": ["src"],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     }

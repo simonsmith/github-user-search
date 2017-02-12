@@ -9,7 +9,8 @@
     "lodash-fp"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "rules": {
     "arrow-body-style": 0,
@@ -19,12 +20,15 @@
     "func-names": 0,
     "import/no-named-as-default": 0,
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-underscore-dangle": 0,
     "no-use-before-define": 0,
     "object-curly-spacing": ["error", "never"],
+    "padded-blocks": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": ["error", "always"],
     "react/jsx-filename-extension": 0,
-    "react/sort-comp": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/sort-comp": 0
   }
 }
