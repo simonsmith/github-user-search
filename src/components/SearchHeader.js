@@ -43,10 +43,11 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   SearchHeader_title: {
-    fontSize: 32,
+    fontSize: 28,
   },
   SearchHeader_intro: {
     marginTop: 5,
+    fontSize: 14,
   },
   SearchHeader_children: {
     marginTop: 20,
