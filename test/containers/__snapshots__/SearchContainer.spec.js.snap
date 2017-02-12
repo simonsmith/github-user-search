@@ -48,6 +48,7 @@ exports[`Component: SearchContainer when the searchTerm is falsey should not ren
             <input
               id="searchInput"
               onChange={[Function]}
+              placeholder="Search for a user"
               type="text"
               value="" />
             <button

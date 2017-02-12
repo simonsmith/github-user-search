@@ -9,6 +9,7 @@ exports[`Component: SearchForm should render as expected 1`] = `
   <input
     id="searchInput"
     onChange={[Function]}
+    placeholder="Search for a user"
     type="text"
     value="" />
   <button
