@@ -5,6 +5,10 @@ import React, {
 } from 'react';
 import curry from 'lodash/fp/curry';
 import map from 'lodash/fp/map';
+import {
+  StyleSheet,
+  css,
+} from 'aphrodite/no-important';
 import Result from './Result';
 
 type Props = {
@@ -41,7 +45,7 @@ function SearchResults({entities, ids, searchTerm, total}: Props) {
   return (
     <div>
       {renderResultsMessage(searchTerm, total, ids.length)}
-      <ul>
+      <ul className={css(styles.SearchResults_List)}>
         {map(renderSearchResult(entities), ids)}
       </ul>
     </div>
@@ -54,5 +58,12 @@ SearchResults.propTypes = {
   ids: PropTypes.array,
   total: PropTypes.number,
 };
+
+const styles = StyleSheet.create({
+  SearchResults_List: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+});
 
 export default SearchResults;

@@ -1,9 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {StyleSheetTestUtils} from 'aphrodite';
 
 import SearchResults from '../../src/components/SearchResults';
 
 describe('Component: SearchResults', () => {
+
+  beforeAll(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterAll(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    jest.useFakeTimers();
+    jest.runAllTimers()
+  });
 
   describe('when given a set of results and entities', () => {
     it('should render them with a message', () => {

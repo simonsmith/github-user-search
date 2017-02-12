@@ -9,7 +9,8 @@ exports[`Component: SearchResults when given a one result should render a correc
      
     result
   </p>
-  <ul>
+  <ul
+    className="SearchResultsList_96vuga">
     <li>
       <div>
         <p>
@@ -37,7 +38,8 @@ exports[`Component: SearchResults when given a set of results and entities shoul
      
     results
   </p>
-  <ul>
+  <ul
+    className="SearchResultsList_96vuga">
     <li>
       <div>
         <p>
@@ -68,6 +70,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
 
 exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
 <div>
-  <ul />
+  <ul
+    className="SearchResultsList_96vuga" />
 </div>
 `;
