@@ -41,6 +41,7 @@ exports[`Component: SearchContainer when the searchTerm is falsey should not ren
           <form
             onSubmit={[Function]}>
             <label
+              className="hiddenVisually_1qrrm43"
               htmlFor="searchInput">
               Search for a user
             </label>

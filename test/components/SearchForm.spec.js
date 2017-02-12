@@ -1,10 +1,19 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
+import {StyleSheetTestUtils} from 'aphrodite';
 
 import SearchForm from '../../src/components/SearchForm';
 
 describe('Component: SearchForm', () => {
+
+  beforeAll(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterAll(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
 
   it('should render as expected', () => {
     const component = renderer.create(<SearchForm onSubmit={jest.fn()} />);

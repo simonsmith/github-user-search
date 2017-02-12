@@ -2,6 +2,7 @@ exports[`Component: SearchForm should render as expected 1`] = `
 <form
   onSubmit={[Function]}>
   <label
+    className="hiddenVisually_1qrrm43"
     htmlFor="searchInput">
     Search for a user
   </label>

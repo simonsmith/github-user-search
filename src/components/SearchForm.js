@@ -4,6 +4,11 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
+import {
+  StyleSheet,
+  css,
+} from 'aphrodite/no-important';
+import {Utils} from '../theme';
 
 type Props = {
   onSubmit: Function,
@@ -59,7 +64,12 @@ class SearchForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <label htmlFor="searchInput">Search for a user</label>
+        <label
+          className={css(Utils.hiddenVisually)}
+          htmlFor="searchInput"
+        >
+          Search for a user
+        </label>
         <input
           type="text"
           id="searchInput"
