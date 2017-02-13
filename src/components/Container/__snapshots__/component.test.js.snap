@@ -12,7 +12,7 @@ exports[`Component: Container should render 1`] = `
 
 exports[`Component: Container should render style overrides 1`] = `
 <div
-  className="test_im3wl1">
+  className="">
   <div
     className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
     <div>

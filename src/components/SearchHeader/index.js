@@ -7,7 +7,6 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Container from '../Container';
 
 type Props = {
   children?: any,
@@ -15,19 +14,17 @@ type Props = {
 
 export default function SearchHeader({children}: Props) {
   return (
-    <Container extraStyle={styles.SearchHeader}>
-      <div className={css(styles.SearchHeader_inner)}>
-        <div className={css(styles.SearchHeader_text)}>
-          <h1 className={css(styles.SearchHeader_title)}>GitHub User Search</h1>
-          <p className={css(styles.SearchHeader_desc)}>
-            Browse users and their profiles via <a href="https://developer.github.com/v3/">the GitHub API</a>
-          </p>
-        </div>
-        <div className={css(styles.SearchHeader_children)}>
-          {children}
-        </div>
+    <div className={css(styles.SearchHeader)}>
+      <div className={css(styles.SearchHeader_text)}>
+        <h1 className={css(styles.SearchHeader_title)}>GitHub User Search</h1>
+        <p className={css(styles.SearchHeader_desc)}>
+          Browse users and their profiles via <a href="https://developer.github.com/v3/">the GitHub API</a>
+        </p>
       </div>
-    </Container>
+      <div className={css(styles.SearchHeader_children)}>
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -39,11 +36,6 @@ const BREAKPOINT = '@media (min-width: 600px)';
 
 const styles = StyleSheet.create({
   SearchHeader: {
-    backgroundColor: '#f4f4f4',
-    borderBottom: '1px solid #ddd',
-  },
-
-  SearchHeader_inner: {
     paddingTop: 15,
     paddingBottom: 15,
 

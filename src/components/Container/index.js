@@ -5,19 +5,19 @@ import {
 } from 'aphrodite/no-important';
 
 type Props = {
-  extraStyle: any,
+  rootStyle: any,
   children: any,
   noGutter: boolean
 };
 
-export default function Container({noGutter, extraStyle, children}: Props) {
+export default function Container({noGutter, rootStyle, children}: Props) {
   const className = css(
     styles.Container_inner,
     noGutter ? false : styles.Container_padding,
   );
 
   return (
-    <div className={css(extraStyle)}>
+    <div className={css(rootStyle)}>
       <div className={className}>
         {children}
       </div>
@@ -38,5 +38,5 @@ const styles = StyleSheet.create({
   Container_padding: {
     paddingLeft: 10,
     paddingRight: 10,
-  }
+  },
 });

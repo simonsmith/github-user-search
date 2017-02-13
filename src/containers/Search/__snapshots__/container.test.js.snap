@@ -19,11 +19,11 @@ Array [
 exports[`Component: SearchContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
 <div>
   <div
-    className="SearchHeader_qw8dio">
+    className="SearchContainer_header_qw8dio">
     <div
       className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
       <div
-        className="SearchHeader_inner_16l6lg7">
+        className="SearchHeader_16l6lg7">
         <div
           className="SearchHeader_text_mv0w51">
           <h1

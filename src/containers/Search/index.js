@@ -101,12 +101,14 @@ export class SearchContainer extends Component {
 
     return (
       <div>
-        <SearchHeader>
-          <SearchForm
-            onSubmit={onSubmit}
-            initialInputValue={searchTerm}
-          />
-        </SearchHeader>
+        <Container rootStyle={styles.SearchContainer_header}>
+          <SearchHeader>
+            <SearchForm
+              onSubmit={onSubmit}
+              initialInputValue={searchTerm}
+            />
+          </SearchHeader>
+        </Container>
         {this.renderPagination()}
         <Container noGutter={true}>
           {this.renderSearchResults()}
@@ -122,6 +124,11 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
   },
+
+  SearchContainer_header: {
+    backgroundColor: '#f4f4f4',
+    borderBottom: '1px solid #ddd',
+  }
 });
 
 export default connect(SearchContainer);
