@@ -17,7 +17,7 @@ export default function Container({noGutter, rootStyle, children}: Props) {
   );
 
   return (
-    <div className={css(rootStyle)}>
+    <div className={css(styles.Container, rootStyle)}>
       <div className={className}>
         {children}
       </div>
@@ -30,9 +30,13 @@ Container.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  Container: {
+    margin: 0,
+  },
+
   Container_inner: {
     margin: '0 auto',
-    maxWidth: 980,
+    maxWidth: 1040,
   },
 
   Container_padding: {

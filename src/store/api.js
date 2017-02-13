@@ -22,7 +22,7 @@ function addPagination(response: Object): Object {
 
 function searchUsers(params: Object): Promise {
   const defaultParams = {
-    per_page: 45,
+    per_page: 48,
   };
   return github
     .get('/search/users', {

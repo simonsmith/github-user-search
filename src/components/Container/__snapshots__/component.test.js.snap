@@ -1,8 +1,8 @@
 exports[`Component: Container should render 1`] = `
 <div
-  className="">
+  className="Container_10ki57k">
   <div
-    className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
+    className="Container_inner_ydook-o_O-Container_padding_1w7u9r8">
     <div>
       inner component
     </div>
@@ -12,9 +12,9 @@ exports[`Component: Container should render 1`] = `
 
 exports[`Component: Container should render style overrides 1`] = `
 <div
-  className="">
+  className="Container_10ki57k">
   <div
-    className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
+    className="Container_inner_ydook-o_O-Container_padding_1w7u9r8">
     <div>
       inner component
     </div>

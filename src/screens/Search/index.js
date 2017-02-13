@@ -33,7 +33,7 @@ class SearchScreen extends Component {
   pushUrlQuery = (query: string): void => {
     this.props.push({
       path: '/',
-      search: `per_page=45&page=1&q=${query}`,
+      search: `per_page=48&page=1&q=${query}`,
     });
   }
 
