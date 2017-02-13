@@ -2,7 +2,7 @@ exports[`Component: Pagination when passed a next prop should render a next link
 <div
   className="">
   <div
-    className="Container_inner_txqaf5">
+    className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
     <div
       className="Pagination_2gx8tz">
       <a
@@ -20,7 +20,7 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
 <div
   className="">
   <div
-    className="Container_inner_txqaf5">
+    className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
     <div
       className="Pagination_2gx8tz">
       <a
@@ -44,7 +44,7 @@ exports[`Component: Pagination when passed a prev prop should render a previous 
 <div
   className="">
   <div
-    className="Container_inner_txqaf5">
+    className="Container_inner_ygsv2r-o_O-Container_padding_1w7u9r8">
     <div
       className="Pagination_2gx8tz">
       <a

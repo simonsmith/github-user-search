@@ -12,6 +12,7 @@ import SearchForm from '../../components/SearchForm';
 import SearchResults from '../../components/SearchResults';
 import Pagination from '../../components/Pagination';
 import SearchHeader from '../../components/SearchHeader';
+import Container from '../../components/Container';
 import connect from './connect';
 
 type Props = {
@@ -107,7 +108,9 @@ export class SearchContainer extends Component {
           />
         </SearchHeader>
         {this.renderPagination()}
-        {this.renderSearchResults()}
+        <Container noGutter={true}>
+          {this.renderSearchResults()}
+        </Container>
       </div>
     );
   }
