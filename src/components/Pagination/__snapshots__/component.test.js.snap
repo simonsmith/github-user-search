@@ -1,59 +1,41 @@
 exports[`Component: Pagination when passed a next prop should render a next link 1`] = `
 <div
-  className="Container_10ki57k">
-  <div
-    className="Container_inner_ydook-o_O-Container_padding_1w7u9r8">
-    <div
-      className="Pagination_2gx8tz">
-      <a
-        className="Pagination_next_1j0ix3o"
-        href="/?q=simon&page=2"
-        onClick={[Function]}>
-        Next
-      </a>
-    </div>
-  </div>
+  className="Pagination_2gx8tz">
+  <a
+    className="Pagination_next_1j0ix3o"
+    href="/?q=simon&page=2"
+    onClick={[Function]}>
+    Next
+  </a>
 </div>
 `;
 
 exports[`Component: Pagination when passed a prev and next prop should render a previous and next link 1`] = `
 <div
-  className="Container_10ki57k">
-  <div
-    className="Container_inner_ydook-o_O-Container_padding_1w7u9r8">
-    <div
-      className="Pagination_2gx8tz">
-      <a
-        className="Pagination_prev_yunyae"
-        href="/?q=simon&page=1"
-        onClick={[Function]}>
-        Previous
-      </a>
-      <a
-        className="Pagination_next_1j0ix3o"
-        href="/?q=simon&page=2"
-        onClick={[Function]}>
-        Next
-      </a>
-    </div>
-  </div>
+  className="Pagination_2gx8tz">
+  <a
+    className="Pagination_prev_yunyae"
+    href="/?q=simon&page=1"
+    onClick={[Function]}>
+    Previous
+  </a>
+  <a
+    className="Pagination_next_1j0ix3o"
+    href="/?q=simon&page=2"
+    onClick={[Function]}>
+    Next
+  </a>
 </div>
 `;
 
 exports[`Component: Pagination when passed a prev prop should render a previous link 1`] = `
 <div
-  className="Container_10ki57k">
-  <div
-    className="Container_inner_ydook-o_O-Container_padding_1w7u9r8">
-    <div
-      className="Pagination_2gx8tz">
-      <a
-        className="Pagination_prev_yunyae"
-        href="/?q=simon&page=1"
-        onClick={[Function]}>
-        Previous
-      </a>
-    </div>
-  </div>
+  className="Pagination_2gx8tz">
+  <a
+    className="Pagination_prev_yunyae"
+    href="/?q=simon&page=1"
+    onClick={[Function]}>
+    Previous
+  </a>
 </div>
 `;

@@ -42,5 +42,9 @@ const styles = StyleSheet.create({
   Container_padding: {
     paddingLeft: 10,
     paddingRight: 10,
+
+    '@media (min-width: 1050px)': {
+      padding: 0,
+    },
   },
 });

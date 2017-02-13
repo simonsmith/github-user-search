@@ -10,7 +10,6 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Container from '../Container';
 
 type Props = {
   next: Object,
@@ -30,12 +29,10 @@ function renderLink(url: string, text: string, style: Object) {
 
 function Pagination({prev, next}: Props) {
   return (
-    <Container>
-      <div className={css(styles.Pagination)}>
-        {renderLink(prev.url, 'Previous', styles.Pagination_prev)}
-        {renderLink(next.url, 'Next', styles.Pagination_next)}
-      </div>
-    </Container>
+    <div className={css(styles.Pagination)}>
+      {renderLink(prev.url, 'Previous', styles.Pagination_prev)}
+      {renderLink(next.url, 'Next', styles.Pagination_next)}
+    </div>
   );
 }
 

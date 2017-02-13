@@ -87,9 +87,9 @@ export class SearchContainer extends Component {
     if (!searchTerm) {return null;}
 
     return (
-      <div className={css(styles.SearchContainer_pagination)}>
+      <Container rootStyle={styles.SearchContainer_pagination}>
         <Pagination {...pagination} />
-      </div>
+      </Container>
     );
   }
 
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   SearchContainer_header: {
     backgroundColor: '#f4f4f4',
     borderBottom: '1px solid #ddd',
-  }
+  },
 });
 
 export default connect(SearchContainer);
