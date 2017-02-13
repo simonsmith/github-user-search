@@ -10,6 +10,11 @@ const utils = {
     position: 'absolute',
     width: 1,
   },
+
+  responsiveImg: {
+    minWidth: '100%',
+    height: 'auto',
+  },
 };
 
 export default utils;

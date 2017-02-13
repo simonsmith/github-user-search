@@ -25,7 +25,7 @@ const renderSearchResult = curry((entities, item) => {
     login,
   } = entities[item];
   return (
-    <li key={id}>
+    <li key={id} className={css(styles.SearchResults_item)}>
       <Result
         username={login}
         avatarUrl={avatarUrl}
@@ -43,9 +43,9 @@ function renderResultsMessage(searchTerm: string, total: number, resultLength: n
 
 function SearchResults({entities, ids, searchTerm, total}: Props) {
   return (
-    <div>
+    <div className={css(styles.SearchResults)}>
       {renderResultsMessage(searchTerm, total, ids.length)}
-      <ul className={css(styles.SearchResults_List)}>
+      <ul className={css(styles.SearchResults_list)}>
         {map(renderSearchResult(entities), ids)}
       </ul>
     </div>
@@ -60,9 +60,18 @@ SearchResults.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  SearchResults_List: {
+  SearchResults: {
+    maxWidth: 1280,
+    margin: '0 auto',
+  },
+
+  SearchResults_list: {
     display: 'flex',
     flexWrap: 'wrap',
+  },
+
+  SearchResults_item: {
+    flex: 1,
   },
 });
 

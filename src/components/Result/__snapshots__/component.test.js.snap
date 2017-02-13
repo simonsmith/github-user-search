@@ -1,10 +1,8 @@
 exports[`Component: Result should render 1`] = `
 <div>
-  <p>
-    foo
-  </p>
   <img
     alt="foo"
+    className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
     height={130}
     src="src.jpg"
     width={130} />
