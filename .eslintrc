@@ -4,6 +4,11 @@
     "plugin:flowtype/recommended",
     "plugin:lodash-fp/recommended"
   ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "plugins": [
     "flowtype",
     "lodash-fp"

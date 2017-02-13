@@ -5,7 +5,7 @@ import {
 import thunk from 'redux-thunk';
 import flow from 'lodash/fp/flow';
 import createLogger from 'redux-logger';
-import rootReducer from './Root/reducer';
+import rootReducer from './reducers/Root';
 import api from './api';
 
 const logger = createLogger({

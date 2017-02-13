@@ -6,13 +6,12 @@ import React, {
 } from 'react';
 import {
   StyleSheet,
-  css,
 } from 'aphrodite/no-important';
-import SearchForm from '../../components/SearchForm';
-import SearchResults from '../../components/SearchResults';
-import Pagination from '../../components/Pagination';
-import SearchHeader from '../../components/SearchHeader';
-import Container from '../../components/Container';
+import SearchForm from 'components/SearchForm';
+import SearchResults from 'components/SearchResults';
+import Pagination from 'components/Pagination';
+import SearchHeader from 'components/SearchHeader';
+import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
