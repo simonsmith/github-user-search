@@ -1,8 +1,8 @@
 // @flow
 
 import {combineReducers} from 'redux';
-import entitiesReducer from '../Entities/reducer';
-import searchReducer from '../Search/reducer';
+import entitiesReducer from '../Entities';
+import searchReducer from '../Search';
 
 export default combineReducers({
   entities: entitiesReducer,

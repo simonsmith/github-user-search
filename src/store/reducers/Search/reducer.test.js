@@ -1,4 +1,4 @@
-import searchReducer from './reducer';
+import searchReducer from './';
 
 describe('Reducer: search', () => {
 

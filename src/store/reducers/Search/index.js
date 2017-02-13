@@ -1,4 +1,3 @@
-// @flow
 
 import assignAll from 'lodash/fp/assignAll';
 import pick from 'lodash/fp/pick';
@@ -7,7 +6,7 @@ import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
-} from './actions';
+} from '../../actions/Search';
 
 const initialState = {
   error: null,
