@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   SearchHeader_text: {
-    flex: 1,
+    flex: 2,
   },
 
   SearchHeader_title: {

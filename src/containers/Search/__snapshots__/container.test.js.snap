@@ -25,7 +25,7 @@ exports[`Component: SearchContainer when the searchTerm is falsey should not ren
       <div
         className="SearchHeader_16l6lg7">
         <div
-          className="SearchHeader_text_mv0w51">
+          className="SearchHeader_text_lmjs6u">
           <h1
             className="SearchHeader_title_1cswrtu">
             GitHub User Search
