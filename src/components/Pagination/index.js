@@ -10,6 +10,8 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
+import NextIcon from './next.svg';
+import PrevIcon from './prev.svg';
 
 type Props = {
   next: Object,
@@ -21,6 +23,32 @@ const getSearchQuery = flow(
   first
 );
 
+function renderNext(url: string) {
+  if (!url) {return null;}
+  const search = getSearchQuery(url);
+  return (
+    <Link
+      to={{search}}
+      className={css(styles.Pagination_next)}
+    >
+      <NextIcon width={40} height={80} />
+    </Link>
+  );
+}
+
+function renderPrev(url: string) {
+  if (!url) {return null;}
+  const search = getSearchQuery(url);
+  return (
+    <Link
+      to={{search}}
+      className={css(styles.Pagination_prev)}
+    >
+      <PrevIcon width={40} height={80} />
+    </Link>
+  );
+}
+
 function renderLink(url: string, text: string, style: Object) {
   if (!url) {return null;}
   const search = getSearchQuery(url);
@@ -30,8 +58,8 @@ function renderLink(url: string, text: string, style: Object) {
 function Pagination({prev, next}: Props) {
   return (
     <div className={css(styles.Pagination)}>
-      {renderLink(prev.url, 'Previous', styles.Pagination_prev)}
-      {renderLink(next.url, 'Next', styles.Pagination_next)}
+      {renderPrev(prev.url)}
+      {renderNext(next.url)}
     </div>
   );
 }
