@@ -13,14 +13,14 @@ exports[`Component: SearchResults when given a one result should render a correc
   <ul
     className="SearchResults_list_96vuga">
     <li
-      className="SearchResults_item_mv0w51">
+      className="SearchResults_item_drgos1">
       <div>
         <img
           alt="foo"
           className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={130}
+          height={140}
           src="avatar.jpg"
-          width={130} />
+          width={140} />
       </div>
     </li>
   </ul>
@@ -42,25 +42,25 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   <ul
     className="SearchResults_list_96vuga">
     <li
-      className="SearchResults_item_mv0w51">
+      className="SearchResults_item_drgos1">
       <div>
         <img
           alt="foo"
           className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={130}
+          height={140}
           src="avatar.jpg"
-          width={130} />
+          width={140} />
       </div>
     </li>
     <li
-      className="SearchResults_item_mv0w51">
+      className="SearchResults_item_drgos1">
       <div>
         <img
           alt="foobar"
           className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={130}
+          height={140}
           src="avatar.jpg"
-          width={130} />
+          width={140} />
       </div>
     </li>
   </ul>
