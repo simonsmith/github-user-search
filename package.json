@@ -9,7 +9,8 @@
     "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
     "eslint": "eslint src webpack",
     "start": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
-    "test": "jest --verbose --runInBand && npm run eslint"
+    "test": "jest --verbose --runInBand && npm run eslint",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
     "testRegex": "test.js$",
@@ -65,6 +66,7 @@
     "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "flow-bin": "^0.38.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.28.0",
     "jest": "^18.1.0",
     "react-addons-test-utils": "^15.4.2",

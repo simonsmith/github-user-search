@@ -13,7 +13,7 @@ import Profile from 'screens/Profile';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/github-user-search">
       <Switch>
         <Route exact={true} path="/search" component={SearchScreen} />
         <Route exact={true} path="/:username" component={Profile} />
