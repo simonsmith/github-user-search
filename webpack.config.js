@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 const devMode = process.env.NODE_ENV === 'development';
 
@@ -7,7 +8,7 @@ const config = {
     app: './src/client',
   },
   output: {
-    path: 'dist/assets',
+    path: path.join(process.cwd(), 'dist'),
     filename: '[name].bundle.js',
     publicPath: '/assets',
   },
