@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 
   SearchResults_item: {
-    flex: 1,
+    flex: '1 0 auto',
   },
 });
 
