@@ -6,9 +6,9 @@
   "author": "Simon Smith <simonsmith@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "eslint": "eslint src webpack.config.js",
-    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
+    "eslint": "eslint src webpack",
+    "start": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
     "test": "jest --verbose && npm run eslint"
   },
   "jest": {
