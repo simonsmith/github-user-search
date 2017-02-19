@@ -1,3 +1,5 @@
+// @flow
+
 import axios from 'axios';
 import assignAll from 'lodash/fp/assignAll';
 import parseLinkHeader from 'parse-link-header';
@@ -20,9 +22,9 @@ function addPagination(response: Object): Object {
   ]);
 }
 
-function searchUsers(params: Object): Promise {
+function searchUsers(params: Object): Promise<*> {
   const defaultParams = {
-    per_page: 48,
+    per_page: 42,
   };
   return github
     .get('/search/users', {

@@ -1,5 +1,3 @@
-// @flow
-
 import React, {
   Component,
   PropTypes,
@@ -33,7 +31,7 @@ class SearchScreen extends Component {
   pushUrlQuery = (query: string): void => {
     this.props.push({
       path: '/',
-      search: `per_page=48&page=1&q=${query}`,
+      search: `per_page=42&page=1&q=${query}`,
     });
   }
 
