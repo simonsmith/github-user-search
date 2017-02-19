@@ -49,12 +49,6 @@ function renderPrev(url: string) {
   );
 }
 
-function renderLink(url: string, text: string, style: Object) {
-  if (!url) {return null;}
-  const search = getSearchQuery(url);
-  return <Link to={{search}} className={css(style)}>{text}</Link>;
-}
-
 function Pagination({prev, next}: Props) {
   return (
     <div className={css(styles.Pagination)}>
