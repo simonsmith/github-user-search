@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const devMode = process.env.NODE_ENV === 'development';
 
@@ -8,9 +9,8 @@ const config = {
     app: './src/client',
   },
   output: {
-    path: path.join(process.cwd(), 'dist'),
+    path: path.join(process.cwd(), 'build'),
     filename: '[name].bundle.js',
-    publicPath: '/assets',
   },
   module: {
     rules: [
@@ -45,12 +45,15 @@ const config = {
     new webpack.EnvironmentPlugin([
       'USER_SEARCH_OAUTH',
     ]),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
   ],
   devServer: {
-    contentBase: 'dist',
     inline: true,
+    contentBase: 'src',
     port: '3001',
-    publicPath: '/assets',
+    publicPath: '/',
     historyApiFallback: true,
   },
   devtool: devMode ? 'eval-source-map' : null,
