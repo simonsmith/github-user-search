@@ -27,7 +27,9 @@ module.exports = merge(baseConfig, {
 
   plugins: [
     // Clear out `build` directory between builds
-    new CleanWebpackPlugin(['build']),
+    new CleanWebpackPlugin(['build'], {
+      root: process.cwd(),
+    }),
     // Extract imported CSS into own file
     new ExtractTextPlugin('[name].bundle.[chunkhash].css'),
     // Minify JS
