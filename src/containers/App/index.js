@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Redirect,
   Switch,
@@ -13,7 +13,7 @@ import Profile from 'screens/Profile';
 
 export default function App() {
   return (
-    <Router basename="/github-user-search">
+    <Router>
       <Switch>
         <Route exact={true} path="/search" component={SearchScreen} />
         <Route exact={true} path="/:username" component={Profile} />
