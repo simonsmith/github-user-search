@@ -1,7 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const {NODE_ENV} = process.env;
 
@@ -39,20 +41,17 @@ const baseConfig = {
 
   plugins: [
     new webpack.EnvironmentPlugin([
-      'USER_SEARCH_OAUTH',
       'NODE_ENV',
     ]),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
   ],
 };
 
-if (NODE_ENV !== 'production') {
+if (NODE_ENV === 'development') {
   module.exports = merge(baseConfig, {
     devtool: 'eval-source-map',
-
-    output: {
-      path: path.join(process.cwd(), 'build'),
-      filename: '[name].bundle.js',
-    },
 
     devServer: {
       inline: true,
@@ -75,9 +74,44 @@ if (NODE_ENV !== 'production') {
     },
 
     plugins: [
-      new HtmlWebpackPlugin({
-        template: 'src/index.html',
+      new webpack.EnvironmentPlugin([
+        'USER_SEARCH_OAUTH',
+      ]),
+    ],
+  });
+}
+
+
+if (NODE_ENV === 'production') {
+  module.exports = merge(baseConfig, {
+    output: {
+      path: path.join(process.cwd(), 'build'),
+      filename: '[name].bundle.[chunkhash].js',
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            use: [
+              'css-loader',
+            ],
+          }),
+        },
+      ],
+    },
+
+    plugins: [
+      new ExtractTextPlugin('[name].bundle.[chunkhash].css'),
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: false,
+        compress: true,
       }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+      }),
+      new CleanWebpackPlugin(['build']),
     ],
   });
 }
