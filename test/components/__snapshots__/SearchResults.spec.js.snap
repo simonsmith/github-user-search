@@ -13,7 +13,7 @@ exports[`Component: SearchResults when given a one result should render a correc
   <ul
     className="SearchResults_list_96vuga">
     <li
-      className="SearchResults_item_1qdmzta">
+      className="SearchResults_item_ekglxz">
       <div>
         <img
           alt="foo"
@@ -42,7 +42,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   <ul
     className="SearchResults_list_96vuga">
     <li
-      className="SearchResults_item_1qdmzta">
+      className="SearchResults_item_ekglxz">
       <div>
         <img
           alt="foo"
@@ -53,7 +53,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
       </div>
     </li>
     <li
-      className="SearchResults_item_1qdmzta">
+      className="SearchResults_item_ekglxz">
       <div>
         <img
           alt="foobar"

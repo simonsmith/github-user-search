@@ -74,6 +74,8 @@ const styles = StyleSheet.create({
 
   SearchResults_item: {
     flex: '1 0 auto',
+    marginRight: 3,
+    marginBottom: 3,
 
     [BREAKPOINT]: {
       ':only-child': {
