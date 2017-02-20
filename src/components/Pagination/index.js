@@ -23,41 +23,42 @@ const getSearchQuery = flow(
   first
 );
 
-function renderNext(url: string) {
+function renderLink({url, linkStyle, rel, text, icon}: Object) {
   if (!url) {return null;}
   const search = getSearchQuery(url);
   return (
     <Link
       to={{search}}
-      className={css(styles.Pagination_link, styles.Pagination_next)}
-      rel="next"
+      className={css(styles.Pagination_link, linkStyle)}
+      rel={rel}
     >
-      <span>Next</span>
-      <NextIcon width={30} height={70} />
-    </Link>
-  );
-}
-
-function renderPrev(url: string) {
-  if (!url) {return null;}
-  const search = getSearchQuery(url);
-  return (
-    <Link
-      to={{search}}
-      className={css(styles.Pagination_link, styles.Pagination_prev)}
-      rel="previous"
-    >
-      <PrevIcon width={30} height={70} />
-      <span>Previous</span>
+      <span>{text}</span>
+      {icon}
     </Link>
   );
 }
 
 function Pagination({prev, next}: Props) {
+  const prevLink = renderLink({
+    url: prev.url,
+    linkStyle: styles.Pagination_prev,
+    rel: 'prev',
+    text: 'Previous',
+    icon: <PrevIcon width={30} height={70} />,
+  });
+
+  const nextLink = renderLink({
+    url: next.url,
+    linkStyle: styles.Pagination_next,
+    rel: 'next',
+    text: 'Next',
+    icon: <NextIcon width={30} height={70} />,
+  });
+
   return (
     <div className={css(styles.Pagination)}>
-      {renderPrev(prev.url)}
-      {renderNext(next.url)}
+      {prevLink}
+      {nextLink}
     </div>
   );
 }
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
   },
 
   Pagination_prev: {
+    flexDirection: 'row-reverse',
     marginRight: 'auto',
   },
 });
