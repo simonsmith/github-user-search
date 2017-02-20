@@ -13,10 +13,7 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
-    "testRegex": "test.js$",
-    "testPathDirs": [
-      "src"
-    ],
+    "testRegex": "test/.*\\.spec\\.js$",
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/test/__mocks__/svgMock.js"
     },

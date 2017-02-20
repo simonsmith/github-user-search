@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
 
-import {SearchContainer} from './';
+import {SearchContainer} from 'containers/Search';
 
 describe('Component: SearchContainer', () => {
 

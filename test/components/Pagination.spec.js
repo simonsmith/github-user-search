@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import {StyleSheetTestUtils} from 'aphrodite';
 
-import Pagination from './';
+import Pagination from 'components/Pagination';
 
 function createComponent(props) {
   return renderer.create(

@@ -2,11 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {
   StyleSheetTestUtils,
+  StyleSheet,
 } from 'aphrodite';
 
-import Header from './';
+import Container from 'components/Container';
 
-describe('Component: Header', () => {
+describe('Component: Container', () => {
 
   beforeAll(() => {
     StyleSheetTestUtils.suppressStyleInjection();
@@ -18,11 +19,24 @@ describe('Component: Header', () => {
 
   it('should render', () => {
     const component = renderer.create(
-      <Header onSubmit={jest.fn()} searchTerm="test">
+      <Container>
         <div>inner component</div>
-      </Header>
+      </Container>
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render style overrides', () => {
+    const styles = StyleSheet.create({
+      test: {color: 'red'},
+    });
+    const component = renderer.create(
+      <Container extraStyle={styles.test}>
+        <div>inner component</div>
+      </Container>
     );
     expect(component).toMatchSnapshot();
   });
 
 });
+

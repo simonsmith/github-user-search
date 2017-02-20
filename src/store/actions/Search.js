@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
 import qs from 'query-string';
-import userSchema from '../../schema';
+import userSchema from 'store/schema';
 
 function normalizeResponse(response: Object) {
   const normalized = normalize(response.items, userSchema);

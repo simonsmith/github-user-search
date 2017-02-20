@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
 
-import Result from './';
+import Result from 'components/Result';
 
 describe('Component: Result', () => {
 

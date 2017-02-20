@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
 
-import SearchResults from './';
+import SearchResults from 'components/SearchResults';
 
 describe('Component: SearchResults', () => {
 

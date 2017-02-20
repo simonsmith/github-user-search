@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import SearchContainer from 'containers/Search';
-import SearchScreen from './';
+import SearchScreen from 'screens/Search';
 
 describe('Screen: SearchScreen', () => {
 

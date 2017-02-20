@@ -5,7 +5,7 @@
     "transform-object-rest-spread",
     "transform-class-properties",
     ["module-resolver", {
-      "root": ["./src/**"]
+      "root": ["./src/**", "./src/store/**"]
     }]
    ]
 }

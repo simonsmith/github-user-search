@@ -5,7 +5,7 @@ import {
   searchRequest,
   searchSuccess,
   searchFailure,
-} from './';
+} from 'actions/Search';
 
 describe('Actions: search', () => {
 
