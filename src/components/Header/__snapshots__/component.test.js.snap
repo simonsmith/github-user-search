@@ -1,0 +1,113 @@
+exports[`Component: Header should render 1`] = `
+<div
+  className="Container_10ki57k-o_O-Header_qw8dio">
+  <div
+    className="Container_inner_ydook-o_O-Container_padding_1e7x1pk">
+    <div
+      className="Header_inner_16l6lg7">
+      <div
+        className="Header_logo_lmjs6u">
+        <div>
+          <h1
+            className="Logo_title_1cswrtu">
+            GitHub User Search
+          </h1>
+          <p
+            className="Logo_subTitle_h76sf7">
+            Browse users and their profiles via 
+            <a
+              href="https://developer.github.com/v3/">
+              the GitHub API
+            </a>
+          </p>
+        </div>
+      </div>
+      <div
+        className="Header_form_q7zmln">
+        <form
+          className="SearchForm_13hv8io"
+          onSubmit={[Function]}>
+          <label
+            className="hiddenVisually_1qrrm43"
+            htmlFor="searchInput">
+            Search for a user
+          </label>
+          <input
+            className="SearchForm_input_9ohod8"
+            id="searchInput"
+            onChange={[Function]}
+            placeholder="Search for a user, e.g. simonsmith"
+            type="text"
+            value="test" />
+          <button
+            className="SearchForm_btn_tixetf"
+            type="submit">
+            <svg />
+            <span
+              className="hiddenVisually_1qrrm43">
+              Submit
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component: SearchHeader should render 1`] = `
+<div
+  className="Container_10ki57k-o_O-Header_qw8dio">
+  <div
+    className="Container_inner_ydook-o_O-Container_padding_1e7x1pk">
+    <div
+      className="Header_inner_16l6lg7">
+      <div
+        className="Header_logo_lmjs6u">
+        <div>
+          <h1
+            className="Logo_title_1cswrtu">
+            GitHub User Search
+          </h1>
+          <p
+            className="Logo_subTitle_h76sf7">
+            Browse users and their profiles via 
+            <a
+              href="https://developer.github.com/v3/">
+              the GitHub API
+            </a>
+          </p>
+        </div>
+      </div>
+      <div
+        className="Header_form_q7zmln">
+        <form
+          className="SearchForm_13hv8io"
+          onSubmit={[Function]}>
+          <label
+            className="hiddenVisually_1qrrm43"
+            htmlFor="searchInput">
+            Search for a user
+          </label>
+          <input
+            className="SearchForm_input_9ohod8"
+            id="searchInput"
+            onChange={[Function]}
+            placeholder="Search for a user, e.g. simonsmith"
+            type="text"
+            value="test" />
+          <button
+            className="SearchForm_btn_tixetf"
+            type="submit">
+            <svg />
+            <span
+              className="hiddenVisually_1qrrm43">
+              Submit
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

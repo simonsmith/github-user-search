@@ -7,10 +7,9 @@ import React, {
 import {
   StyleSheet,
 } from 'aphrodite/no-important';
-import SearchForm from 'components/SearchForm';
 import SearchResults from 'components/SearchResults';
 import Pagination from 'components/Pagination';
-import SearchHeader from 'components/SearchHeader';
+import Header from 'components/Header';
 import Container from 'components/Container';
 import connect from './connect';
 
@@ -100,14 +99,10 @@ export class SearchContainer extends Component {
 
     return (
       <div>
-        <Container rootStyle={styles.SearchContainer_header}>
-          <SearchHeader>
-            <SearchForm
-              onSubmit={onSubmit}
-              initialInputValue={searchTerm}
-            />
-          </SearchHeader>
-        </Container>
+        <Header
+          onSubmit={onSubmit}
+          searchTerm={searchTerm}
+        />
         {this.renderPagination()}
         <Container noGutter={true}>
           {this.renderSearchResults()}
@@ -122,11 +117,6 @@ const styles = StyleSheet.create({
   SearchContainer_pagination: {
     marginTop: 15,
     marginBottom: 15,
-  },
-
-  SearchContainer_header: {
-    backgroundColor: '#f4f4f4',
-    borderBottom: '1px solid #ddd',
   },
 });
 

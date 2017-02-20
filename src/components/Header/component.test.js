@@ -4,9 +4,9 @@ import {
   StyleSheetTestUtils,
 } from 'aphrodite';
 
-import SearchHeader from './';
+import Header from './';
 
-describe('Component: SearchHeader', () => {
+describe('Component: Header', () => {
 
   beforeAll(() => {
     StyleSheetTestUtils.suppressStyleInjection();
@@ -18,12 +18,11 @@ describe('Component: SearchHeader', () => {
 
   it('should render', () => {
     const component = renderer.create(
-      <SearchHeader>
+      <Header onSubmit={jest.fn()} searchTerm="test">
         <div>inner component</div>
-      </SearchHeader>
+      </Header>
     );
     expect(component).toMatchSnapshot();
   });
-
 
 });
