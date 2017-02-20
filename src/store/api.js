@@ -4,6 +4,8 @@ import axios from 'axios';
 import assignAll from 'lodash/fp/assignAll';
 import parseLinkHeader from 'parse-link-header';
 
+export const PER_PAGE = 35;
+
 const github = axios.create({
   baseURL: 'https://api.github.com/',
 });
@@ -24,7 +26,7 @@ function addPagination(response: Object): Object {
 
 function searchUsers(params: Object): Promise<*> {
   const defaultParams = {
-    per_page: 42,
+    per_page: PER_PAGE,
   };
   return github
     .get('/search/users', {

@@ -9,6 +9,7 @@ import isEmpty from 'lodash/fp/isEmpty';
 import curry from 'lodash/fp/curry';
 import SearchResultsContainer from 'containers/SearchResults';
 import HeaderContainer from 'containers/Header';
+import {PER_PAGE} from 'store/api';
 
 type Props = {
   push: Function,
@@ -18,7 +19,7 @@ type Props = {
 export const pushUrlQuery = curry((push: Function, query: string) => {
   push({
     path: '/',
-    search: `per_page=42&page=1&q=${query}`,
+    search: `per_page=${PER_PAGE}&page=1&q=${query}`,
   });
 });
 
