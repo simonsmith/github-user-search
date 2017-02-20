@@ -1,0 +1,17 @@
+exports[`Component: HeaderContainer when the searchQuery prop changes should call the search action with the new value 1`] = `
+Array [
+  "?q=test",
+]
+`;
+
+exports[`Component: HeaderContainer when the searchQuery prop changes should call the search action with the new value 2`] = `
+Array [
+  "?q=foobar",
+]
+`;
+
+exports[`Component: HeaderContainer when the searchQuery prop is present should call the search action 1`] = `
+Array [
+  "?q=test",
+]
+`;
