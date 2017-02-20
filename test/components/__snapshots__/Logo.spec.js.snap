@@ -2,7 +2,12 @@ exports[`Component: Logo should render 1`] = `
 <div>
   <h1
     className="Logo_title_1cswrtu">
-    GitHub User Search
+    <a
+      className="Logo_link_1pkhm2c"
+      href="/"
+      onClick={[Function]}>
+      GitHub User Search
+    </a>
   </h1>
   <p
     className="Logo_subTitle_h76sf7">
