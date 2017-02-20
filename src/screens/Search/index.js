@@ -48,7 +48,7 @@ class SearchScreen extends Component {
         <SearchContainer
           pushRoute={push}
           searchTerm={parsedSearch.q}
-          search={qs.stringify(parsedSearch)}
+          searchQuery={qs.stringify(parsedSearch)}
           onSubmit={this.pushUrlQuery}
         />
       </DocumentTitle>

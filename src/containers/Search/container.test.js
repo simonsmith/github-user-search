@@ -20,7 +20,7 @@ describe('Component: SearchContainer', () => {
       const spy = jest.fn();
       shallow(
         <SearchContainer
-          search={''}
+          searchQuery={''}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -37,7 +37,7 @@ describe('Component: SearchContainer', () => {
       const spy = jest.fn();
       shallow(
         <SearchContainer
-          search={'?q=test'}
+          searchQuery={'?q=test'}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -54,7 +54,7 @@ describe('Component: SearchContainer', () => {
       const spy = jest.fn();
       const wrapper = shallow(
         <SearchContainer
-          search={'?q=test'}
+          searchQuery={'?q=test'}
           searchUser={spy}
           onSubmit={jest.fn()}
           userEntities={{}}
@@ -73,7 +73,7 @@ describe('Component: SearchContainer', () => {
       const spy = jest.fn();
       const component = renderer.create(
         <SearchContainer
-          search={'?q=test'}
+          searchQuery={'?q=test'}
           searchTerm={''}
           searchUser={spy}
           onSubmit={jest.fn()}

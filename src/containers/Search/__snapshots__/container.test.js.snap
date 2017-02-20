@@ -4,11 +4,7 @@ Array [
 ]
 `;
 
-exports[`Component: SearchContainer when the search prop changes should call the search action with the new value 2`] = `
-Array [
-  "?q=foobar",
-]
-`;
+exports[`Component: SearchContainer when the search prop changes should call the search action with the new value 2`] = `undefined`;
 
 exports[`Component: SearchContainer when the search prop is present should call the search action 1`] = `
 Array [

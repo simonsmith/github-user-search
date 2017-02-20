@@ -16,8 +16,8 @@ import connect from './connect';
 type Props = {
   onSubmit: Function,
   pagination: Object,
-  search: Object,
-  search: string,
+  searchQuery: string,
+  searchTerm: string,
   searchUser: Function,
   totalResults: number,
   userEntities: Object,
@@ -29,7 +29,7 @@ export class SearchContainer extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     pagination: PropTypes.object,
-    search: PropTypes.string.isRequired,
+    searchQuery: PropTypes.string.isRequired,
     searchTerm: PropTypes.string.isRequired,
     searchUser: PropTypes.func.isRequired,
     totalResults: PropTypes.number.isRequired,
@@ -44,18 +44,18 @@ export class SearchContainer extends Component {
 
   constructor(props: Props) {
     super(props);
-    this.handleSearchUser(props.search);
+    this.handleSearchUser(props.searchQuery);
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.search !== this.props.search) {
-      this.handleSearchUser(nextProps.search);
+    if (nextProps.searchQuery !== this.props.searchQuery) {
+      this.handleSearchUser(nextProps.searchQuery);
     }
   }
 
-  handleSearchUser(search: string): void {
-    if (!search) {return;}
-    this.props.searchUser(search);
+  handleSearchUser(searchQuery: string): void {
+    if (!searchQuery) {return;}
+    this.props.searchUser(searchQuery);
   }
 
   renderSearchResults() {
