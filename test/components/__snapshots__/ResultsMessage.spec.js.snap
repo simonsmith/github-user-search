@@ -1,1 +1,27 @@
-exports[`Component: ResultsMessage should render 1`] = `null`;
+exports[`Component: ResultsMessage should handle single results 1`] = `
+<p
+  className="ResultsMessage_1ntyrs8">
+  Found 
+  1
+   
+  result
+   for 
+  <b>
+    test
+  </b>
+</p>
+`;
+
+exports[`Component: ResultsMessage should render 1`] = `
+<p
+  className="ResultsMessage_1ntyrs8">
+  Found 
+  50
+   
+  results
+   for 
+  <b>
+    test
+  </b>
+</p>
+`;

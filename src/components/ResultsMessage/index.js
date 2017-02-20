@@ -16,12 +16,11 @@ type Props = {
 
 function ResultsMessage({searchTerm, resultsTotal, pageTotal}: Props) {
   if (!searchTerm || !pageTotal) {return null;}
+
   return (
-    <div className={css(styles.ResultsMessage)}>
-      <p>
-        <b>{searchTerm}</b> found {resultsTotal} {resultsTotal === 1 ? 'result' : 'results'}
-      </p>
-    </div>
+    <p className={css(styles.ResultsMessage)}>
+      Found {resultsTotal} {resultsTotal === 1 ? 'result' : 'results'} for <b>{searchTerm}</b>
+    </p>
   );
 }
 
@@ -33,7 +32,7 @@ ResultsMessage.propTypes = {
 
 const styles = StyleSheet.create({
   ResultsMessage: {
-
+    textAlign: 'center',
   },
 });
 
