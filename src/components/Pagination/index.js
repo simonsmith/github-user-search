@@ -32,7 +32,7 @@ function renderNext(url: string) {
       className={css(styles.Pagination_link, styles.Pagination_next)}
       rel="next"
     >
-      <span className={css(styles.Pagination_text)}>Next</span>
+      <span>Next</span>
       <NextIcon width={30} height={70} />
     </Link>
   );
@@ -48,7 +48,7 @@ function renderPrev(url: string) {
       rel="previous"
     >
       <PrevIcon width={30} height={70} />
-      <span className={css(styles.Pagination_text)}>Previous</span>
+      <span>Previous</span>
     </Link>
   );
 }
@@ -82,10 +82,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
-  },
-
-  Pagination_text: {
-    color: '#222',
+    color: 'inherit',
   },
 
   Pagination_next: {

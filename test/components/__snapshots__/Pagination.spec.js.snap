@@ -2,12 +2,11 @@ exports[`Component: Pagination when passed a next prop should render a next link
 <div
   className="Pagination_2gx8tz">
   <a
-    className="Pagination_link_138ujza-o_O-Pagination_next_1j0ix3o"
+    className="Pagination_link_xnow41-o_O-Pagination_next_1j0ix3o"
     href="/?q=simon&page=2"
     onClick={[Function]}
     rel="next">
-    <span
-      className="Pagination_text_1y2rjbq">
+    <span>
       Next
     </span>
     <svg />
@@ -19,23 +18,21 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
 <div
   className="Pagination_2gx8tz">
   <a
-    className="Pagination_link_138ujza-o_O-Pagination_prev_yunyae"
+    className="Pagination_link_xnow41-o_O-Pagination_prev_yunyae"
     href="/?q=simon&page=1"
     onClick={[Function]}
     rel="previous">
     <svg />
-    <span
-      className="Pagination_text_1y2rjbq">
+    <span>
       Previous
     </span>
   </a>
   <a
-    className="Pagination_link_138ujza-o_O-Pagination_next_1j0ix3o"
+    className="Pagination_link_xnow41-o_O-Pagination_next_1j0ix3o"
     href="/?q=simon&page=2"
     onClick={[Function]}
     rel="next">
-    <span
-      className="Pagination_text_1y2rjbq">
+    <span>
       Next
     </span>
     <svg />
@@ -47,13 +44,12 @@ exports[`Component: Pagination when passed a prev prop should render a previous 
 <div
   className="Pagination_2gx8tz">
   <a
-    className="Pagination_link_138ujza-o_O-Pagination_prev_yunyae"
+    className="Pagination_link_xnow41-o_O-Pagination_prev_yunyae"
     href="/?q=simon&page=1"
     onClick={[Function]}
     rel="previous">
     <svg />
-    <span
-      className="Pagination_text_1y2rjbq">
+    <span>
       Previous
     </span>
   </a>
