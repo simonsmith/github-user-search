@@ -28,7 +28,7 @@ describe('Component: Image', () => {
     const wrapper = shallow(
       <Image src="test.png" />
     );
-    wrapper.setState({status: 'loaded'})
+    wrapper.setState({status: 'loaded'});
     expect(wrapper.html()).toMatchSnapshot();
   });
 
