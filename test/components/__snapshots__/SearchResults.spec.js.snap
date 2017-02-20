@@ -1,76 +1,49 @@
 exports[`Component: SearchResults when given a one result should render a correctly worded message 1`] = `
-<div
-  className="SearchResults_hitfqg">
-  <p>
-    <b>
-      foo
-    </b>
-     found 
-    1
-     
-    result
-  </p>
-  <ul
-    className="SearchResults_list_96vuga">
-    <li
-      className="SearchResults_item_ekglxz">
-      <div>
-        <img
-          alt="foo"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={140}
-          src="avatar.jpg"
-          width={140} />
-      </div>
-    </li>
-  </ul>
-</div>
+<ul
+  className="SearchResults_96vuga">
+  <li
+    className="SearchResults_item_ekglxz">
+    <div>
+      <img
+        alt="foo"
+        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+        height={140}
+        src="avatar.jpg"
+        width={140} />
+    </div>
+  </li>
+</ul>
 `;
 
 exports[`Component: SearchResults when given a set of results and entities should render them with a message 1`] = `
-<div
-  className="SearchResults_hitfqg">
-  <p>
-    <b>
-      foo
-    </b>
-     found 
-    2
-     
-    results
-  </p>
-  <ul
-    className="SearchResults_list_96vuga">
-    <li
-      className="SearchResults_item_ekglxz">
-      <div>
-        <img
-          alt="foo"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={140}
-          src="avatar.jpg"
-          width={140} />
-      </div>
-    </li>
-    <li
-      className="SearchResults_item_ekglxz">
-      <div>
-        <img
-          alt="foobar"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-          height={140}
-          src="avatar.jpg"
-          width={140} />
-      </div>
-    </li>
-  </ul>
-</div>
+<ul
+  className="SearchResults_96vuga">
+  <li
+    className="SearchResults_item_ekglxz">
+    <div>
+      <img
+        alt="foo"
+        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+        height={140}
+        src="avatar.jpg"
+        width={140} />
+    </div>
+  </li>
+  <li
+    className="SearchResults_item_ekglxz">
+    <div>
+      <img
+        alt="foobar"
+        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+        height={140}
+        src="avatar.jpg"
+        width={140} />
+    </div>
+  </li>
+</ul>
 `;
 
 exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
-<div
-  className="SearchResults_hitfqg">
-  <ul
-    className="SearchResults_list_96vuga" />
-</div>
+<ul
+  className="SearchResults_96vuga" />
 `;

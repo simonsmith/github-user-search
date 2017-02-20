@@ -13,9 +13,7 @@ import Result from 'components/Result';
 
 type Props = {
   entities: Object,
-  searchTerm: string,
   ids: Array<number>,
-  total: number,
 };
 
 const renderSearchResult = curry((entities, item) => {
@@ -34,40 +32,23 @@ const renderSearchResult = curry((entities, item) => {
   );
 });
 
-function renderResultsMessage(searchTerm: string, total: number, resultLength: number) {
-  if (!searchTerm || !resultLength) {return null;}
+function SearchResults({entities, ids}: Props) {
   return (
-    <p><b>{searchTerm}</b> found {total} {total === 1 ? 'result' : 'results'}</p>
-  );
-}
-
-function SearchResults({entities, ids, searchTerm, total}: Props) {
-  return (
-    <div className={css(styles.SearchResults)}>
-      {renderResultsMessage(searchTerm, total, ids.length)}
-      <ul className={css(styles.SearchResults_list)}>
-        {map(renderSearchResult(entities), ids)}
-      </ul>
-    </div>
+    <ul className={css(styles.SearchResults)}>
+      {map(renderSearchResult(entities), ids)}
+    </ul>
   );
 }
 
 SearchResults.propTypes = {
   entities: PropTypes.object,
-  searchTerm: PropTypes.string,
   ids: PropTypes.array,
-  total: PropTypes.number,
 };
 
 const BREAKPOINT = '@media (min-width: 600px)';
 
 const styles = StyleSheet.create({
   SearchResults: {
-    maxWidth: 1280,
-    margin: '0 auto',
-  },
-
-  SearchResults_list: {
     display: 'flex',
     flexWrap: 'wrap',
   },

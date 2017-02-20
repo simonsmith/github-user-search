@@ -1,7 +1,6 @@
 // @flow
 
 import React, {
-  Component,
   PropTypes,
 } from 'react';
 import {
@@ -9,45 +8,42 @@ import {
 } from 'aphrodite/no-important';
 import SearchResults from 'components/SearchResults';
 import Pagination from 'components/Pagination';
+import ResultsMessage from 'components/ResultsMessage';
 import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
   pagination: Object,
   searchTerm: string,
-  searchUser: Function,
   totalResults: number,
   userEntities: Object,
   userIds: Array<number>,
 };
 
-export class SearchResultsContainer extends Component {
+export function SearchResultsContainer(props: Props) {
+  const {
+    pagination,
+    searchTerm,
+    totalResults,
+    userEntities,
+    userIds,
+  } = props;
 
-  props: Props;
+  if (!searchTerm) {return null;}
 
-  static propTypes = {
-    pagination: PropTypes.object,
-    searchTerm: PropTypes.string.isRequired,
-    totalResults: PropTypes.number.isRequired,
-    userEntities: PropTypes.object.isRequired,
-    userIds: PropTypes.array.isRequired,
-  };
-
-  static defaultProps = {
-    pagination: {},
-  };
-
-  renderSearchResults() {
-    const {
-      searchTerm,
-      userIds,
-      userEntities,
-      totalResults,
-    } = this.props;
-    if (!searchTerm) {return null;}
-
-    return (
-      <Container noGutter={true}>
+  return (
+    <div>
+      <Container>
+        <ResultsMessage
+          searchTerm={searchTerm}
+          resultsTotal={totalResults}
+          pageTotal={userIds.length}
+        />
+      </Container>
+      <Container
+        noGutter={true}
+        rootStyle={styles.SearchResultsContainer_results}
+      >
         <SearchResults
           searchTerm={searchTerm}
           ids={userIds}
@@ -55,38 +51,28 @@ export class SearchResultsContainer extends Component {
           total={totalResults}
         />
       </Container>
-    );
-  }
-
-  renderPagination() {
-    const {
-      pagination,
-      searchTerm,
-    } = this.props;
-    if (!searchTerm) {return null;}
-
-    return (
-      <Container rootStyle={styles.SearchResultsContainer_pagination}>
+      <Container>
         <Pagination {...pagination} />
       </Container>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.renderSearchResults()}
-        {this.renderPagination()}
-      </div>
-    );
-  }
-
+    </div>
+  );
 }
 
+SearchResultsContainer.propTypes = {
+  pagination: PropTypes.object,
+  searchTerm: PropTypes.string.isRequired,
+  totalResults: PropTypes.number.isRequired,
+  userEntities: PropTypes.object.isRequired,
+  userIds: PropTypes.array.isRequired,
+};
+
+SearchResultsContainer.defaultProps = {
+  pagination: {},
+};
+
 const styles = StyleSheet.create({
-  SearchResultsContainer_pagination: {
+  SearchResultsContainer_results: {
     marginTop: 15,
-    marginBottom: 15,
   },
 });
 
