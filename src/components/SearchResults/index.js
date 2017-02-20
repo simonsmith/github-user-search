@@ -59,6 +59,8 @@ SearchResults.propTypes = {
   total: PropTypes.number,
 };
 
+const BREAKPOINT = '@media (min-width: 600px)';
+
 const styles = StyleSheet.create({
   SearchResults: {
     maxWidth: 1280,
@@ -72,6 +74,12 @@ const styles = StyleSheet.create({
 
   SearchResults_item: {
     flex: '1 0 auto',
+
+    [BREAKPOINT]: {
+      ':only-child': {
+        flex: 0,
+      },
+    },
   },
 });
 
