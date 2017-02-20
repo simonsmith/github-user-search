@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   SearchResults: {
     display: 'flex',
     flexWrap: 'wrap',
+    paddingLeft: 3,
   },
 
   SearchResults_item: {
