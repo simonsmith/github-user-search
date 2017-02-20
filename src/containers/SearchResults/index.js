@@ -33,7 +33,9 @@ export function SearchResultsContainer(props: Props) {
 
   return (
     <div>
-      <Container>
+      <Container
+        rootStyle={styles.SearchResultsContainer_message}
+      >
         <ResultsMessage
           searchTerm={searchTerm}
           resultsTotal={totalResults}
@@ -72,6 +74,10 @@ SearchResultsContainer.defaultProps = {
 
 const styles = StyleSheet.create({
   SearchResultsContainer_results: {
+    marginTop: 15,
+  },
+
+  SearchResultsContainer_message: {
     marginTop: 15,
   },
 });
