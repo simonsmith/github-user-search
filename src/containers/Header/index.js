@@ -68,7 +68,8 @@ export class HeaderContainer extends Component {
 const styles = StyleSheet.create({
   HeaderContainer: {
     backgroundColor: '#f4f4f4',
-    borderBottom: '1px solid #ddd',
+    borderBottom: '1px solid #aaa',
+    boxShadow: '0px 0px 2px 1px rgba(0, 0, 0, .2)',
   },
 });
 
