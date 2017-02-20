@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'aphrodite/no-important';
 import Header from 'components/Header';
+import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
@@ -53,19 +54,22 @@ export class HeaderContainer extends Component {
     } = this.props;
 
     return (
-      <div>
+      <Container rootStyle={styles.HeaderContainer}>
         <Header
           onSubmit={onSubmit}
           searchTerm={searchTerm}
         />
-      </div>
+      </Container>
     );
   }
 
 }
 
 const styles = StyleSheet.create({
-
+  HeaderContainer: {
+    backgroundColor: '#f4f4f4',
+    borderBottom: '1px solid #ddd',
+  },
 });
 
 export default connect(HeaderContainer);

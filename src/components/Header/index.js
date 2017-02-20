@@ -7,7 +7,6 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Container from 'components/Container';
 import SearchForm from 'components/SearchForm';
 import Logo from 'components/Logo';
 
@@ -18,19 +17,17 @@ type Props = {
 
 export default function Header({onSubmit, searchTerm}: Props) {
   return (
-    <Container rootStyle={styles.Header}>
-      <div className={css(styles.Header_inner)}>
-        <div className={css(styles.Header_logo)}>
-          <Logo />
-        </div>
-        <div className={css(styles.Header_form)}>
-          <SearchForm
-            onSubmit={onSubmit}
-            initialInputValue={searchTerm}
-          />
-        </div>
+    <div className={css(styles.Header)}>
+      <div className={css(styles.Header_logo)}>
+        <Logo />
       </div>
-    </Container>
+      <div className={css(styles.Header_form)}>
+        <SearchForm
+          onSubmit={onSubmit}
+          initialInputValue={searchTerm}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -43,11 +40,6 @@ const BREAKPOINT = '@media (min-width: 600px)';
 
 const styles = StyleSheet.create({
   Header: {
-    backgroundColor: '#f4f4f4',
-    borderBottom: '1px solid #ddd',
-  },
-
-  Header_inner: {
     paddingTop: 15,
     paddingBottom: 15,
 
