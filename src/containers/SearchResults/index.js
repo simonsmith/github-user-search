@@ -47,12 +47,14 @@ export class SearchResultsContainer extends Component {
     if (!searchTerm) {return null;}
 
     return (
-      <SearchResults
-        searchTerm={searchTerm}
-        ids={userIds}
-        entities={userEntities}
-        total={totalResults}
-      />
+      <Container noGutter={true}>
+        <SearchResults
+          searchTerm={searchTerm}
+          ids={userIds}
+          entities={userEntities}
+          total={totalResults}
+        />
+      </Container>
     );
   }
 
@@ -73,10 +75,8 @@ export class SearchResultsContainer extends Component {
   render() {
     return (
       <div>
+        {this.renderSearchResults()}
         {this.renderPagination()}
-        <Container noGutter={true}>
-          {this.renderSearchResults()}
-        </Container>
       </div>
     );
   }

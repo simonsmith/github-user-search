@@ -1,9 +1,1 @@
-exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
-<div>
-  <div
-    className="Container_10ki57k">
-    <div
-      className="Container_inner_ydook" />
-  </div>
-</div>
-`;
+exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `<div />`;
