@@ -29,9 +29,11 @@ function renderNext(url: string) {
   return (
     <Link
       to={{search}}
-      className={css(styles.Pagination_next)}
+      className={css(styles.Pagination_link, styles.Pagination_next)}
+      rel="next"
     >
-      <NextIcon width={40} height={80} />
+      <span className={css(styles.Pagination_text)}>Next</span>
+      <NextIcon width={30} height={70} />
     </Link>
   );
 }
@@ -42,9 +44,11 @@ function renderPrev(url: string) {
   return (
     <Link
       to={{search}}
-      className={css(styles.Pagination_prev)}
+      className={css(styles.Pagination_link, styles.Pagination_prev)}
+      rel="previous"
     >
-      <PrevIcon width={40} height={80} />
+      <PrevIcon width={30} height={70} />
+      <span className={css(styles.Pagination_text)}>Previous</span>
     </Link>
   );
 }
@@ -72,6 +76,16 @@ const styles = StyleSheet.create({
   Pagination: {
     display: 'flex',
     justifyContent: 'center',
+  },
+
+  Pagination_link: {
+    display: 'flex',
+    alignItems: 'center',
+    textDecoration: 'none',
+  },
+
+  Pagination_text: {
+    color: '#222',
   },
 
   Pagination_next: {
