@@ -8,7 +8,7 @@ exports[`Component: SearchResults when given a one result should render a correc
         alt="foo"
         className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
         height={140}
-        src="avatar.jpg"
+        src="avatar.jpg&s=225"
         width={140} />
     </div>
   </li>
@@ -25,7 +25,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         alt="foo"
         className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
         height={140}
-        src="avatar.jpg"
+        src="avatar.jpg&s=225"
         width={140} />
     </div>
   </li>
@@ -36,7 +36,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         alt="foobar"
         className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
         height={140}
-        src="avatar.jpg"
+        src="avatar.jpg&s=225"
         width={140} />
     </div>
   </li>

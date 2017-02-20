@@ -19,7 +19,7 @@ function Result({username, avatarUrl}: Props) {
     <div>
       <img
         className={css(styles.Result_img, Utils.responsiveImg)}
-        src={avatarUrl}
+        src={`${avatarUrl}&s=225`}
         alt={username}
         width={140}
         height={140}

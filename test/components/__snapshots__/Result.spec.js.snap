@@ -4,7 +4,7 @@ exports[`Component: Result should render 1`] = `
     alt="foo"
     className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
     height={140}
-    src="src.jpg"
+    src="src.jpg&s=225"
     width={140} />
 </div>
 `;
