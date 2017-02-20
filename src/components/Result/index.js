@@ -8,6 +8,7 @@ import {
   css,
 } from 'aphrodite/no-important';
 import {Utils} from 'theme';
+import Image from 'components/Image';
 
 type Props = {
   username: string,
@@ -17,7 +18,7 @@ type Props = {
 function Result({username, avatarUrl}: Props) {
   return (
     <div>
-      <img
+      <Image
         className={css(styles.Result_img, Utils.responsiveImg)}
         src={`${avatarUrl}&s=225`}
         alt={username}

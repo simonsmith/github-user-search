@@ -1,0 +1,17 @@
+exports[`Component: Image should hide the spinner if the image is loaded 1`] = `"<div class=\"Image_13hv8io\" style=\"min-height:100px;\"><img alt=\"\" src=\"test.png\"/></div>"`;
+
+exports[`Component: Image should render 1`] = `
+<div
+  className="Image_13hv8io"
+  style={
+    Object {
+      "minHeight": 100,
+    }
+  }>
+  <img
+    alt=""
+    onLoad={[Function]}
+    src="test.png" />
+  <svg />
+</div>
+`;

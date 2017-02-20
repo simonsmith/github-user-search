@@ -1,10 +1,20 @@
 exports[`Component: Result should render 1`] = `
 <div>
-  <img
-    alt="foo"
-    className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-    height={140}
-    src="src.jpg&s=225"
-    width={140} />
+  <div
+    className="Image_13hv8io"
+    style={
+      Object {
+        "minHeight": 100,
+      }
+    }>
+    <img
+      alt="foo"
+      className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+      height={140}
+      onLoad={[Function]}
+      src="src.jpg&s=225"
+      width={140} />
+    <svg />
+  </div>
 </div>
 `;

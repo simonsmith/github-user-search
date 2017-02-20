@@ -4,12 +4,22 @@ exports[`Component: SearchResults when given a one result should render a correc
   <li
     className="SearchResults_item_ekglxz">
     <div>
-      <img
-        alt="foo"
-        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-        height={140}
-        src="avatar.jpg&s=225"
-        width={140} />
+      <div
+        className="Image_13hv8io"
+        style={
+          Object {
+            "minHeight": 100,
+          }
+        }>
+        <img
+          alt="foo"
+          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          height={140}
+          onLoad={[Function]}
+          src="avatar.jpg&s=225"
+          width={140} />
+        <svg />
+      </div>
     </div>
   </li>
 </ul>
@@ -21,23 +31,43 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   <li
     className="SearchResults_item_ekglxz">
     <div>
-      <img
-        alt="foo"
-        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-        height={140}
-        src="avatar.jpg&s=225"
-        width={140} />
+      <div
+        className="Image_13hv8io"
+        style={
+          Object {
+            "minHeight": 100,
+          }
+        }>
+        <img
+          alt="foo"
+          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          height={140}
+          onLoad={[Function]}
+          src="avatar.jpg&s=225"
+          width={140} />
+        <svg />
+      </div>
     </div>
   </li>
   <li
     className="SearchResults_item_ekglxz">
     <div>
-      <img
-        alt="foobar"
-        className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
-        height={140}
-        src="avatar.jpg&s=225"
-        width={140} />
+      <div
+        className="Image_13hv8io"
+        style={
+          Object {
+            "minHeight": 100,
+          }
+        }>
+        <img
+          alt="foobar"
+          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          height={140}
+          onLoad={[Function]}
+          src="avatar.jpg&s=225"
+          width={140} />
+        <svg />
+      </div>
     </div>
   </li>
 </ul>
