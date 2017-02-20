@@ -1,0 +1,16 @@
+exports[`Component: Logo should render 1`] = `
+<div>
+  <h1
+    className="Logo_title_1cswrtu">
+    GitHub User Search
+  </h1>
+  <p
+    className="Logo_subTitle_h76sf7">
+    Browse users and their profiles via 
+    <a
+      href="https://developer.github.com/v3/">
+      the GitHub API
+    </a>
+  </p>
+</div>
+`;
