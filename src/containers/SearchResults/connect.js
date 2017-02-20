@@ -2,7 +2,6 @@
 
 import {connect} from 'react-redux';
 import get from 'lodash/fp/get';
-import {searchUser} from 'actions/Search';
 
 export function mapStateToProps(state: Object): Object {
   return {
@@ -13,8 +12,4 @@ export function mapStateToProps(state: Object): Object {
   };
 }
 
-const mapDispatchToProps = {
-  searchUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps);
+export default connect(mapStateToProps);

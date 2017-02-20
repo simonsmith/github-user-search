@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import SearchContainer from 'containers/Search';
+import SearchResultsContainer from 'containers/SearchResults';
 import SearchScreen from 'screens/Search';
 
 describe('Screen: SearchScreen', () => {
@@ -16,7 +16,7 @@ describe('Screen: SearchScreen', () => {
           location={location}
         />
       );
-      expect(wrapper.find(SearchContainer).first().props().searchTerm).toEqual('testing');
+      expect(wrapper.find(SearchResultsContainer).first().props().searchTerm).toEqual('testing');
     });
   });
 

@@ -1,3 +1,5 @@
+// @flow
+
 import React, {
   Component,
   PropTypes,
@@ -5,7 +7,8 @@ import React, {
 import qs from 'query-string';
 import DocumentTitle from 'react-document-title';
 import isEmpty from 'lodash/fp/isEmpty';
-import SearchContainer from 'containers/Search';
+import SearchResultsContainer from 'containers/SearchResults';
+import HeaderContainer from 'containers/Header';
 
 type Props = {
   push: Function,
@@ -38,19 +41,22 @@ class SearchScreen extends Component {
   render() {
     const {
       location,
-      push,
     } = this.props;
     const parsedSearch = qs.parse(location.search);
     const title = SearchScreen.constructTitle(parsedSearch);
 
     return (
       <DocumentTitle title={title}>
-        <SearchContainer
-          pushRoute={push}
-          searchTerm={parsedSearch.q}
-          searchQuery={qs.stringify(parsedSearch)}
-          onSubmit={this.pushUrlQuery}
-        />
+        <div>
+          <HeaderContainer
+            searchTerm={parsedSearch.q}
+            searchQuery={qs.stringify(parsedSearch)}
+            onSubmit={this.pushUrlQuery}
+          />
+          <SearchResultsContainer
+            searchTerm={parsedSearch.q}
+          />
+        </div>
       </DocumentTitle>
     );
   }

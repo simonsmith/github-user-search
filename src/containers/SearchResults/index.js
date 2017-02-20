@@ -9,14 +9,11 @@ import {
 } from 'aphrodite/no-important';
 import SearchResults from 'components/SearchResults';
 import Pagination from 'components/Pagination';
-import Header from 'components/Header';
 import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
-  onSubmit: Function,
   pagination: Object,
-  searchQuery: string,
   searchTerm: string,
   searchUser: Function,
   totalResults: number,
@@ -24,39 +21,21 @@ type Props = {
   userIds: Array<number>,
 };
 
-export class SearchContainer extends Component {
+export class SearchResultsContainer extends Component {
+
+  props: Props;
 
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
     pagination: PropTypes.object,
-    searchQuery: PropTypes.string.isRequired,
     searchTerm: PropTypes.string.isRequired,
-    searchUser: PropTypes.func.isRequired,
     totalResults: PropTypes.number.isRequired,
     userEntities: PropTypes.object.isRequired,
     userIds: PropTypes.array.isRequired,
   };
 
   static defaultProps = {
-    searchTerm: '',
     pagination: {},
   };
-
-  constructor(props: Props) {
-    super(props);
-    this.handleSearchUser(props.searchQuery);
-  }
-
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.searchQuery !== this.props.searchQuery) {
-      this.handleSearchUser(nextProps.searchQuery);
-    }
-  }
-
-  handleSearchUser(searchQuery: string): void {
-    if (!searchQuery) {return;}
-    this.props.searchUser(searchQuery);
-  }
 
   renderSearchResults() {
     const {
@@ -85,24 +64,15 @@ export class SearchContainer extends Component {
     if (!searchTerm) {return null;}
 
     return (
-      <Container rootStyle={styles.SearchContainer_pagination}>
+      <Container rootStyle={styles.SearchResultsContainer_pagination}>
         <Pagination {...pagination} />
       </Container>
     );
   }
 
   render() {
-    const {
-      onSubmit,
-      searchTerm,
-    } = this.props;
-
     return (
       <div>
-        <Header
-          onSubmit={onSubmit}
-          searchTerm={searchTerm}
-        />
         {this.renderPagination()}
         <Container noGutter={true}>
           {this.renderSearchResults()}
@@ -114,10 +84,10 @@ export class SearchContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-  SearchContainer_pagination: {
+  SearchResultsContainer_pagination: {
     marginTop: 15,
     marginBottom: 15,
   },
 });
 
-export default connect(SearchContainer);
+export default connect(SearchResultsContainer);
