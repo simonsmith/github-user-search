@@ -16,7 +16,7 @@ exports[`Component: SearchResults when given a one result should render a correc
         }>
         <img
           alt="foo"
-          className="responsiveImg_khup4t"
+          className="Result_img_11oizi4-o_O-responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"
@@ -53,7 +53,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         }>
         <img
           alt="foo"
-          className="responsiveImg_khup4t"
+          className="Result_img_11oizi4-o_O-responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"
@@ -84,7 +84,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         }>
         <img
           alt="foobar"
-          className="responsiveImg_khup4t"
+          className="Result_img_11oizi4-o_O-responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"

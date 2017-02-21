@@ -12,7 +12,7 @@ exports[`Component: Result should render 1`] = `
     }>
     <img
       alt="foo"
-      className="responsiveImg_khup4t"
+      className="Result_img_11oizi4-o_O-responsiveImg_khup4t"
       height={140}
       onLoad={[Function]}
       src="src.jpg&s=225"

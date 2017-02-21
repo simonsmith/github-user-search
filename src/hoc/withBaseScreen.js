@@ -35,7 +35,7 @@ function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-function withBaseLayout(WrappedComponent: ReactClass<*>) {
+function withBaseScreen(WrappedComponent: ReactClass<*>) {
   function component({location, push, ...restProps}: Props) {
     const parsedSearch = qs.parse(location.search);
     const title = constructTitle(parsedSearch);
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withBaseLayout;
+export default withBaseScreen;

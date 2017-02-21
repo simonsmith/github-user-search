@@ -1,1 +1,4 @@
-exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `null`;
+exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
+<div
+  className="SearchResultsContainer_mv0w51" />
+`;

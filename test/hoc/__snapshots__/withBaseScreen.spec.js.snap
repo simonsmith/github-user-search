@@ -1,0 +1,76 @@
+exports[`HOC: withBaseScreen pushUrlQuery function should push a search query on the URL 1`] = `
+Array [
+  Object {
+    "pathname": "/search",
+    "search": "per_page=42&page=1&q=testing",
+  },
+]
+`;
+
+exports[`HOC: withBaseScreen when passed a component should render it in the base screen 1`] = `
+<div
+  className="DefaultLayout_1ra77ly">
+  <div
+    className="Container_10ki57k-o_O-HeaderContainer_12tblyh">
+    <div
+      className="Container_inner_ydook-o_O-Container_padding_1e7x1pk">
+      <div
+        className="Header_16l6lg7">
+        <div
+          className="Header_logo_lmjs6u">
+          <div>
+            <h1
+              className="Logo_title_1cswrtu">
+              <a
+                className="Logo_link_1pkhm2c"
+                href="/"
+                onClick={[Function]}>
+                GitHub User Search
+              </a>
+            </h1>
+            <p
+              className="Logo_subTitle_h76sf7">
+              Browse users and their profiles via 
+              <a
+                href="https://developer.github.com/v3/">
+                the GitHub API
+              </a>
+            </p>
+          </div>
+        </div>
+        <div
+          className="Header_form_q7zmln">
+          <form
+            className="SearchForm_13hv8io"
+            onSubmit={[Function]}>
+            <label
+              className="hiddenVisually_1qrrm43"
+              htmlFor="searchInput">
+              Search for a user
+            </label>
+            <input
+              className="SearchForm_input_9ohod8"
+              id="searchInput"
+              onChange={[Function]}
+              placeholder="Search for a user, e.g. simonsmith"
+              type="text"
+              value="" />
+            <button
+              className="SearchForm_btn_tixetf"
+              type="submit">
+              <svg />
+              <span
+                className="hiddenVisually_1qrrm43">
+                Submit
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>
+    test
+  </p>
+</div>
+`;
