@@ -13,14 +13,12 @@ type Props = {
   minHeight: number,
 };
 
-type State = {
-  status: 'loading' | 'loaded',
-};
-
 class Image extends Component {
 
   props: Props;
-  state: State;
+  state: {
+    status: string,
+  };
 
   static defaultProps = {
     minHeight: 100,
