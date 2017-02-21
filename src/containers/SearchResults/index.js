@@ -70,6 +70,7 @@ SearchResultsContainer.propTypes = {
 
 SearchResultsContainer.defaultProps = {
   pagination: {},
+  searchTerm: '',
 };
 
 const styles = StyleSheet.create({
