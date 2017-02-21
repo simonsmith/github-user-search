@@ -19,7 +19,7 @@ type Props = {
 
 export const pushUrlQuery = curry((push: Function, query: string) => {
   push({
-    path: '/',
+    pathname: '/search',
     search: `per_page=${PER_PAGE}&page=1&q=${query}`,
   });
 });
