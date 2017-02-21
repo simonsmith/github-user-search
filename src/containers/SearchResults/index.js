@@ -4,6 +4,7 @@ import React, {
   PropTypes,
 } from 'react';
 import {
+  css,
   StyleSheet,
 } from 'aphrodite/no-important';
 import SearchResults from 'components/SearchResults';
@@ -20,7 +21,7 @@ type Props = {
   userIds: Array<number>,
 };
 
-export function SearchResultsContainer(props: Props) {
+function renderContent(props: Props) {
   const {
     pagination,
     searchTerm,
@@ -60,6 +61,14 @@ export function SearchResultsContainer(props: Props) {
   );
 }
 
+export function SearchResultsContainer(props: Props) {
+  return (
+    <div className={css(styles.SearchResultsContainer)}>
+      {renderContent(props)}
+    </div>
+  );
+}
+
 SearchResultsContainer.propTypes = {
   pagination: PropTypes.object,
   searchTerm: PropTypes.string.isRequired,
@@ -74,6 +83,10 @@ SearchResultsContainer.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  SearchResultsContainer: {
+    flex: 1,
+  },
+
   SearchResultsContainer_results: {
     marginTop: 15,
   },

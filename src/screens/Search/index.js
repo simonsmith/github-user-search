@@ -7,6 +7,10 @@ import qs from 'query-string';
 import DocumentTitle from 'react-document-title';
 import isEmpty from 'lodash/fp/isEmpty';
 import curry from 'lodash/fp/curry';
+import {
+  css,
+  StyleSheet,
+} from 'aphrodite/no-important';
 import SearchResultsContainer from 'containers/SearchResults';
 import HeaderContainer from 'containers/Header';
 import {PER_PAGE} from 'store/api';
@@ -36,7 +40,7 @@ function SearchScreen({location, push}: Props) {
 
   return (
     <DocumentTitle title={title}>
-      <div>
+      <div className={css(styles.SearchScreen)}>
         <HeaderContainer
           searchTerm={parsedSearch.q}
           searchQuery={qs.stringify(parsedSearch)}
@@ -54,5 +58,13 @@ SearchScreen.propTypes = {
   push: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired,
 };
+
+const styles = StyleSheet.create({
+  SearchScreen: {
+    flexDirection: 'column',
+    display: 'flex',
+    minHeight: '100vh',
+  },
+});
 
 export default SearchScreen;
