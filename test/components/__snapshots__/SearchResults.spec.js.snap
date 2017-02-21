@@ -3,7 +3,10 @@ exports[`Component: SearchResults when given a one result should render a correc
   className="SearchResults_wjap3z">
   <li
     className="SearchResults_item_ekglxz">
-    <div>
+    <a
+      className="Result_o39i78"
+      href="foo"
+      onClick={[Function]}>
       <div
         className="Image_13hv8io"
         style={
@@ -13,14 +16,21 @@ exports[`Component: SearchResults when given a one result should render a correc
         }>
         <img
           alt="foo"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          className="responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"
           width={140} />
         <svg />
       </div>
-    </div>
+      <div
+        className="Result_userInfo_1bp0i9f userinfo">
+        <p
+          className="Result_username_ypjw20">
+          foo
+        </p>
+      </div>
+    </a>
   </li>
 </ul>
 `;
@@ -30,7 +40,10 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   className="SearchResults_wjap3z">
   <li
     className="SearchResults_item_ekglxz">
-    <div>
+    <a
+      className="Result_o39i78"
+      href="foo"
+      onClick={[Function]}>
       <div
         className="Image_13hv8io"
         style={
@@ -40,18 +53,28 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         }>
         <img
           alt="foo"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          className="responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"
           width={140} />
         <svg />
       </div>
-    </div>
+      <div
+        className="Result_userInfo_1bp0i9f userinfo">
+        <p
+          className="Result_username_ypjw20">
+          foo
+        </p>
+      </div>
+    </a>
   </li>
   <li
     className="SearchResults_item_ekglxz">
-    <div>
+    <a
+      className="Result_o39i78"
+      href="foobar"
+      onClick={[Function]}>
       <div
         className="Image_13hv8io"
         style={
@@ -61,14 +84,21 @@ exports[`Component: SearchResults when given a set of results and entities shoul
         }>
         <img
           alt="foobar"
-          className="Result_img_2jlos-o_O-responsiveImg_kiloh9"
+          className="responsiveImg_khup4t"
           height={140}
           onLoad={[Function]}
           src="avatar.jpg&s=225"
           width={140} />
         <svg />
       </div>
-    </div>
+      <div
+        className="Result_userInfo_1bp0i9f userinfo">
+        <p
+          className="Result_username_ypjw20">
+          foobar
+        </p>
+      </div>
+    </a>
   </li>
 </ul>
 `;

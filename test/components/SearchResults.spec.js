@@ -1,8 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
 import SearchResults from 'components/SearchResults';
+
+function createComponent(props) {
+  return renderer.create(
+    <Router>
+      <SearchResults {...props} />
+    </Router>
+  );
+}
 
 describe('Component: SearchResults', () => {
 
@@ -25,9 +36,7 @@ describe('Component: SearchResults', () => {
         searchTerm: 'foo',
         total: 2,
       };
-      const component = renderer.create(
-        <SearchResults {...props} />
-      );
+      const component = createComponent(props);
       expect(component).toMatchSnapshot();
     });
   });
@@ -42,9 +51,7 @@ describe('Component: SearchResults', () => {
         searchTerm: 'foo',
         total: 1,
       };
-      const component = renderer.create(
-        <SearchResults {...props} />
-      );
+      const component = createComponent(props);
       expect(component).toMatchSnapshot();
     });
   });
@@ -57,9 +64,7 @@ describe('Component: SearchResults', () => {
         searchTerm: 'foo',
         total: 0,
       };
-      const component = renderer.create(
-        <SearchResults {...props} />
-      );
+      const component = createComponent(props);
       expect(component).toMatchSnapshot();
     });
   });

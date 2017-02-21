@@ -12,6 +12,7 @@ const utils = {
   },
 
   responsiveImg: {
+    display: 'block',
     minWidth: '100%',
     height: 'auto',
   },

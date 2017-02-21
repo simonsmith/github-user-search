@@ -1,6 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
 import Result from 'components/Result';
 
@@ -20,7 +23,9 @@ describe('Component: Result', () => {
       avatarUrl: 'src.jpg',
     };
     const component = renderer.create(
-      <Result {...props} />
+      <Router>
+        <Result {...props} />
+      </Router>
     );
     expect(component).toMatchSnapshot();
   });
