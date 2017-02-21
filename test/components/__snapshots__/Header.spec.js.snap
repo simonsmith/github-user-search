@@ -1,36 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: Header should render 1`] = `
 <div
-  className="Header_16l6lg7">
+  className="Header_16l6lg7"
+>
   <div
-    className="Header_logo_lmjs6u">
+    className="Header_logo_lmjs6u"
+  >
     <div>
       <h1
-        className="Logo_title_1cswrtu">
+        className="Logo_title_1cswrtu"
+      >
         <a
           className="Logo_link_1pkhm2c"
           href="/"
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           GitHub User Search
         </a>
       </h1>
       <p
-        className="Logo_subTitle_h76sf7">
+        className="Logo_subTitle_h76sf7"
+      >
         Browse users and their profiles via 
         <a
-          href="https://developer.github.com/v3/">
+          href="https://developer.github.com/v3/"
+        >
           the GitHub API
         </a>
       </p>
     </div>
   </div>
   <div
-    className="Header_form_q7zmln">
+    className="Header_form_q7zmln"
+  >
     <form
       className="SearchForm_13hv8io"
-      onSubmit={[Function]}>
+      onSubmit={[Function]}
+    >
       <label
         className="hiddenVisually_1qrrm43"
-        htmlFor="searchInput">
+        htmlFor="searchInput"
+      >
         Search for a user
       </label>
       <input
@@ -39,13 +50,16 @@ exports[`Component: Header should render 1`] = `
         onChange={[Function]}
         placeholder="Search for a user, e.g. simonsmith"
         type="text"
-        value="test" />
+        value="test"
+      />
       <button
         className="SearchForm_btn_tixetf"
-        type="submit">
+        type="submit"
+      >
         <svg />
         <span
-          className="hiddenVisually_1qrrm43">
+          className="hiddenVisually_1qrrm43"
+        >
           Submit
         </span>
       </button>

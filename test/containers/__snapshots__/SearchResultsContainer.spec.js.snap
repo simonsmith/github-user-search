@@ -1,4 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `
 <div
-  className="SearchResultsContainer_mv0w51" />
+  className="SearchResultsContainer_mv0w51"
+/>
 `;

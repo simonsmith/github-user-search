@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: HeaderContainer when the searchQuery prop changes should call the search action with the new value 1`] = `
 Array [
   "?q=test",

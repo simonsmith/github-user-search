@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Reducer: search when a search request fails should update the state with the error message 1`] = `
 Object {
   "error": Object {

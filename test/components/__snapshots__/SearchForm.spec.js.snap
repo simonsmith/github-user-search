@@ -1,10 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: SearchForm should render as expected 1`] = `
 <form
   className="SearchForm_13hv8io"
-  onSubmit={[Function]}>
+  onSubmit={[Function]}
+>
   <label
     className="hiddenVisually_1qrrm43"
-    htmlFor="searchInput">
+    htmlFor="searchInput"
+  >
     Search for a user
   </label>
   <input
@@ -13,13 +17,16 @@ exports[`Component: SearchForm should render as expected 1`] = `
     onChange={[Function]}
     placeholder="Search for a user, e.g. simonsmith"
     type="text"
-    value="" />
+    value=""
+  />
   <button
     className="SearchForm_btn_tixetf"
-    type="submit">
+    type="submit"
+  >
     <svg />
     <span
-      className="hiddenVisually_1qrrm43">
+      className="hiddenVisually_1qrrm43"
+    >
       Submit
     </span>
   </button>

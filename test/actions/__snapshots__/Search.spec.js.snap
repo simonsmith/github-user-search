@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Actions: search Fetching users when making a request with a search term and it exists in the cache should fetch the results from the cache and not call the API 1`] = `
 Array [
   Object {

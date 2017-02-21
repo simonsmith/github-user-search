@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`SearchConnect: mapStateToProps when given the state should return relevant properties 1`] = `
 Object {
   "pagination": Object {},

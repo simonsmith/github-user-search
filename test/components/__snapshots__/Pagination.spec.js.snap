@@ -1,11 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: Pagination when passed a next prop should render a next link 1`] = `
 <div
-  className="Pagination_2gx8tz">
+  className="Pagination_2gx8tz"
+>
   <a
     className="Pagination_link_xnow41-o_O-Pagination_next_1j0ix3o"
     href="/?q=simon&page=2"
     onClick={[Function]}
-    rel="next">
+    rel="next"
+  >
     <span>
       Next
     </span>
@@ -16,12 +20,14 @@ exports[`Component: Pagination when passed a next prop should render a next link
 
 exports[`Component: Pagination when passed a prev and next prop should render a previous and next link 1`] = `
 <div
-  className="Pagination_2gx8tz">
+  className="Pagination_2gx8tz"
+>
   <a
     className="Pagination_link_xnow41-o_O-Pagination_prev_1vqdldo"
     href="/?q=simon&page=1"
     onClick={[Function]}
-    rel="prev">
+    rel="prev"
+  >
     <span>
       Previous
     </span>
@@ -31,7 +37,8 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
     className="Pagination_link_xnow41-o_O-Pagination_next_1j0ix3o"
     href="/?q=simon&page=2"
     onClick={[Function]}
-    rel="next">
+    rel="next"
+  >
     <span>
       Next
     </span>
@@ -42,12 +49,14 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
 
 exports[`Component: Pagination when passed a prev prop should render a previous link 1`] = `
 <div
-  className="Pagination_2gx8tz">
+  className="Pagination_2gx8tz"
+>
   <a
     className="Pagination_link_xnow41-o_O-Pagination_prev_1vqdldo"
     href="/?q=simon&page=1"
     onClick={[Function]}
-    rel="prev">
+    rel="prev"
+  >
     <span>
       Previous
     </span>

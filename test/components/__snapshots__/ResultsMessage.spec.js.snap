@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: ResultsMessage should handle single results 1`] = `
 <p
-  className="ResultsMessage_1ntyrs8">
+  className="ResultsMessage_1ntyrs8"
+>
   Found 
   1
    
@@ -14,7 +17,8 @@ exports[`Component: ResultsMessage should handle single results 1`] = `
 
 exports[`Component: ResultsMessage should render 1`] = `
 <p
-  className="ResultsMessage_1ntyrs8">
+  className="ResultsMessage_1ntyrs8"
+>
   Found 
   50
    

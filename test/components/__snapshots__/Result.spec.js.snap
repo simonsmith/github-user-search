@@ -1,28 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Component: Result should render 1`] = `
 <a
   className="Result_o39i78"
   href="foo"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <div
     className="Image_13hv8io"
     style={
       Object {
         "minHeight": 100,
       }
-    }>
+    }
+  >
     <img
       alt="foo"
       className="Result_img_11oizi4-o_O-responsiveImg_khup4t"
       height={140}
       onLoad={[Function]}
       src="src.jpg&s=225"
-      width={140} />
+      width={140}
+    />
     <svg />
   </div>
   <div
-    className="Result_userInfo_1bp0i9f userinfo">
+    className="Result_userInfo_1bp0i9f userinfo"
+  >
     <p
-      className="Result_username_ypjw20">
+      className="Result_username_ypjw20"
+    >
       foo
     </p>
   </div>
