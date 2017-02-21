@@ -23,7 +23,7 @@ function Result({username, avatarUrl}: Props) {
       className={css(styles.Result)}
     >
       <Image
-        className={css(Utils.responsiveImg)}
+        className={css(styles.Result_img, Utils.responsiveImg)}
         src={`${avatarUrl}&s=225`}
         alt={username}
         width={140}
@@ -47,6 +47,17 @@ const styles = StyleSheet.create({
     display: 'block',
 
     ':hover .userinfo': {
+      opacity: 1,
+    },
+  },
+
+  Result_img: {
+    opacity: 0.8,
+    transition: 'opacity .25s ease-in-out',
+    // Stop images shifting on hover
+    '-webkit-backface-visibility': 'hidden',
+
+    ':hover': {
       opacity: 1,
     },
   },
