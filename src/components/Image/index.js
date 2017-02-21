@@ -9,7 +9,22 @@ import {
 } from 'aphrodite/no-important';
 import LoadingSpinner from './loading.svg';
 
+type Props = {
+  minHeight: number,
+};
+
+type State = {
+  status: 'loading' | 'loaded',
+};
+
 class Image extends Component {
+
+  props: Props;
+  state: State;
+
+  static defaultProps = {
+    minHeight: 100,
+  };
 
   constructor(props: Props) {
     super(props);
@@ -56,10 +71,6 @@ class Image extends Component {
   }
 
 }
-
-Image.defaultProps = {
-  minHeight: 100,
-};
 
 const styles = StyleSheet.create({
   Image: {
