@@ -38,7 +38,8 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "suitcss-base": "^2.0.0",
-    "suitcss-utils-display": "^1.0.2"
+    "suitcss-utils-display": "^1.0.2",
+    "suitcss-utils-flex": "^1.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.5",
