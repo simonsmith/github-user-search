@@ -18,9 +18,11 @@ function ResultsMessage({searchTerm, resultsTotal, pageTotal}: Props) {
   if (!searchTerm || !pageTotal) {return null;}
 
   return (
-    <p className={css(styles.ResultsMessage)}>
-      Found {resultsTotal} {resultsTotal === 1 ? 'result' : 'results'} for <b>{searchTerm}</b>
-    </p>
+    <div className={css(styles.ResultsMessage)}>
+      <p className={css(styles.ResultsMessage_text)}>
+        Found {resultsTotal} {resultsTotal === 1 ? 'result' : 'results'} for <b>{searchTerm}</b>
+      </p>
+    </div>
   );
 }
 
@@ -32,7 +34,14 @@ ResultsMessage.propTypes = {
 
 const styles = StyleSheet.create({
   ResultsMessage: {
-    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+  ResultsMessage_text: {
+    padding: 6,
+    backgroundColor: '#fcf8bb',
+    borderRadius: 8,
   },
 });
 
