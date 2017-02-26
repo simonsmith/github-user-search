@@ -4,7 +4,6 @@ import React, {
   PropTypes,
 } from 'react';
 import {
-  css,
   StyleSheet,
 } from 'aphrodite/no-important';
 import SearchResults from 'components/SearchResults';
