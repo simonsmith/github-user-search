@@ -86,9 +86,13 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
       </div>
     </div>
   </div>
-  <p>
-    testing
-  </p>
+  <div
+    className="DefaultLayout_content_mv0w51"
+  >
+    <p>
+      testing
+    </p>
+  </div>
   <div
     className="Container_10ki57k-o_O-DefaultLayout_footer_no5d4d"
   >

@@ -48,10 +48,12 @@ const renderRoute = curry((Component, matchProps) => {
           searchQuery={qs.stringify(parsedSearch)}
           onSubmit={pushUrlQuery(push)}
         />
-        <Component
-          searchTerm={searchTerm}
-          {...matchProps}
-        />
+        <div className={css(styles.DefaultLayout_content)}>
+          <Component
+            searchTerm={searchTerm}
+            {...matchProps}
+          />
+        </div>
         <Container rootStyle={styles.DefaultLayout_footer}>
           <p className={css(styles.DefaultLayout_footerText)}>
             View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
@@ -83,6 +85,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     display: 'flex',
     minHeight: '100vh',
+  },
+
+  DefaultLayout_content: {
+    flex: 1,
   },
 
   DefaultLayout_footer: {

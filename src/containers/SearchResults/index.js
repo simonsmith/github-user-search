@@ -21,7 +21,7 @@ type Props = {
   userIds: Array<number>,
 };
 
-function renderContent(props: Props) {
+export function SearchResultsContainer(props: Props) {
   const {
     pagination,
     searchTerm,
@@ -61,14 +61,6 @@ function renderContent(props: Props) {
   );
 }
 
-export function SearchResultsContainer(props: Props) {
-  return (
-    <div className={css(styles.SearchResultsContainer)}>
-      {renderContent(props)}
-    </div>
-  );
-}
-
 SearchResultsContainer.propTypes = {
   pagination: PropTypes.object,
   searchTerm: PropTypes.string.isRequired,
@@ -83,10 +75,6 @@ SearchResultsContainer.defaultProps = {
 };
 
 const styles = StyleSheet.create({
-  SearchResultsContainer: {
-    flex: 1,
-  },
-
   SearchResultsContainer_results: {
     marginTop: 15,
   },
