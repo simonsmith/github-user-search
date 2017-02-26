@@ -2,10 +2,10 @@
 
 exports[`Component: SearchResults when given a one result should render a correctly worded message 1`] = `
 <ul
-  className="SearchResults_wjap3z"
+  className="SearchResults_o08t08 u-flex u-flexWrap"
 >
   <li
-    className="SearchResults_item_1vif0t6"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1"
   >
     <a
       className="Result_o39i78"
@@ -46,10 +46,10 @@ exports[`Component: SearchResults when given a one result should render a correc
 
 exports[`Component: SearchResults when given a set of results and entities should render them with a message 1`] = `
 <ul
-  className="SearchResults_wjap3z"
+  className="SearchResults_o08t08 u-flex u-flexWrap"
 >
   <li
-    className="SearchResults_item_1vif0t6"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1"
   >
     <a
       className="Result_o39i78"
@@ -86,7 +86,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     </a>
   </li>
   <li
-    className="SearchResults_item_1vif0t6"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1"
   >
     <a
       className="Result_o39i78"
@@ -127,6 +127,6 @@ exports[`Component: SearchResults when given a set of results and entities shoul
 
 exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
 <ul
-  className="SearchResults_wjap3z"
+  className="SearchResults_o08t08 u-flex u-flexWrap"
 />
 `;

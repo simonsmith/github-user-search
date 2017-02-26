@@ -2,7 +2,7 @@
 
 exports[`Component: ResultsMessage should handle single results 1`] = `
 <div
-  className="ResultsMessage_2gx8tz"
+  className="u-flex u-flexJustifyCenter"
 >
   <p
     className="ResultsMessage_text_e38dz2"
@@ -21,7 +21,7 @@ exports[`Component: ResultsMessage should handle single results 1`] = `
 
 exports[`Component: ResultsMessage should render 1`] = `
 <div
-  className="ResultsMessage_2gx8tz"
+  className="u-flex u-flexJustifyCenter"
 >
   <p
     className="ResultsMessage_text_e38dz2"

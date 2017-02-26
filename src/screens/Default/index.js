@@ -15,6 +15,7 @@ import {
 import HeaderContainer from 'containers/Header';
 import Container from 'components/Container';
 import {PER_PAGE} from 'store/api';
+import 'suitcss-utils-flex/lib/flex.css';
 
 type Props = {
   component: any,
@@ -42,13 +43,13 @@ const renderRoute = curry((Component, matchProps) => {
 
   return (
     <DocumentTitle title={title}>
-      <div className={css(styles.DefaultLayout)}>
+      <div className={`${css(styles.DefaultLayout)} u-flex u-flexCol`}>
         <HeaderContainer
           searchTerm={searchTerm}
           searchQuery={qs.stringify(parsedSearch)}
           onSubmit={pushUrlQuery(push)}
         />
-        <div className={css(styles.DefaultLayout_content)}>
+        <div className="u-flexGrow1">
           <Component
             searchTerm={searchTerm}
             {...matchProps}
@@ -82,13 +83,7 @@ DefaultLayout.propTypes = {
 
 const styles = StyleSheet.create({
   DefaultLayout: {
-    flexDirection: 'column',
-    display: 'flex',
     minHeight: '100vh',
-  },
-
-  DefaultLayout_content: {
-    flex: 1,
   },
 
   DefaultLayout_footer: {

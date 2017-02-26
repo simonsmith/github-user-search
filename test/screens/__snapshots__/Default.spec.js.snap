@@ -11,7 +11,7 @@ Array [
 
 exports[`Screen: DefaultLayout when passed a component should render it in the default layout 1`] = `
 <div
-  className="DefaultLayout_1ra77ly"
+  className="DefaultLayout_3ul6da u-flex u-flexCol"
 >
   <div
     className="Container_10ki57k-o_O-HeaderContainer_12tblyh"
@@ -20,10 +20,10 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
       className="Container_inner_ydook-o_O-Container_padding_1e7x1pk"
     >
       <div
-        className="Header_16l6lg7"
+        className="Header_1u3xhva u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter"
       >
         <div
-          className="Header_logo_lmjs6u"
+          className="u-sm-flexGrow2"
         >
           <div>
             <h1
@@ -50,7 +50,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
           </div>
         </div>
         <div
-          className="Header_form_q7zmln"
+          className="Header_form_1pdnebl u-sm-flexGrow1"
         >
           <form
             className="SearchForm_13hv8io"
@@ -87,7 +87,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
     </div>
   </div>
   <div
-    className="DefaultLayout_content_mv0w51"
+    className="u-flexGrow1"
   >
     <p>
       testing

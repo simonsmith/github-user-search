@@ -25,6 +25,7 @@
   "dependencies": {
     "aphrodite": "^1.1.0",
     "axios": "^0.15.3",
+    "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "normalizr": "^3.1.0",
     "parse-link-header": "^0.4.1",

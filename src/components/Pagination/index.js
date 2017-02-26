@@ -10,6 +10,8 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
+import classNames from 'classnames';
+import 'suitcss-utils-flex/lib/flex.css';
 import NextIcon from './next.svg';
 import PrevIcon from './prev.svg';
 
@@ -23,13 +25,21 @@ const getSearchQuery = flow(
   first
 );
 
-function renderLink({url, linkStyle, rel, text, icon}: Object) {
+function renderLink({url, extraClassName, rel, text, icon}: Object) {
   if (!url) {return null;}
   const search = getSearchQuery(url);
+
+  const linkClass = classNames(
+    css(styles.Pagination_link),
+    'u-flex',
+    'u-flexAlignItemsCenter',
+    extraClassName
+  );
+
   return (
     <Link
       to={{search}}
-      className={css(styles.Pagination_link, linkStyle)}
+      className={linkClass}
       rel={rel}
     >
       <span>{text}</span>
@@ -41,7 +51,7 @@ function renderLink({url, linkStyle, rel, text, icon}: Object) {
 function Pagination({prev, next}: Props) {
   const prevLink = renderLink({
     url: prev.url,
-    linkStyle: styles.Pagination_prev,
+    extraClassName: 'u-flexRowReverse u-flexExpandRight',
     rel: 'prev',
     text: 'Previous',
     icon: <PrevIcon width={30} height={70} />,
@@ -49,14 +59,14 @@ function Pagination({prev, next}: Props) {
 
   const nextLink = renderLink({
     url: next.url,
-    linkStyle: styles.Pagination_next,
+    extraClassName: 'u-flexExpandLeft',
     rel: 'next',
     text: 'Next',
     icon: <NextIcon width={30} height={70} />,
   });
 
   return (
-    <div className={css(styles.Pagination)}>
+    <div className="u-flex u-flexJustifyCenter">
       {prevLink}
       {nextLink}
     </div>
@@ -74,25 +84,9 @@ Pagination.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  Pagination: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-
   Pagination_link: {
-    display: 'flex',
-    alignItems: 'center',
     textDecoration: 'none',
     color: 'inherit',
-  },
-
-  Pagination_next: {
-    marginLeft: 'auto',
-  },
-
-  Pagination_prev: {
-    flexDirection: 'row-reverse',
-    marginRight: 'auto',
   },
 });
 

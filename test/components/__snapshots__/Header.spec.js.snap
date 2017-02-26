@@ -2,10 +2,10 @@
 
 exports[`Component: Header should render 1`] = `
 <div
-  className="Header_16l6lg7"
+  className="Header_1u3xhva u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter"
 >
   <div
-    className="Header_logo_lmjs6u"
+    className="u-sm-flexGrow2"
   >
     <div>
       <h1
@@ -32,7 +32,7 @@ exports[`Component: Header should render 1`] = `
     </div>
   </div>
   <div
-    className="Header_form_q7zmln"
+    className="Header_form_1pdnebl u-sm-flexGrow1"
   >
     <form
       className="SearchForm_13hv8io"

@@ -10,6 +10,7 @@ import {
 import SearchForm from 'components/SearchForm';
 import Logo from 'components/Logo';
 import {viewport} from 'theme';
+import 'suitcss-utils-flex/lib/flex-sm.css';
 
 type Props = {
   onSubmit: Function,
@@ -18,11 +19,13 @@ type Props = {
 
 export default function Header({onSubmit, searchTerm}: Props) {
   return (
-    <div className={css(styles.Header)}>
-      <div className={css(styles.Header_logo)}>
+    <div
+      className={`${css(styles.Header)} u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter`}
+    >
+      <div className="u-sm-flexGrow2">
         <Logo />
       </div>
-      <div className={css(styles.Header_form)}>
+      <div className={`${css(styles.Header_form)} u-sm-flexGrow1`}>
         <SearchForm
           onSubmit={onSubmit}
           initialInputValue={searchTerm}
@@ -41,21 +44,10 @@ const styles = StyleSheet.create({
   Header: {
     paddingTop: 15,
     paddingBottom: 15,
-
-    [viewport.SM]: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-  },
-
-  Header_logo: {
-    flex: 2,
   },
 
   Header_form: {
     marginTop: 20,
-    flex: 1,
 
     [viewport.SM]: {
       margin: 0,
