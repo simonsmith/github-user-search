@@ -8,8 +8,8 @@ import {
   css,
 } from 'aphrodite/no-important';
 import {Link} from 'react-router-dom';
-import {Utils} from 'theme';
 import Image from 'components/Image';
+import 'css/utils/img.css';
 
 type Props = {
   username: string,
@@ -23,7 +23,7 @@ function Result({username, avatarUrl}: Props) {
       className={css(styles.Result)}
     >
       <Image
-        className={css(styles.Result_img, Utils.responsiveImg)}
+        className={`${css(styles.Result_img)} u-imgResponsive`}
         src={`${avatarUrl}&s=225`}
         alt={username}
         width={140}

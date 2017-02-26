@@ -57,7 +57,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
             onSubmit={[Function]}
           >
             <label
-              className="hiddenVisually_1qrrm43"
+              className="u-hiddenVisually"
               htmlFor="searchInput"
             >
               Search for a user
@@ -76,7 +76,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
             >
               <svg />
               <span
-                className="hiddenVisually_1qrrm43"
+                className="u-hiddenVisually"
               >
                 Submit
               </span>

@@ -39,7 +39,7 @@ exports[`Component: Header should render 1`] = `
       onSubmit={[Function]}
     >
       <label
-        className="hiddenVisually_1qrrm43"
+        className="u-hiddenVisually"
         htmlFor="searchInput"
       >
         Search for a user
@@ -58,7 +58,7 @@ exports[`Component: Header should render 1`] = `
       >
         <svg />
         <span
-          className="hiddenVisually_1qrrm43"
+          className="u-hiddenVisually"
         >
           Submit
         </span>

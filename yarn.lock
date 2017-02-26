@@ -5298,6 +5298,10 @@ suitcss-base@^2.0.0:
   dependencies:
     normalize.css "^4.0.0"
 
+suitcss-utils-display@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/suitcss-utils-display/-/suitcss-utils-display-1.0.2.tgz#cb6a4e756eab9aefb149f3e4618c76d02bbab47f"
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"

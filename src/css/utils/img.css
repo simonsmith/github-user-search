@@ -1,0 +1,7 @@
+/* @define utilities */
+
+.u-imgResponsive {
+  display: block;
+  min-width: 100%;
+  height: auto;
+}

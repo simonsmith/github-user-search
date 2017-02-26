@@ -8,7 +8,7 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import {Utils} from 'theme';
+import 'suitcss-utils-display';
 import SearchIcon from './search.svg';
 
 type Props = {
@@ -69,7 +69,7 @@ class SearchForm extends Component {
         onSubmit={this.handleOnSubmit}
       >
         <label
-          className={css(Utils.hiddenVisually)}
+          className="u-hiddenVisually"
           htmlFor="searchInput"
         >
           Search for a user
@@ -87,7 +87,7 @@ class SearchForm extends Component {
           type="submit"
         >
           <SearchIcon width={20} height={20} />
-          <span className={css(Utils.hiddenVisually)}>Submit</span>
+          <span className="u-hiddenVisually">Submit</span>
         </button>
       </form>
     );
