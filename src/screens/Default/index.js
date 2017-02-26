@@ -69,7 +69,7 @@ function DefaultLayout({
 }
 
 DefaultLayout.propTypes = {
-  component: PropTypes.element,
+  component: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

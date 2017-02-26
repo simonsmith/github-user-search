@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HOC: withBaseScreen pushUrlQuery function should push a search query on the URL 1`] = `
+exports[`Screen: DefaultLayout pushUrlQuery function should push a search query on the URL 1`] = `
 Array [
   Object {
     "pathname": "/search",
@@ -9,7 +9,7 @@ Array [
 ]
 `;
 
-exports[`HOC: withBaseScreen when passed a component should render it in the base screen 1`] = `
+exports[`Screen: DefaultLayout when passed a component should render it in the default layout 1`] = `
 <div
   className="DefaultLayout_1ra77ly"
 >
@@ -87,7 +87,7 @@ exports[`HOC: withBaseScreen when passed a component should render it in the bas
     </div>
   </div>
   <p>
-    test
+    testing
   </p>
 </div>
 `;

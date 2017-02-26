@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import withBaseScreen from 'hoc/withBaseScreen';
 
 function ProfileScreen() {
   return (
@@ -11,4 +10,4 @@ function ProfileScreen() {
   );
 }
 
-export default withBaseScreen(ProfileScreen);
+export default ProfileScreen;

@@ -8,10 +8,10 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
-import withBaseScreen, {
+import DefaultLayout, {
   constructTitle,
   pushUrlQuery,
-} from 'hoc/withBaseScreen';
+} from 'screens/Default';
 
 function createComponent(component) {
   const mockStore = configureMockStore();
@@ -25,7 +25,7 @@ function createComponent(component) {
   ).toJSON();
 }
 
-describe('HOC: withBaseScreen', () => {
+describe('Screen: DefaultLayout', () => {
 
   beforeAll(() => {
     StyleSheetTestUtils.suppressStyleInjection();
@@ -36,15 +36,10 @@ describe('HOC: withBaseScreen', () => {
   });
 
   describe('when passed a component', () => {
-    it('should render it in the base screen', () => {
-      const props = {
-        location: {},
-        push: jest.fn(),
-        other: 'test',
-      };
-      const component = () => <p>test</p>;
-      const WithBase = withBaseScreen(component);
-      expect(createComponent(<WithBase {...props} />)).toMatchSnapshot();
+    it('should render it in the default layout', () => {
+      const component = () => <p>testing</p>;
+      const screen = <DefaultLayout component={component} />;
+      expect(createComponent(screen)).toMatchSnapshot();
     });
   });
 
@@ -69,4 +64,3 @@ describe('HOC: withBaseScreen', () => {
   });
 
 });
-
