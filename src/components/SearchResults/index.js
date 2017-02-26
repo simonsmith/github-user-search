@@ -10,6 +10,7 @@ import {
   css,
 } from 'aphrodite/no-important';
 import Result from 'components/Result';
+import {viewport} from 'theme';
 
 type Props = {
   entities: Object,
@@ -45,8 +46,6 @@ SearchResults.propTypes = {
   ids: PropTypes.array,
 };
 
-const BREAKPOINT = '@media (min-width: 600px)';
-
 const styles = StyleSheet.create({
   SearchResults: {
     display: 'flex',
@@ -55,11 +54,11 @@ const styles = StyleSheet.create({
   },
 
   SearchResults_item: {
-    flex: '1 0 auto',
+    flex: 1,
     marginRight: 3,
     marginBottom: 3,
 
-    [BREAKPOINT]: {
+    [viewport.SM]: {
       ':only-child': {
         flex: 0,
       },

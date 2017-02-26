@@ -1,6 +1,5 @@
-import {
-  StyleSheet,
-} from 'aphrodite/no-important';
-import utils from './utils';
+// @flow
 
-export const Utils = StyleSheet.create(utils);
+export const viewport = {
+  SM: '@media (min-width: 600px)',
+};

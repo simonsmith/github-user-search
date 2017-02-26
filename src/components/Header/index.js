@@ -9,6 +9,7 @@ import {
 } from 'aphrodite/no-important';
 import SearchForm from 'components/SearchForm';
 import Logo from 'components/Logo';
+import {viewport} from 'theme';
 
 type Props = {
   onSubmit: Function,
@@ -36,14 +37,12 @@ Header.propTypes = {
   searchTerm: PropTypes.string.isRequired,
 };
 
-const BREAKPOINT = '@media (min-width: 600px)';
-
 const styles = StyleSheet.create({
   Header: {
     paddingTop: 15,
     paddingBottom: 15,
 
-    [BREAKPOINT]: {
+    [viewport.SM]: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flex: 1,
 
-    [BREAKPOINT]: {
+    [viewport.SM]: {
       margin: 0,
     },
   },
