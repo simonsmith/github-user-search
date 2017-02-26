@@ -89,5 +89,23 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
   <p>
     testing
   </p>
+  <div
+    className="Container_10ki57k-o_O-DefaultLayout_footer_no5d4d"
+  >
+    <div
+      className="Container_inner_ydook-o_O-Container_padding_1e7x1pk"
+    >
+      <p
+        className="DefaultLayout_footerText_oxglzj"
+      >
+        View the 
+        <a
+          href="https://github.com/simonsmith/github-user-search"
+        >
+          source on GitHub
+        </a>
+      </p>
+    </div>
+  </div>
 </div>
 `;

@@ -13,6 +13,7 @@ import {
   StyleSheet,
 } from 'aphrodite/no-important';
 import HeaderContainer from 'containers/Header';
+import Container from 'components/Container';
 import {PER_PAGE} from 'store/api';
 
 type Props = {
@@ -51,6 +52,11 @@ const renderRoute = curry((Component, matchProps) => {
           searchTerm={searchTerm}
           {...matchProps}
         />
+        <Container rootStyle={styles.DefaultLayout_footer}>
+          <p className={css(styles.DefaultLayout_footerText)}>
+            View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
+          </p>
+        </Container>
       </div>
     </DocumentTitle>
   );
@@ -77,6 +83,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     display: 'flex',
     minHeight: '100vh',
+  },
+
+  DefaultLayout_footer: {
+    borderTop: '1px solid #ccc',
+    marginTop: 30,
+  },
+
+  DefaultLayout_footerText: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontSize: 14,
   },
 });
 
