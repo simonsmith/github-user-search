@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./base.config.js');
+const postcssLoader = require('./postcss.loader');
 
 module.exports = merge(baseConfig, {
   devtool: 'eval-source-map',
@@ -20,6 +21,7 @@ module.exports = merge(baseConfig, {
         use: [
           'style-loader',
           'css-loader?importLoaders=1',
+          postcssLoader,
         ],
       },
     ],

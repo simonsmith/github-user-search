@@ -10,7 +10,6 @@ import SearchScreen from 'screens/Search';
 import Profile from 'screens/Profile';
 import DefaultLayout from 'screens/Default';
 
-import 'suitcss-base';
 import 'css/global.css';
 
 export default function App() {
