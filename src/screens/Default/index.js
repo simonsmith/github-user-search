@@ -36,7 +36,7 @@ export function constructTitle(search: Object) {
 }
 
 const renderRoute = curry((Component, matchProps) => {
-  const {location, push} = matchProps;
+  const {location, history: {push}} = matchProps;
   const parsedSearch = qs.parse(location.search);
   const title = constructTitle(parsedSearch);
   const searchTerm = parsedSearch.q;
