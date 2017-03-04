@@ -25,7 +25,7 @@ const renderSearchResult = curry((entities, item) => {
     login,
   } = entities[item];
   return (
-    <li key={id} className={`${css(styles.SearchResults_item)} u-flexGrow1`}>
+    <li key={id} className={`${css(styles.SearchResults_item)} u-flexGrow1 u-flexBasisAuto`}>
       <Result
         username={login}
         avatarUrl={avatarUrl}
