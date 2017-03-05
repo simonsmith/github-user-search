@@ -5,7 +5,7 @@ exports[`Component: SearchResults when given a one result should render a correc
   className="SearchResults_o08t08 u-flex u-flexWrap"
 >
   <li
-    className="SearchResults_item_1e4aqy8 u-flexGrow1"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1 u-flexBasisAuto"
   >
     <a
       className="Result_o39i78"
@@ -49,7 +49,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   className="SearchResults_o08t08 u-flex u-flexWrap"
 >
   <li
-    className="SearchResults_item_1e4aqy8 u-flexGrow1"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1 u-flexBasisAuto"
   >
     <a
       className="Result_o39i78"
@@ -86,7 +86,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     </a>
   </li>
   <li
-    className="SearchResults_item_1e4aqy8 u-flexGrow1"
+    className="SearchResults_item_1e4aqy8 u-flexGrow1 u-flexBasisAuto"
   >
     <a
       className="Result_o39i78"
