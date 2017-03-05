@@ -1,5 +1,13 @@
 {
-  "presets": ["latest", "react"],
+  "presets": [
+    "react",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      },
+      "exclude": ["transform-regenerator"]
+    }]
+  ],
   "plugins": [
     "transform-flow-strip-types",
     "transform-object-rest-spread",
