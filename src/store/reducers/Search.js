@@ -2,11 +2,6 @@
 import assignAll from 'lodash/fp/assignAll';
 import pick from 'lodash/fp/pick';
 import isUndefined from 'lodash/fp/isUndefined';
-import {
-  SEARCH_REQUEST,
-  SEARCH_SUCCESS,
-  SEARCH_FAILURE,
-} from 'actions/Search';
 
 const initialState = {
   error: null,
@@ -26,13 +21,13 @@ const getData = pick([
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
 
-    case SEARCH_REQUEST:
+    case 'SEARCH_REQUEST':
       return assignAll([
         state,
         {isPending: true},
       ]);
 
-    case SEARCH_SUCCESS: {
+    case 'SEARCH_SUCCESS': {
       const data = getData(action);
       const {query} = action;
       const newState = assignAll([
@@ -51,7 +46,7 @@ export default function searchReducer(state: Object = initialState, action: Obje
       return newState;
     }
 
-    case SEARCH_FAILURE: {
+    case 'SEARCH_FAILURE': {
       const {response, message} = action;
       return assignAll([
         state,

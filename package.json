@@ -37,7 +37,7 @@
     "react-router-dom": "next",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
-    "redux-thunk": "^2.2.0",
+    "redux-saga": "^0.14.3",
     "suitcss-base": "^2.0.0",
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-flex": "^2.0.0"

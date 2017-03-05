@@ -2,22 +2,28 @@ import {
   createStore,
   applyMiddleware,
 } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import flow from 'lodash/fp/flow';
 import createLogger from 'redux-logger';
 import rootReducer from './reducers/Root';
-import api from './api';
+import rootSaga from './sagas';
 
 const logger = createLogger({
   collapsed: true,
 });
+const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore() {
-  return createStore(
+  const store = createStore(
     rootReducer,
     flow(
       window.devToolsExtension ? window.devToolsExtension() : f => f,
-      applyMiddleware(thunk.withExtraArgument(api), logger)
+      applyMiddleware(
+        logger,
+        sagaMiddleware
+      )
     )
   );
+  sagaMiddleware.run(rootSaga);
+  return store;
 }

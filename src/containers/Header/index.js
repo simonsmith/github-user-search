@@ -15,7 +15,7 @@ type Props = {
   onSubmit: Function,
   searchQuery: string,
   searchTerm: string,
-  searchUser: Function,
+  searchForUser: Function,
 };
 
 export class HeaderContainer extends Component {
@@ -24,7 +24,7 @@ export class HeaderContainer extends Component {
     onSubmit: PropTypes.func.isRequired,
     searchQuery: PropTypes.string.isRequired,
     searchTerm: PropTypes.string.isRequired,
-    searchUser: PropTypes.func.isRequired,
+    searchForUser: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -44,7 +44,7 @@ export class HeaderContainer extends Component {
 
   handleSearchUser(searchQuery: string): void {
     if (!searchQuery) {return;}
-    this.props.searchUser(searchQuery);
+    this.props.searchForUser(searchQuery);
   }
 
   render() {
