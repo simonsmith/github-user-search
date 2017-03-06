@@ -27,7 +27,7 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-function* makeApiRequestForUser({search}) {
+export function* makeApiRequestForUser({search}) {
   const cachedResult = yield select(get(`search.cache.${search}`));
   if (cachedResult) {
     return yield put(searchSuccess(cachedResult, search));

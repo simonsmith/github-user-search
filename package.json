@@ -8,8 +8,9 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
     "eslint": "eslint src webpack",
+    "posttest": "npm run eslint",
     "start": "NODE_ENV=development webpack-dev-server --config webpack/dev.config.js",
-    "test": "jest --verbose --runInBand && npm run eslint",
+    "test": "jest --verbose --runInBand",
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {

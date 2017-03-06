@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Saga: makeApiRequestForUser when a request to the API fails should call a failure action 1`] = `
+Object {
+  "action": Object {
+    "message": "it went wrong",
+    "response": "test",
+    "type": "SEARCH_FAILURE",
+  },
+  "channel": null,
+}
+`;
+
+exports[`Saga: makeApiRequestForUser when no cached data exists should call the API and normalize the data 1`] = `
+Object {
+  "action": Object {
+    "entities": Object {
+      "users": Object {
+        "123": Object {
+          "avatar_url": "foo",
+          "id": 123,
+          "login": "alecrust",
+        },
+        "456": Object {
+          "avatar_url": "foo",
+          "id": 456,
+          "login": "simonsmith",
+        },
+      },
+    },
+    "pagination": null,
+    "query": "q=simon",
+    "result": Array [
+      123,
+      456,
+    ],
+    "totalResults": 2,
+    "type": "SEARCH_SUCCESS",
+  },
+  "channel": null,
+}
+`;
