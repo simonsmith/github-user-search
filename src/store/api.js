@@ -35,6 +35,11 @@ function searchUsers(params: Object): Promise<*> {
     .then(addPagination);
 }
 
+function getProfile(username: string) {
+  return github.get(`/users/${username}`);
+}
+
 export default {
   searchUsers,
+  getProfile,
 };
