@@ -20,7 +20,7 @@ describe('Component: HeaderContainer', () => {
       shallow(
         <HeaderContainer
           searchQuery={''}
-          searchUser={spy}
+          searchForUser={spy}
           onSubmit={jest.fn()}
         />
       );
@@ -34,7 +34,7 @@ describe('Component: HeaderContainer', () => {
       shallow(
         <HeaderContainer
           searchQuery={'?q=test'}
-          searchUser={spy}
+          searchForUser={spy}
           onSubmit={jest.fn()}
         />
       );
@@ -48,7 +48,7 @@ describe('Component: HeaderContainer', () => {
       const wrapper = shallow(
         <HeaderContainer
           searchQuery={'?q=test'}
-          searchUser={spy}
+          searchForUser={spy}
           onSubmit={jest.fn()}
         />
       );

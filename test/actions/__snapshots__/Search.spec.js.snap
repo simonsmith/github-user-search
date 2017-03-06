@@ -1,67 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Actions: search Fetching users when making a request with a search term and it exists in the cache should fetch the results from the cache and not call the API 1`] = `
-Array [
-  Object {
-    "pagination": null,
-    "query": "foo",
-    "result": Array [
-      1,
-      2,
-    ],
-    "totalResults": 10,
-    "type": "SEARCH_SUCCESS",
-  },
-]
-`;
-
-exports[`Actions: search Fetching users when making a request with a search term and it fails should send error details in the action 1`] = `
-Array [
-  Object {
-    "type": "SEARCH_REQUEST",
-  },
-  Object {
-    "message": "404",
-    "response": Object {
-      "foo": "bar",
-    },
-    "type": "SEARCH_FAILURE",
-  },
-]
-`;
-
-exports[`Actions: search Fetching users when making a request with a search term and it is successful should fetch the results from the API and normalize them 1`] = `
-Array [
-  Object {
-    "type": "SEARCH_REQUEST",
-  },
-  Object {
-    "entities": Object {
-      "users": Object {
-        "123": Object {
-          "avatar_url": "foo",
-          "id": 123,
-          "login": "alecrust",
-        },
-        "456": Object {
-          "avatar_url": "foo",
-          "id": 456,
-          "login": "simonsmith",
-        },
-      },
-    },
-    "pagination": null,
-    "query": "?q=alecrust",
-    "result": Array [
-      123,
-      456,
-    ],
-    "totalResults": 2,
-    "type": "SEARCH_SUCCESS",
-  },
-]
-`;
-
 exports[`Actions: search when an error occurs during a request should dispatch a SEARCH_FAILURE action 1`] = `
 Object {
   "message": "something broke",
@@ -87,6 +25,9 @@ Object {
 
 exports[`Actions: search when requesting users via a search term should dispatch a SEARCH_REQUEST action 1`] = `
 Object {
+  "search": Object {
+    "query": "simon",
+  },
   "type": "SEARCH_REQUEST",
 }
 `;
