@@ -27,7 +27,7 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-export function* makeApiRequestForUser({search}) {
+export function* apiSearchRequest({search}) {
   const cachedResult = yield select(get(`search.cache.${search}`));
   if (cachedResult) {
     return yield put(searchSuccess(cachedResult, search));
@@ -42,6 +42,6 @@ export function* makeApiRequestForUser({search}) {
   }
 }
 
-export default function* watchApiRequestForUser() {
-  yield takeLatest('SEARCH_REQUEST', makeApiRequestForUser);
+export default function* watchApiSearchRequest() {
+  yield takeLatest('SEARCH_REQUEST', apiSearchRequest);
 }

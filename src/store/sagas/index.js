@@ -1,9 +1,9 @@
 // @flow
 
-import watchApiRequestForUser from './Search';
+import watchApiSearchRequest from './Search';
 
 export default function* rootSaga() {
   yield [
-    watchApiRequestForUser(),
+    watchApiSearchRequest(),
   ];
 }

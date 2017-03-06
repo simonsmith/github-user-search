@@ -1,19 +1,17 @@
 import {
   call,
   put,
-  select,
-  takeLatest,
 } from 'redux-saga/effects';
 import api from 'store/api';
 import {
-  makeApiRequestForUser,
+  apiSearchRequest,
 } from 'store/sagas/Search';
 
 describe('Saga: makeApiRequestForUser', () => {
 
   describe('when a cached result exists', () => {
     it('should yield the result and return', () => {
-      const generator = makeApiRequestForUser({search: 'q=simon'});
+      const generator = apiSearchRequest({search: 'q=simon'});
       const store = {
         search: {
           cache: {
@@ -33,7 +31,7 @@ describe('Saga: makeApiRequestForUser', () => {
 
   describe('when no cached data exists', () => {
     it('should call the API and normalize the data', () => {
-      const generator = makeApiRequestForUser({search: 'q=simon'});
+      const generator = apiSearchRequest({search: 'q=simon'});
       generator.next();
       const apiCall = generator.next().value;
       expect(apiCall).toEqual(
@@ -55,7 +53,7 @@ describe('Saga: makeApiRequestForUser', () => {
 
   describe('when a request to the API fails', () => {
     it('should call a failure action', () => {
-      const generator = makeApiRequestForUser({search: 'q=simon'});
+      const generator = apiSearchRequest({search: 'q=simon'});
       const apiError = new Error('it went wrong');
       apiError.response = 'test';
 
