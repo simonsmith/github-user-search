@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Saga: makeApiRequestForUser when a request to the API fails should call a failure action 1`] = `
+exports[`Saga: searchUsers when a request to the API fails should call a failure action 1`] = `
 Object {
   "action": Object {
     "message": "it went wrong",
@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`Saga: makeApiRequestForUser when no cached data exists should call the API and normalize the data 1`] = `
+exports[`Saga: searchUsers when no cached data exists should call the API and normalize the data 1`] = `
 Object {
   "action": Object {
     "entities": Object {

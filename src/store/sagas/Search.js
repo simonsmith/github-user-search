@@ -34,7 +34,7 @@ function searchSuccessAction(response: Object, query: string) {
   return put(action);
 }
 
-export function* apiSearchRequest({search}) {
+export function* searchUsers({search}) {
   const cachedResult = yield select(get(`search.cache.${search}`));
   if (cachedResult) {
     return yield searchSuccessAction(cachedResult, search);
@@ -53,6 +53,6 @@ export function* apiSearchRequest({search}) {
   }
 }
 
-export default function* watchApiSearchRequest() {
-  yield takeLatest('SEARCH_REQUEST', apiSearchRequest);
+export default function* watchSearchUsers() {
+  yield takeLatest('SEARCH_REQUEST', searchUsers);
 }

@@ -99,7 +99,7 @@ export function* getProfile({username}) {
   }
 }
 
-export default function* watchProfileRequest() {
+export default function* watchGetProfile() {
   yield takeLatest('PROFILE_REQUEST', getProfile);
   yield takeLatest('FOLLOWERS_REQUEST', getFollowers);
   yield takeLatest('REPOS_REQUEST', getRepos);
