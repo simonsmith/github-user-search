@@ -42,4 +42,5 @@ function getProfile(username: string) {
 export default {
   searchUsers,
   getProfile,
+  get: github.get,
 };
