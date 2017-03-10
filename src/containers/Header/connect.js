@@ -1,10 +1,11 @@
 // @flow
 
 import {connect} from 'react-redux';
-import {searchForUser} from 'actions/Search';
 
-const mapDispatchToProps = {
-  searchForUser,
-};
+const mapDispatchToProps = dispatch => ({
+  searchForUser(search) {
+    dispatch({type: 'SEARCH_REQUEST', search});
+  },
+});
 
 export default connect(null, mapDispatchToProps);

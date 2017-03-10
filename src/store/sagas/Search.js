@@ -10,10 +10,6 @@ import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
 import qs from 'query-string';
 import {userSchema} from 'store/schema';
-import {
-  searchSuccess,
-  searchFailure,
-} from 'actions/Search';
 
 function normalizeResponse(response: Object) {
   const normalized = normalize(response.items, userSchema);
@@ -27,18 +23,33 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
+function searchSuccessAction(response: Object, query: string) {
+  const action = assignAll([
+    response,
+    {
+      type: 'SEARCH_SUCCESS',
+      query,
+    },
+  ]);
+  return put(action);
+}
+
 export function* apiSearchRequest({search}) {
   const cachedResult = yield select(get(`search.cache.${search}`));
   if (cachedResult) {
-    return yield put(searchSuccess(cachedResult, search));
+    return yield searchSuccessAction(cachedResult, search);
   }
 
   try {
     const response = yield call(api.searchUsers, qs.parse(search));
     const normalizedResponse = normalizeResponse(response);
-    return yield put(searchSuccess(normalizedResponse, search));
+    return yield searchSuccessAction(normalizedResponse, search);
   } catch (err) {
-    return yield put(searchFailure(err));
+    return yield put({
+      type: 'SEARCH_FAILURE',
+      message: err.message,
+      response: err.response,
+    });
   }
 }
 
