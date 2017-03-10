@@ -1,15 +1,30 @@
 import {schema} from 'normalizr';
 import pick from 'lodash/fp/pick';
 
+const pickRepoData = pick([
+  'description',
+  'fork',
+  'full_name',
+  'html_url',
+  'id',
+  'language',
+  'name',
+  'stargazers_count',
+  'watchers_count',
+]);
 const pickUserData = pick([
   'login',
   'id',
   'avatar_url',
 ]);
+const userProcessStrategy = entity => pickUserData(entity);
 
 const user = new schema.Entity('users', {}, {
-  processStrategy: entity => pickUserData(entity),
+  processStrategy: userProcessStrategy,
+});
+const repo = new schema.Entity('repos', {}, {
+  processStrategy: entity => pickRepoData(entity),
 });
 
-const userSchema = new schema.Array(user);
-export default userSchema;
+export const userSchema = new schema.Array(user);
+export const repoSchema = new schema.Array(repo);

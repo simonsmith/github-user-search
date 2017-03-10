@@ -9,7 +9,7 @@ import get from 'lodash/fp/get';
 import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
 import qs from 'query-string';
-import userSchema from 'store/schema';
+import {userSchema} from 'store/schema';
 import {
   searchSuccess,
   searchFailure,
