@@ -40,6 +40,12 @@ const renderRoute = curry((Component, matchProps) => {
   const parsedSearch = qs.parse(location.search);
   const title = constructTitle(parsedSearch);
   const searchTerm = parsedSearch.q;
+  const componentProps = {
+    ...matchProps,
+  };
+  if (searchTerm) {
+    componentProps.searchTerm = searchTerm;
+  }
 
   return (
     <DocumentTitle title={title}>
@@ -50,10 +56,7 @@ const renderRoute = curry((Component, matchProps) => {
           onSubmit={pushUrlQuery(push)}
         />
         <div className="u-flexGrow1">
-          <Component
-            searchTerm={searchTerm}
-            {...matchProps}
-          />
+          <Component {...componentProps} />
         </div>
         <Container rootStyle={styles.DefaultLayout_footer}>
           <p className={css(styles.DefaultLayout_footerText)}>
