@@ -31,8 +31,8 @@ export class ProfileContainer extends Component {
     this.props.getProfile(username);
   }
 
-  componentDidUpdate(nextProps: Props) {
-    this.requestProfile(nextProps.match.url);
+  componentDidUpdate() {
+    this.requestProfile(this.props.match.url);
   }
 
   render() {
