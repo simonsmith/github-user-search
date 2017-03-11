@@ -7,11 +7,6 @@ import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
 import flow from 'lodash/fp/flow';
 import api from 'store/api';
-import {normalize} from 'normalizr';
-import {
-  userSchema,
-  repoSchema,
-} from 'store/schema';
 
 const pickProfileData = flow(
   get('data'),
@@ -30,51 +25,6 @@ const pickProfileData = flow(
     'public_repos',
   ])
 );
-
-export function* getFollowers({url}) {
-  try {
-    const followersResponse = yield call(api.get, url, {
-      params: {
-        per_page: 8,
-      },
-    });
-    const data = normalize(followersResponse.data, userSchema);
-    yield put({
-      type: 'FOLLOWERS_SUCCESS',
-      entities: data.entities,
-      result: data.result,
-    });
-  } catch (err) {
-    yield put({
-      type: 'FOLLOWERS_FAILURE',
-      message: err.message,
-      response: err.response,
-    });
-  }
-}
-
-export function* getRepos({url}) {
-  try {
-    const reposResponse = yield call(api.get, url, {
-      params: {
-        per_page: 10,
-        sort: 'pushed',
-      },
-    });
-    const data = normalize(reposResponse.data, repoSchema);
-    yield put({
-      type: 'REPOS_SUCCESS',
-      entities: data.entities,
-      result: data.result,
-    });
-  } catch (err) {
-    yield put({
-      type: 'REPOS_FAILURE',
-      message: err.message,
-      response: err.response,
-    });
-  }
-}
 
 export function* getProfile({username}) {
   try {
@@ -99,8 +49,6 @@ export function* getProfile({username}) {
   }
 }
 
-export default function* watchGetProfile() {
+export function* watchGetProfile() {
   yield takeLatest('PROFILE_REQUEST', getProfile);
-  yield takeLatest('FOLLOWERS_REQUEST', getFollowers);
-  yield takeLatest('REPOS_REQUEST', getRepos);
 }

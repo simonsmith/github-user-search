@@ -53,6 +53,6 @@ export function* searchUsers({search}) {
   }
 }
 
-export default function* watchSearchUsers() {
+export function* watchSearchUsers() {
   yield takeLatest('SEARCH_REQUEST', searchUsers);
 }
