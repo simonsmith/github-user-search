@@ -29,18 +29,15 @@ export default function searchReducer(state: Object = initialState, action: Obje
 
     case 'SEARCH_SUCCESS': {
       const data = getData(action);
-      const {query} = action;
+      const cacheKey = action.query;
       const newState = assignAll([
         state,
         data,
         {isPending: false, error: null},
       ]);
 
-      if (!isUndefined(query) && !state.cache[query]) {
-        newState.cache = assignAll([
-          state.cache,
-          {[query]: data},
-        ]);
+      if (!isUndefined(cacheKey) && !state.cache[cacheKey]) {
+        newState.cache[cacheKey] = data;
       }
 
       return newState;
