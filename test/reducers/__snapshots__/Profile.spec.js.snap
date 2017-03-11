@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducer: profile when a profile request is pending should set isPending to true 1`] = `
+Object {
+  "isPending": true,
+}
+`;
+
+exports[`Reducer: profile when a profile request is successful and the query is already cached should not merge the cached query back into the cache again 1`] = `
+Object {
+  "cache": Object {
+    "simonsmith": Object {
+      "login": "simonsmith",
+    },
+  },
+  "error": null,
+  "isPending": false,
+  "userProfile": Object {
+    "login": "simonsmith",
+    "test": "foo",
+  },
+}
+`;
+
+exports[`Reducer: profile when a profile request is successful and the request is not cached should update the state with the userProfile and cache it 1`] = `
+Object {
+  "cache": Object {
+    "simonsmith": Object {
+      "login": "simonsmith",
+      "name": "Simon Smith",
+    },
+  },
+  "error": null,
+  "isPending": false,
+  "userProfile": Object {
+    "login": "simonsmith",
+    "name": "Simon Smith",
+  },
+}
+`;
+
+exports[`Reducer: profile when a search request fails should update the state with the error message 1`] = `
+Object {
+  "error": Object {
+    "message": "The server died",
+    "response": Object {},
+  },
+  "isPending": false,
+}
+`;
+
+exports[`Reducer: profile when passed no state should return the initial state 1`] = `
+Object {
+  "cache": Object {},
+  "error": null,
+  "isPending": false,
+  "userProfile": Object {},
+}
+`;
