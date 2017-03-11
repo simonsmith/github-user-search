@@ -2,17 +2,17 @@
 
 exports[`Component: Header should render 1`] = `
 <div
-  className="Header_1u3xhva u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter"
+  className="Header_1mnqmvf u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter"
 >
   <div
     className="u-sm-flexGrow2"
   >
     <div>
       <h1
-        className="Logo_title_1cswrtu"
+        className="Logo_title_5kripx"
       >
         <a
-          className="Logo_link_1pkhm2c"
+          className="Logo_link_18deiwy"
           href="/"
           onClick={[Function]}
         >
@@ -20,7 +20,7 @@ exports[`Component: Header should render 1`] = `
         </a>
       </h1>
       <p
-        className="Logo_subTitle_h76sf7"
+        className="Logo_subTitle_1r70osc"
       >
         Browse users and their profiles via 
         <a
@@ -32,10 +32,10 @@ exports[`Component: Header should render 1`] = `
     </div>
   </div>
   <div
-    className="Header_form_1pdnebl u-sm-flexGrow1"
+    className="Header_form_1m5hoq2 u-sm-flexGrow1"
   >
     <form
-      className="SearchForm_13hv8io"
+      className="SearchForm_e296pg"
       onSubmit={[Function]}
     >
       <label
@@ -45,7 +45,7 @@ exports[`Component: Header should render 1`] = `
         Search for a user
       </label>
       <input
-        className="SearchForm_input_9ohod8"
+        className="SearchForm_input_12zt507"
         id="searchInput"
         onChange={[Function]}
         placeholder="Search for a user, e.g. simonsmith"
@@ -53,7 +53,7 @@ exports[`Component: Header should render 1`] = `
         value="test"
       />
       <button
-        className="SearchForm_btn_tixetf"
+        className="SearchForm_btn_13vgzd5"
         type="submit"
       >
         <svg />

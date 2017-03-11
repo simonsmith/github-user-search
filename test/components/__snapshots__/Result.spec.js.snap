@@ -2,12 +2,12 @@
 
 exports[`Component: Result should render 1`] = `
 <a
-  className="Result_o39i78"
+  className="Result_1ir07ge"
   href="foo"
   onClick={[Function]}
 >
   <div
-    className="Image_13hv8io"
+    className="Image_e296pg"
     style={
       Object {
         "minHeight": 100,
@@ -16,7 +16,7 @@ exports[`Component: Result should render 1`] = `
   >
     <img
       alt="foo"
-      className="Result_img_11oizi4 u-imgResponsive"
+      className="Result_img_gt20ua u-imgResponsive"
       height={140}
       onLoad={[Function]}
       src="src.jpg&s=225"
@@ -25,10 +25,10 @@ exports[`Component: Result should render 1`] = `
     <svg />
   </div>
   <div
-    className="Result_userInfo_1bp0i9f userinfo"
+    className="Result_userInfo_1xrl7m3 userinfo"
   >
     <p
-      className="Result_username_ypjw20"
+      className="Result_username_nha6dw"
     >
       foo
     </p>

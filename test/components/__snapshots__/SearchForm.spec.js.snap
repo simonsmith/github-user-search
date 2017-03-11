@@ -2,7 +2,7 @@
 
 exports[`Component: SearchForm should render as expected 1`] = `
 <form
-  className="SearchForm_13hv8io"
+  className="SearchForm_e296pg"
   onSubmit={[Function]}
 >
   <label
@@ -12,7 +12,7 @@ exports[`Component: SearchForm should render as expected 1`] = `
     Search for a user
   </label>
   <input
-    className="SearchForm_input_9ohod8"
+    className="SearchForm_input_12zt507"
     id="searchInput"
     onChange={[Function]}
     placeholder="Search for a user, e.g. simonsmith"
@@ -20,7 +20,7 @@ exports[`Component: SearchForm should render as expected 1`] = `
     value=""
   />
   <button
-    className="SearchForm_btn_tixetf"
+    className="SearchForm_btn_13vgzd5"
     type="submit"
   >
     <svg />

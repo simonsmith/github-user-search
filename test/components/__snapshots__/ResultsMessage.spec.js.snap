@@ -5,7 +5,7 @@ exports[`Component: ResultsMessage should handle single results 1`] = `
   className="u-flex u-flexJustifyCenter"
 >
   <p
-    className="ResultsMessage_text_e38dz2"
+    className="ResultsMessage_text_lesmrd"
   >
     Found 
     1
@@ -24,7 +24,7 @@ exports[`Component: ResultsMessage should render 1`] = `
   className="u-flex u-flexJustifyCenter"
 >
   <p
-    className="ResultsMessage_text_e38dz2"
+    className="ResultsMessage_text_lesmrd"
   >
     Found 
     50

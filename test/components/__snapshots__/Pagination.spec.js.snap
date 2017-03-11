@@ -5,7 +5,7 @@ exports[`Component: Pagination when passed a next prop should render a next link
   className="u-flex u-flexJustifyCenter"
 >
   <a
-    className="Pagination_link_1pkhm2c u-flex u-flexAlignItemsCenter u-flexExpandLeft"
+    className="Pagination_link_18deiwy u-flex u-flexAlignItemsCenter u-flexExpandLeft"
     href="/?q=simon&page=2"
     onClick={[Function]}
     rel="next"
@@ -23,7 +23,7 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
   className="u-flex u-flexJustifyCenter"
 >
   <a
-    className="Pagination_link_1pkhm2c u-flex u-flexAlignItemsCenter u-flexRowReverse u-flexExpandRight"
+    className="Pagination_link_18deiwy u-flex u-flexAlignItemsCenter u-flexRowReverse u-flexExpandRight"
     href="/?q=simon&page=1"
     onClick={[Function]}
     rel="prev"
@@ -34,7 +34,7 @@ exports[`Component: Pagination when passed a prev and next prop should render a 
     <svg />
   </a>
   <a
-    className="Pagination_link_1pkhm2c u-flex u-flexAlignItemsCenter u-flexExpandLeft"
+    className="Pagination_link_18deiwy u-flex u-flexAlignItemsCenter u-flexExpandLeft"
     href="/?q=simon&page=2"
     onClick={[Function]}
     rel="next"
@@ -52,7 +52,7 @@ exports[`Component: Pagination when passed a prev prop should render a previous 
   className="u-flex u-flexJustifyCenter"
 >
   <a
-    className="Pagination_link_1pkhm2c u-flex u-flexAlignItemsCenter u-flexRowReverse u-flexExpandRight"
+    className="Pagination_link_18deiwy u-flex u-flexAlignItemsCenter u-flexRowReverse u-flexExpandRight"
     href="/?q=simon&page=1"
     onClick={[Function]}
     rel="prev"
