@@ -37,15 +37,16 @@ function searchSuccessAction(response: Object, query: string) {
 export function* searchUsers({search}) {
   const cachedResult = yield select(get(`search.cache.${search}`));
   if (cachedResult) {
-    return yield searchSuccessAction(cachedResult, search);
+    yield searchSuccessAction(cachedResult, search);
+    return;
   }
 
   try {
     const response = yield call(api.searchUsers, qs.parse(search));
     const normalizedResponse = normalizeResponse(response);
-    return yield searchSuccessAction(normalizedResponse, search);
+    yield searchSuccessAction(normalizedResponse, search);
   } catch (err) {
-    return yield put({
+    yield put({
       type: 'SEARCH_FAILURE',
       message: err.message,
       response: err.response,
