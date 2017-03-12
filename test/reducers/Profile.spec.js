@@ -1,4 +1,6 @@
-import profileReducer from 'reducers/Profile';
+import profileReducer, {
+  getFromCache,
+} from 'reducers/Profile';
 
 describe('Reducer: profile', () => {
 
@@ -90,6 +92,19 @@ describe('Reducer: profile', () => {
         afterState
       ).toMatchSnapshot();
       expect(afterState).not.toEqual(beforeState);
+    });
+  });
+
+  describe('getFromCache selector', () => {
+    it('should return the cached value', () => {
+      const store = {
+        profile: {
+          cache: {
+            simon: {foo: 'bar'},
+          },
+        },
+      };
+      expect(getFromCache('simon')(store)).toEqual({foo: 'bar'});
     });
   });
 
