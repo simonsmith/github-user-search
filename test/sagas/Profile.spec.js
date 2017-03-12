@@ -9,6 +9,16 @@ import {
 
 describe('Saga: getProfile', () => {
 
+  describe('when there is an error from the request', () => {
+    it('it should put an error action', () => {
+      const generator = getProfile({username: 'simon'});
+      generator.next();
+      generator.next();
+      const error = generator.throw(new Error('oh dear')).value;
+      expect(error.PUT).toMatchSnapshot();
+    });
+  });
+
   describe('when no cached data exists', () => {
     it('should call the API and put a success action with the profile data', () => {
       const generator = getProfile({username: 'simonsmith'});

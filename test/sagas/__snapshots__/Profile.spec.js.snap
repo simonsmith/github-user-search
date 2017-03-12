@@ -11,3 +11,14 @@ Object {
   "channel": null,
 }
 `;
+
+exports[`Saga: getProfile when there is an error from the request it should put an error action 1`] = `
+Object {
+  "action": Object {
+    "message": "oh dear",
+    "response": undefined,
+    "type": "PROFILE_FAILURE",
+  },
+  "channel": null,
+}
+`;
