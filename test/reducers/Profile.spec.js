@@ -45,7 +45,7 @@ describe('Reducer: profile', () => {
         expect(
           afterState
         ).toMatchSnapshot();
-        expect(afterState).not.toEqual(beforeState);
+        expect(afterState).not.toBe(beforeState);
       });
     });
 
@@ -70,7 +70,7 @@ describe('Reducer: profile', () => {
         expect(
           afterState
         ).toMatchSnapshot();
-        expect(afterState).not.toEqual(beforeState);
+        expect(afterState).not.toBe(beforeState);
       });
     });
   });
@@ -91,7 +91,7 @@ describe('Reducer: profile', () => {
       expect(
         afterState
       ).toMatchSnapshot();
-      expect(afterState).not.toEqual(beforeState);
+      expect(afterState).not.toBe(beforeState);
     });
   });
 
