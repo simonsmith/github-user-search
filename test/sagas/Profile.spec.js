@@ -52,4 +52,39 @@ describe('Saga: getProfile', () => {
     });
   });
 
+  describe('when a cached profile does exist', () => {
+    it('should pass the result to the success action and not call the API', () => {
+      const generator = getProfile({username: 'simon'});
+      generator.next();
+
+      const successAction = generator.next({foo: 'bar'}).value;
+      expect(successAction).toEqual(
+        put({type: 'PROFILE_SUCCESS', profile: {foo: 'bar'}})
+      );
+    });
+
+    it('should request additional profile data with the cached values', () => {
+      const simonProfile = {repos_url: 'test.net', followers_url: 'foo.net'};
+      const generator = getProfile({username: 'simon'});
+      generator.next();
+      generator.next(simonProfile);
+
+      const repoRequest = generator.next().value;
+      expect(repoRequest).toEqual(
+        put({
+          type: 'REPOS_REQUEST',
+          url: 'test.net',
+        })
+      );
+
+      const followerRequest = generator.next().value;
+      expect(followerRequest).toEqual(
+        put({
+          type: 'FOLLOWERS_REQUEST',
+          url: 'foo.net',
+        })
+      );
+    });
+  });
+
 });
