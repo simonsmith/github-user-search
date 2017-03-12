@@ -2,9 +2,9 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import {
-  StyleSheet,
-} from 'aphrodite/no-important';
+// import {
+//   StyleSheet,
+// } from 'aphrodite/no-important';
 import Container from 'components/Container';
 import connect from './connect';
 
@@ -45,8 +45,8 @@ export class ProfileContainer extends Component {
 
 }
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
 
-});
+// });
 
 export default connect(ProfileContainer);
