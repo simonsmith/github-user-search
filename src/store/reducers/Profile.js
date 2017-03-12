@@ -1,4 +1,5 @@
 import assignAll from 'lodash/fp/assignAll';
+import get from 'lodash/fp/get';
 
 const initialState = {
   error: null,
@@ -6,6 +7,10 @@ const initialState = {
   userProfile: {},
   cache: {},
 };
+
+export function getFromCache(username: string): Function {
+  return get(`profile.cache.${username}`);
+}
 
 export default function profileReducer(state: Object = initialState, action: Object) {
   switch (action.type) {

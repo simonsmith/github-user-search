@@ -5,11 +5,11 @@ import {
   takeLatest,
 } from 'redux-saga/effects';
 import api from 'store/api';
-import get from 'lodash/fp/get';
 import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
 import qs from 'query-string';
 import {userSchema} from 'store/schema';
+import {getFromCache} from 'store/reducers/Search';
 
 function normalizeResponse(response: Object) {
   const normalized = normalize(response.items, userSchema);
@@ -35,9 +35,9 @@ function searchSuccessAction(response: Object, query: string) {
 }
 
 export function* searchUsers({search}) {
-  const cachedResult = yield select(get(`search.cache.${search}`));
-  if (cachedResult) {
-    yield searchSuccessAction(cachedResult, search);
+  const cachedSearch = yield select(getFromCache(search));
+  if (cachedSearch) {
+    yield searchSuccessAction(cachedSearch, search);
     return;
   }
 

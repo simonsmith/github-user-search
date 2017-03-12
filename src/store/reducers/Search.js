@@ -2,6 +2,7 @@
 import assignAll from 'lodash/fp/assignAll';
 import pick from 'lodash/fp/pick';
 import isUndefined from 'lodash/fp/isUndefined';
+import get from 'lodash/fp/get';
 
 const initialState = {
   error: null,
@@ -17,6 +18,10 @@ const getData = pick([
   'totalResults',
   'pagination',
 ]);
+
+export function getFromCache(search: string): Function {
+  return get(`search.cache.${search}`);
+}
 
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
