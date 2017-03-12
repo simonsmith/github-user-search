@@ -1,4 +1,3 @@
-
 import assignAll from 'lodash/fp/assignAll';
 
 const initialState = {
