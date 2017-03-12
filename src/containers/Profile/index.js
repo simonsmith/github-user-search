@@ -27,7 +27,7 @@ export class ProfileContainer extends Component {
 
   requestProfile(url: string): void {
     if (!url) {return;}
-    const username = url.match(/\w+/)[0];
+    const username = url.match(/\/(.+)/)[1];
     this.props.getProfile(username);
   }
 
