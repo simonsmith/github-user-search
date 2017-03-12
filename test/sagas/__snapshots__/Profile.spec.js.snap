@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Saga: getProfile when no cached data exists should call the API and put a success action with the profile data 1`] = `
+Object {
+  "action": Object {
+    "profile": Object {
+      "login": "simonsmith",
+    },
+    "type": "PROFILE_SUCCESS",
+  },
+  "channel": null,
+}
+`;

@@ -1,6 +1,7 @@
 import {
   call,
   put,
+  select,
   takeLatest,
 } from 'redux-saga/effects';
 import pick from 'lodash/fp/pick';
@@ -16,37 +17,53 @@ const pickProfileData = flow(
     'blog',
     'company',
     'followers',
+    'followers_url',
     'following',
     'html_url',
-    'login',
     'location',
+    'login',
     'name',
     'public_gists',
     'public_repos',
+    'repos_url',
   ])
 );
 
-export function* getProfile({username}) {
-  try {
-    const profile = yield call(api.getProfile, username);
-    yield put({type: 'PROFILE_SUCCESS', profile: pickProfileData(profile)});
-    const {followers_url, repos_url} = profile.data;
+function* requestAdditionalProfileData(data) {
+  yield put({
+    type: 'REPOS_REQUEST',
+    url: data.repos_url,
+  });
+  yield put({
+    type: 'FOLLOWERS_REQUEST',
+    url: data.followers_url,
+  });
+}
 
-    yield put({
-      type: 'REPOS_REQUEST',
-      url: repos_url,
-    });
-    yield put({
-      type: 'FOLLOWERS_REQUEST',
-      url: followers_url,
-    });
-  } catch (err) {
-    yield put({
-      type: 'PROFILE_FAILURE',
-      message: err.message,
-      response: err.response,
-    });
+export function* getProfile({username}) {
+  const cachedProfile = yield select(get(`profile.cache.${username}`));
+  let profile;
+
+  if (cachedProfile) {
+    profile = cachedProfile;
+  } else {
+    try {
+      const response = yield call(api.getProfile, username);
+      profile = pickProfileData(response);
+    } catch (err) {
+      yield put({
+        type: 'PROFILE_FAILURE',
+        message: err.message,
+        response: err.response,
+      });
+    }
   }
+
+  yield put({
+    type: 'PROFILE_SUCCESS',
+    profile,
+  });
+  yield* requestAdditionalProfileData(profile);
 }
 
 export function* watchGetProfile() {

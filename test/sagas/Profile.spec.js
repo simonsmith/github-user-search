@@ -12,10 +12,19 @@ describe('Saga: getProfile', () => {
   describe('when no cached data exists', () => {
     it('should call the API and put a success action with the profile data', () => {
       const generator = getProfile({username: 'simonsmith'});
-      const profile = generator.next().value;
-      expect(profile).toEqual(
+      generator.next();
+      const apiCall = generator.next().value;
+      expect(apiCall).toEqual(
         call(api.getProfile, 'simonsmith')
       );
+      const response = {
+        data: {
+          login: 'simonsmith',
+          foo: 'bar',
+        },
+      };
+      const action = generator.next(response).value;
+      expect(action.PUT).toMatchSnapshot();
     });
 
     it('should put actions for repos and followers', () => {
@@ -27,6 +36,7 @@ describe('Saga: getProfile', () => {
         },
       };
       const generator = getProfile({username: 'simonsmith'});
+      generator.next();
       generator.next();
       generator.next(response);
 
