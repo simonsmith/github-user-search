@@ -12,15 +12,7 @@ describe('Saga: searchUsers', () => {
   describe('when a cached result exists', () => {
     it('should yield the result and return', () => {
       const generator = searchUsers({search: 'q=simon'});
-      const store = {
-        search: {
-          cache: {
-            'q=simon': 'test',
-          },
-        },
-      };
-      const selectAction = generator.next().value;
-      expect(selectAction.SELECT.selector(store)).toEqual('test');
+      generator.next();
 
       const successAction = generator.next({data: 'foo'}).value;
       expect(successAction).toEqual(

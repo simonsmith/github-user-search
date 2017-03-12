@@ -1,4 +1,6 @@
-import searchReducer from 'reducers/Search';
+import searchReducer, {
+  getFromCache,
+} from 'reducers/Search';
 
 describe('Reducer: search', () => {
 
@@ -87,6 +89,19 @@ describe('Reducer: search', () => {
         afterState
       ).toMatchSnapshot();
       expect(afterState).not.toEqual(beforeState);
+    });
+  });
+
+  describe('getFromCache selector', () => {
+    it('should return the cached value', () => {
+      const store = {
+        search: {
+          cache: {
+            foo: {foo: 'bar'},
+          },
+        },
+      };
+      expect(getFromCache('foo')(store)).toEqual({foo: 'bar'});
     });
   });
 
