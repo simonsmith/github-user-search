@@ -47,6 +47,7 @@ Object {
       2,
     ],
     "type": "REPOS_SUCCESS",
+    "url": "repos.net",
   },
   "channel": null,
 }

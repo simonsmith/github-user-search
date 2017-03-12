@@ -20,6 +20,7 @@ export function* getRepos({url}) {
     const data = normalize(reposResponse.data, repoSchema);
     yield put({
       type: 'REPOS_SUCCESS',
+      url,
       entities: data.entities,
       result: data.result,
     });
