@@ -1,6 +1,4 @@
-import searchReducer, {
-  getFromCache,
-} from 'reducers/Search';
+import searchReducer from 'reducers/Search';
 
 describe('Reducer: search', () => {
 
@@ -26,49 +24,22 @@ describe('Reducer: search', () => {
   });
 
   describe('when a search request is successful', () => {
-    describe('and the query is not cached', () => {
-      it('should update the state with the userIds and cache them', () => {
-        const beforeState = {
-          isPending: true,
-          result: [],
-          cache: {},
-        };
-        const action = {
-          result: [1, 2],
-          query: '?q=alecrust',
-          type: 'SEARCH_SUCCESS',
-        };
-        const afterState = searchReducer(beforeState, action);
+    it('should update the state with the userIds', () => {
+      const beforeState = {
+        isPending: true,
+        result: [],
+      };
+      const action = {
+        result: [1, 2],
+        query: '?q=alecrust',
+        type: 'SEARCH_SUCCESS',
+      };
+      const afterState = searchReducer(beforeState, action);
 
-        expect(
-          afterState
-        ).toMatchSnapshot();
-        expect(afterState).not.toBe(beforeState);
-      });
-    });
-
-    describe('and the query is already cached', () => {
-      it('should not merge the cached query back into the cache again', () => {
-        const beforeState = {
-          error: null,
-          isPending: true,
-          result: [1, 2, 3],
-          cache: {
-            foo: [1, 2, 3],
-          },
-        };
-        const action = {
-          query: 'foo',
-          type: 'SEARCH_SUCCESS',
-          result: [44],
-        };
-        const afterState = searchReducer(beforeState, action);
-
-        expect(
-          afterState
-        ).toMatchSnapshot();
-        expect(afterState).not.toBe(beforeState);
-      });
+      expect(
+        afterState
+      ).toMatchSnapshot();
+      expect(afterState).not.toBe(beforeState);
     });
   });
 
@@ -89,19 +60,6 @@ describe('Reducer: search', () => {
         afterState
       ).toMatchSnapshot();
       expect(afterState).not.toBe(beforeState);
-    });
-  });
-
-  describe('getFromCache selector', () => {
-    it('should return the cached value', () => {
-      const store = {
-        search: {
-          cache: {
-            foo: {foo: 'bar'},
-          },
-        },
-      };
-      expect(getFromCache('foo')(store)).toEqual({foo: 'bar'});
     });
   });
 

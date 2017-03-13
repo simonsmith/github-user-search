@@ -9,7 +9,7 @@ import {normalize} from 'normalizr';
 import assignAll from 'lodash/fp/assignAll';
 import qs from 'query-string';
 import {userSchema} from 'store/schema';
-import {getFromCache} from 'store/reducers/Search';
+import {getSearchFromCache} from 'store/reducers/Cache';
 
 function normalizeResponse(response: Object) {
   const normalized = normalize(response.items, userSchema);
@@ -35,7 +35,7 @@ function searchSuccessAction(response: Object, query: string) {
 }
 
 export function* searchUsers({search}) {
-  const cachedSearch = yield select(getFromCache(search));
+  const cachedSearch = yield select(getSearchFromCache(search));
   if (cachedSearch) {
     yield searchSuccessAction(cachedSearch, search);
     return;

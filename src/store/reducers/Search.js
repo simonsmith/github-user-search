@@ -1,8 +1,7 @@
-
 import assignAll from 'lodash/fp/assignAll';
+import merge from 'lodash/fp/merge';
 import pick from 'lodash/fp/pick';
-import isUndefined from 'lodash/fp/isUndefined';
-import get from 'lodash/fp/get';
+import flow from 'lodash/fp/flow';
 
 const initialState = {
   error: null,
@@ -10,18 +9,17 @@ const initialState = {
   result: [],
   pagination: null,
   totalResults: 0,
-  cache: {},
 };
 
-const getData = pick([
-  'result',
-  'totalResults',
-  'pagination',
-]);
+export const pickSearchData = flow(
+  pick([
+    'result',
+    'totalResults',
+    'pagination',
+  ]),
+  merge({})
+);
 
-export function getFromCache(search: string): Function {
-  return get(`search.cache.${search}`);
-}
 
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
@@ -33,18 +31,12 @@ export default function searchReducer(state: Object = initialState, action: Obje
       ]);
 
     case 'SEARCH_SUCCESS': {
-      const data = getData(action);
-      const cacheKey = action.query;
+      const data = pickSearchData(action);
       const newState = assignAll([
         state,
         data,
         {isPending: false, error: null},
       ]);
-
-      if (!isUndefined(cacheKey) && !state.cache[cacheKey]) {
-        newState.cache[cacheKey] = data;
-      }
-
       return newState;
     }
 
