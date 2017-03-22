@@ -52,7 +52,6 @@ export default function cacheReducer(state: Object = initialState, action: Objec
         data: action.profile,
       });
 
-
     default:
       return state;
 
