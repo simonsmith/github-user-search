@@ -71,9 +71,11 @@ describe('Reducer: cache', () => {
       };
       const action = {
         type: 'SEARCH_SUCCESS',
-        query: 'page=2',
-        result: [1, 2],
-        totalResults: 2,
+        payload: {
+          search: 'page=2',
+          result: [1, 2],
+          totalResults: 2,
+        },
       };
       expect(cacheReducer(beforeState, action)).toMatchSnapshot();
     });

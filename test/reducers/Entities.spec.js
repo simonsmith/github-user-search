@@ -13,10 +13,12 @@ describe('Reducer: entities', () => {
   describe('when action has an entities property', () => {
     it('should merge the object into the state', () => {
       const action = {
-        entities: {
-          users: {
-            123: {name: 'bar'},
-            456: {name: 'foo'},
+        payload: {
+          entities: {
+            users: {
+              123: {name: 'bar'},
+              456: {name: 'foo'},
+            },
           },
         },
       };

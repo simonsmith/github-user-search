@@ -23,15 +23,11 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-function searchSuccessAction(response: Object, query: string) {
-  const action = assignAll([
-    response,
-    {
-      type: 'SEARCH_SUCCESS',
-      query,
-    },
-  ]);
-  return put(action);
+function searchSuccessAction(response: Object, search: string) {
+  return put({
+    payload: assignAll([response, {search}]),
+    type: 'SEARCH_SUCCESS',
+  });
 }
 
 export function* searchUsers(action) {

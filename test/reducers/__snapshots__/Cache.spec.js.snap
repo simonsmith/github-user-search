@@ -45,6 +45,7 @@ Object {
         1,
         2,
       ],
+      "search": "page=2",
       "totalResults": 2,
     },
   },

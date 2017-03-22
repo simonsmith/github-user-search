@@ -3,7 +3,6 @@
 import mergeAll from 'lodash/fp/mergeAll';
 import isUndefined from 'lodash/fp/isUndefined';
 import get from 'lodash/fp/get';
-import {pickSearchData} from 'store/reducers/Search';
 
 const initialState = {
   search: {},
@@ -40,9 +39,9 @@ export default function cacheReducer(state: Object = initialState, action: Objec
     case 'SEARCH_SUCCESS':
       return addToCache({
         state,
-        cacheKey: action.query,
+        cacheKey: action.payload.search,
         type: 'search',
-        data: pickSearchData(action),
+        data: action.payload,
       });
 
     case 'PROFILE_SUCCESS':

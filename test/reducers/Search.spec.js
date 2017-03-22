@@ -30,8 +30,10 @@ describe('Reducer: search', () => {
         result: [],
       };
       const action = {
-        result: [1, 2],
-        query: '?q=alecrust',
+        payload: {
+          result: [1, 2],
+          search: '?q=alecrust',
+        },
         type: 'SEARCH_SUCCESS',
       };
       const afterState = searchReducer(beforeState, action);

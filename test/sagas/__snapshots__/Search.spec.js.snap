@@ -2,18 +2,15 @@
 
 exports[`Saga: searchUsers when a request to the API fails should call a failure action 1`] = `
 Object {
-  "action": Object {
-    "message": "it went wrong",
-    "response": "test",
-    "type": "SEARCH_FAILURE",
-  },
-  "channel": null,
+  "message": "it went wrong",
+  "response": "test",
+  "type": "SEARCH_FAILURE",
 }
 `;
 
 exports[`Saga: searchUsers when no cached data exists should call the API and normalize the data 1`] = `
 Object {
-  "action": Object {
+  "payload": Object {
     "entities": Object {
       "users": Object {
         "123": Object {
@@ -29,14 +26,13 @@ Object {
       },
     },
     "pagination": null,
-    "query": "q=simon",
     "result": Array [
       123,
       456,
     ],
+    "search": "q=simon",
     "totalResults": 2,
-    "type": "SEARCH_SUCCESS",
   },
-  "channel": null,
+  "type": "SEARCH_SUCCESS",
 }
 `;

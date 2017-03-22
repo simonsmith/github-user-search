@@ -1,9 +1,6 @@
 // @flow
 
 import assignAll from 'lodash/fp/assignAll';
-import merge from 'lodash/fp/merge';
-import pick from 'lodash/fp/pick';
-import flow from 'lodash/fp/flow';
 
 const initialState = {
   error: null,
@@ -12,16 +9,6 @@ const initialState = {
   pagination: null,
   totalResults: 0,
 };
-
-export const pickSearchData = flow(
-  pick([
-    'result',
-    'totalResults',
-    'pagination',
-  ]),
-  merge({})
-);
-
 
 export default function searchReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
@@ -33,10 +20,9 @@ export default function searchReducer(state: Object = initialState, action: Obje
       ]);
 
     case 'SEARCH_SUCCESS': {
-      const data = pickSearchData(action);
       const newState = assignAll([
         state,
-        data,
+        action.payload,
         {isPending: false, error: null},
       ]);
       return newState;

@@ -2,6 +2,7 @@ import {
   call,
   put,
 } from 'redux-saga/effects';
+import {isFSA} from 'flux-standard-action';
 import api from 'store/api';
 import {
   searchUsers,
@@ -16,8 +17,15 @@ describe('Saga: searchUsers', () => {
 
       const successAction = generator.next({data: 'foo'}).value;
       expect(successAction).toEqual(
-        put({data: 'foo', type: 'SEARCH_SUCCESS', query: 'q=simon'})
+        put({
+          payload: {
+            data: 'foo',
+            search: 'q=simon',
+          },
+          type: 'SEARCH_SUCCESS',
+        })
       );
+      expect(isFSA(successAction.PUT.action)).toBeTruthy();
     });
   });
 
@@ -39,7 +47,7 @@ describe('Saga: searchUsers', () => {
         ],
       };
       const successAction = generator.next(response).value;
-      expect(successAction.PUT).toMatchSnapshot();
+      expect(successAction.PUT.action).toMatchSnapshot();
     });
   });
 
@@ -52,7 +60,7 @@ describe('Saga: searchUsers', () => {
       generator.next();
       generator.next();
       const errorAction = generator.throw(apiError).value;
-      expect(errorAction.PUT).toMatchSnapshot();
+      expect(errorAction.PUT.action).toMatchSnapshot();
     });
   });
 
