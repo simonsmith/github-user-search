@@ -1,3 +1,5 @@
+// @flow
+
 import assignAll from 'lodash/fp/assignAll';
 import merge from 'lodash/fp/merge';
 import pick from 'lodash/fp/pick';

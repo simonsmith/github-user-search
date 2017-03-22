@@ -1,3 +1,5 @@
+// @flow
+
 import mergeAll from 'lodash/fp/mergeAll';
 import isUndefined from 'lodash/fp/isUndefined';
 import get from 'lodash/fp/get';
@@ -8,7 +10,14 @@ const initialState = {
   profile: {},
 };
 
-export function addToCache({state, cacheKey, type, data}) {
+type addToCacheArgs = {
+  state: Object,
+  cacheKey: string,
+  type: string,
+  data: any,
+};
+
+export function addToCache({state, cacheKey, type, data}: addToCacheArgs): Object {
   if (isUndefined(cacheKey) || state[type][cacheKey]) {
     return state;
   }
