@@ -1,4 +1,4 @@
-import cacheReducer from 'reducers/Cache';
+import cacheReducer, {addToCache} from 'reducers/Cache';
 
 describe('Reducer: cache', () => {
 
@@ -10,39 +10,73 @@ describe('Reducer: cache', () => {
     });
   });
 
-  describe('search cache', () => {
+  describe('addToCache function', () => {
 
     describe('when a cache entry does not exist', () => {
       it('should add an entry to the cache', () => {
-        const beforeState = {
-          search: {},
+        const state = {
+          foo: {},
         };
-        const action = {
-          type: 'SEARCH_SUCCESS',
-          query: 'page=2',
-          result: [1,2],
-          totalResults: 2,
+        const newState = addToCache({
+          state,
+          cacheKey: 'thing',
+          type: 'foo',
+          data: {bar: 'baz'},
+        });
+        expect(newState).toMatchSnapshot();
+      });
+    });
+
+    describe('when the cacheKey is undefined', () => {
+      it('should just return the state', () => {
+        const state = {
+          foo: {
+            exists: 'hi',
+          },
         };
-        expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+        const newState = addToCache({
+          state,
+          cacheKey: undefined,
+          type: 'foo',
+          data: {bar: 'baz'},
+        });
+        expect(newState).toMatchSnapshot();
       });
     });
 
     describe('when a cache entry does exist', () => {
       it('should just return the state', () => {
-        const beforeState = {
-          search: {
-            'page=2': {someProp: 'test'},
+        const state = {
+          foo: {
+            exists: 'hi',
           },
         };
-        const action = {
-          type: 'SEARCH_SUCCESS',
-          query: 'page=2',
-          result: [1,2],
-        };
-        expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+        const newState = addToCache({
+          state,
+          cacheKey: 'exists',
+          type: 'foo',
+          data: {bar: 'baz'},
+        });
+        expect(newState).toMatchSnapshot();
       });
     });
 
+
+  });
+
+  describe('search cache', () => {
+    it('should add an entry to the cache', () => {
+      const beforeState = {
+        search: {},
+      };
+      const action = {
+        type: 'SEARCH_SUCCESS',
+        query: 'page=2',
+        result: [1, 2],
+        totalResults: 2,
+      };
+      expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+    });
   });
 
 });

@@ -1,16 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Reducer: cache search cache when a cache entry does exist should just return the state 1`] = `
+exports[`Reducer: cache addToCache function when a cache entry does exist should just return the state 1`] = `
 Object {
-  "search": Object {
-    "page=2": Object {
-      "someProp": "test",
+  "foo": Object {
+    "exists": "hi",
+  },
+}
+`;
+
+exports[`Reducer: cache addToCache function when a cache entry does not exist should add an entry to the cache 1`] = `
+Object {
+  "foo": Object {
+    "thing": Object {
+      "bar": "baz",
     },
   },
 }
 `;
 
-exports[`Reducer: cache search cache when a cache entry does not exist should add an entry to the cache 1`] = `
+exports[`Reducer: cache addToCache function when the cacheKey is undefined should just return the state 1`] = `
+Object {
+  "foo": Object {
+    "exists": "hi",
+  },
+}
+`;
+
+exports[`Reducer: cache search cache should add an entry to the cache 1`] = `
 Object {
   "search": Object {
     "page=2": Object {
@@ -26,6 +42,7 @@ Object {
 
 exports[`Reducer: cache when passed no state should return the initial state 1`] = `
 Object {
+  "profile": Object {},
   "search": Object {},
 }
 `;
