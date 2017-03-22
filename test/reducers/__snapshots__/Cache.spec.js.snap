@@ -26,6 +26,17 @@ Object {
 }
 `;
 
+exports[`Reducer: cache profile cache should add an entry to the cache 1`] = `
+Object {
+  "profile": Object {
+    "simonsmith": Object {
+      "login": "simonsmith",
+      "name": "Simon Smith",
+    },
+  },
+}
+`;
+
 exports[`Reducer: cache search cache should add an entry to the cache 1`] = `
 Object {
   "search": Object {

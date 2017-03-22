@@ -79,4 +79,20 @@ describe('Reducer: cache', () => {
     });
   });
 
+  describe('profile cache', () => {
+    it('should add an entry to the cache', () => {
+      const beforeState = {
+        profile: {},
+      };
+      const action = {
+        type: 'PROFILE_SUCCESS',
+        profile: {
+          login: 'simonsmith',
+          name: 'Simon Smith',
+        },
+      };
+      expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+    });
+  });
+
 });
