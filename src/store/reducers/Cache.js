@@ -17,11 +17,12 @@ export default function cacheReducer(state: Object = initialState, action: Objec
     case 'SEARCH_SUCCESS': {
       const data = pickSearchData(action);
       const cacheKey = action.query;
-      const newState = mergeAll([{}, state]);
       if (!isUndefined(cacheKey) && !state.search[cacheKey]) {
+        const newState = mergeAll([{}, state]);
         newState.search[cacheKey] = data;
+        return newState;
       }
-      return newState;
+      return state;
     }
 
     default:
