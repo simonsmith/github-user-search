@@ -34,7 +34,8 @@ function searchSuccessAction(response: Object, query: string) {
   return put(action);
 }
 
-export function* searchUsers({search}) {
+export function* searchUsers(action) {
+  const {payload: {search}} = action;
   const cachedSearch = yield select(getSearchFromCache(search));
   if (cachedSearch) {
     yield searchSuccessAction(cachedSearch, search);

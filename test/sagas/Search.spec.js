@@ -11,7 +11,7 @@ describe('Saga: searchUsers', () => {
 
   describe('when a cached result exists', () => {
     it('should yield the result and return', () => {
-      const generator = searchUsers({search: 'q=simon'});
+      const generator = searchUsers({payload: {search: 'q=simon'}});
       generator.next();
 
       const successAction = generator.next({data: 'foo'}).value;
@@ -23,7 +23,7 @@ describe('Saga: searchUsers', () => {
 
   describe('when no cached data exists', () => {
     it('should call the API and normalize the data', () => {
-      const generator = searchUsers({search: 'q=simon'});
+      const generator = searchUsers({payload: {search: 'q=simon'}});
       generator.next();
       const apiCall = generator.next().value;
       expect(apiCall).toEqual(
@@ -45,7 +45,7 @@ describe('Saga: searchUsers', () => {
 
   describe('when a request to the API fails', () => {
     it('should call a failure action', () => {
-      const generator = searchUsers({search: 'q=simon'});
+      const generator = searchUsers({payload: {search: 'q=simon'}});
       const apiError = new Error('it went wrong');
       apiError.response = 'test';
 

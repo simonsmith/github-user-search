@@ -2,9 +2,14 @@
 
 import {connect} from 'react-redux';
 
-const mapDispatchToProps = dispatch => ({
-  searchForUser(search) {
-    dispatch({type: 'SEARCH_REQUEST', search});
+export const mapDispatchToProps = (dispatch: Function) => ({
+  searchForUser(search: string) {
+    dispatch({
+      type: 'SEARCH_REQUEST',
+      payload: {
+        search,
+      },
+    });
   },
 });
 
