@@ -21,7 +21,7 @@ describe('Saga: getProfile', () => {
   });
 
   describe('when no cached data exists', () => {
-    it('should call the API and put a success action with the profile data', () => {
+    it('should call the API and put a success action with the payload', () => {
       const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       const apiCall = generator.next().value;

@@ -8,7 +8,7 @@ Object {
 }
 `;
 
-exports[`Saga: searchUsers when no cached data exists should call the API and normalize the data 1`] = `
+exports[`Saga: searchUsers when no cached data exists should call the API and put a success action with the payload 1`] = `
 Object {
   "payload": Object {
     "entities": Object {

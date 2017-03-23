@@ -11,7 +11,7 @@ import {
 describe('Saga: searchUsers', () => {
 
   describe('when a cached result exists', () => {
-    it('should yield the result and return', () => {
+    it('should pass the result to the success action and not call the API', () => {
       const generator = searchUsers({payload: {search: 'q=simon'}});
       generator.next();
 
@@ -30,7 +30,7 @@ describe('Saga: searchUsers', () => {
   });
 
   describe('when no cached data exists', () => {
-    it('should call the API and normalize the data', () => {
+    it('should call the API and put a success action with the payload', () => {
       const generator = searchUsers({payload: {search: 'q=simon'}});
       generator.next();
       const apiCall = generator.next().value;
