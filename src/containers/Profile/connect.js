@@ -2,10 +2,17 @@
 
 import {connect} from 'react-redux';
 
-const mapDispatchToProps = dispatch => ({
-  getProfile(username) {
-    dispatch({type: 'PROFILE_REQUEST', username});
-  },
-});
+export function mapDispatchToProps(dispatch: Function) {
+  return {
+    getProfile(username: string) {
+      dispatch({
+        type: 'PROFILE_REQUEST',
+        payload: {
+          username,
+        },
+      });
+    },
+  };
+}
 
 export default connect(null, mapDispatchToProps);

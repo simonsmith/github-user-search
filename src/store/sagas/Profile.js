@@ -41,7 +41,8 @@ function* requestAdditionalProfileData(data) {
   });
 }
 
-export function* getProfile({username}) {
+export function* getProfile(action) {
+  const {payload: {username}} = action;
   const cachedProfile = yield select(getProfileFromCache(username));
   let profile;
 
