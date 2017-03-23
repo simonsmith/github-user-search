@@ -22,19 +22,19 @@ export default function profileReducer(state: Object = initialState, action: Obj
       ]);
 
     case 'PROFILE_SUCCESS': {
-      const {profile} = action;
-      const cacheKey = profile.login;
+      const {payload} = action;
+      const cacheKey = payload.login;
       const newState = assignAll([
         state,
         {
           isPending: false,
           error: null,
-          userProfile: profile,
+          userProfile: payload,
         },
       ]);
 
       if (!state.cache[cacheKey]) {
-        newState.cache[cacheKey] = profile;
+        newState.cache[cacheKey] = payload;
       }
 
       return newState;

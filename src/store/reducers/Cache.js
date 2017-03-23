@@ -47,9 +47,9 @@ export default function cacheReducer(state: Object = initialState, action: Objec
     case 'PROFILE_SUCCESS':
       return addToCache({
         state,
-        cacheKey: action.profile.login,
+        cacheKey: action.payload.login,
         type: 'profile',
-        data: action.profile,
+        data: action.payload,
       });
 
     default:

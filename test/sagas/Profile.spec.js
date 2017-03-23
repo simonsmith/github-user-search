@@ -11,17 +11,17 @@ describe('Saga: getProfile', () => {
 
   describe('when there is an error from the request', () => {
     it('it should put an error action', () => {
-      const generator = getProfile({username: 'simon'});
+      const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       generator.next();
       const error = generator.throw(new Error('oh dear')).value;
-      expect(error.PUT).toMatchSnapshot();
+      expect(error.PUT.action).toMatchSnapshot();
     });
   });
 
   describe('when no cached data exists', () => {
     it('should call the API and put a success action with the profile data', () => {
-      const generator = getProfile({username: 'simonsmith'});
+      const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       const apiCall = generator.next().value;
       expect(apiCall).toEqual(
@@ -34,7 +34,7 @@ describe('Saga: getProfile', () => {
         },
       };
       const action = generator.next(response).value;
-      expect(action.PUT).toMatchSnapshot();
+      expect(action.PUT.action).toMatchSnapshot();
     });
 
     it('should put actions for repos and followers', () => {
@@ -45,7 +45,7 @@ describe('Saga: getProfile', () => {
           repos_url: 'repos.net',
         },
       };
-      const generator = getProfile({username: 'simonsmith'});
+      const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       generator.next();
       generator.next(response);
@@ -64,18 +64,18 @@ describe('Saga: getProfile', () => {
 
   describe('when a cached profile does exist', () => {
     it('should pass the result to the success action and not call the API', () => {
-      const generator = getProfile({username: 'simon'});
+      const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
 
       const successAction = generator.next({foo: 'bar'}).value;
       expect(successAction).toEqual(
-        put({type: 'PROFILE_SUCCESS', profile: {foo: 'bar'}})
+        put({type: 'PROFILE_SUCCESS', payload: {foo: 'bar'}})
       );
     });
 
     it('should request additional profile data with the cached values', () => {
       const simonProfile = {repos_url: 'test.net', followers_url: 'foo.net'};
-      const generator = getProfile({username: 'simon'});
+      const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       generator.next(simonProfile);
 

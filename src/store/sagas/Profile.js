@@ -63,7 +63,7 @@ export function* getProfile(action) {
 
   yield put({
     type: 'PROFILE_SUCCESS',
-    profile,
+    payload: profile,
   });
   yield* requestAdditionalProfileData(profile);
 }

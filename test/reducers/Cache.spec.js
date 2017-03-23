@@ -88,7 +88,7 @@ describe('Reducer: cache', () => {
       };
       const action = {
         type: 'PROFILE_SUCCESS',
-        profile: {
+        payload: {
           login: 'simonsmith',
           name: 'Simon Smith',
         },

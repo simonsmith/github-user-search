@@ -2,23 +2,17 @@
 
 exports[`Saga: getProfile when no cached data exists should call the API and put a success action with the profile data 1`] = `
 Object {
-  "action": Object {
-    "profile": Object {
-      "login": "simonsmith",
-    },
-    "type": "PROFILE_SUCCESS",
+  "payload": Object {
+    "login": "simonsmith",
   },
-  "channel": null,
+  "type": "PROFILE_SUCCESS",
 }
 `;
 
 exports[`Saga: getProfile when there is an error from the request it should put an error action 1`] = `
 Object {
-  "action": Object {
-    "message": "oh dear",
-    "response": undefined,
-    "type": "PROFILE_FAILURE",
-  },
-  "channel": null,
+  "message": "oh dear",
+  "response": undefined,
+  "type": "PROFILE_FAILURE",
 }
 `;
