@@ -44,9 +44,9 @@ export function* searchUsers(action) {
     yield searchSuccessAction(normalizedResponse, search);
   } catch (err) {
     yield put({
+      error: true,
+      payload: err,
       type: 'SEARCH_FAILURE',
-      message: err.message,
-      response: err.response,
     });
   }
 }

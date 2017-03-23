@@ -19,25 +19,20 @@ export default function searchReducer(state: Object = initialState, action: Obje
         {isPending: true},
       ]);
 
-    case 'SEARCH_SUCCESS': {
-      const newState = assignAll([
+    case 'SEARCH_SUCCESS':
+      return assignAll([
         state,
         action.payload,
         {isPending: false, error: null},
       ]);
-      return newState;
-    }
 
     case 'SEARCH_FAILURE': {
-      const {response, message} = action;
+      if (!action.error) {return state;}
       return assignAll([
         state,
         {
           isPending: false,
-          error: {
-            response,
-            message,
-          },
+          error: action.payload,
         },
       ]);
     }

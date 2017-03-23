@@ -2,8 +2,8 @@
 
 exports[`Saga: searchUsers when a request to the API fails should call a failure action 1`] = `
 Object {
-  "message": "it went wrong",
-  "response": "test",
+  "error": true,
+  "payload": [Error: it went wrong],
   "type": "SEARCH_FAILURE",
 }
 `;

@@ -51,9 +51,12 @@ describe('Reducer: search', () => {
         error: null,
         isPending: true,
       };
+      const err = new Error('the server died');
+      err.response = {foo: 'bar'};
+
       const action = {
-        response: {},
-        message: 'The server died',
+        error: true,
+        payload: err,
         type: 'SEARCH_FAILURE',
       };
       const afterState = searchReducer(beforeState, action);
