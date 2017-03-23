@@ -1,16 +1,10 @@
 import assignAll from 'lodash/fp/assignAll';
-import get from 'lodash/fp/get';
 
 const initialState = {
   error: null,
   isPending: false,
   userProfile: {},
-  cache: {},
 };
-
-export function getFromCache(username: string): Function {
-  return get(`profile.cache.${username}`);
-}
 
 export default function profileReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
@@ -21,24 +15,11 @@ export default function profileReducer(state: Object = initialState, action: Obj
         {isPending: true},
       ]);
 
-    case 'PROFILE_SUCCESS': {
-      const {payload} = action;
-      const cacheKey = payload.login;
-      const newState = assignAll([
+    case 'PROFILE_SUCCESS':
+      return assignAll([
         state,
-        {
-          isPending: false,
-          error: null,
-          userProfile: payload,
-        },
+        {isPending: false, userProfile: action.payload},
       ]);
-
-      if (!state.cache[cacheKey]) {
-        newState.cache[cacheKey] = payload;
-      }
-
-      return newState;
-    }
 
     case 'PROFILE_FAILURE': {
       const {response, message} = action;
