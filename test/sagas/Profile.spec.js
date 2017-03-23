@@ -3,6 +3,7 @@ import {
   put,
 } from 'redux-saga/effects';
 import api from 'store/api';
+import {isFSA} from 'flux-standard-action';
 import {
   getProfile,
 } from 'store/sagas/Profile';
@@ -35,6 +36,7 @@ describe('Saga: getProfile', () => {
       };
       const action = generator.next(response).value;
       expect(action.PUT.action).toMatchSnapshot();
+      expect(isFSA(action.PUT.action)).toBeTruthy();
     });
 
     it('should put actions for repos and followers', () => {
