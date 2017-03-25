@@ -22,15 +22,12 @@ export default function profileReducer(state: Object = initialState, action: Obj
       ]);
 
     case 'PROFILE_FAILURE': {
-      const {response, message} = action;
+      if (!action.error) {return state;}
       return assignAll([
         state,
         {
           isPending: false,
-          error: {
-            response,
-            message,
-          },
+          error: action.payload,
         },
       ]);
     }

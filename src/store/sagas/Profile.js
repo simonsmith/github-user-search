@@ -54,9 +54,9 @@ export function* getProfile(action) {
       profile = pickProfileData(response);
     } catch (err) {
       yield put({
+        error: true,
+        payload: err,
         type: 'PROFILE_FAILURE',
-        message: err.message,
-        response: err.response,
       });
     }
   }

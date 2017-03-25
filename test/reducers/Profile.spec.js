@@ -51,9 +51,11 @@ describe('Reducer: profile', () => {
         error: null,
         isPending: true,
       };
+      const err = new Error('the server died');
+      err.response = {foo: 'bar'};
       const action = {
-        response: {},
-        message: 'The server died',
+        error: true,
+        payload: err,
         type: 'PROFILE_FAILURE',
       };
       const afterState = profileReducer(beforeState, action);

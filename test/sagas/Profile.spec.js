@@ -15,7 +15,9 @@ describe('Saga: getProfile', () => {
       const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
       generator.next();
-      const error = generator.throw(new Error('oh dear')).value;
+      const apiError = new Error('it went wrong');
+      apiError.response = 'test';
+      const error = generator.throw(apiError).value;
       expect(error.PUT.action).toMatchSnapshot();
     });
   });

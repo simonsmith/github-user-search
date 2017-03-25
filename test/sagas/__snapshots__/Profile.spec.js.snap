@@ -11,8 +11,8 @@ Object {
 
 exports[`Saga: getProfile when there is an error from the request it should put an error action 1`] = `
 Object {
-  "message": "oh dear",
-  "response": undefined,
+  "error": true,
+  "payload": [Error: it went wrong],
   "type": "PROFILE_FAILURE",
 }
 `;
