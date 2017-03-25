@@ -6,13 +6,13 @@ describe('Saga: getFollowers', () => {
 
   describe('when requesting followers', () => {
     it('should call the API with the url and parameters', () => {
-      const generator = getFollowers({url: 'followers.net'});
+      const generator = getFollowers({payload: {url: 'followers.net'}});
       const followers = generator.next().value;
       expect(followers.CALL).toMatchSnapshot();
     });
 
     it('should put a success action with the normalized data', () => {
-      const generator = getFollowers({url: 'followers.net'});
+      const generator = getFollowers({payload: {url: 'followers.net'}});
       const response = {
         data: [
           {id: 1, login: 'test'},
@@ -27,7 +27,7 @@ describe('Saga: getFollowers', () => {
 
   describe('when a request to the API fails', () => {
     it('should call a failure action', () => {
-      const generator = getFollowers({url: 'followers.net'});
+      const generator = getFollowers({payload: {url: 'followers.net'}});
       const apiError = new Error('it went wrong');
       apiError.response = 'test';
 

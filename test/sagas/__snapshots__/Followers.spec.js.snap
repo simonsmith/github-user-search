@@ -3,8 +3,8 @@
 exports[`Saga: getFollowers when a request to the API fails should call a failure action 1`] = `
 Object {
   "action": Object {
-    "message": "it went wrong",
-    "response": "test",
+    "error": true,
+    "payload": [Error: it went wrong],
     "type": "FOLLOWERS_FAILURE",
   },
   "channel": null,
@@ -29,22 +29,24 @@ Object {
 exports[`Saga: getFollowers when requesting followers should put a success action with the normalized data 1`] = `
 Object {
   "action": Object {
-    "entities": Object {
-      "users": Object {
-        "1": Object {
-          "id": 1,
-          "login": "test",
-        },
-        "2": Object {
-          "id": 2,
-          "login": "hello",
+    "payload": Object {
+      "entities": Object {
+        "users": Object {
+          "1": Object {
+            "id": 1,
+            "login": "test",
+          },
+          "2": Object {
+            "id": 2,
+            "login": "hello",
+          },
         },
       },
+      "result": Array [
+        1,
+        2,
+      ],
     },
-    "result": Array [
-      1,
-      2,
-    ],
     "type": "FOLLOWERS_SUCCESS",
   },
   "channel": null,

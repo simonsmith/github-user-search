@@ -9,7 +9,8 @@ import {
   userSchema,
 } from 'store/schema';
 
-export function* getFollowers({url}) {
+export function* getFollowers(action) {
+  const {payload: {url}} = action;
   try {
     const followersResponse = yield call(api.get, url, {
       params: {
@@ -18,15 +19,17 @@ export function* getFollowers({url}) {
     });
     const data = normalize(followersResponse.data, userSchema);
     yield put({
+      payload: {
+        entities: data.entities,
+        result: data.result,
+      },
       type: 'FOLLOWERS_SUCCESS',
-      entities: data.entities,
-      result: data.result,
     });
   } catch (err) {
     yield put({
+      error: true,
+      payload: err,
       type: 'FOLLOWERS_FAILURE',
-      message: err.message,
-      response: err.response,
     });
   }
 }
