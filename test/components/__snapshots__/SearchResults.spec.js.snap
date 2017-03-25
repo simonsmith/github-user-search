@@ -9,7 +9,7 @@ exports[`Component: SearchResults when given a one result should render a correc
   >
     <a
       className="Result_1ir07ge"
-      href="foo"
+      href="/foo"
       onClick={[Function]}
     >
       <div
@@ -53,7 +53,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   >
     <a
       className="Result_1ir07ge"
-      href="foo"
+      href="/foo"
       onClick={[Function]}
     >
       <div
@@ -90,7 +90,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   >
     <a
       className="Result_1ir07ge"
-      href="foobar"
+      href="/foobar"
       onClick={[Function]}
     >
       <div

@@ -2,14 +2,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
 } from 'react-router-dom';
 
 import SearchResults from 'components/SearchResults';
 
 function createComponent(props) {
   return renderer.create(
-    <Router>
+    <Router context={{}}>
       <SearchResults {...props} />
     </Router>
   );

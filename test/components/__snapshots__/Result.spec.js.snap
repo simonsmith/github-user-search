@@ -3,7 +3,7 @@
 exports[`Component: Result should render 1`] = `
 <a
   className="Result_1ir07ge"
-  href="foo"
+  href="/foo"
   onClick={[Function]}
 >
   <div

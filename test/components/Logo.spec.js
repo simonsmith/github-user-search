@@ -4,7 +4,7 @@ import {
   StyleSheetTestUtils,
 } from 'aphrodite';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
 } from 'react-router-dom';
 
 import Logo from 'components/Logo';
@@ -21,7 +21,7 @@ describe('Component: Logo', () => {
 
   it('should render', () => {
     const component = renderer.create(
-      <Router>
+      <Router context={{}}>
         <Logo />
       </Router>
     );

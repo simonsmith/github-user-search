@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
 } from 'react-router-dom';
 import {StyleSheetTestUtils} from 'aphrodite';
 
@@ -9,7 +9,7 @@ import Pagination from 'components/Pagination';
 
 function createComponent(props) {
   return renderer.create(
-    <Router>
+    <Router context={{}}>
       <Pagination {...props} />
     </Router>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {StyleSheetTestUtils} from 'aphrodite';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
 } from 'react-router-dom';
 
 import Result from 'components/Result';
@@ -23,7 +23,7 @@ describe('Component: Result', () => {
       avatarUrl: 'src.jpg',
     };
     const component = renderer.create(
-      <Router>
+      <Router context={{}}>
         <Result {...props} />
       </Router>
     );
