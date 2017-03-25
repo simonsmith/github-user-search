@@ -3,6 +3,7 @@
 import mergeAll from 'lodash/fp/mergeAll';
 import isUndefined from 'lodash/fp/isUndefined';
 import get from 'lodash/fp/get';
+import omit from 'lodash/fp/omit';
 
 const initialState = {
   search: {},
@@ -21,7 +22,7 @@ export function addToCache({state, cacheKey, type, data}: addToCacheArgs): Objec
     return state;
   }
   const newState = mergeAll([{}, state]);
-  newState[type][cacheKey] = data;
+  newState[type][cacheKey] = omit('entities', data);
   return newState;
 }
 
@@ -31,6 +32,10 @@ export function getSearchFromCache(search: string): Function {
 
 export function getProfileFromCache(username: string): Function {
   return get(`cache.profile.${username}`);
+}
+
+export function getRepoFromCache(url: string): Function {
+  return get(`cache.repos.${url}`);
 }
 
 export default function cacheReducer(state: Object = initialState, action: Object) {

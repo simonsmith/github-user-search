@@ -72,6 +72,7 @@ describe('Reducer: cache', () => {
       const action = {
         type: 'SEARCH_SUCCESS',
         payload: {
+          entities: 'ignore',
           search: 'page=2',
           result: [1, 2],
           totalResults: 2,
@@ -86,6 +87,7 @@ describe('Reducer: cache', () => {
       const beforeState = {
         profile: {},
       };
+
       const action = {
         type: 'PROFILE_SUCCESS',
         payload: {
