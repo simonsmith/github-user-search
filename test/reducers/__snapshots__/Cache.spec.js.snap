@@ -37,6 +37,19 @@ Object {
 }
 `;
 
+exports[`Reducer: cache repos cache should add an entry to the cache 1`] = `
+Object {
+  "repos": Object {
+    "repos.net": Object {
+      "result": Array [
+        1,
+        2,
+      ],
+    },
+  },
+}
+`;
+
 exports[`Reducer: cache search cache should add an entry to the cache 1`] = `
 Object {
   "search": Object {
@@ -55,6 +68,7 @@ Object {
 exports[`Reducer: cache when passed no state should return the initial state 1`] = `
 Object {
   "profile": Object {},
+  "repos": Object {},
   "search": Object {},
 }
 `;

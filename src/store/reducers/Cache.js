@@ -8,6 +8,7 @@ import omit from 'lodash/fp/omit';
 const initialState = {
   search: {},
   profile: {},
+  repos: {},
 };
 
 type addToCacheArgs = {
@@ -55,6 +56,14 @@ export default function cacheReducer(state: Object = initialState, action: Objec
         cacheKey: action.payload.login,
         type: 'profile',
         data: action.payload,
+      });
+
+    case 'REPOS_SUCCESS':
+      return addToCache({
+        state,
+        cacheKey: action.payload.url,
+        type: 'repos',
+        data: {result: action.payload.result},
       });
 
     default:

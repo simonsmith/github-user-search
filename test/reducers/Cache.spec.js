@@ -61,7 +61,23 @@ describe('Reducer: cache', () => {
       });
     });
 
+  });
 
+  describe('repos cache', () => {
+    it('should add an entry to the cache', () => {
+      const beforeState = {
+        repos: {},
+      };
+      const action = {
+        type: 'REPOS_SUCCESS',
+        payload: {
+          entities: 'ignore',
+          result: [1, 2],
+          url: 'repos.net',
+        },
+      };
+      expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+    });
   });
 
   describe('search cache', () => {
