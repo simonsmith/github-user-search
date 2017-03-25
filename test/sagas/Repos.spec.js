@@ -6,13 +6,13 @@ describe('Saga: getRepos', () => {
 
   describe('when requesting repos', () => {
     it('should call the API with the url and parameters', () => {
-      const generator = getRepos({url: 'repos.net'});
+      const generator = getRepos({payload: {url: 'repos.net'}});
       const repos = generator.next().value;
       expect(repos.CALL).toMatchSnapshot();
     });
 
     it('should put a success action with the normalized data', () => {
-      const generator = getRepos({url: 'repos.net'});
+      const generator = getRepos({payload: {url: 'repos.net'}});
       const response = {
         data: [
           {id: 1, name: 'test'},
@@ -27,7 +27,7 @@ describe('Saga: getRepos', () => {
 
   describe('when a request to the API fails', () => {
     it('should call a failure action', () => {
-      const generator = getRepos({url: 'repos.net'});
+      const generator = getRepos({payload: {url: 'repos.net'}});
       const apiError = new Error('it went wrong');
       apiError.response = 'test';
 

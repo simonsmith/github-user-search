@@ -9,7 +9,8 @@ import {
   repoSchema,
 } from 'store/schema';
 
-export function* getRepos({url}) {
+export function* getRepos(action) {
+  const {payload: {url}} = action;
   try {
     const reposResponse = yield call(api.get, url, {
       params: {
@@ -20,15 +21,17 @@ export function* getRepos({url}) {
     const data = normalize(reposResponse.data, repoSchema);
     yield put({
       type: 'REPOS_SUCCESS',
-      url,
-      entities: data.entities,
-      result: data.result,
+      payload: {
+        entities: data.entities,
+        result: data.result,
+        url,
+      },
     });
   } catch (err) {
     yield put({
+      error: true,
+      payload: err,
       type: 'REPOS_FAILURE',
-      message: err.message,
-      response: err.response,
     });
   }
 }
