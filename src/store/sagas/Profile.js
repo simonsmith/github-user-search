@@ -33,11 +33,15 @@ const pickProfileData = flow(
 function* requestAdditionalProfileData(data) {
   yield put({
     type: 'REPOS_REQUEST',
-    url: data.repos_url,
+    payload: {
+      url: data.repos_url,
+    },
   });
   yield put({
     type: 'FOLLOWERS_REQUEST',
-    url: data.followers_url,
+    payload: {
+      url: data.followers_url,
+    },
   });
 }
 

@@ -56,12 +56,22 @@ describe('Saga: getProfile', () => {
 
       const repoRequestAction = generator.next().value;
       expect(repoRequestAction).toEqual(
-        put({type: 'REPOS_REQUEST', url: 'repos.net'})
+        put({
+          type: 'REPOS_REQUEST',
+          payload: {
+            url: 'repos.net',
+          },
+        })
       );
 
       const followerRequestAction = generator.next().value;
       expect(followerRequestAction).toEqual(
-        put({type: 'FOLLOWERS_REQUEST', url: 'followers.net'})
+        put({
+          type: 'FOLLOWERS_REQUEST',
+          payload: {
+            url: 'followers.net',
+          },
+        })
       );
     });
   });
@@ -77,7 +87,7 @@ describe('Saga: getProfile', () => {
       );
     });
 
-    it('should request additional profile data with the cached values', () => {
+    it('should request followers and repos with the cached values', () => {
       const simonProfile = {repos_url: 'test.net', followers_url: 'foo.net'};
       const generator = getProfile({payload: {username: 'simonsmith'}});
       generator.next();
@@ -87,7 +97,9 @@ describe('Saga: getProfile', () => {
       expect(repoRequest).toEqual(
         put({
           type: 'REPOS_REQUEST',
-          url: 'test.net',
+          payload: {
+            url: 'test.net',
+          },
         })
       );
 
@@ -95,7 +107,9 @@ describe('Saga: getProfile', () => {
       expect(followerRequest).toEqual(
         put({
           type: 'FOLLOWERS_REQUEST',
-          url: 'foo.net',
+          payload: {
+            url: 'foo.net',
+          },
         })
       );
     });
