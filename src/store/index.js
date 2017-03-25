@@ -4,7 +4,7 @@ import {
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import flow from 'lodash/fp/flow';
-import createLogger from 'redux-logger';
+import {createLogger} from 'redux-logger';
 import rootReducer from './reducers/Root';
 import rootSaga from './sagas';
 
