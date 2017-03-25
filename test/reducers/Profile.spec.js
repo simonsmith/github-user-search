@@ -24,7 +24,7 @@ describe('Reducer: profile', () => {
   });
 
   describe('when a profile request is successful', () => {
-    it('should update the state with the userProfile and cache it', () => {
+    it('should update the state with the userProfile', () => {
       const beforeState = {
         isPending: true,
         userProfile: {},

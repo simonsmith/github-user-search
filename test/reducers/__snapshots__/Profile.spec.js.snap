@@ -6,7 +6,7 @@ Object {
 }
 `;
 
-exports[`Reducer: profile when a profile request is successful should update the state with the userProfile and cache it 1`] = `
+exports[`Reducer: profile when a profile request is successful should update the state with the userProfile 1`] = `
 Object {
   "isPending": false,
   "userProfile": Object {
