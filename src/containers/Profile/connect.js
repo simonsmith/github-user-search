@@ -1,6 +1,16 @@
 // @flow
 
 import {connect} from 'react-redux';
+import get from 'lodash/fp/get';
+
+export function mapStateToProps(state: Object): Object {
+  return {
+    userEntities: get('entities.users', state),
+    repoEntities: get('entities.repos', state),
+    repoIds: get('repos.result', state),
+    followerIds: get('followers.result', state),
+  };
+}
 
 export function mapDispatchToProps(dispatch: Function) {
   return {
@@ -15,4 +25,4 @@ export function mapDispatchToProps(dispatch: Function) {
   };
 }
 
-export default connect(null, mapDispatchToProps);
+export default connect(mapStateToProps, mapDispatchToProps);
