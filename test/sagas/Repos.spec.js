@@ -12,7 +12,7 @@ describe('Saga: getRepos', () => {
       const generator = getRepos({payload: {url: 'repos.net'}});
       generator.next();
       const repos = generator.next().value;
-      expect(repos.CALL.action).toMatchSnapshot();
+      expect(repos.CALL).toMatchSnapshot();
     });
 
     it('should put a success action with the normalized data', () => {
