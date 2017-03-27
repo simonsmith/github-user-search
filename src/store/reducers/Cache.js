@@ -35,8 +35,8 @@ export function getProfileFromCache(username: string): Function {
   return get(`cache.profile.${username}`);
 }
 
-export function getRepoFromCache(url: string): Function {
-  return get(`cache.repos.${url}`);
+export function getReposFromCache(url: string): Function {
+  return get(`cache.repos['${url}']`);
 }
 
 export default function cacheReducer(state: Object = initialState, action: Object) {

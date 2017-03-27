@@ -1,6 +1,7 @@
 import {
   call,
   put,
+  select,
   takeLatest,
 } from 'redux-saga/effects';
 import api from 'store/api';
@@ -8,9 +9,28 @@ import {normalize} from 'normalizr';
 import {
   repoSchema,
 } from 'store/schema';
+import {getReposFromCache} from 'store/reducers/Cache';
+
+function reposSuccessAction(data: Object, url: string) {
+  return put({
+    type: 'REPOS_SUCCESS',
+    payload: {
+      entities: data.entities,
+      result: data.result,
+      url,
+    },
+  });
+}
 
 export function* getRepos(action) {
   const {payload: {url}} = action;
+  const cachedRepos = yield select(getReposFromCache(url));
+
+  if (cachedRepos) {
+    yield reposSuccessAction(cachedRepos, url);
+    return;
+  }
+
   try {
     const reposResponse = yield call(api.get, url, {
       params: {
@@ -19,14 +39,7 @@ export function* getRepos(action) {
       },
     });
     const data = normalize(reposResponse.data, repoSchema);
-    yield put({
-      type: 'REPOS_SUCCESS',
-      payload: {
-        entities: data.entities,
-        result: data.result,
-        url,
-      },
-    });
+    yield reposSuccessAction(data, url);
   } catch (err) {
     yield put({
       error: true,
