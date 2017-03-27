@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`Saga: getFollowers when requesting followers should call the API with the url and parameters 1`] = `
+exports[`Saga: getFollowers when no cached data exists should call the API with the url and parameters 1`] = `
 Object {
   "args": Array [
     "followers.net",
@@ -26,29 +26,27 @@ Object {
 }
 `;
 
-exports[`Saga: getFollowers when requesting followers should put a success action with the normalized data 1`] = `
+exports[`Saga: getFollowers when no cached data exists should put a success action with the normalized data 1`] = `
 Object {
-  "action": Object {
-    "payload": Object {
-      "entities": Object {
-        "users": Object {
-          "1": Object {
-            "id": 1,
-            "login": "test",
-          },
-          "2": Object {
-            "id": 2,
-            "login": "hello",
-          },
+  "payload": Object {
+    "entities": Object {
+      "users": Object {
+        "1": Object {
+          "id": 1,
+          "login": "test",
+        },
+        "2": Object {
+          "id": 2,
+          "login": "hello",
         },
       },
-      "result": Array [
-        1,
-        2,
-      ],
     },
-    "type": "FOLLOWERS_SUCCESS",
+    "result": Array [
+      1,
+      2,
+    ],
+    "url": "followers.net",
   },
-  "channel": null,
+  "type": "FOLLOWERS_SUCCESS",
 }
 `;

@@ -1,12 +1,16 @@
 import {
   getFollowers,
 } from 'store/sagas/Followers';
+import {
+  put,
+} from 'redux-saga/effects';
 
 describe('Saga: getFollowers', () => {
 
-  describe('when requesting followers', () => {
+  describe('when no cached data exists', () => {
     it('should call the API with the url and parameters', () => {
       const generator = getFollowers({payload: {url: 'followers.net'}});
+      generator.next();
       const followers = generator.next().value;
       expect(followers.CALL).toMatchSnapshot();
     });
@@ -20,8 +24,33 @@ describe('Saga: getFollowers', () => {
         ],
       };
       generator.next();
+      generator.next();
       const normalized = generator.next(response).value;
-      expect(normalized.PUT).toMatchSnapshot();
+      expect(normalized.PUT.action).toMatchSnapshot();
+    });
+  });
+
+  describe('when cached data does exist', () => {
+    it('should pass the result to the success action and not call the API', () => {
+      const generator = getFollowers({payload: {url: 'followers.net'}});
+      generator.next();
+      const successAction = generator.next(
+        {
+          result: [1, 2],
+          entities: {},
+        }
+      ).value;
+
+      expect(successAction).toEqual(
+        put({
+          payload: {
+            entities: {},
+            result: [1, 2],
+            url: 'followers.net',
+          },
+          type: 'FOLLOWERS_SUCCESS',
+        })
+      );
     });
   });
 
@@ -31,6 +60,7 @@ describe('Saga: getFollowers', () => {
       const apiError = new Error('it went wrong');
       apiError.response = 'test';
 
+      generator.next();
       generator.next();
       const errorAction = generator.throw(apiError).value;
       expect(errorAction.PUT).toMatchSnapshot();
