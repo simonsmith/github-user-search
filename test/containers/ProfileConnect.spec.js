@@ -27,6 +27,10 @@ describe('ProfileConnect: mapStateToProps', () => {
         followers: {
           result: [4, 5, 6],
         },
+        profile: {
+          userProfile: {},
+          isPending: false,
+        },
         entities: {
           repos: {
             1: {id: 1},

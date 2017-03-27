@@ -31,15 +31,19 @@ export class ProfileContainer extends Component {
     this.props.getProfile(username);
   }
 
-  componentDidUpdate() {
-    this.requestProfile(this.props.match.url);
+  renderProfile() {
+    if (this.props.userIsPending) {
+      return <p>Loading...</p>;
+    }
+    return (
+      <p>{this.props.userProfile.login}</p>
+    );
   }
 
   render() {
-    console.log(this.props);
     return (
       <Container>
-        Profile here
+        {this.renderProfile()}
       </Container>
     );
   }

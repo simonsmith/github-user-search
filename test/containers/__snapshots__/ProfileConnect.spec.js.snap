@@ -28,5 +28,7 @@ Object {
       "id": 5,
     },
   },
+  "userIsPending": false,
+  "userProfile": Object {},
 }
 `;
