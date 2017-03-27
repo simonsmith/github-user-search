@@ -36,6 +36,7 @@ export class ProfileContainer extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Container>
         Profile here

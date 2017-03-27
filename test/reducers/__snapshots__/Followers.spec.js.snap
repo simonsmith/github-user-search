@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducer: followers when a followers request is pending should set isPending to true 1`] = `
+Object {
+  "isPending": true,
+}
+`;
+
+exports[`Reducer: followers when a followers request is successful should update the state with the repos 1`] = `
+Object {
+  "error": null,
+  "isPending": false,
+  "result": Array [
+    1,
+    2,
+    3,
+  ],
+}
+`;
+
+exports[`Reducer: followers when a search request fails should update the state with the error message 1`] = `
+Object {
+  "error": [Error: the server died],
+  "isPending": false,
+}
+`;
+
+exports[`Reducer: followers when passed no state should return the initial state 1`] = `
+Object {
+  "error": null,
+  "isPending": false,
+  "result": Array [],
+}
+`;
