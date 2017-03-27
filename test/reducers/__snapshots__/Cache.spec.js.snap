@@ -26,6 +26,19 @@ Object {
 }
 `;
 
+exports[`Reducer: cache followers cache should add an entry to the cache 1`] = `
+Object {
+  "followers": Object {
+    "followers.net": Object {
+      "result": Array [
+        1,
+        2,
+      ],
+    },
+  },
+}
+`;
+
 exports[`Reducer: cache profile cache should add an entry to the cache 1`] = `
 Object {
   "profile": Object {
@@ -67,6 +80,7 @@ Object {
 
 exports[`Reducer: cache when passed no state should return the initial state 1`] = `
 Object {
+  "followers": Object {},
   "profile": Object {},
   "repos": Object {},
   "search": Object {},

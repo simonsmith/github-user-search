@@ -63,6 +63,23 @@ describe('Reducer: cache', () => {
 
   });
 
+  describe('followers cache', () => {
+    it('should add an entry to the cache', () => {
+      const beforeState = {
+        followers: {},
+      };
+      const action = {
+        type: 'FOLLOWERS_SUCCESS',
+        payload: {
+          entities: 'ignore',
+          result: [1, 2],
+          url: 'followers.net',
+        },
+      };
+      expect(cacheReducer(beforeState, action)).toMatchSnapshot();
+    });
+  });
+
   describe('repos cache', () => {
     it('should add an entry to the cache', () => {
       const beforeState = {
