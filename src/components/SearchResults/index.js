@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import curry from 'lodash/fp/curry';
 import map from 'lodash/fp/map';
 import {
@@ -41,11 +39,6 @@ function SearchResults({entities, ids}: Props) {
     </ul>
   );
 }
-
-SearchResults.propTypes = {
-  entities: PropTypes.object,
-  ids: PropTypes.array,
-};
 
 const styles = StyleSheet.create({
   SearchResults: {

@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   css,
@@ -26,12 +24,6 @@ function ResultsMessage({searchTerm, resultsTotal, pageTotal}: Props) {
     </div>
   );
 }
-
-ResultsMessage.propTypes = {
-  searchTerm: PropTypes.string,
-  resultsTotal: PropTypes.number,
-  pageTotal: PropTypes.number,
-};
 
 const styles = StyleSheet.create({
   ResultsMessage_text: {

@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import first from 'lodash/fp/first';
 import flow from 'lodash/fp/flow';
@@ -76,11 +74,6 @@ function Pagination({prev, next}: Props) {
 Pagination.defaultProps = {
   next: {},
   prev: {},
-};
-
-Pagination.propTypes = {
-  next: PropTypes.object,
-  prev: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

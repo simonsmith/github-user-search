@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 // import {
 //   StyleSheet,
@@ -15,10 +14,7 @@ type Props = {
 
 export class ProfileContainer extends Component {
 
-  static propTypes = {
-    match: PropTypes.object,
-    getProfile: PropTypes.func,
-  };
+  props: Props;
 
   constructor(props: Props) {
     super(props);

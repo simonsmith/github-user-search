@@ -5,7 +5,7 @@ import {
 } from 'aphrodite/no-important';
 
 type Props = {
-  rootStyle: any,
+  rootStyle?: any,
   children: any,
   noGutter: boolean
 };

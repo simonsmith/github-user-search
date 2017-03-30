@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   css,
@@ -35,11 +33,6 @@ function Result({username, avatarUrl}: Props) {
     </Link>
   );
 }
-
-Result.propTypes = {
-  username: PropTypes.string.isRequired,
-  avatarUrl: PropTypes.string.isRequired,
-};
 
 const styles = StyleSheet.create({
   Result: {

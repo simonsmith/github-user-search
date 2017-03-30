@@ -2,7 +2,6 @@
 
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
@@ -24,11 +23,6 @@ class SearchForm extends Component {
 
   props: Props;
   state: State;
-
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    initialInputValue: PropTypes.string.isRequired,
-  };
 
   static defaultProps = {
     initialInputValue: '',

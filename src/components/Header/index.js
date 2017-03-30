@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   css,
@@ -34,11 +32,6 @@ export default function Header({onSubmit, searchTerm}: Props) {
     </div>
   );
 }
-
-Header.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  searchTerm: PropTypes.string.isRequired,
-};
 
 const styles = StyleSheet.create({
   Header: {
