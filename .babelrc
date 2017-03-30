@@ -9,6 +9,7 @@
     }]
   ],
   "plugins": [
+    "flow-react-proptypes",
     "transform-flow-strip-types",
     "transform-object-rest-spread",
     "transform-class-properties",
