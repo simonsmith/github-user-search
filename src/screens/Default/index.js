@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import qs from 'query-string';
 import {Route} from 'react-router-dom';
 import curry from 'lodash/fp/curry';
@@ -16,7 +14,7 @@ import {PER_PAGE} from 'store/api';
 import 'suitcss-utils-flex/lib/flex.css';
 
 type Props = {
-  component: any,
+  component: Function,
 };
 
 export const pushUrlQuery = curry((push: Function, query: string) => {
@@ -61,10 +59,6 @@ function DefaultLayout({
     />
   );
 }
-
-DefaultLayout.propTypes = {
-  component: PropTypes.func,
-};
 
 const styles = StyleSheet.create({
   DefaultLayout: {
