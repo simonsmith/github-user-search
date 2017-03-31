@@ -5,8 +5,6 @@ import React, {
 } from 'react';
 import qs from 'query-string';
 import {Route} from 'react-router-dom';
-import DocumentTitle from 'react-document-title';
-import isEmpty from 'lodash/fp/isEmpty';
 import curry from 'lodash/fp/curry';
 import {
   css,
@@ -28,43 +26,27 @@ export const pushUrlQuery = curry((push: Function, query: string) => {
   });
 });
 
-export function constructTitle(search: Object) {
-  const base = 'Github User Search';
-  if (isEmpty(search)) {return base;}
-  const {q, page} = search;
-  return `${q} - Page ${page} - ${base}`;
-}
-
 const renderRoute = curry((Component, matchProps) => {
   const {location, history: {push}} = matchProps;
   const parsedSearch = qs.parse(location.search);
-  const title = constructTitle(parsedSearch);
   const searchTerm = parsedSearch.q;
-  const componentProps = {
-    ...matchProps,
-  };
-  if (searchTerm) {
-    componentProps.searchTerm = searchTerm;
-  }
 
   return (
-    <DocumentTitle title={title}>
-      <div className={`${css(styles.DefaultLayout)} u-flex u-flexCol`}>
-        <HeaderContainer
-          searchTerm={searchTerm}
-          searchQuery={qs.stringify(parsedSearch)}
-          onSubmit={pushUrlQuery(push)}
-        />
-        <div className="u-flexGrow1">
-          <Component {...componentProps} />
-        </div>
-        <Container rootStyle={styles.DefaultLayout_footer}>
-          <p className={css(styles.DefaultLayout_footerText)}>
-            View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
-          </p>
-        </Container>
+    <div className={`${css(styles.DefaultLayout)} u-flex u-flexCol`}>
+      <HeaderContainer
+        searchTerm={searchTerm}
+        searchQuery={qs.stringify(parsedSearch)}
+        onSubmit={pushUrlQuery(push)}
+      />
+      <div className="u-flexGrow1">
+        <Component {...matchProps} />
       </div>
-    </DocumentTitle>
+      <Container rootStyle={styles.DefaultLayout_footer}>
+        <p className={css(styles.DefaultLayout_footerText)}>
+          View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
+        </p>
+      </Container>
+    </div>
   );
 });
 

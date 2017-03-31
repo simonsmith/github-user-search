@@ -5,11 +5,10 @@ import {
 } from 'aphrodite';
 import {Provider} from 'react-redux';
 import {
-  BrowserRouter as Router,
+  StaticRouter as Router,
 } from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 import DefaultLayout, {
-  constructTitle,
   pushUrlQuery,
 } from 'screens/Default';
 
@@ -18,7 +17,7 @@ function createComponent(component) {
   const store = mockStore();
   return renderer.create(
     <Provider store={store}>
-      <Router>
+      <Router context={{}}>
         {component}
       </Router>
     </Provider>
@@ -40,18 +39,6 @@ describe('Screen: DefaultLayout', () => {
       const component = () => <p>testing</p>;
       const screen = <DefaultLayout component={component} />;
       expect(createComponent(screen)).toMatchSnapshot();
-    });
-  });
-
-  describe('constructTitle function', () => {
-    it('should use the base title when no search query is present', () => {
-      const title = constructTitle({});
-      expect(title).toEqual('Github User Search');
-    });
-
-    it('should return a title describing current search and page', () => {
-      const title = constructTitle({q: 'foo', page: 2});
-      expect(title).toEqual('foo - Page 2 - Github User Search');
     });
   });
 
