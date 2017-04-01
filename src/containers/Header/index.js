@@ -2,7 +2,6 @@
 
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
@@ -19,13 +18,6 @@ type Props = {
 };
 
 export class HeaderContainer extends Component {
-
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    searchQuery: PropTypes.string.isRequired,
-    searchTerm: PropTypes.string.isRequired,
-    searchForUser: PropTypes.func.isRequired,
-  };
 
   static defaultProps = {
     searchTerm: '',
