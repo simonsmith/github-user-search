@@ -1,6 +1,7 @@
 import React, {
   Component,
 } from 'react';
+import get from 'lodash/fp/get';
 // import {
 //   StyleSheet,
 // } from 'aphrodite/no-important';
@@ -8,9 +9,10 @@ import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
-  match: Object,
   getProfile: Function,
 };
+
+const getUsername = get('match.params.username');
 
 export class ProfileContainer extends Component {
 
@@ -18,13 +20,16 @@ export class ProfileContainer extends Component {
 
   constructor(props: Props) {
     super(props);
-    this.requestProfile(props.match.url);
+    this.props.getProfile(getUsername(props));
   }
 
-  requestProfile(url: string): void {
-    if (!url) {return;}
-    const username = url.match(/\/(.+)/)[1];
-    this.props.getProfile(username);
+  componentWillReceiveProps(nextProps: Props) {
+    const username = getUsername(this.props);
+    const nextUsername = getUsername(nextProps);
+
+    if (username !== nextUsername) {
+      this.props.getProfile(nextUsername);
+    }
   }
 
   renderProfile() {
