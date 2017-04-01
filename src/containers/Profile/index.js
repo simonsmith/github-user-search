@@ -10,6 +10,8 @@ import connect from './connect';
 
 type Props = {
   getProfile: Function,
+  userIsPending: boolean,
+  userProfile: Object,
 };
 
 const getUsername = get('match.params.username');
