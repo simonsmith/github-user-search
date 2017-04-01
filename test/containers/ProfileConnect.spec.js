@@ -12,6 +12,11 @@ describe('ProfileConnect: mapDispatchToProps', () => {
       mapDispatchToProps(fakeDispatch).getProfile('simonsmith');
       expect(isFSA(fakeDispatch.mock.calls[0][0])).toBeTruthy();
     });
+
+    it('should ignore undefined arguments', () => {
+      const fakeDispatch = jest.fn();
+      expect(mapDispatchToProps(fakeDispatch).getProfile()).toBeUndefined();
+    });
   });
 
 });

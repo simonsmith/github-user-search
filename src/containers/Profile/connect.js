@@ -16,7 +16,8 @@ export function mapStateToProps(state: Object): Object {
 
 export function mapDispatchToProps(dispatch: Function) {
   return {
-    getProfile(username: string) {
+    getProfile(username: string | void) {
+      if (!username) {return;}
       dispatch({
         type: 'PROFILE_REQUEST',
         payload: {
