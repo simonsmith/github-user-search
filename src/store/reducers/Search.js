@@ -4,7 +4,7 @@ import assignAll from 'lodash/fp/assignAll';
 
 const initialState = {
   error: null,
-  isPending: false,
+  isPending: true,
   result: [],
   pagination: null,
   totalResults: 0,

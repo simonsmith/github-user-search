@@ -28,7 +28,7 @@ Object {
 exports[`Reducer: repos when passed no state should return the initial state 1`] = `
 Object {
   "error": null,
-  "isPending": false,
+  "isPending": true,
   "result": Array [],
 }
 `;

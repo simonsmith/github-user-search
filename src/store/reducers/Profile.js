@@ -2,7 +2,7 @@ import assignAll from 'lodash/fp/assignAll';
 
 const initialState = {
   error: null,
-  isPending: false,
+  isPending: true,
   userProfile: {},
 };
 

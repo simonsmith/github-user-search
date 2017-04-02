@@ -26,7 +26,7 @@ Object {
 exports[`Reducer: profile when passed no state should return the initial state 1`] = `
 Object {
   "error": null,
-  "isPending": false,
+  "isPending": true,
   "userProfile": Object {},
 }
 `;
