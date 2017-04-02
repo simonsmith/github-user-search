@@ -7,7 +7,6 @@ import {
 } from 'aphrodite/no-important';
 import {Link} from 'react-router-dom';
 import Image from 'components/Image';
-import 'css/utils/img.css';
 
 type Props = {
   username: string,
@@ -21,7 +20,7 @@ function Result({username, avatarUrl}: Props) {
       className={css(styles.Result)}
     >
       <Image
-        className={`${css(styles.Result_img)} u-imgResponsive`}
+        className={css(styles.Result_img)}
         src={`${avatarUrl}&s=225`}
         alt={username}
         width={140}

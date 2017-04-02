@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: Image should hide the spinner if the image is loaded 1`] = `"<div class=\\"Image_e296pg\\" style=\\"min-height:100px;\\"><img alt=\\"\\" src=\\"test.png\\"/></div>"`;
+exports[`Component: Image should hide the spinner if the image is loaded 1`] = `"<div class=\\"Image_e296pg\\" style=\\"min-height:100px;\\"><img alt=\\"\\" class=\\"u-imgResponsive\\" src=\\"test.png\\"/></div>"`;
 
 exports[`Component: Image should render 1`] = `
 <div
@@ -13,6 +13,7 @@ exports[`Component: Image should render 1`] = `
 >
   <img
     alt=""
+    className="u-imgResponsive"
     onLoad={[Function]}
     src="test.png"
   />

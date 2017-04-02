@@ -7,10 +7,13 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
+import classNames from 'classnames';
+import 'css/utils/img.css';
 import LoadingSpinner from './loading.svg';
 
 type Props = {
   minHeight: number,
+  className?: string,
 };
 
 type State = {
@@ -53,8 +56,14 @@ class Image extends Component {
   render() {
     const {
       minHeight,
+      className,
       ...restProps
     } = this.props;
+    const imgClassName = classNames(
+      className,
+      'u-imgResponsive'
+    );
+
     return (
       <div
         className={css(styles.Image)}
@@ -62,6 +71,7 @@ class Image extends Component {
       >
         <img
           alt=""
+          className={imgClassName}
           {...restProps}
           onLoad={this.onImageLoad}
         />
