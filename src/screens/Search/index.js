@@ -7,7 +7,7 @@ import qs from 'query-string';
 import isEmpty from 'lodash/fp/isEmpty';
 import DocumentTitle from 'react-document-title';
 
-export function constructTitle(search: Object): string {
+function constructTitle(search: Object): string {
   if (isEmpty(search)) {return pageTitle();}
   const {q, page} = search;
   return pageTitle(`${q} - Page ${page}`);

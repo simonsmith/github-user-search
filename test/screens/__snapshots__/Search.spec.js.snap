@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen: SearchScreen should pass match props and searchTerm to SearchResultsContainer 1`] = `
+Object {
+  "location": Object {
+    "search": "?per_page=42&page=1&q=simon",
+  },
+  "searchTerm": "simon",
+}
+`;
