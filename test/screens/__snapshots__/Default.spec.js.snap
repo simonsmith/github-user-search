@@ -17,7 +17,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
     className="Container_16pg94n-o_O-HeaderContainer_sb4ugp"
   >
     <div
-      className="Container_inner_9tv4gp-o_O-Container_padding_1cv73u5"
+      className="Container_inner_w9z6jj-o_O-Container_padding_1cv73u5"
     >
       <div
         className="Header_1mnqmvf u-sm-flex u-sm-flexJustifyBetween u-sm-flexAlignItemsCenter"
@@ -97,7 +97,7 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
     className="Container_16pg94n-o_O-DefaultLayout_footer_1j3kt22"
   >
     <div
-      className="Container_inner_9tv4gp-o_O-Container_padding_1cv73u5"
+      className="Container_inner_w9z6jj-o_O-Container_padding_1cv73u5"
     >
       <p
         className="DefaultLayout_footerText_nl891q"

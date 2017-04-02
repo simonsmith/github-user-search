@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
   Container_inner: {
     margin: '0 auto',
-    maxWidth: 1040,
+    maxWidth: 1020,
   },
 
   Container_padding: {
