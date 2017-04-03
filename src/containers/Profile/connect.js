@@ -8,7 +8,7 @@ export function mapStateToProps(state: Object): Object {
     userEntities: get('entities.users', state),
     repoEntities: get('entities.repos', state),
     repoIds: get('repos.result', state),
-    userIsPending: get('profile.isPending', state),
+    isPending: get('profile.isPending', state),
     userProfile: get('profile.userProfile', state),
     followerIds: get('followers.result', state),
   };

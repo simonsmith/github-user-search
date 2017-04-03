@@ -7,6 +7,7 @@ Object {
     5,
     6,
   ],
+  "isPending": false,
   "repoEntities": Object {
     "1": Object {
       "id": 1,
@@ -28,7 +29,6 @@ Object {
       "id": 5,
     },
   },
-  "userIsPending": false,
   "userProfile": Object {},
 }
 `;

@@ -13,7 +13,7 @@ import connect from './connect';
 
 type Props = {
   getProfile: Function,
-  userIsPending: boolean,
+  isPending: boolean,
   userProfile: Object,
 };
 
@@ -38,7 +38,7 @@ export class ProfileContainer extends Component {
   }
 
   renderProfile() {
-    if (this.props.userIsPending) {
+    if (this.props.isPending) {
       return <Loading />;
     }
 

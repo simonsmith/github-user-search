@@ -18,6 +18,7 @@ describe('Component: SearchResultsContainer', () => {
     it('should not render the pagination or results', () => {
       const component = renderer.create(
         <SearchResultsContainer
+          isPending={true}
           searchTerm={''}
           userEntities={{}}
           userIds={[]}
