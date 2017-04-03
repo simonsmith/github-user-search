@@ -1,8 +1,6 @@
 // @flow
 
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
 } from 'aphrodite/no-important';
@@ -59,14 +57,6 @@ export function SearchResultsContainer(props: Props) {
     </div>
   );
 }
-
-SearchResultsContainer.propTypes = {
-  pagination: PropTypes.object,
-  searchTerm: PropTypes.string.isRequired,
-  totalResults: PropTypes.number.isRequired,
-  userEntities: PropTypes.object.isRequired,
-  userIds: PropTypes.array.isRequired,
-};
 
 SearchResultsContainer.defaultProps = {
   pagination: {},
