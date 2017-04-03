@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: UserInfo should render nothing if all props are null 1`] = `null`;
+
+exports[`Component: UserInfo should render only the props that are present 1`] = `
+<ul>
+  <li
+    className="UserInfo_item_1tdla59 u-flex u-flexAlignItemsCenter"
+  >
+    <svg />
+    <p
+      className="UserInfo_text_f9e8qy"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<a href=\\"http://github.com/cool\\">@cool</a> place",
+        }
+      }
+    />
+  </li>
+  <li
+    className="UserInfo_item_1tdla59 u-flex u-flexAlignItemsCenter"
+  >
+    <svg />
+    <p
+      className="UserInfo_text_f9e8qy"
+    >
+      London
+    </p>
+  </li>
+</ul>
+`;
