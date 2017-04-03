@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Avatar should render 1`] = `
+<div
+  className="Image_e296pg"
+  style={
+    Object {
+      "minHeight": 100,
+    }
+  }
+>
+  <img
+    alt="Simon's avatar"
+    className="Avatar_1pcpsid u-imgResponsive"
+    onLoad={[Function]}
+    src="http://avatar.net&s=600"
+    width={300}
+  />
+  <svg />
+</div>
+`;
