@@ -7,10 +7,12 @@ import {
 import SearchResults from 'components/SearchResults';
 import Pagination from 'components/Pagination';
 import ResultsMessage from 'components/ResultsMessage';
+import Loading from 'components/Loading';
 import Container from 'components/Container';
 import connect from './connect';
 
 type Props = {
+  isPending: boolean,
   pagination: Object,
   searchTerm: string,
   totalResults: number,
@@ -20,6 +22,7 @@ type Props = {
 
 export function SearchResultsContainer(props: Props) {
   const {
+    isPending,
     pagination,
     searchTerm,
     totalResults,
@@ -28,6 +31,10 @@ export function SearchResultsContainer(props: Props) {
   } = props;
 
   if (!searchTerm) {return null;}
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <div>

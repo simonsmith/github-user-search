@@ -9,6 +9,7 @@ describe('SearchConnect: mapStateToProps', () => {
           result: [1, 2, 3],
           totalResults: 10,
           pagination: {},
+          isPending: true,
         },
         entities: {
           users: {

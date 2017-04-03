@@ -9,6 +9,7 @@ export function mapStateToProps(state: Object): Object {
     userIds: get('search.result', state),
     totalResults: get('search.totalResults', state),
     pagination: get('search.pagination', state),
+    isPending: get('search.isPending', state),
   };
 }
 

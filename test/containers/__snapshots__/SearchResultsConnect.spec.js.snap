@@ -2,6 +2,7 @@
 
 exports[`SearchConnect: mapStateToProps when given the state should return relevant properties 1`] = `
 Object {
+  "isPending": true,
   "pagination": Object {},
   "totalResults": 10,
   "userEntities": Object {
