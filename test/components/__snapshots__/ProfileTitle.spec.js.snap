@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ProfileTitle should render 1`] = `
+<div
+  className="u-flex u-flexWrap u-flexAlignItemsBaseline"
+>
+  <h1
+    className="ProfileTitle_name_1oubu48"
+  >
+    Simon
+  </h1>
+  <p
+    className="ProfileTitle_username_irnxte"
+  >
+    <a
+      href="http://simonsmith.io"
+    >
+      @
+      simonsmith
+    </a>
+  </p>
+</div>
+`;
