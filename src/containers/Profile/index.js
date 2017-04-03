@@ -6,12 +6,12 @@ import {
   css,
   StyleSheet,
 } from 'aphrodite/no-important';
-import 'suitcss-utils-flex/lib/flex.css';
 import 'suitcss-utils-flex/lib/flex-sm.css';
 import Container from 'components/Container';
 import Avatar from 'components/Avatar';
 import Bio from 'components/Bio';
 import UserInfo from 'components/UserInfo';
+import Stats from 'components/Stats';
 import ProfileTitle from 'components/ProfileTitle';
 import {viewport} from 'theme';
 import connect from './connect';
@@ -56,7 +56,16 @@ export class ProfileContainer extends Component {
       location,
       login,
       name,
+      public_repos,
+      followers,
+      following,
     } = this.props.userProfile;
+
+    const stats = {
+      Followers: followers,
+      Following: following,
+      Repos: public_repos,
+    };
 
     return (
       <div className={css(styles.Profile_container)}>
@@ -68,7 +77,7 @@ export class ProfileContainer extends Component {
               url={avatar_url}
             />
           </div>
-          <div className="u-sm-flexGrow1">
+          <div className="u-sm-flexGrow1 u-sm-flex u-sm-flexCol">
             <div className={css(styles.Profile_wrapTitle)}>
               <ProfileTitle
                 name={name}
@@ -87,6 +96,9 @@ export class ProfileContainer extends Component {
                 company={company}
                 blog={blog}
               />
+            </div>
+            <div className="u-sm-flexExpandTop">
+              <Stats stats={stats} />
             </div>
           </div>
         </div>

@@ -86,7 +86,7 @@ UserInfo.defaultProps = {
 
 const styles = StyleSheet.create({
   UserInfo_item: {
-    marginBottom: 4,
+    marginBottom: 6,
   },
 
   UserInfo_text: {
