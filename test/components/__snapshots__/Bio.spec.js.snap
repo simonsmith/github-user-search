@@ -4,7 +4,7 @@ exports[`Component: Bio should not render if props is absent 1`] = `null`;
 
 exports[`Component: Bio should render 1`] = `
 <p
-  className="Bio_ib24lp"
+  className="Bio_qh35s3"
   dangerouslySetInnerHTML={
     Object {
       "__html": "This is some bio text with <a href=\\"http://github.com/link\\">@link</a>",

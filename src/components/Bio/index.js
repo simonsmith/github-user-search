@@ -23,7 +23,7 @@ export default function Bio({text}: Props) {
 
 const styles = StyleSheet.create({
   Bio: {
-    fontSize: 18,
+    fontSize: 16,
     lineHeight: 1.3,
   },
 });

@@ -64,12 +64,10 @@ function renderCompany(text: string | null): React$Element<*> | null {
   );
 }
 
-const hasAllNull = every(isNull);
+const allNull = every(isNull);
 
 export default function UserInfo({blog, company, location}: Props) {
-  if (hasAllNull([blog, company, location])) {
-    return null;
-  }
+  if (allNull([blog, company, location])) {return null;}
 
   return (
     <ul>
@@ -88,7 +86,7 @@ UserInfo.defaultProps = {
 
 const styles = StyleSheet.create({
   UserInfo_item: {
-    marginBottom: 5,
+    marginBottom: 4,
   },
 
   UserInfo_text: {

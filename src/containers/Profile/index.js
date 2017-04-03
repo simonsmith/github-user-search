@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
 
   Profile_wrapBio: {
-    marginBottom: 12,
+    marginBottom: 8,
   },
 
   Profile_avatar: {

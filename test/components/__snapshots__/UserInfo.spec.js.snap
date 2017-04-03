@@ -5,7 +5,7 @@ exports[`Component: UserInfo should render nothing if all props are null 1`] = `
 exports[`Component: UserInfo should render only the props that are present 1`] = `
 <ul>
   <li
-    className="UserInfo_item_1tdla59 u-flex u-flexAlignItemsCenter"
+    className="UserInfo_item_o2jk4c u-flex u-flexAlignItemsCenter"
   >
     <svg />
     <p
@@ -18,7 +18,7 @@ exports[`Component: UserInfo should render only the props that are present 1`] =
     />
   </li>
   <li
-    className="UserInfo_item_1tdla59 u-flex u-flexAlignItemsCenter"
+    className="UserInfo_item_o2jk4c u-flex u-flexAlignItemsCenter"
   >
     <svg />
     <p
