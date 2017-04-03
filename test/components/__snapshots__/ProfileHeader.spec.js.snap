@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ProfileHeader should render 1`] = `
+<div
+  className="u-sm-flex"
+>
+  <div
+    className="ProfileHeader_avatar_1ijjnm5"
+  >
+    <div
+      className="Image_e296pg"
+      style={
+        Object {
+          "minHeight": 100,
+        }
+      }
+    >
+      <img
+        alt="name's avatar"
+        className="Avatar_1pcpsid u-imgResponsive"
+        onLoad={[Function]}
+        src="url&s=460"
+        width={230}
+      />
+      <svg />
+    </div>
+  </div>
+  <div
+    className="u-sm-flexGrow1 u-sm-flex u-sm-flexCol"
+  >
+    <div
+      className="ProfileHeader_wrapTitle_1tdla59"
+    >
+      <div
+        className="u-flex u-flexWrap u-flexAlignItemsBaseline"
+      >
+        <h1
+          className="ProfileTitle_name_1oubu48"
+        >
+          name
+        </h1>
+        <p
+          className="ProfileTitle_username_irnxte"
+        >
+          <a
+            href="html_url"
+          >
+            @
+            login
+          </a>
+        </p>
+      </div>
+    </div>
+    <div
+      className="ProfileHeader_wrapBio_1fopc40"
+    >
+      <p
+        className="Bio_qh35s3"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "bio",
+          }
+        }
+      />
+    </div>
+    <div
+      className="ProfileHeader_wrapUserInfo_koa90h"
+    >
+      <ul>
+        <li
+          className="UserInfo_item_1bldfdq u-flex u-flexAlignItemsCenter"
+        >
+          <svg />
+          <p
+            className="UserInfo_text_f9e8qy"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "company",
+              }
+            }
+          />
+        </li>
+        <li
+          className="UserInfo_item_1bldfdq u-flex u-flexAlignItemsCenter"
+        >
+          <svg />
+          <p
+            className="UserInfo_text_f9e8qy"
+          >
+            location
+          </p>
+        </li>
+        <li
+          className="UserInfo_item_1bldfdq u-flex u-flexAlignItemsCenter"
+        >
+          <svg />
+          <p
+            className="UserInfo_text_f9e8qy"
+          >
+            <a
+              href="blog"
+            >
+              blog
+            </a>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="u-sm-flexExpandTop"
+    >
+      <ul
+        className="u-flex"
+      >
+        <li
+          className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+        >
+          <p
+            className="Stats_value_176gzik"
+          >
+            20
+          </p>
+          <p
+            className="Stats_label_f9e8qy"
+          >
+            Followers
+          </p>
+        </li>
+        <li
+          className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+        >
+          <p
+            className="Stats_value_176gzik"
+          >
+            40
+          </p>
+          <p
+            className="Stats_label_f9e8qy"
+          >
+            Following
+          </p>
+        </li>
+        <li
+          className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+        >
+          <p
+            className="Stats_value_176gzik"
+          >
+            12
+          </p>
+          <p
+            className="Stats_label_f9e8qy"
+          >
+            Repos
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
