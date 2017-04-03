@@ -9,7 +9,7 @@ import {
 } from 'aphrodite/no-important';
 import classNames from 'classnames';
 import 'css/utils/img.css';
-import LoadingSpinner from './loading.svg';
+import LoadingSpinner from 'components/Loading/loading.svg';
 
 type Props = {
   minHeight: number,

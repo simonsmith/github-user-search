@@ -6,14 +6,9 @@ import {
   css,
   StyleSheet,
 } from 'aphrodite/no-important';
-import 'suitcss-utils-flex/lib/flex-sm.css';
 import Container from 'components/Container';
-import Avatar from 'components/Avatar';
-import Bio from 'components/Bio';
-import UserInfo from 'components/UserInfo';
-import Stats from 'components/Stats';
-import ProfileTitle from 'components/ProfileTitle';
-import {viewport} from 'theme';
+import ProfileHeader from 'components/ProfileHeader';
+import Loading from 'components/Loading';
 import connect from './connect';
 
 type Props = {
@@ -44,64 +39,12 @@ export class ProfileContainer extends Component {
 
   renderProfile() {
     if (this.props.userIsPending) {
-      return <p>Loading...</p>;
+      return <Loading />;
     }
-
-    const {
-      avatar_url,
-      bio,
-      blog,
-      company,
-      html_url,
-      location,
-      login,
-      name,
-      public_repos,
-      followers,
-      following,
-    } = this.props.userProfile;
-
-    const stats = {
-      Followers: followers,
-      Following: following,
-      Repos: public_repos,
-    };
 
     return (
       <div className={css(styles.Profile_container)}>
-        <div className="u-sm-flex">
-          <div className={css(styles.Profile_avatar)}>
-            <Avatar
-              name={name}
-              width={230}
-              url={avatar_url}
-            />
-          </div>
-          <div className="u-sm-flexGrow1 u-sm-flex u-sm-flexCol">
-            <div className={css(styles.Profile_wrapTitle)}>
-              <ProfileTitle
-                name={name}
-                username={login}
-                userLink={html_url}
-              />
-            </div>
-            <div className={css(styles.Profile_wrapBio)}>
-              <Bio
-                text={bio}
-              />
-            </div>
-            <div className={css(styles.Profile_wrapUserInfo)}>
-              <UserInfo
-                location={location}
-                company={company}
-                blog={blog}
-              />
-            </div>
-            <div className="u-sm-flexExpandTop">
-              <Stats stats={stats} />
-            </div>
-          </div>
-        </div>
+        <ProfileHeader {...this.props.userProfile} />
       </div>
     );
   }
@@ -117,25 +60,12 @@ export class ProfileContainer extends Component {
 }
 
 const styles = StyleSheet.create({
+  Profile_spinner: {
+    marginTop: 25,
+  },
+
   Profile_container: {
     paddingTop: 15,
-  },
-
-  Profile_wrapBio: {
-    marginBottom: 8,
-  },
-
-  Profile_avatar: {
-    marginBottom: 15,
-
-    [viewport.SM]: {
-      marginBottom: 0,
-      marginRight: 20,
-    },
-  },
-
-  Profile_wrapTitle: {
-    marginBottom: 5,
   },
 });
 

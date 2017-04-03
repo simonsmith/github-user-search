@@ -27,4 +27,3 @@ describe('Component: Avatar', () => {
   });
 
 });
-

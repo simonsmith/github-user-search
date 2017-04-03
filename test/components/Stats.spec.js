@@ -29,4 +29,3 @@ describe('Component: Stats', () => {
   });
 
 });
-

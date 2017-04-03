@@ -23,6 +23,7 @@ const pickProfileData = flow(
     'html_url',
     'location',
     'login',
+    'id',
     'name',
     'public_gists',
     'public_repos',
