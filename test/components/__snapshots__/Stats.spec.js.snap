@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Stats should render 1`] = `
+<ul
+  className="u-flex"
+>
+  <li
+    className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+  >
+    <p
+      className="Stats_value_176gzik"
+    >
+      bar
+    </p>
+    <p
+      className="Stats_label_f9e8qy"
+    >
+      Foo
+    </p>
+  </li>
+  <li
+    className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+  >
+    <p
+      className="Stats_value_176gzik"
+    >
+      yo
+    </p>
+    <p
+      className="Stats_label_f9e8qy"
+    >
+      Bla
+    </p>
+  </li>
+</ul>
+`;
