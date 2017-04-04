@@ -63,6 +63,7 @@ export class ProfileContainer extends Component {
         <ProfileHeader {...this.props.userProfile} />
         <div className={`${css(styles.Profile_content)} u-sm-flex`}>
           <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
+            <h2 className={css(styles.Profile_contentTitle)}>Repositories</h2>
             <RepoList
               isPending={repoIsPending}
               entities={repoEntities}
@@ -70,7 +71,7 @@ export class ProfileContainer extends Component {
             />
           </div>
           <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
-            Followers go here
+            <h2 className={css(styles.Profile_contentTitle)}>Followers</h2>
           </div>
         </div>
       </div>
@@ -92,8 +93,14 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
 
+  Profile_contentTitle: {
+    fontSize: 22,
+    fontWeight: 400,
+    marginBottom: 25,
+  },
+
   Profile_content: {
-    paddingTop: 25,
+    paddingTop: 20,
   },
 
   Profile_contentItem: {
