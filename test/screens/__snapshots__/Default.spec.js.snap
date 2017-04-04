@@ -27,13 +27,14 @@ exports[`Screen: DefaultLayout when passed a component should render it in the d
         >
           <div>
             <h1
-              className="Logo_title_5kripx"
+              className="Logo_title_229208"
             >
               <a
-                className="Logo_link_18deiwy"
+                className="Logo_link_18deiwy u-flex"
                 href="/"
                 onClick={[Function]}
               >
+                <svg />
                 GitHub User Search
               </a>
             </h1>

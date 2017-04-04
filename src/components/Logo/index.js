@@ -6,6 +6,8 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
+import 'suitcss-utils-flex/lib/flex.css';
+import GitHubIcon from './mark-github.svg';
 
 export default function Logo() {
   return (
@@ -13,8 +15,13 @@ export default function Logo() {
       <h1 className={css(styles.Logo_title)}>
         <Link
           to="/"
-          className={css(styles.Logo_link)}
+          className={`${css(styles.Logo_link)} u-flex`}
         >
+          <GitHubIcon
+            className={css(styles.Logo_icon)}
+            width={24}
+            height={24}
+          />
           GitHub User Search
         </Link>
       </h1>
@@ -26,8 +33,12 @@ export default function Logo() {
 }
 
 const styles = StyleSheet.create({
+  Logo_icon: {
+    marginRight: 8,
+  },
+
   Logo_title: {
-    fontSize: 28,
+    fontSize: 25,
   },
 
   Logo_link: {
