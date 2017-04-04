@@ -2,7 +2,7 @@
 
 exports[`Component: Loading should render 1`] = `
 <div
-  className="Loading_1ff4tuz u-flex u-flexJustifyCenter u-flexAlignItemsCenter"
+  className="u-flex u-flexJustifyCenter u-flexAlignItemsCenter"
 >
   <svg />
 </div>
