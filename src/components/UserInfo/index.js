@@ -10,7 +10,7 @@ import isNull from 'lodash/fp/isNull';
 import every from 'lodash/fp/every';
 import linkify from 'util/linkify';
 import LocationIcon from './location.svg';
-import CompanyIcon from './company.svg';
+import CompanyIcon from './organization.svg';
 import LinkIcon from './link.svg';
 
 type Props = {
@@ -23,8 +23,8 @@ function renderIcon(Icon: any): React$Element<*> {
   return (
     <Icon
       className={css(styles.UserInfo_icon)}
-      width={20}
-      height={20}
+      width={18}
+      height={18}
     />
   );
 }
@@ -94,6 +94,6 @@ const styles = StyleSheet.create({
   },
 
   UserInfo_icon: {
-    marginRight: 5,
+    marginRight: 7,
   },
 });
