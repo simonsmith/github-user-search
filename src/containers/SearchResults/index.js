@@ -58,7 +58,7 @@ export function SearchResultsContainer(props: Props) {
           total={totalResults}
         />
       </Container>
-      <Container>
+      <Container rootStyle={styles.SearchResultsContainer_pagination}>
         <Pagination {...pagination} />
       </Container>
     </div>
@@ -72,6 +72,10 @@ SearchResultsContainer.defaultProps = {
 
 const styles = StyleSheet.create({
   SearchResultsContainer_results: {
+    marginTop: 15,
+  },
+
+  SearchResultsContainer_pagination: {
     marginTop: 15,
   },
 
