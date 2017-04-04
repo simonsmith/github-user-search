@@ -8,13 +8,19 @@ import {
 } from 'aphrodite/no-important';
 import Container from 'components/Container';
 import ProfileHeader from 'components/ProfileHeader';
+import RepoList from 'components/RepoList';
 import Loading from 'components/Loading';
+import {viewport} from 'theme';
+import 'suitcss-utils-flex/lib/flex-sm.css';
 import connect from './connect';
 
 type Props = {
   getProfile: Function,
-  isPending: boolean,
+  userIsPending: boolean,
   userProfile: Object,
+  repoEntities: Object,
+  repoIds: array<number>,
+  repoIsPending: boolean,
 };
 
 const getUsername = get('match.params.username');
@@ -38,17 +44,35 @@ export class ProfileContainer extends Component {
   }
 
   renderProfile() {
-    if (this.props.isPending) {
+    if (this.props.userIsPending) {
       return (
         <div className={css(styles.Profile_wrapLoading)}>
-          <Loading />;
+          <Loading />
         </div>
       );
     }
 
+    const {
+      repoIsPending,
+      repoEntities,
+      repoIds,
+    } = this.props;
+
     return (
       <div className={css(styles.Profile_container)}>
         <ProfileHeader {...this.props.userProfile} />
+        <div className={`${css(styles.Profile_content)} u-sm-flex`}>
+          <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
+            <RepoList
+              isPending={repoIsPending}
+              entities={repoEntities}
+              ids={repoIds}
+            />
+          </div>
+          <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
+            Followers go here
+          </div>
+        </div>
       </div>
     );
   }
@@ -66,6 +90,17 @@ export class ProfileContainer extends Component {
 const styles = StyleSheet.create({
   Profile_wrapLoading: {
     marginTop: 25,
+  },
+
+  Profile_content: {
+    paddingTop: 25,
+  },
+
+  Profile_contentItem: {
+    [viewport.SM]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+    },
   },
 
   Profile_container: {
