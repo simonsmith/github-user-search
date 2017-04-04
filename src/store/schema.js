@@ -4,10 +4,9 @@ import pick from 'lodash/fp/pick';
 const pickRepoData = pick([
   'description',
   'fork',
-  'full_name',
   'html_url',
-  'id',
   'language',
+  'updated_at',
   'name',
   'stargazers_count',
   'watchers_count',

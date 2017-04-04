@@ -30,11 +30,9 @@ Object {
     "entities": Object {
       "repos": Object {
         "1": Object {
-          "id": 1,
           "name": "test",
         },
         "2": Object {
-          "id": 2,
           "name": "hello",
         },
       },
