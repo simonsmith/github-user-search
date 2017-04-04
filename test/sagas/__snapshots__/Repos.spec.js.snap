@@ -14,7 +14,7 @@ Object {
     "repos.net",
     Object {
       "params": Object {
-        "per_page": 6,
+        "per_page": 8,
         "sort": "pushed",
       },
     },
