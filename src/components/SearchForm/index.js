@@ -80,7 +80,7 @@ class SearchForm extends Component {
           className={css(styles.SearchForm_btn)}
           type="submit"
         >
-          <SearchIcon width={20} height={20} />
+          <SearchIcon width={22} height={24} />
           <span className="u-hiddenVisually">Submit</span>
         </button>
       </form>

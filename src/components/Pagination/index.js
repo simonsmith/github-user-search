@@ -10,8 +10,8 @@ import {
 } from 'aphrodite/no-important';
 import classNames from 'classnames';
 import 'suitcss-utils-flex/lib/flex.css';
-import NextIcon from './next.svg';
-import PrevIcon from './prev.svg';
+import NextIcon from './arrow-right.svg';
+import PrevIcon from './arrow-left.svg';
 
 type Props = {
   next: Object,
@@ -23,7 +23,7 @@ const getSearchQuery = flow(
   first
 );
 
-function renderLink({url, extraClassName, rel, text, icon}: Object) {
+function renderLink({url, extraClassName, rel, text, icon: Icon}: Object) {
   if (!url) {return null;}
   const search = getSearchQuery(url);
 
@@ -41,7 +41,7 @@ function renderLink({url, extraClassName, rel, text, icon}: Object) {
       rel={rel}
     >
       <span>{text}</span>
-      {icon}
+      <Icon width={40} height={40} />
     </Link>
   );
 }
@@ -52,7 +52,7 @@ function Pagination({prev, next}: Props) {
     extraClassName: 'u-flexRowReverse u-flexExpandRight',
     rel: 'prev',
     text: 'Previous',
-    icon: <PrevIcon width={30} height={70} />,
+    icon: PrevIcon,
   });
 
   const nextLink = renderLink({
@@ -60,7 +60,7 @@ function Pagination({prev, next}: Props) {
     extraClassName: 'u-flexExpandLeft',
     rel: 'next',
     text: 'Next',
-    icon: <NextIcon width={30} height={70} />,
+    icon: NextIcon,
   });
 
   return (
