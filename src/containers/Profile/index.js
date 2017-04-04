@@ -39,7 +39,11 @@ export class ProfileContainer extends Component {
 
   renderProfile() {
     if (this.props.isPending) {
-      return <Loading />;
+      return (
+        <div className={css(styles.Profile_wrapLoading)}>
+          <Loading />;
+        </div>
+      );
     }
 
     return (
@@ -60,7 +64,7 @@ export class ProfileContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-  Profile_spinner: {
+  Profile_wrapLoading: {
     marginTop: 25,
   },
 
