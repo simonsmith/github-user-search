@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {
+  css,
   StyleSheet,
 } from 'aphrodite/no-important';
 import SearchResults from 'components/SearchResults';
@@ -13,7 +14,7 @@ import connect from './connect';
 
 type Props = {
   isPending: boolean,
-  pagination: Object,
+  pagination: ?Object,
   searchTerm: string,
   totalResults: number,
   userEntities: Object,
@@ -33,7 +34,11 @@ export function SearchResultsContainer(props: Props) {
   if (!searchTerm) {return null;}
 
   if (isPending) {
-    return <Loading />;
+    return (
+      <div className={css(styles.SearchResultsContainer_wrapLoading)}>
+        <Loading />
+      </div>
+    );
   }
 
   return (
@@ -71,6 +76,10 @@ SearchResultsContainer.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  SearchResultsContainer_wrapLoading: {
+    marginTop: 25,
+  },
+
   SearchResultsContainer_item: {
     marginTop: 15,
   },
