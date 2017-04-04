@@ -21,6 +21,7 @@ Object {
 
 exports[`Reducer: entities when passed no state should return the initial state 1`] = `
 Object {
+  "repos": Object {},
   "users": Object {},
 }
 `;

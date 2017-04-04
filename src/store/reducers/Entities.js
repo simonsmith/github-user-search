@@ -6,6 +6,7 @@ import get from 'lodash/fp/get';
 
 const initialState = {
   users: {},
+  repos: {},
 };
 
 export default function entitiesReducer(state: Object = initialState, action: Object) {
