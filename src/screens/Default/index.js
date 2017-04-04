@@ -48,16 +48,28 @@ const renderRoute = curry((Component, matchProps) => {
   );
 });
 
-function DefaultLayout({
-  component: Component,
-  ...restProps
-}: Props) {
-  return (
-    <Route
-      {...restProps}
-      render={renderRoute(Component)}
-    />
-  );
+class DefaultLayout extends React.Component {
+
+  props: Props;
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
+
+  render() {
+    const {
+      component: Component,
+      ...restProps
+    } = this.props;
+
+    return (
+      <Route
+        {...restProps}
+        render={renderRoute(Component)}
+      />
+    );
+
+  }
 }
 
 const styles = StyleSheet.create({
