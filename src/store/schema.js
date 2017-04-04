@@ -9,7 +9,7 @@ const pickRepoData = pick([
   'updated_at',
   'name',
   'stargazers_count',
-  'watchers_count',
+  'forks_count',
 ]);
 const pickUserData = pick([
   'login',
