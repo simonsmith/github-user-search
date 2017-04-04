@@ -39,7 +39,7 @@ export function SearchResultsContainer(props: Props) {
   return (
     <div>
       <Container
-        rootStyle={styles.SearchResultsContainer_message}
+        rootStyle={styles.SearchResultsContainer_item}
       >
         <ResultsMessage
           searchTerm={searchTerm}
@@ -49,7 +49,7 @@ export function SearchResultsContainer(props: Props) {
       </Container>
       <Container
         noGutter={true}
-        rootStyle={styles.SearchResultsContainer_results}
+        rootStyle={styles.SearchResultsContainer_item}
       >
         <SearchResults
           searchTerm={searchTerm}
@@ -58,7 +58,7 @@ export function SearchResultsContainer(props: Props) {
           total={totalResults}
         />
       </Container>
-      <Container rootStyle={styles.SearchResultsContainer_pagination}>
+      <Container rootStyle={styles.SearchResultsContainer_item}>
         <Pagination {...pagination} />
       </Container>
     </div>
@@ -71,15 +71,7 @@ SearchResultsContainer.defaultProps = {
 };
 
 const styles = StyleSheet.create({
-  SearchResultsContainer_results: {
-    marginTop: 15,
-  },
-
-  SearchResultsContainer_pagination: {
-    marginTop: 15,
-  },
-
-  SearchResultsContainer_message: {
+  SearchResultsContainer_item: {
     marginTop: 15,
   },
 });
