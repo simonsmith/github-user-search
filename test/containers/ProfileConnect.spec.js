@@ -28,9 +28,11 @@ describe('ProfileConnect: mapStateToProps', () => {
       const state = {
         repos: {
           result: [1, 2, 3],
+          isPending: false,
         },
         followers: {
           result: [4, 5, 6],
+          isPending: false,
         },
         profile: {
           userProfile: {},

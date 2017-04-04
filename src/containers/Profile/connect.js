@@ -5,12 +5,14 @@ import get from 'lodash/fp/get';
 
 export function mapStateToProps(state: Object): Object {
   return {
-    userEntities: get('entities.users', state),
+    followerIds: get('followers.result', state),
+    followerIsPending: get('followers.isPending', state),
+    repoIsPending: get('repos.isPending', state),
     repoEntities: get('entities.repos', state),
     repoIds: get('repos.result', state),
-    isPending: get('profile.isPending', state),
+    userEntities: get('entities.users', state),
+    userIsPending: get('profile.isPending', state),
     userProfile: get('profile.userProfile', state),
-    followerIds: get('followers.result', state),
   };
 }
 
