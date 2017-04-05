@@ -2,39 +2,42 @@
 
 exports[`Component: SearchResults when given a one result should render a correctly worded message 1`] = `
 <ul
-  className="SearchResults_1uxrx9c u-flex u-flexWrap"
+  className="SearchResults_1uxrx9c u-sm-flex u-sm-flexWrap"
 >
   <li
-    className="SearchResults_item_18h06t4 u-flexGrow1 u-flexBasisAuto"
+    className="SearchResults_item_pbd0xm"
   >
     <a
-      className="Result_1ir07ge"
+      className="u-flex"
       href="/foo"
       onClick={[Function]}
     >
       <div
-        className="Image_e296pg"
-        style={
-          Object {
-            "minHeight": 60,
-          }
-        }
+        className="User_wrapAvatar_3afm6b"
       >
-        <img
-          alt="foo"
-          className="Result_img_gt20ua u-imgResponsive"
-          height={140}
-          onLoad={[Function]}
-          src="avatar.jpg&s=225"
-          width={140}
-        />
-        <svg />
+        <div
+          className="Image_e296pg"
+          style={
+            Object {
+              "minHeight": 60,
+            }
+          }
+        >
+          <img
+            alt="foo's avatar"
+            className="Avatar_1pcpsid u-imgResponsive"
+            onLoad={[Function]}
+            src="avatar.jpg&s=180"
+            width={90}
+          />
+          <svg />
+        </div>
       </div>
       <div
-        className="Result_userInfo_1xrl7m3 userinfo"
+        className=""
       >
         <p
-          className="Result_username_nha6dw"
+          className="User_username_rnfkwd"
         >
           foo
         </p>
@@ -46,39 +49,42 @@ exports[`Component: SearchResults when given a one result should render a correc
 
 exports[`Component: SearchResults when given a set of results and entities should render them with a message 1`] = `
 <ul
-  className="SearchResults_1uxrx9c u-flex u-flexWrap"
+  className="SearchResults_1uxrx9c u-sm-flex u-sm-flexWrap"
 >
   <li
-    className="SearchResults_item_18h06t4 u-flexGrow1 u-flexBasisAuto"
+    className="SearchResults_item_pbd0xm"
   >
     <a
-      className="Result_1ir07ge"
+      className="u-flex"
       href="/foo"
       onClick={[Function]}
     >
       <div
-        className="Image_e296pg"
-        style={
-          Object {
-            "minHeight": 60,
-          }
-        }
+        className="User_wrapAvatar_3afm6b"
       >
-        <img
-          alt="foo"
-          className="Result_img_gt20ua u-imgResponsive"
-          height={140}
-          onLoad={[Function]}
-          src="avatar.jpg&s=225"
-          width={140}
-        />
-        <svg />
+        <div
+          className="Image_e296pg"
+          style={
+            Object {
+              "minHeight": 60,
+            }
+          }
+        >
+          <img
+            alt="foo's avatar"
+            className="Avatar_1pcpsid u-imgResponsive"
+            onLoad={[Function]}
+            src="avatar.jpg&s=180"
+            width={90}
+          />
+          <svg />
+        </div>
       </div>
       <div
-        className="Result_userInfo_1xrl7m3 userinfo"
+        className=""
       >
         <p
-          className="Result_username_nha6dw"
+          className="User_username_rnfkwd"
         >
           foo
         </p>
@@ -86,36 +92,39 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     </a>
   </li>
   <li
-    className="SearchResults_item_18h06t4 u-flexGrow1 u-flexBasisAuto"
+    className="SearchResults_item_pbd0xm"
   >
     <a
-      className="Result_1ir07ge"
+      className="u-flex"
       href="/foobar"
       onClick={[Function]}
     >
       <div
-        className="Image_e296pg"
-        style={
-          Object {
-            "minHeight": 60,
-          }
-        }
+        className="User_wrapAvatar_3afm6b"
       >
-        <img
-          alt="foobar"
-          className="Result_img_gt20ua u-imgResponsive"
-          height={140}
-          onLoad={[Function]}
-          src="avatar.jpg&s=225"
-          width={140}
-        />
-        <svg />
+        <div
+          className="Image_e296pg"
+          style={
+            Object {
+              "minHeight": 60,
+            }
+          }
+        >
+          <img
+            alt="foobar's avatar"
+            className="Avatar_1pcpsid u-imgResponsive"
+            onLoad={[Function]}
+            src="avatar.jpg&s=180"
+            width={90}
+          />
+          <svg />
+        </div>
       </div>
       <div
-        className="Result_userInfo_1xrl7m3 userinfo"
+        className=""
       >
         <p
-          className="Result_username_nha6dw"
+          className="User_username_rnfkwd"
         >
           foobar
         </p>
@@ -127,6 +136,6 @@ exports[`Component: SearchResults when given a set of results and entities shoul
 
 exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
 <ul
-  className="SearchResults_1uxrx9c u-flex u-flexWrap"
+  className="SearchResults_1uxrx9c u-sm-flex u-sm-flexWrap"
 />
 `;

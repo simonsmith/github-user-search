@@ -7,9 +7,9 @@ import {
   StyleSheet,
   css,
 } from 'aphrodite/no-important';
-import Result from 'components/Result';
+import User from 'components/User';
 import {viewport} from 'theme';
-import 'suitcss-utils-flex/lib/flex.css';
+import 'suitcss-utils-flex/lib/flex-sm.css';
 
 type Props = {
   entities: Object,
@@ -19,22 +19,17 @@ type Props = {
 const renderSearchResult = curry((entities, item) => {
   const {
     id,
-    avatar_url: avatarUrl,
-    login,
   } = entities[item];
   return (
-    <li key={id} className={`${css(styles.SearchResults_item)} u-flexGrow1 u-flexBasisAuto`}>
-      <Result
-        username={login}
-        avatarUrl={avatarUrl}
-      />
+    <li key={id} className={`${css(styles.SearchResults_item)}`}>
+      <User {...entities[id]} />
     </li>
   );
 });
 
 function SearchResults({entities, ids}: Props) {
   return (
-    <ul className={`${css(styles.SearchResults)} u-flex u-flexWrap`}>
+    <ul className={`${css(styles.SearchResults)} u-sm-flex u-sm-flexWrap`}>
       {map(renderSearchResult(entities), ids)}
     </ul>
   );
@@ -46,13 +41,10 @@ const styles = StyleSheet.create({
   },
 
   SearchResults_item: {
-    marginRight: 3,
-    marginBottom: 3,
+    marginBottom: 10,
 
     [viewport.SM]: {
-      ':only-child': {
-        flex: 0,
-      },
+      flexBasis: 'calc(100% / 3)',
     },
   },
 });
