@@ -16,7 +16,10 @@ type Props = {
 
 export default function User({login, avatar_url}: Props) {
   return (
-    <Link to={login} className="u-flex">
+    <Link
+      to={login}
+      className={`${css(styles.User)} u-flex`}
+    >
       <div className={css(styles.User_wrapAvatar)}>
         <Avatar
           url={avatar_url}
@@ -32,6 +35,10 @@ export default function User({login, avatar_url}: Props) {
 }
 
 const styles = StyleSheet.create({
+  User: {
+    color: 'inherit',
+  },
+
   User_wrapAvatar: {
     marginRight: 15,
   },

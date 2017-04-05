@@ -2,7 +2,7 @@
 
 exports[`Component: User should render 1`] = `
 <a
-  className="u-flex"
+  className="User_abw475 u-flex"
   href="/simon"
   onClick={[Function]}
 >

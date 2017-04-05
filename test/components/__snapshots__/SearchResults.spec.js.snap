@@ -8,7 +8,7 @@ exports[`Component: SearchResults when given a one result should render a correc
     className="SearchResults_item_pbd0xm"
   >
     <a
-      className="u-flex"
+      className="User_abw475 u-flex"
       href="/foo"
       onClick={[Function]}
     >
@@ -55,7 +55,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     className="SearchResults_item_pbd0xm"
   >
     <a
-      className="u-flex"
+      className="User_abw475 u-flex"
       href="/foo"
       onClick={[Function]}
     >
@@ -95,7 +95,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     className="SearchResults_item_pbd0xm"
   >
     <a
-      className="u-flex"
+      className="User_abw475 u-flex"
       href="/foobar"
       onClick={[Function]}
     >
