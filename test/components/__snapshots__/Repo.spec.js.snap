@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Repo should not render anything for optional data items 1`] = `
+<div>
+  <p
+    className="Repo_name_y4kf6o u-flex u-flexAlignItemsBaseline"
+  >
+    <a
+      href="https://github.com"
+    >
+      some repo
+    </a>
+  </p>
+  <div
+    className="Repo_footer_de3o52 u-flex u-flexWrap u-flexAlignItemsCenter"
+  >
+    <div
+      className="Repo_footerItem_vaj62s u-flex u-flexAlignItemsCenter"
+    >
+      <svg />
+      <p>
+        10
+      </p>
+    </div>
+    <div
+      className="Repo_footerItem_vaj62s u-flex u-flexAlignItemsCenter"
+    >
+      <svg />
+      <p>
+        2
+      </p>
+    </div>
+    <p
+      className="u-sm-flexExpandLeft"
+    >
+      updated 
+      3 days
+       ago
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Component: Repo should render all data items 1`] = `
+<div>
+  <p
+    className="Repo_name_y4kf6o u-flex u-flexAlignItemsBaseline"
+  >
+    <a
+      href="https://github.com"
+    >
+      some repo
+    </a>
+    <span
+      className="Repo_fork_1im0xn8"
+    >
+      (fork)
+    </span>
+  </p>
+  <p
+    className="Repo_desc_ylvipy"
+  >
+    A description
+  </p>
+  <div
+    className="Repo_footer_de3o52 u-flex u-flexWrap u-flexAlignItemsCenter"
+  >
+    <p
+      className="Repo_footerItem_vaj62s"
+    >
+      JS
+    </p>
+    <div
+      className="Repo_footerItem_vaj62s u-flex u-flexAlignItemsCenter"
+    >
+      <svg />
+      <p>
+        10
+      </p>
+    </div>
+    <div
+      className="Repo_footerItem_vaj62s u-flex u-flexAlignItemsCenter"
+    >
+      <svg />
+      <p>
+        2
+      </p>
+    </div>
+    <p
+      className="u-sm-flexExpandLeft"
+    >
+      updated 
+      3 days
+       ago
+    </p>
+  </div>
+</div>
+`;
