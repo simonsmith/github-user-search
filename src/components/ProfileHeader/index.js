@@ -10,7 +10,7 @@ import {
 import 'suitcss-utils-flex/lib/flex-sm.css';
 import Avatar from 'components/Avatar';
 import Bio from 'components/Bio';
-import UserInfo from 'components/UserInfo';
+import ProfileInfo from 'components/ProfileInfo';
 import Stats from 'components/Stats';
 import ProfileTitle from 'components/ProfileTitle';
 import {viewport} from 'theme';
@@ -82,7 +82,7 @@ export default class ProfileHeader extends Component {
             />
           </div>
           <div className={css(styles.ProfileHeader_wrapUserInfo)}>
-            <UserInfo
+            <ProfileInfo
               location={location}
               company={company}
               blog={blog}

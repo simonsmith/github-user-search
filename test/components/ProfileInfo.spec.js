@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import {
   StyleSheetTestUtils,
 } from 'aphrodite';
-import UserInfo from 'components/UserInfo';
+import ProfileInfo from 'components/ProfileInfo';
 
 describe('Component: UserInfo', () => {
 
@@ -17,7 +17,7 @@ describe('Component: UserInfo', () => {
 
   it('should render only the props that are present', () => {
     const component = renderer.create(
-      <UserInfo
+      <ProfileInfo
         company="@cool place"
         location="London"
       />
@@ -27,7 +27,7 @@ describe('Component: UserInfo', () => {
 
   it('should render nothing if all props are null', () => {
     const component = renderer.create(
-      <UserInfo
+      <ProfileInfo
         blog={null}
         location={null}
         company={null}
