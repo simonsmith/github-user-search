@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: User should render 1`] = `
+<a
+  className="u-flex"
+  href="/simon"
+  onClick={[Function]}
+>
+  <div
+    className="User_wrapAvatar_3afm6b"
+  >
+    <div
+      className="Image_e296pg"
+      style={
+        Object {
+          "minHeight": 60,
+        }
+      }
+    >
+      <img
+        alt="simon's avatar"
+        className="Avatar_1pcpsid u-imgResponsive"
+        onLoad={[Function]}
+        src="url&s=180"
+        width={90}
+      />
+      <svg />
+    </div>
+  </div>
+  <div
+    className=""
+  >
+    <p
+      className="User_username_rnfkwd"
+    >
+      simon
+    </p>
+  </div>
+</a>
+`;
