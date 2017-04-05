@@ -8,19 +8,24 @@ import {
 } from 'aphrodite/no-important';
 import Container from 'components/Container';
 import ProfileHeader from 'components/ProfileHeader';
-import RepoList from 'components/RepoList';
+import ItemList from 'components/ItemList';
+import User from 'components/User';
+import Repo from 'components/Repo';
 import Loading from 'components/Loading';
 import {viewport} from 'theme';
 import 'suitcss-utils-flex/lib/flex-sm.css';
 import connect from './connect';
 
 type Props = {
+  followerIds: Array<number>,
+  followerIsPending: boolean,
   getProfile: Function,
   userIsPending: boolean,
   userProfile: Object,
   repoEntities: Object,
-  repoIds: array<number>,
+  repoIds: Array<number>,
   repoIsPending: boolean,
+  userEntities: Object,
 };
 
 const getUsername = get('match.params.username');
@@ -56,6 +61,9 @@ export class ProfileContainer extends Component {
       repoIsPending,
       repoEntities,
       repoIds,
+      followerIds,
+      followerIsPending,
+      userEntities,
     } = this.props;
 
     return (
@@ -64,14 +72,21 @@ export class ProfileContainer extends Component {
         <div className={`${css(styles.Profile_content)} u-sm-flex`}>
           <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
             <h2 className={css(styles.Profile_contentTitle)}>Repositories</h2>
-            <RepoList
-              isPending={repoIsPending}
+            <ItemList
               entities={repoEntities}
               ids={repoIds}
+              isPending={repoIsPending}
+              component={Repo}
             />
           </div>
           <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
             <h2 className={css(styles.Profile_contentTitle)}>Followers</h2>
+            <ItemList
+              entities={userEntities}
+              ids={followerIds}
+              isPending={followerIsPending}
+              component={User}
+            />
           </div>
         </div>
       </div>
