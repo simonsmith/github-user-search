@@ -12,6 +12,7 @@ import ItemList from 'components/ItemList';
 import User from 'components/User';
 import Repo from 'components/Repo';
 import Loading from 'components/Loading';
+import {viewport} from 'theme';
 import 'suitcss-utils-flex/lib/flex-sm.css';
 import 'suitcss-utils-size/lib/size-sm.css';
 import 'suitcss-components-grid';
@@ -71,7 +72,7 @@ export class ProfileContainer extends Component {
       <div className={css(styles.Profile_container)}>
         <ProfileHeader {...this.props.userProfile} />
         <div className={`${css(styles.Profile_content)} Grid Grid--withGutter`}>
-          <div className="Grid-cell u-sm-size1of2">
+          <div className={`${css(styles.Profile_repos)} Grid-cell u-sm-size1of2`}>
             <h2 className={css(styles.Profile_contentTitle)}>Repositories</h2>
             <ItemList
               entities={repoEntities}
@@ -107,6 +108,14 @@ export class ProfileContainer extends Component {
 const styles = StyleSheet.create({
   Profile_wrapLoading: {
     marginTop: 25,
+  },
+
+  Profile_repos: {
+    marginBottom: 20,
+
+    [viewport.SM]: {
+      marginBottom: 0,
+    },
   },
 
   Profile_contentTitle: {
