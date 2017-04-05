@@ -26,7 +26,7 @@ class Image extends Component {
   state: State;
 
   static defaultProps = {
-    minHeight: 100,
+    minHeight: 60,
   };
 
   constructor(props: Props) {
