@@ -12,8 +12,9 @@ import ItemList from 'components/ItemList';
 import User from 'components/User';
 import Repo from 'components/Repo';
 import Loading from 'components/Loading';
-import {viewport} from 'theme';
 import 'suitcss-utils-flex/lib/flex-sm.css';
+import 'suitcss-utils-size/lib/size-sm.css';
+import 'suitcss-components-grid';
 import connect from './connect';
 
 type Props = {
@@ -69,8 +70,8 @@ export class ProfileContainer extends Component {
     return (
       <div className={css(styles.Profile_container)}>
         <ProfileHeader {...this.props.userProfile} />
-        <div className={`${css(styles.Profile_content)} u-sm-flex`}>
-          <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
+        <div className={`${css(styles.Profile_content)} Grid Grid--withGutter`}>
+          <div className="Grid-cell u-sm-size1of2">
             <h2 className={css(styles.Profile_contentTitle)}>Repositories</h2>
             <ItemList
               entities={repoEntities}
@@ -79,7 +80,7 @@ export class ProfileContainer extends Component {
               component={Repo}
             />
           </div>
-          <div className={`${css(styles.Profile_contentItem)} u-sm-flexGrow1`}>
+          <div className="Grid-cell u-sm-size1of2">
             <h2 className={css(styles.Profile_contentTitle)}>Followers</h2>
             <ItemList
               entities={userEntities}
@@ -116,13 +117,6 @@ const styles = StyleSheet.create({
 
   Profile_content: {
     paddingTop: 20,
-  },
-
-  Profile_contentItem: {
-    [viewport.SM]: {
-      paddingLeft: 10,
-      paddingRight: 10,
-    },
   },
 
   Profile_container: {
