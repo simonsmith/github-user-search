@@ -14,7 +14,11 @@ module.exports = {
     plugins() {
       return [
         atImport,
-        customProperties,
+        customProperties({
+          variables: {
+            'Grid-gutter-size': '35px',
+          },
+        }),
         customMedia({
           extensions: {
             '--sm-viewport': extractMediaQuery(viewport.SM),
