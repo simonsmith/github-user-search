@@ -5483,6 +5483,10 @@ suitcss-base@^2.0.0:
   dependencies:
     normalize.css "^4.0.0"
 
+suitcss-components-grid@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/suitcss-components-grid/-/suitcss-components-grid-3.0.3.tgz#52e0b03659ceace60add000135b57a78b328c303"
+
 suitcss-utils-display@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/suitcss-utils-display/-/suitcss-utils-display-1.0.2.tgz#cb6a4e756eab9aefb149f3e4618c76d02bbab47f"
@@ -5490,6 +5494,10 @@ suitcss-utils-display@^1.0.2:
 suitcss-utils-flex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/suitcss-utils-flex/-/suitcss-utils-flex-2.0.0.tgz#c0618dbd112891720b9c7f92a4200015f2909b02"
+
+suitcss-utils-size@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/suitcss-utils-size/-/suitcss-utils-size-2.0.0.tgz#c5816b5435bf1dc2f105a0bb17966a6c6e138784"
 
 supports-color@^2.0.0:
   version "2.0.0"
