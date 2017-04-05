@@ -40,6 +40,10 @@ export default function ItemList(props: Props) {
     );
   }
 
+  if (ids.length === 0) {
+    return <p>No items to display</p>;
+  }
+
   return (
     <ul>
       {map(renderListItem(entities, Component), ids)}

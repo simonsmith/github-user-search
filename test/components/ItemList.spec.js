@@ -40,6 +40,18 @@ describe('Component: ItemList', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('should display a message when no items exist', () => {
+    const component = renderer.create(
+      <ItemList
+        entities={{}}
+        ids={[]}
+        isPending={false}
+        component={FakeComponent}
+      />
+    );
+    expect(component).toMatchSnapshot();
+  });
+
   it('should render a Loading component when isPending', () => {
     const component = renderer.create(
       <ItemList
