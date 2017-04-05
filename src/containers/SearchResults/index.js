@@ -42,31 +42,31 @@ export function SearchResultsContainer(props: Props) {
   }
 
   return (
-    <div>
-      <Container
-        rootStyle={styles.SearchResultsContainer_item}
+    <Container>
+      <div
+        className={css(
+          styles.SearchResultsContainer_item,
+          styles.SearchResultsContainer_wrapResultsMessage
+        )}
       >
         <ResultsMessage
           searchTerm={searchTerm}
           resultsTotal={totalResults}
           pageTotal={userIds.length}
         />
-      </Container>
-      <Container
-        noGutter={true}
-        rootStyle={styles.SearchResultsContainer_item}
-      >
+      </div>
+      <div className={css(styles.SearchResultsContainer_item)}>
         <SearchResults
           searchTerm={searchTerm}
           ids={userIds}
           entities={userEntities}
           total={totalResults}
         />
-      </Container>
-      <Container rootStyle={styles.SearchResultsContainer_item}>
+      </div>
+      <div className={css(styles.SearchResultsContainer_item)}>
         <Pagination {...pagination} />
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }
 
@@ -76,6 +76,10 @@ SearchResultsContainer.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  SearchResultsContainer_wrapResultsMessage: {
+    marginBottom: 30,
+  },
+
   SearchResultsContainer_wrapLoading: {
     marginTop: 25,
   },
