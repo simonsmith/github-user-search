@@ -11,7 +11,7 @@ exports[`Component: ProfileHeader should render 1`] = `
       className="Image_e296pg"
       style={
         Object {
-          "minHeight": 100,
+          "minHeight": 60,
         }
       }
     >
