@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 
   SearchResults_item: {
-    marginBottom: 10,
+    marginBottom: 15,
 
     [viewport.SM]: {
       flexBasis: 'calc(100% / 3)',

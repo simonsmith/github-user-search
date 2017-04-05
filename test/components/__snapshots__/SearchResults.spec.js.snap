@@ -5,7 +5,7 @@ exports[`Component: SearchResults when given a one result should render a correc
   className="SearchResults_1uxrx9c u-sm-flex u-sm-flexWrap"
 >
   <li
-    className="SearchResults_item_pbd0xm"
+    className="SearchResults_item_1mclqe7"
   >
     <a
       className="User_abw475 u-flex"
@@ -52,7 +52,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
   className="SearchResults_1uxrx9c u-sm-flex u-sm-flexWrap"
 >
   <li
-    className="SearchResults_item_pbd0xm"
+    className="SearchResults_item_1mclqe7"
   >
     <a
       className="User_abw475 u-flex"
@@ -92,7 +92,7 @@ exports[`Component: SearchResults when given a set of results and entities shoul
     </a>
   </li>
   <li
-    className="SearchResults_item_pbd0xm"
+    className="SearchResults_item_1mclqe7"
   >
     <a
       className="User_abw475 u-flex"
