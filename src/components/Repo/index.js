@@ -19,7 +19,7 @@ type Props = {
   language: string | null,
   name: string,
   stargazers_count: number,
-  updated_at: string,
+  pushed_at: string,
   forks_count: number,
 };
 
@@ -44,11 +44,11 @@ export default function Repo(props: Props) {
     language,
     name,
     stargazers_count,
-    updated_at,
+    pushed_at,
     forks_count,
   } = props;
 
-  const updatedDate = distanceInWords(parse(updated_at), new Date());
+  const pushedDate = distanceInWords(parse(pushed_at), new Date());
 
   return (
     <div>
@@ -70,7 +70,7 @@ export default function Repo(props: Props) {
         }
         {renderFooterItem(StarIcon, stargazers_count)}
         {renderFooterItem(ForkIcon, forks_count)}
-        <p className="u-sm-flexExpandLeft">updated {updatedDate} ago</p>
+        <p className="u-sm-flexExpandLeft">last push {pushedDate} ago</p>
       </div>
     </div>
   );

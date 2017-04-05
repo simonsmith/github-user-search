@@ -33,7 +33,7 @@ exports[`Component: Repo should not render anything for optional data items 1`] 
     <p
       className="u-sm-flexExpandLeft"
     >
-      updated 
+      last push 
       3 days
        ago
     </p>
@@ -89,7 +89,7 @@ exports[`Component: Repo should render all data items 1`] = `
     <p
       className="u-sm-flexExpandLeft"
     >
-      updated 
+      last push 
       3 days
        ago
     </p>

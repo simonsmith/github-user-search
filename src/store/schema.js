@@ -6,7 +6,7 @@ const pickRepoData = pick([
   'fork',
   'html_url',
   'language',
-  'updated_at',
+  'pushed_at',
   'name',
   'stargazers_count',
   'forks_count',

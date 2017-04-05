@@ -28,7 +28,7 @@ describe('Component: Repo', () => {
         language="JS"
         name="some repo"
         stargazers_count={10}
-        updated_at="2017-04-01T09:00:00Z"
+        pushed_at="2017-04-01T09:00:00Z"
         forks_count={2}
       />
     );
@@ -42,7 +42,7 @@ describe('Component: Repo', () => {
         html_url="https://github.com"
         name="some repo"
         stargazers_count={10}
-        updated_at="2017-04-01T09:00:00Z"
+        pushed_at="2017-04-01T09:00:00Z"
         forks_count={2}
       />
     );
