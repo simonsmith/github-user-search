@@ -7,27 +7,33 @@ import {
 } from 'aphrodite/no-important';
 import curry from 'lodash/fp/curry';
 import map from 'lodash/fp/map';
-import Repo from 'components/Repo';
 import Loading from 'components/Loading';
 
 type Props = {
   entities: Object,
+  component: ReactClass<*>,
   ids: Array<number>,
   isPending: boolean,
 };
 
-const renderRepoListItem = curry((entities, id) => {
+const renderListItem = curry((entities, Component, id) => {
   return (
     <li
-      className={css(styles.RepoList_item)}
+      className={css(styles.ItemList_item)}
       key={id}
     >
-      <Repo {...entities[id]} />
+      <Component {...entities[id]} />
     </li>
   );
 });
 
-export default function RepoList({entities, ids, isPending}: Props) {
+export default function ItemList(props: Props) {
+  const {
+    entities,
+    ids,
+    isPending,
+    component: Component,
+  } = props;
   if (isPending) {
     return (
       <Loading />
@@ -36,13 +42,13 @@ export default function RepoList({entities, ids, isPending}: Props) {
 
   return (
     <ul>
-      {map(renderRepoListItem(entities), ids)}
+      {map(renderListItem(entities, Component), ids)}
     </ul>
   );
 }
 
 const styles = StyleSheet.create({
-  RepoList_item: {
+  ItemList_item: {
     borderBottom: '1px solid #ddd',
     marginBottom: 20,
     paddingBottom: 20,

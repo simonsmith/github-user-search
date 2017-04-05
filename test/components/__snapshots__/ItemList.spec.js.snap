@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ItemList should render a Loading component when isPending 1`] = `
+<div
+  className="u-flex u-flexJustifyCenter u-flexAlignItemsCenter"
+>
+  <svg />
+</div>
+`;
+
+exports[`Component: ItemList should render components in a list 1`] = `
+<ul>
+  <li
+    className="ItemList_item_dgdnyv"
+  >
+    <p>
+      simon
+    </p>
+  </li>
+  <li
+    className="ItemList_item_dgdnyv"
+  >
+    <p>
+      john
+    </p>
+  </li>
+</ul>
+`;
