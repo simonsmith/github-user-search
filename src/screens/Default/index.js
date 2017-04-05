@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
   DefaultLayout_footer: {
     borderTop: '1px solid #ccc',
-    marginTop: 30,
+    marginTop: 70,
   },
 
   DefaultLayout_footerText: {
