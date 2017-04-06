@@ -26,7 +26,7 @@ type Props = {
   id: number,
   location: string | null,
   login: string,
-  name: string,
+  name: string | null,
   public_repos: number,
 };
 

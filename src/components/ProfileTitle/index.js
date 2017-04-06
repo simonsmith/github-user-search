@@ -10,7 +10,7 @@ import 'suitcss-utils-flex/lib/flex.css';
 type Props = {
   userLink: string,
   username: string,
-  name: string,
+  name: string | null,
 };
 
 export default function ProfileTitle(props: Props) {
@@ -22,7 +22,10 @@ export default function ProfileTitle(props: Props) {
 
   return (
     <div className="u-flex u-flexWrap u-flexAlignItemsBaseline">
-      <h1 className={css(styles.ProfileTitle_name)}>{name}</h1>
+      {name
+        ? <h1 className={css(styles.ProfileTitle_name)}>{name}</h1>
+        : null
+      }
       <p className={css(styles.ProfileTitle_username)}>
         <a href={userLink}>@{username}</a>
       </p>
