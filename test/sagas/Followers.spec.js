@@ -43,6 +43,7 @@ describe('Saga: getFollowers', () => {
 
       expect(successAction).toEqual(
         put({
+          meta: {fromCache: true},
           payload: {
             entities: {},
             result: [1, 2],

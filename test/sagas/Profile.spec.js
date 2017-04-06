@@ -83,7 +83,11 @@ describe('Saga: getProfile', () => {
 
       const successAction = generator.next({foo: 'bar'}).value;
       expect(successAction).toEqual(
-        put({type: 'PROFILE_SUCCESS', payload: {foo: 'bar'}})
+        put({
+          meta: {fromCache: true},
+          type: 'PROFILE_SUCCESS',
+          payload: {foo: 'bar'},
+        })
       );
     });
 

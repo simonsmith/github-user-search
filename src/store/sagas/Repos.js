@@ -11,9 +11,10 @@ import {
 } from 'store/schema';
 import {getReposFromCache} from 'store/reducers/Cache';
 
-function reposSuccessAction(data: Object, url: string) {
+function reposSuccessAction(data: Object, url: string, {fromCache = false} = {}) {
   return put({
     type: 'REPOS_SUCCESS',
+    meta: {fromCache},
     payload: {
       entities: data.entities,
       result: data.result,
@@ -27,7 +28,7 @@ export function* getRepos(action) {
   const cachedRepos = yield select(getReposFromCache(url));
 
   if (cachedRepos) {
-    yield reposSuccessAction(cachedRepos, url);
+    yield reposSuccessAction(cachedRepos, url, {fromCache: true});
     return;
   }
 

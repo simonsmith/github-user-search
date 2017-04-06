@@ -18,6 +18,7 @@ describe('Saga: searchUsers', () => {
       const successAction = generator.next({data: 'foo'}).value;
       expect(successAction).toEqual(
         put({
+          meta: {fromCache: true},
           payload: {
             data: 'foo',
             search: 'q=simon',

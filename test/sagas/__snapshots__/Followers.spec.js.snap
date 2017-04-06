@@ -28,6 +28,9 @@ Object {
 
 exports[`Saga: getFollowers when no cached data exists should put a success action with the normalized data 1`] = `
 Object {
+  "meta": Object {
+    "fromCache": false,
+  },
   "payload": Object {
     "entities": Object {
       "users": Object {

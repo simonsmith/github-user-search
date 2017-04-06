@@ -13,3 +13,10 @@ export default function* rootSaga() {
     watchGetRepos(),
   ];
 }
+
+// function* watchTwo() {
+//   while (true) {
+//     const t = yield take(['FOLLOWERS_SUCCESS', 'REPOS_SUCCESS']);
+//     console.log(t);
+//   }
+// }

@@ -11,9 +11,10 @@ import {
 } from 'store/schema';
 import {getFollowersFromCache} from 'store/reducers/Cache';
 
-function followersSuccessAction(data: Object, url: string) {
+function followersSuccessAction(data: Object, url: string, {fromCache = false} = {}) {
   return put({
     type: 'FOLLOWERS_SUCCESS',
+    meta: {fromCache},
     payload: {
       entities: data.entities,
       result: data.result,
@@ -27,7 +28,7 @@ export function* getFollowers(action) {
   const cachedFollowers = yield select(getFollowersFromCache(url));
 
   if (cachedFollowers) {
-    yield followersSuccessAction(cachedFollowers, url);
+    yield followersSuccessAction(cachedFollowers, url, {fromCache: true});
     return;
   }
 

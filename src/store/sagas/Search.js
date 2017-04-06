@@ -23,8 +23,9 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-function searchSuccessAction(response: Object, search: string) {
+function searchSuccessAction(response: Object, search: string, {fromCache = false} = {}) {
   return put({
+    meta: {fromCache},
     payload: assignAll([response, {search}]),
     type: 'SEARCH_SUCCESS',
   });
@@ -34,7 +35,7 @@ export function* searchUsers(action) {
   const {payload: {search}} = action;
   const cachedSearch = yield select(getSearchFromCache(search));
   if (cachedSearch) {
-    yield searchSuccessAction(cachedSearch, search);
+    yield searchSuccessAction(cachedSearch, search, {fromCache: true});
     return;
   }
 

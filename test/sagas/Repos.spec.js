@@ -43,6 +43,7 @@ describe('Saga: getRepos', () => {
 
       expect(successAction).toEqual(
         put({
+          meta: {fromCache: true},
           payload: {
             entities: {},
             result: [1, 2],

@@ -50,9 +50,11 @@ export function* getProfile(action) {
   const {payload: {username}} = action;
   const cachedProfile = yield select(getProfileFromCache(username));
   let profile;
+  const meta = {fromCache: false};
 
   if (cachedProfile) {
     profile = cachedProfile;
+    meta.fromCache = true;
   } else {
     try {
       const response = yield call(api.getProfile, username);
@@ -67,8 +69,9 @@ export function* getProfile(action) {
   }
 
   yield put({
-    type: 'PROFILE_SUCCESS',
+    meta,
     payload: profile,
+    type: 'PROFILE_SUCCESS',
   });
   yield* requestAdditionalProfileData(profile);
 }
