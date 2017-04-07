@@ -4,6 +4,7 @@ import {watchSearchUsers} from './Search';
 import {watchGetProfile} from './Profile';
 import {watchGetRepos} from './Repos';
 import {watchGetFollowers} from './Followers';
+import {watchGetRateLimit} from './RateLimit';
 
 export default function* rootSaga() {
   yield [
@@ -11,12 +12,6 @@ export default function* rootSaga() {
     watchGetProfile(),
     watchGetFollowers(),
     watchGetRepos(),
+    watchGetRateLimit(),
   ];
 }
-
-// function* watchTwo() {
-//   while (true) {
-//     const t = yield take(['FOLLOWERS_SUCCESS', 'REPOS_SUCCESS']);
-//     console.log(t);
-//   }
-// }

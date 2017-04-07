@@ -82,6 +82,7 @@ exports[`Reducer: cache when passed no state should return the initial state 1`]
 Object {
   "followers": Object {},
   "profile": Object {},
+  "rateLimit": Object {},
   "repos": Object {},
   "search": Object {},
 }

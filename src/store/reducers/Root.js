@@ -7,6 +7,7 @@ import profileReducer from 'reducers/Profile';
 import cacheReducer from 'reducers/Cache';
 import reposReducer from 'reducers/Repos';
 import followersReducer from 'reducers/Followers';
+import rateLimitReducer from 'reducers/RateLimit';
 
 export default combineReducers({
   cache: cacheReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   profile: profileReducer,
   repos: reposReducer,
   followers: followersReducer,
+  rateLimit: rateLimitReducer,
 });
