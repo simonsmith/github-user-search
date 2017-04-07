@@ -10,6 +10,7 @@ const initialState = {
   profile: {},
   repos: {},
   followers: {},
+  rateLimit: {},
 };
 
 type addToCacheArgs = {
@@ -78,6 +79,12 @@ export default function cacheReducer(state: Object = initialState, action: Objec
         type: 'followers',
         data: {result: action.payload.result},
       });
+
+    case 'API_RATE_LIMIT_SUCCESS': {
+      const newState = mergeAll([{}, state]);
+      newState.rateLimit.latest = action.payload;
+      return newState;
+    }
 
     default:
       return state;
