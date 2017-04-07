@@ -24,7 +24,6 @@ function calculateRemainingColor(remaining: number, limit: number): Object {
 }
 
 export default function RateLimit({label, remaining, limit, reset}: Props) {
-  console.log('render!');
   return (
     <p
       className={`${css(styles.RateLimit)} u-flex`}
