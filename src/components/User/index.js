@@ -27,9 +27,7 @@ export default function User({login, avatar_url}: Props) {
           width={90}
         />
       </div>
-      <div className={css(styles.User_content)}>
-        <p className={css(styles.User_username)}>{login}</p>
-      </div>
+      <p className={css(styles.User_username)}>{login}</p>
     </Link>
   );
 }

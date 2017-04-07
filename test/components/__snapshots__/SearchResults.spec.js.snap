@@ -33,15 +33,11 @@ exports[`Component: SearchResults when given a one result should render a correc
           <svg />
         </div>
       </div>
-      <div
-        className=""
+      <p
+        className="User_username_rnfkwd"
       >
-        <p
-          className="User_username_rnfkwd"
-        >
-          foo
-        </p>
-      </div>
+        foo
+      </p>
     </a>
   </li>
 </ul>
@@ -80,15 +76,11 @@ exports[`Component: SearchResults when given a set of results and entities shoul
           <svg />
         </div>
       </div>
-      <div
-        className=""
+      <p
+        className="User_username_rnfkwd"
       >
-        <p
-          className="User_username_rnfkwd"
-        >
-          foo
-        </p>
-      </div>
+        foo
+      </p>
     </a>
   </li>
   <li
@@ -120,15 +112,11 @@ exports[`Component: SearchResults when given a set of results and entities shoul
           <svg />
         </div>
       </div>
-      <div
-        className=""
+      <p
+        className="User_username_rnfkwd"
       >
-        <p
-          className="User_username_rnfkwd"
-        >
-          foobar
-        </p>
-      </div>
+        foobar
+      </p>
     </a>
   </li>
 </ul>

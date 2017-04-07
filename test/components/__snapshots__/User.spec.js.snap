@@ -27,14 +27,10 @@ exports[`Component: User should render 1`] = `
       <svg />
     </div>
   </div>
-  <div
-    className=""
+  <p
+    className="User_username_rnfkwd"
   >
-    <p
-      className="User_username_rnfkwd"
-    >
-      simon
-    </p>
-  </div>
+    simon
+  </p>
 </a>
 `;
