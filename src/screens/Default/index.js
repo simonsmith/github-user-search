@@ -9,6 +9,7 @@ import {
   StyleSheet,
 } from 'aphrodite/no-important';
 import HeaderContainer from 'containers/Header';
+import RateLimitContainer from 'containers/RateLimit';
 import Container from 'components/Container';
 import {PER_PAGE} from 'store/api';
 import 'suitcss-utils-flex/lib/flex.css';
@@ -40,9 +41,12 @@ const renderRoute = curry((Component, matchProps) => {
         <Component {...matchProps} />
       </div>
       <Container rootStyle={styles.DefaultLayout_footer}>
-        <p className={css(styles.DefaultLayout_footerText)}>
-          View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
-        </p>
+        <div className="u-flex u-flexWrap u-flexAlignItemsCenter u-flexJustifyBetween">
+          <p className={css(styles.DefaultLayout_footerText)}>
+            View the <a href="https://github.com/simonsmith/github-user-search">source on GitHub</a>
+          </p>
+          <RateLimitContainer />
+        </div>
       </Container>
     </div>
   );
