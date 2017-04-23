@@ -52,7 +52,7 @@ export function* watchGetRateLimit() {
 
   yield [
     combineLatest(types, getRateLimit),
-    takeLatest('SEARCH_SUCCESS', getRateLimit),
+    takeLatest('API_RATE_LIMIT_REQUEST', getRateLimit),
   ];
 }
 
