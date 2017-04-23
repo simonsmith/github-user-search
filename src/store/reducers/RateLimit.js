@@ -1,7 +1,6 @@
 import assignAll from 'lodash/fp/assignAll';
 
 const initialState = {
-  error: null,
   core: {},
   search: {},
 };
@@ -13,7 +12,6 @@ export default function rateLimitReducer(state: Object = initialState, action: O
       return assignAll([
         state,
         {
-          error: null,
           core: action.payload.core,
           search: action.payload.search,
         },
@@ -23,7 +21,9 @@ export default function rateLimitReducer(state: Object = initialState, action: O
       if (!action.error) {return state;}
       return assignAll([
         state,
-        {error: action.payload},
+        {
+          payload: action.payload,
+        },
       ]);
     }
 

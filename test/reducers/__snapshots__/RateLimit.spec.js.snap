@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducer: rateLimit when a rate limit request is successful should update the state with the response 1`] = `
+Object {
+  "core": Object {
+    "test": "foo",
+  },
+  "search": Object {
+    "test": "bar",
+  },
+}
+`;
+
+exports[`Reducer: rateLimit when a search request fails should update the state with the error message 1`] = `
+Object {
+  "payload": [Error: the request died],
+}
+`;
+
+exports[`Reducer: rateLimit when passed no state should return the initial state 1`] = `
+Object {
+  "core": Object {},
+  "search": Object {},
+}
+`;
