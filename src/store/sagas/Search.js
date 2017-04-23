@@ -23,26 +23,27 @@ function normalizeResponse(response: Object) {
   ]);
 }
 
-function searchSuccessAction(response: Object, search: string, {fromCache = false} = {}) {
-  return put({
+function* searchSuccessAction(response: Object, search: string, {fromCache = false} = {}) {
+  yield put({
     meta: {fromCache},
     payload: assignAll([response, {search}]),
     type: 'SEARCH_SUCCESS',
   });
+  yield put({type: 'API_RATE_LIMIT_REQUEST', meta: {fromCache}});
 }
 
 export function* searchUsers(action) {
   const {payload: {search}} = action;
   const cachedSearch = yield select(getSearchFromCache(search));
   if (cachedSearch) {
-    yield searchSuccessAction(cachedSearch, search, {fromCache: true});
+    yield* searchSuccessAction(cachedSearch, search, {fromCache: true});
     return;
   }
 
   try {
     const response = yield call(api.searchUsers, qs.parse(search));
     const normalizedResponse = normalizeResponse(response);
-    yield searchSuccessAction(normalizedResponse, search);
+    yield* searchSuccessAction(normalizedResponse, search);
   } catch (err) {
     yield put({
       error: true,

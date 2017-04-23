@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Saga: searchUsers when a cached result exists should pass the result to the success action and not call the API 1`] = `
+Object {
+  "meta": Object {
+    "fromCache": true,
+  },
+  "payload": Object {
+    "data": "foo",
+    "search": "q=simon",
+  },
+  "type": "SEARCH_SUCCESS",
+}
+`;
+
+exports[`Saga: searchUsers when a cached result exists should pass the result to the success action and not call the API 2`] = `
+Object {
+  "meta": Object {
+    "fromCache": true,
+  },
+  "type": "API_RATE_LIMIT_REQUEST",
+}
+`;
+
 exports[`Saga: searchUsers when a request to the API fails should call a failure action 1`] = `
 Object {
   "error": true,

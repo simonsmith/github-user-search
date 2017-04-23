@@ -1,6 +1,5 @@
 import {
   call,
-  put,
 } from 'redux-saga/effects';
 import {isFSA} from 'flux-standard-action';
 import api from 'store/api';
@@ -16,17 +15,13 @@ describe('Saga: searchUsers', () => {
       generator.next();
 
       const successAction = generator.next({data: 'foo'}).value;
-      expect(successAction).toEqual(
-        put({
-          meta: {fromCache: true},
-          payload: {
-            data: 'foo',
-            search: 'q=simon',
-          },
-          type: 'SEARCH_SUCCESS',
-        })
-      );
+      expect(successAction.PUT.action).toMatchSnapshot();
+
+      const rateLimitAction = generator.next().value;
+      expect(rateLimitAction.PUT.action).toMatchSnapshot();
+
       expect(isFSA(successAction.PUT.action)).toBeTruthy();
+      expect(isFSA(rateLimitAction.PUT.action)).toBeTruthy();
     });
   });
 
