@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RateLimitConnect: mapStateToProps when given the state should return relevant properties 1`] = `
+Object {
+  "coreLimit": 3,
+  "coreRemaining": 5,
+  "coreReset": "23-04-2017 19:33",
+  "searchLimit": 3,
+  "searchRemaining": 5,
+  "searchReset": "23-04-2017 19:33",
+}
+`;
