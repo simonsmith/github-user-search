@@ -32,4 +32,3 @@ describe('Component: Bio', () => {
   });
 
 });
-
