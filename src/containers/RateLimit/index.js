@@ -16,7 +16,7 @@ type Props = {
   searchReset: ?string,
 };
 
-function RateLimitContainer(props: Props) {
+export function RateLimitContainer(props: Props) {
   const {
     coreLimit,
     coreRemaining,

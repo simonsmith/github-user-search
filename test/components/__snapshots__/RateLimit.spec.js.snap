@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: RateLimit should render \`high\` when above 75% of the API calls remaining 1`] = `
+<p
+  className="RateLimit_f9e8qy u-flex"
+  title="Limit resets at some date"
+>
+  <span
+    className="RateLimit_label_1rcbo1g"
+  >
+    test
+    :
+  </span>
+  <span
+    className="RateLimit_high_9hrz9f"
+  >
+    76
+  </span>
+</p>
+`;
+
+exports[`Component: RateLimit should render \`low\` when below 25% of the API calls remaining 1`] = `
+<p
+  className="RateLimit_f9e8qy u-flex"
+  title="Limit resets at some date"
+>
+  <span
+    className="RateLimit_label_1rcbo1g"
+  >
+    test
+    :
+  </span>
+  <span
+    className="RateLimit_low_1aa01pl"
+  >
+    24
+  </span>
+</p>
+`;
+
+exports[`Component: RateLimit should render \`medium\` when below 75% of the API calls remaining 1`] = `
+<p
+  className="RateLimit_f9e8qy u-flex"
+  title="Limit resets at some date"
+>
+  <span
+    className="RateLimit_label_1rcbo1g"
+  >
+    test
+    :
+  </span>
+  <span
+    className="RateLimit_medium_zh4aso"
+  >
+    70
+  </span>
+</p>
+`;

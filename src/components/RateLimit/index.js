@@ -13,24 +13,25 @@ type Props = {
   limit: number,
 };
 
-function calculateRemainingColor(remaining: number, limit: number): Object {
+export function calculateRemainingColor(remaining: number, limit: number): string {
   if (remaining <= (limit / 4) * 1) {
-    return styles.RateLimit_low;
+    return 'RateLimit_low';
   }
   if (remaining <= (limit / 4) * 3) {
-    return styles.RateLimit_medium;
+    return 'RateLimit_medium';
   }
-  return styles.RateLimit_high;
+  return 'RateLimit_high';
 }
 
 export default function RateLimit({label, remaining, limit, reset}: Props) {
+  const styleKey = calculateRemainingColor(remaining, limit);
   return (
     <p
       className={`${css(styles.RateLimit)} u-flex`}
       title={`Limit resets at ${reset}`}
     >
       <span className={css(styles.RateLimit_label)}>{label}:</span>
-      <span className={css(calculateRemainingColor(remaining, limit))}>{remaining}</span>
+      <span className={css(styles[styleKey])}>{remaining}</span>
     </p>
   );
 }

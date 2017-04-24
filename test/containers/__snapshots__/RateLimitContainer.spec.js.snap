@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: RateLimitContainer should render 1`] = `
+<div
+  className="u-flex u-flexAlignItemsCenter"
+>
+  <p
+    className="RateLimitContainer_label_18lea6b"
+  >
+    API requests
+  </p>
+  <div
+    className="RateLimitContainer_xe3jre u-flex"
+  >
+    <div
+      className="RateLimitContainer_item_ygrcmc"
+    >
+      <p
+        className="RateLimit_f9e8qy u-flex"
+        title="Limit resets at some date"
+      >
+        <span
+          className="RateLimit_label_1rcbo1g"
+        >
+          Profile
+          :
+        </span>
+        <span
+          className="RateLimit_high_9hrz9f"
+        >
+          100
+        </span>
+      </p>
+    </div>
+    <div
+      className="RateLimitContainer_item_ygrcmc"
+    >
+      <p
+        className="RateLimit_f9e8qy u-flex"
+        title="Limit resets at some date"
+      >
+        <span
+          className="RateLimit_label_1rcbo1g"
+        >
+          Search
+          :
+        </span>
+        <span
+          className="RateLimit_high_9hrz9f"
+        >
+          100
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
