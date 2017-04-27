@@ -1,6 +1,6 @@
 {
   "name": "github-user-search",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "repository": "git@github.com:simonsmith/github-user-search.git",
   "author": "Simon Smith <simonsmith@users.noreply.github.com>",
