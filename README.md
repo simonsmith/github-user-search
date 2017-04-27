@@ -9,6 +9,8 @@ Requests are cached in session storage to limit the use of the API.
 A personal project built with React, Redux and other tools to search users and
 view their profiles on Github. Nothing serious.
 
+Feel free to open issues for questions/improvements!
+
 ### Libraries and tools
 
 * Aphrodite
@@ -41,3 +43,8 @@ sent along in any API calls to increase the limit:
 export USER_SEARCH_OAUTH=<your token>
 yarnpkg run start
 ```
+
+## TODO
+
+* Service worker
+* webpack chunks based on route
