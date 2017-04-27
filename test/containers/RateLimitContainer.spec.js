@@ -22,6 +22,7 @@ describe('Container: RateLimitContainer', () => {
         coreReset="some date"
         searchLimit={100}
         searchRemaining={100}
+        dispatch={jest.fn()}
         searchReset="some date"
       />
     );
