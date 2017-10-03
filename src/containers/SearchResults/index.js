@@ -8,6 +8,7 @@ import {
 import SearchResults from 'components/SearchResults';
 import Pagination from 'components/Pagination';
 import ResultsMessage from 'components/ResultsMessage';
+import ErrorBoundary from 'components/ErrorBoundary';
 import Loading from 'components/Loading';
 import Container from 'components/Container';
 import connect from './connect';
@@ -49,22 +50,28 @@ export function SearchResultsContainer(props: Props) {
           styles.SearchResultsContainer_wrapResultsMessage
         )}
       >
-        <ResultsMessage
-          searchTerm={searchTerm}
-          resultsTotal={totalResults}
-          pageTotal={userIds.length}
-        />
+        <ErrorBoundary>
+          <ResultsMessage
+            searchTerm={searchTerm}
+            resultsTotal={totalResults}
+            pageTotal={userIds.length}
+          />
+        </ErrorBoundary>
       </div>
       <div className={css(styles.SearchResultsContainer_item)}>
-        <SearchResults
-          searchTerm={searchTerm}
-          ids={userIds}
-          entities={userEntities}
-          total={totalResults}
-        />
+        <ErrorBoundary>
+          <SearchResults
+            searchTerm={searchTerm}
+            ids={userIds}
+            entities={userEntities}
+            total={totalResults}
+          />
+        </ErrorBoundary>
       </div>
       <div className={css(styles.SearchResultsContainer_item)}>
-        <Pagination {...pagination} />
+        <ErrorBoundary>
+          <Pagination {...pagination} />
+        </ErrorBoundary>
       </div>
     </Container>
   );

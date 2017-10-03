@@ -12,6 +12,7 @@ import ItemList from 'components/ItemList';
 import User from 'components/User';
 import Repo from 'components/Repo';
 import Loading from 'components/Loading';
+import ErrorBoundary from 'components/ErrorBoundary';
 import {viewport} from 'theme';
 import 'suitcss-utils-flex/lib/flex-sm.css';
 import 'suitcss-utils-size/lib/size-sm.css';
@@ -70,25 +71,31 @@ export class ProfileContainer extends Component {
 
     return (
       <div className={css(styles.Profile_container)}>
-        <ProfileHeader {...this.props.userProfile} />
+        <ErrorBoundary>
+          <ProfileHeader {...this.props.userProfile} />
+        </ErrorBoundary>
         <div className={`${css(styles.Profile_content)} Grid Grid--withGutter`}>
           <div className={`${css(styles.Profile_repos)} Grid-cell u-sm-size1of2`}>
             <h2 className={css(styles.Profile_contentTitle)}>Repositories</h2>
-            <ItemList
-              entities={repoEntities}
-              ids={repoIds}
-              isPending={repoIsPending}
-              component={Repo}
-            />
+            <ErrorBoundary>
+              <ItemList
+                entities={repoEntities}
+                ids={repoIds}
+                isPending={repoIsPending}
+                component={Repo}
+              />
+            </ErrorBoundary>
           </div>
           <div className="Grid-cell u-sm-size1of2">
             <h2 className={css(styles.Profile_contentTitle)}>Followers</h2>
-            <ItemList
-              entities={userEntities}
-              ids={followerIds}
-              isPending={followerIsPending}
-              component={User}
-            />
+            <ErrorBoundary>
+              <ItemList
+                entities={userEntities}
+                ids={followerIds}
+                isPending={followerIsPending}
+                component={User}
+              />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
