@@ -1,5 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+
 import ProfileScreen from 'screens/Profile';
 import DocumentTitle from 'react-document-title';
 import ProfileContainer from 'containers/Profile';
