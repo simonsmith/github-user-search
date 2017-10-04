@@ -1,26 +1,15 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {
-  StyleSheetTestUtils,
-} from 'aphrodite';
 import Stats from 'components/Stats';
+import felaSnapshot from 'test-util/fela-snapshot';
 
 describe('Component: Stats', () => {
-
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   it('should render', () => {
     const stats = {
       Foo: 'bar',
       Bla: 'yo',
     };
-    const component = renderer.create(
+    const component = felaSnapshot(
       <Stats
         stats={stats}
       />

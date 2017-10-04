@@ -1,48 +1,54 @@
 // @flow
 
 import React from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
-import 'suitcss-utils-flex/lib/flex.css';
+import {connect} from 'react-fela';
 
 const map = require('lodash/fp/map').convert({cap: false});
 
 type Props = {
   stats: Object,
+  styles: any,
 };
 
-const renderStat = map((value, key) => {
+function Stats({stats, styles}: Props) {
   return (
-    <li
-      className={`${css(styles.Stats_item)} u-flex u-flexCol u-flexAlignItemsCenter`}
-      key={key}
-    >
-      <p className={css(styles.Stats_value)}>{value}</p>
-      <p className={css(styles.Stats_label)}>{key}</p>
-    </li>
-  );
-});
-
-export default function Stats({stats}: Props) {
-  return (
-    <ul className="u-flex">
-      {renderStat(stats)}
+    <ul className={styles.root}>
+      {
+        map((value, key) => {
+          return (
+            <li
+              className={styles.item}
+              key={key}
+            >
+              <p className={styles.value}>{value}</p>
+              <p className={styles.label}>{key}</p>
+            </li>
+          );
+        }, stats)
+      }
     </ul>
   );
 }
 
-const styles = StyleSheet.create({
-  Stats_item: {
-    marginRight: 28,
-  },
+const styles = {
+  root: () => ({
+    display: 'flex',
+  }),
 
-  Stats_value: {
-    fontSize: 30,
-  },
+  item: () => ({
+    marginRight: '28px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  }),
 
-  Stats_label: {
-    fontSize: 14,
-  },
-});
+  value: () => ({
+    fontSize: '30px',
+  }),
+
+  label: () => ({
+    fontSize: '14px',
+  }),
+};
+
+export default connect(styles)(Stats);

@@ -1,36 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: Stats should render 1`] = `
-<ul
-  className="u-flex"
->
-  <li
-    className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
+Object {
+  "component": <ul
+    className="a"
   >
-    <p
-      className="Stats_value_176gzik"
+    <li
+      className="b a c d"
     >
-      bar
-    </p>
-    <p
-      className="Stats_label_f9e8qy"
+      <p
+        className="e"
+      >
+        bar
+      </p>
+      <p
+        className="f"
+      >
+        Foo
+      </p>
+    </li>
+    <li
+      className="b a c d"
     >
-      Foo
-    </p>
-  </li>
-  <li
-    className="Stats_item_1p0a99 u-flex u-flexCol u-flexAlignItemsCenter"
-  >
-    <p
-      className="Stats_value_176gzik"
-    >
-      yo
-    </p>
-    <p
-      className="Stats_label_f9e8qy"
-    >
-      Bla
-    </p>
-  </li>
-</ul>
+      <p
+        className="e"
+      >
+        yo
+      </p>
+      <p
+        className="f"
+      >
+        Bla
+      </p>
+    </li>
+  </ul>,
+  "styles": "
+    .a{display:flex}
+    .b{margin-right:28px}
+    .c{flex-direction:column}
+    .d{align-items:center}
+    .e{font-size:30px}
+    .f{font-size:14px}",
+}
 `;
