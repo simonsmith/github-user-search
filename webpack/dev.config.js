@@ -4,7 +4,7 @@ const baseConfig = require('./base.config.js');
 const postcssLoader = require('./postcss.loader');
 
 module.exports = merge(baseConfig, {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   devServer: {
     inline: true,
