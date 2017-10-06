@@ -1,24 +1,16 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import renderer from 'react-test-renderer';
-import {StyleSheetTestUtils} from 'aphrodite';
+import felaSnapshot from 'test-util/fela-snapshot';
 
-import SearchForm from 'components/SearchForm';
+import DefaultSearchForm, {
+  SearchForm,
+} from './SearchForm';
 
 describe('Component: SearchForm', () => {
 
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
   it('should render as expected', () => {
-    const component = renderer.create(<SearchForm onSubmit={jest.fn()} />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = felaSnapshot(<DefaultSearchForm onSubmit={jest.fn()} />);
+    expect(component).toMatchSnapshot();
   });
 
   describe('when an initialInputValue prop is absent', () => {
@@ -55,7 +47,7 @@ describe('Component: SearchForm', () => {
         );
         wrapper.setState({inputValue: 'test'});
         wrapper.simulate('submit', {preventDefault: f => f});
-        expect(spy.mock.calls[0]).toMatchSnapshot();
+        expect(spy.mock.calls).toMatchSnapshot();
       });
     });
 

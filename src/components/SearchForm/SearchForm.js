@@ -4,19 +4,19 @@ import React, {
   Component,
 } from 'react';
 import {connect} from 'react-fela';
-import 'suitcss-utils-display';
 import SearchIcon from './search.svg';
 
 type Props = {
   onSubmit: Function,
   initialInputValue: string,
+  styles: Object,
 };
 
 type State = {
   inputValue: string,
 };
 
-class SearchForm extends Component {
+export class SearchForm extends Component {
 
   props: Props;
   state: State;
@@ -56,7 +56,7 @@ class SearchForm extends Component {
   render() {
     return (
       <form
-        className={css(styles.SearchForm)}
+        className={styles.root}
         onSubmit={this.handleOnSubmit}
       >
         <label
@@ -66,7 +66,7 @@ class SearchForm extends Component {
           Search for a user
         </label>
         <input
-          className={css(styles.SearchForm_input)}
+          className={styles.input}
           type="text"
           id="searchInput"
           placeholder="Search for a user, e.g. simonsmith"
@@ -74,7 +74,7 @@ class SearchForm extends Component {
           onChange={this.handleOnChange}
         />
         <button
-          className={css(styles.SearchForm_btn)}
+          className={styles.button}
           type="submit"
         >
           <SearchIcon width={22} height={24} />
@@ -85,25 +85,25 @@ class SearchForm extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  SearchForm: {
+const styles = {
+  root: () => ({
     position: 'relative',
-  },
+  }),
 
-  SearchForm_input: {
-    padding: 8,
-    paddingRight: 40,
+  input: () => ({
+    padding: '8px',
+    paddingRight: '40px',
     width: '100%',
     border: '1px solid #bbb',
     boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, .1);',
-  },
+  }),
 
-  SearchForm_btn: {
+  button: () => ({
     padding: '3px 14px',
     position: 'absolute',
-    top: 4,
-    right: 0,
-  },
-});
+    top: '4px',
+    right: '0',
+  }),
+};
 
-export default SearchForm;
+export default connect(styles)(SearchForm);
