@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Avatar should render 1`] = `
+Object {
+  "component": <div
+    className="b"
+    style={
+      Object {
+        "minHeight": 60,
+      }
+    }
+  >
+    <img
+      alt="Simon's avatar"
+      className="a g h i"
+      onLoad={[Function]}
+      src="http://avatar.net&s=600"
+      theme={Object {}}
+      width={300}
+    />
+    <svg />
+  </div>,
+  "styles": "
+    .a{border-radius:8px}
+    .b{position:relative}
+    .c{left:50%}
+    .d{top:50%}
+    .e{position:absolute}
+    .f{transform:translate(-50%, -50%)}
+    .g{display:block}
+    .h{min-width:100%}
+    .i{height:auto}",
+}
+`;

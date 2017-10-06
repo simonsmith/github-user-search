@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-fela';
 import {Link} from 'react-router-dom';
-import Avatar from 'components/Avatar';
+import Avatar from 'components/Avatar/Avatar';
 
 type Props = {
   login: string,

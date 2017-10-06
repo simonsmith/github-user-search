@@ -8,7 +8,7 @@ import {
   css,
 } from 'aphrodite/no-important';
 import 'suitcss-utils-flex/lib/flex-sm.css';
-import Avatar from 'components/Avatar';
+import Avatar from 'components/Avatar/Avatar';
 import Bio from 'components/Bio/Bio';
 import ProfileInfo from 'components/ProfileInfo';
 import Stats from 'components/Stats/Stats';
