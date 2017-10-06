@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: SearchResults when given a one result should render a correctly worded message 1`] = `
+Object {
+  "component": <ul
+    className="a b c"
+  >
+    <li
+      className="d e"
+    >
+      <a
+        className="f g"
+        href="/foo"
+        onClick={[Function]}
+      >
+        <div
+          className="h"
+        >
+          <div
+            className="k"
+            style={
+              Object {
+                "minHeight": 60,
+              }
+            }
+          >
+            <img
+              alt="foo's avatar"
+              className="j p q r"
+              onLoad={[Function]}
+              src="avatar.jpg&s=180"
+              theme={Object {}}
+              width={90}
+            />
+            <svg />
+          </div>
+        </div>
+        <p
+          className="i"
+        >
+          foo
+        </p>
+      </a>
+    </li>
+  </ul>,
+  "styles": "
+    .a{padding-left:3}
+    .d{margin-bottom:15}
+    .f{color:inherit}
+    .g{display:flex}
+    .h{margin-right:15px}
+    .i{font-size:20px}
+    .j{border-radius:8px}
+    .k{position:relative}
+    .l{left:50%}
+    .m{top:50%}
+    .n{position:absolute}
+    .o{transform:translate(-50%, -50%)}
+    .p{display:block}
+    .q{min-width:100%}
+    .r{height:auto}@media (min-width: 600px){
+    .b{display:flex}
+    .c{flex-wrap:wrap}
+    .e{flex-basis:calc(100% / 3)}}",
+}
+`;
+
+exports[`Component: SearchResults when given a set of results and entities should render them with a message 1`] = `
+Object {
+  "component": <ul
+    className="a b c"
+  >
+    <li
+      className="d e"
+    >
+      <a
+        className="f g"
+        href="/foo"
+        onClick={[Function]}
+      >
+        <div
+          className="h"
+        >
+          <div
+            className="k"
+            style={
+              Object {
+                "minHeight": 60,
+              }
+            }
+          >
+            <img
+              alt="foo's avatar"
+              className="j p q r"
+              onLoad={[Function]}
+              src="avatar.jpg&s=180"
+              theme={Object {}}
+              width={90}
+            />
+            <svg />
+          </div>
+        </div>
+        <p
+          className="i"
+        >
+          foo
+        </p>
+      </a>
+    </li>
+    <li
+      className="d e"
+    >
+      <a
+        className="f g"
+        href="/foobar"
+        onClick={[Function]}
+      >
+        <div
+          className="h"
+        >
+          <div
+            className="k"
+            style={
+              Object {
+                "minHeight": 60,
+              }
+            }
+          >
+            <img
+              alt="foobar's avatar"
+              className="j p q r"
+              onLoad={[Function]}
+              src="avatar.jpg&s=180"
+              theme={Object {}}
+              width={90}
+            />
+            <svg />
+          </div>
+        </div>
+        <p
+          className="i"
+        >
+          foobar
+        </p>
+      </a>
+    </li>
+  </ul>,
+  "styles": "
+    .a{padding-left:3}
+    .d{margin-bottom:15}
+    .f{color:inherit}
+    .g{display:flex}
+    .h{margin-right:15px}
+    .i{font-size:20px}
+    .j{border-radius:8px}
+    .k{position:relative}
+    .l{left:50%}
+    .m{top:50%}
+    .n{position:absolute}
+    .o{transform:translate(-50%, -50%)}
+    .p{display:block}
+    .q{min-width:100%}
+    .r{height:auto}@media (min-width: 600px){
+    .b{display:flex}
+    .c{flex-wrap:wrap}
+    .e{flex-basis:calc(100% / 3)}}",
+}
+`;
+
+exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
+Object {
+  "component": <ul
+    className="a b c"
+  />,
+  "styles": "
+    .a{padding-left:3}
+    .d{margin-bottom:15}
+    .f{color:inherit}
+    .g{display:flex}
+    .h{margin-right:15px}
+    .i{font-size:20px}
+    .j{border-radius:8px}
+    .k{position:relative}
+    .l{left:50%}
+    .m{top:50%}
+    .n{position:absolute}
+    .o{transform:translate(-50%, -50%)}
+    .p{display:block}
+    .q{min-width:100%}
+    .r{height:auto}@media (min-width: 600px){
+    .b{display:flex}
+    .c{flex-wrap:wrap}
+    .e{flex-basis:calc(100% / 3)}}",
+}
+`;

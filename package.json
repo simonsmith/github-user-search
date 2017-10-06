@@ -14,7 +14,7 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
-    "testRegex": "test/.*\\.spec\\.js$",
+    "testRegex": ".*\\.test\\.js$",
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/test/__mocks__/svgMock.js",
       "\\.(css)$": "<rootDir>/test/__mocks__/cssMock.js"

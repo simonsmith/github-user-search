@@ -3,7 +3,7 @@ import {
   StaticRouter as Router,
 } from 'react-router-dom';
 import felaSnapshot from 'test-util/fela-snapshot';
-import User from 'components/User';
+import User from './User';
 
 describe('Component: User', () => {
 

@@ -1,14 +1,13 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {StyleSheetTestUtils} from 'aphrodite';
 import {
   StaticRouter as Router,
 } from 'react-router-dom';
+import felaSnapshot from 'test-util/fela-snapshot';
 
-import SearchResults from 'components/SearchResults';
+import SearchResults from './SearchResults';
 
 function createComponent(props) {
-  return renderer.create(
+  return felaSnapshot(
     <Router context={{}}>
       <SearchResults {...props} />
     </Router>
@@ -16,14 +15,6 @@ function createComponent(props) {
 }
 
 describe('Component: SearchResults', () => {
-
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   describe('when given a set of results and entities', () => {
     it('should render them with a message', () => {

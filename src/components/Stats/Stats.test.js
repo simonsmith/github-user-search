@@ -1,6 +1,6 @@
 import React from 'react';
-import Stats from 'components/Stats';
 import felaSnapshot from 'test-util/fela-snapshot';
+import Stats from './Stats';
 
 describe('Component: Stats', () => {
 
