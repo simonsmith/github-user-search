@@ -10,8 +10,6 @@ import SearchScreen from 'screens/Search';
 import Profile from 'screens/Profile';
 import DefaultLayout from 'screens/Default';
 
-import 'css/global.css';
-
 export default function App() {
   return (
     <Router>

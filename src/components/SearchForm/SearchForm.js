@@ -3,10 +3,7 @@
 import React, {
   Component,
 } from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
+import {connect} from 'react-fela';
 import 'suitcss-utils-display';
 import SearchIcon from './search.svg';
 
