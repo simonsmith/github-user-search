@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Bio should not render if props is absent 1`] = `
+Object {
+  "component": null,
+  "styles": "
+    .a{font-size:16}
+    .b{line-height:1.3}",
+}
+`;
+
+exports[`Component: Bio should render 1`] = `
+Object {
+  "component": <p
+    className="a b"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "This is some bio text with <a href=\\"http://github.com/link\\">@link</a>",
+      }
+    }
+  />,
+  "styles": "
+    .a{font-size:16}
+    .b{line-height:1.3}",
+}
+`;

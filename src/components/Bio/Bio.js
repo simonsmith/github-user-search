@@ -1,29 +1,29 @@
 // @flow
 
 import React from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
+import {connect} from 'react-fela';
 import linkify from 'util/linkify';
 
 type Props = {
   text: string | null,
+  styles: Object,
 };
 
-export default function Bio({text}: Props) {
+function Bio({text, styles}: Props) {
   if (!text) {return null;}
   return (
     <p
-      className={css(styles.Bio)}
+      className={styles.Bio_root}
       dangerouslySetInnerHTML={{__html: linkify(text)}}
     />
   );
 }
 
-const styles = StyleSheet.create({
-  Bio: {
+const styles = {
+  Bio_root: () => ({
     fontSize: 16,
     lineHeight: 1.3,
-  },
-});
+  }),
+};
+
+export default connect(styles)(Bio);
