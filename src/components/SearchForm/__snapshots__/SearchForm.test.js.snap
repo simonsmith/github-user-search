@@ -3,7 +3,7 @@
 exports[`Component: SearchForm should render as expected 1`] = `
 Object {
   "component": <form
-    className={[Function]}
+    className="a"
     onSubmit={[Function]}
   >
     <label
@@ -13,7 +13,7 @@ Object {
       Search for a user
     </label>
     <input
-      className={[Function]}
+      className="b c d e f"
       id="searchInput"
       onChange={[Function]}
       placeholder="Search for a user, e.g. simonsmith"
@@ -21,7 +21,7 @@ Object {
       value=""
     />
     <button
-      className={[Function]}
+      className="g h i j"
       type="submit"
     >
       <svg />

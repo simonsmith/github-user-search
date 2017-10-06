@@ -54,9 +54,10 @@ export class SearchForm extends Component {
   }
 
   render() {
+    const {styles} = this.props;
     return (
       <form
-        className={styles.root}
+        className={styles.SearchForm_root}
         onSubmit={this.handleOnSubmit}
       >
         <label
@@ -66,7 +67,7 @@ export class SearchForm extends Component {
           Search for a user
         </label>
         <input
-          className={styles.input}
+          className={styles.SearchForm_input}
           type="text"
           id="searchInput"
           placeholder="Search for a user, e.g. simonsmith"
@@ -74,7 +75,7 @@ export class SearchForm extends Component {
           onChange={this.handleOnChange}
         />
         <button
-          className={styles.button}
+          className={styles.SearchForm_button}
           type="submit"
         >
           <SearchIcon width={22} height={24} />
@@ -86,11 +87,11 @@ export class SearchForm extends Component {
 }
 
 const styles = {
-  root: () => ({
+  SearchForm_root: () => ({
     position: 'relative',
   }),
 
-  input: () => ({
+  SearchForm_input: () => ({
     padding: '8px',
     paddingRight: '40px',
     width: '100%',
@@ -98,7 +99,7 @@ const styles = {
     boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, .1);',
   }),
 
-  button: () => ({
+  SearchForm_button: () => ({
     padding: '3px 14px',
     position: 'absolute',
     top: '4px',

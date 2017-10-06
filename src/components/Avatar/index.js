@@ -15,7 +15,7 @@ function Avatar({url, name, width, styles}: Props) {
   const alt = name ? `${name}'s avatar` : 'User avatar';
   return (
     <Image
-      className={styles.avatar}
+      className={styles.Avatar_img}
       src={`${url}&s=${width * 2}`}
       alt={alt}
       width={width}
@@ -24,7 +24,7 @@ function Avatar({url, name, width, styles}: Props) {
 }
 
 const styles = {
-  avatar: () => ({
+  Avatar_img: () => ({
     borderRadius: '8px',
   }),
 };

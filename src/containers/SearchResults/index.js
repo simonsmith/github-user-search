@@ -5,7 +5,7 @@ import {
   css,
   StyleSheet,
 } from 'aphrodite/no-important';
-import SearchResults from 'components/SearchResults';
+import SearchResults from 'components/SearchResults/SearchResults';
 import Pagination from 'components/Pagination';
 import ResultsMessage from 'components/ResultsMessage';
 import ErrorBoundary from 'components/ErrorBoundary';

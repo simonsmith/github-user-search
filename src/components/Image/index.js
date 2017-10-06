@@ -5,7 +5,6 @@ import React, {
 } from 'react';
 import {connect} from 'react-fela';
 import classNames from 'classnames';
-import 'css/utils/img.css';
 import LoadingSpinner from 'components/Loading/loading.svg';
 
 type Props = {
@@ -44,7 +43,7 @@ class Image extends Component {
     if (this.state.status === 'loaded') {return null;}
     return (
       <LoadingSpinner
-        className={this.props.styles.spinner}
+        className={this.props.styles.Image_spinner}
         width={28}
         height={28}
       />
@@ -60,12 +59,12 @@ class Image extends Component {
     } = this.props;
     const imgClassName = classNames(
       className,
-      styles.img
+      styles.Image_img
     );
 
     return (
       <div
-        className={styles.root}
+        className={styles.Image_root}
         style={{minHeight}}
       >
         <img
@@ -82,18 +81,18 @@ class Image extends Component {
 }
 
 const styles = {
-  root: () => ({
+  Image_root: () => ({
     position: 'relative',
   }),
 
-  spinner: () => ({
+  Image_spinner: () => ({
     left: '50%',
     top: '50%',
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
   }),
 
-  img: () => ({
+  Image_img: () => ({
     display: 'block',
     minWidth: '100%',
     height: 'auto',

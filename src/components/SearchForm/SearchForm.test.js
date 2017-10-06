@@ -15,7 +15,12 @@ describe('Component: SearchForm', () => {
 
   describe('when an initialInputValue prop is absent', () => {
     it('should set inputValue to an empty string', () => {
-      const wrapper = shallow(<SearchForm onSubmit={jest.fn()} />);
+      const wrapper = shallow(
+        <SearchForm
+          styles={{}}
+          onSubmit={jest.fn()}
+        />
+      );
       expect(wrapper.state('inputValue')).toEqual('');
     });
   });
@@ -24,6 +29,7 @@ describe('Component: SearchForm', () => {
     it('should update the state', () => {
       const wrapper = shallow(
         <SearchForm
+          styles={{}}
           initialInputValue={'hello'}
           onSubmit={jest.fn()}
         />
@@ -42,6 +48,7 @@ describe('Component: SearchForm', () => {
         const spy = jest.fn();
         const wrapper = shallow(
           <SearchForm
+            styles={{}}
             onSubmit={spy}
           />
         );
@@ -56,6 +63,7 @@ describe('Component: SearchForm', () => {
         const spy = jest.fn();
         const wrapper = shallow(
           <SearchForm
+            styles={{}}
             onSubmit={spy}
           />
         );

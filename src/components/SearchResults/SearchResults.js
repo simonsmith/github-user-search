@@ -13,11 +13,11 @@ type Props = {
 
 function SearchResults({entities, ids, styles}: Props) {
   return (
-    <ul className={styles.root}>
+    <ul className={styles.SearchResults_root}>
       {map(item => {
         const {id} = entities[item];
         return (
-          <li key={id} className={styles.item}>
+          <li key={id} className={styles.SearchResults_item}>
             <User {...entities[id]} />
           </li>
         );
@@ -29,8 +29,8 @@ function SearchResults({entities, ids, styles}: Props) {
 const MQ = '@media (min-width: 600px)';
 
 const styles = {
-  root: () => ({
-    paddingLeft: 3,
+  SearchResults_root: () => ({
+    paddingLeft: '3px',
 
     [MQ]: {
       display: 'flex',
@@ -38,8 +38,8 @@ const styles = {
     },
   }),
 
-  item: () => ({
-    marginBottom: 15,
+  SearchResults_item: () => ({
+    marginBottom: '15px',
 
     [MQ]: {
       flexBasis: 'calc(100% / 3)',

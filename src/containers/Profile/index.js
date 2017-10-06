@@ -9,7 +9,7 @@ import {
 import Container from 'components/Container';
 import ProfileHeader from 'components/ProfileHeader';
 import ItemList from 'components/ItemList';
-import User from 'components/User';
+import User from 'components/User/User';
 import Repo from 'components/Repo';
 import Loading from 'components/Loading';
 import ErrorBoundary from 'components/ErrorBoundary';

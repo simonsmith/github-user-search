@@ -12,16 +12,16 @@ type Props = {
 
 function Stats({stats, styles}: Props) {
   return (
-    <ul className={styles.root}>
+    <ul className={styles.Stats_root}>
       {
         map((value, key) => {
           return (
             <li
-              className={styles.item}
+              className={styles.Stats_item}
               key={key}
             >
-              <p className={styles.value}>{value}</p>
-              <p className={styles.label}>{key}</p>
+              <p className={styles.Stats_value}>{value}</p>
+              <p className={styles.Stats_label}>{key}</p>
             </li>
           );
         }, stats)
@@ -31,22 +31,22 @@ function Stats({stats, styles}: Props) {
 }
 
 const styles = {
-  root: () => ({
+  Stats_root: () => ({
     display: 'flex',
   }),
 
-  item: () => ({
+  Stats_item: () => ({
     marginRight: '28px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   }),
 
-  value: () => ({
+  Stats_value: () => ({
     fontSize: '30px',
   }),
 
-  label: () => ({
+  Stats_label: () => ({
     fontSize: '14px',
   }),
 };

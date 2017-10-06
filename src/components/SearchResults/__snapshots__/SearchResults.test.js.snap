@@ -44,8 +44,8 @@ Object {
     </li>
   </ul>,
   "styles": "
-    .a{padding-left:3}
-    .d{margin-bottom:15}
+    .a{padding-left:3px}
+    .d{margin-bottom:15px}
     .f{color:inherit}
     .g{display:flex}
     .h{margin-right:15px}
@@ -146,8 +146,8 @@ Object {
     </li>
   </ul>,
   "styles": "
-    .a{padding-left:3}
-    .d{margin-bottom:15}
+    .a{padding-left:3px}
+    .d{margin-bottom:15px}
     .f{color:inherit}
     .g{display:flex}
     .h{margin-right:15px}
@@ -173,8 +173,8 @@ Object {
     className="a b c"
   />,
   "styles": "
-    .a{padding-left:3}
-    .d{margin-bottom:15}
+    .a{padding-left:3px}
+    .d{margin-bottom:15px}
     .f{color:inherit}
     .g{display:flex}
     .h{margin-right:15px}

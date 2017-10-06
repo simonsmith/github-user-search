@@ -15,31 +15,31 @@ function User({login, avatar_url, styles}: Props) {
   return (
     <Link
       to={login}
-      className={styles.root}
+      className={styles.User_root}
     >
-      <div className={styles.avatar}>
+      <div className={styles.User_avatar}>
         <Avatar
           url={avatar_url}
           name={login}
           width={90}
         />
       </div>
-      <p className={styles.username}>{login}</p>
+      <p className={styles.User_username}>{login}</p>
     </Link>
   );
 }
 
 const styles = {
-  root: () => ({
+  User_root: () => ({
     color: 'inherit',
     display: 'flex',
   }),
 
-  avatar: () => ({
+  User_avatar: () => ({
     marginRight: '15px',
   }),
 
-  username: () => ({
+  User_username: () => ({
     fontSize: '20px',
   }),
 };

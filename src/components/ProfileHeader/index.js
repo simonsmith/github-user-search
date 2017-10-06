@@ -11,7 +11,7 @@ import 'suitcss-utils-flex/lib/flex-sm.css';
 import Avatar from 'components/Avatar';
 import Bio from 'components/Bio';
 import ProfileInfo from 'components/ProfileInfo';
-import Stats from 'components/Stats';
+import Stats from 'components/Stats/Stats';
 import ProfileTitle from 'components/ProfileTitle';
 import {viewport} from 'theme';
 
