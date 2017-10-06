@@ -1,26 +1,14 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import {
   StaticRouter as Router,
 } from 'react-router-dom';
-import {
-  StyleSheetTestUtils,
-} from 'aphrodite';
-
+import felaSnapshot from 'test-util/fela-snapshot';
 import User from 'components/User';
 
 describe('Component: User', () => {
 
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
   it('should render', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <Router context={{}}>
         <User
           login="simon"

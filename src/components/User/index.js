@@ -1,47 +1,47 @@
 // @flow
 
 import React from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
+import {connect} from 'react-fela';
 import {Link} from 'react-router-dom';
-import 'suitcss-utils-flex/lib/flex.css';
 import Avatar from 'components/Avatar';
 
 type Props = {
   login: string,
   avatar_url: string,
+  styles: any,
 };
 
-export default function User({login, avatar_url}: Props) {
+function User({login, avatar_url, styles}: Props) {
   return (
     <Link
       to={login}
-      className={`${css(styles.User)} u-flex`}
+      className={styles.root}
     >
-      <div className={css(styles.User_wrapAvatar)}>
+      <div className={styles.avatar}>
         <Avatar
           url={avatar_url}
           name={login}
           width={90}
         />
       </div>
-      <p className={css(styles.User_username)}>{login}</p>
+      <p className={styles.username}>{login}</p>
     </Link>
   );
 }
 
-const styles = StyleSheet.create({
-  User: {
+const styles = {
+  root: () => ({
     color: 'inherit',
-  },
+    display: 'flex',
+  }),
 
-  User_wrapAvatar: {
-    marginRight: 15,
-  },
+  avatar: () => ({
+    marginRight: '15px',
+  }),
 
-  User_username: {
-    fontSize: 20,
-  },
-});
+  username: () => ({
+    fontSize: '20px',
+  }),
+};
+
+export default connect(styles)(User);

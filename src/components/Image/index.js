@@ -3,10 +3,7 @@
 import React, {
   Component,
 } from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
+import {connect} from 'react-fela';
 import classNames from 'classnames';
 import 'css/utils/img.css';
 import LoadingSpinner from 'components/Loading/loading.svg';
@@ -14,6 +11,7 @@ import LoadingSpinner from 'components/Loading/loading.svg';
 type Props = {
   minHeight: number,
   className?: string,
+  styles: Object,
 };
 
 type State = {
@@ -46,7 +44,7 @@ class Image extends Component {
     if (this.state.status === 'loaded') {return null;}
     return (
       <LoadingSpinner
-        className={css(styles.Image_spinner)}
+        className={this.props.styles.spinner}
         width={28}
         height={28}
       />
@@ -57,16 +55,17 @@ class Image extends Component {
     const {
       minHeight,
       className,
+      styles,
       ...restProps
     } = this.props;
     const imgClassName = classNames(
       className,
-      'u-imgResponsive'
+      styles.img
     );
 
     return (
       <div
-        className={css(styles.Image)}
+        className={styles.root}
         style={{minHeight}}
       >
         <img
@@ -82,17 +81,23 @@ class Image extends Component {
 
 }
 
-const styles = StyleSheet.create({
-  Image: {
+const styles = {
+  root: () => ({
     position: 'relative',
-  },
+  }),
 
-  Image_spinner: {
+  spinner: () => ({
     left: '50%',
     top: '50%',
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
-  },
-});
+  }),
 
-export default Image;
+  img: () => ({
+    display: 'block',
+    minWidth: '100%',
+    height: 'auto',
+  }),
+};
+
+export default connect(styles)(Image);

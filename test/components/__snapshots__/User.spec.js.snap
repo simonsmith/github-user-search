@@ -1,36 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: User should render 1`] = `
-<a
-  className="User_abw475 u-flex"
-  href="/simon"
-  onClick={[Function]}
->
-  <div
-    className="User_wrapAvatar_3afm6b"
+Object {
+  "component": <a
+    className="a b"
+    href="/simon"
+    onClick={[Function]}
   >
     <div
-      className="Image_e296pg"
-      style={
-        Object {
-          "minHeight": 60,
-        }
-      }
+      className="c"
     >
-      <img
-        alt="simon's avatar"
-        className="Avatar_1pcpsid u-imgResponsive"
-        onLoad={[Function]}
-        src="url&s=180"
-        width={90}
-      />
-      <svg />
+      <div
+        className="f"
+        style={
+          Object {
+            "minHeight": 60,
+          }
+        }
+      >
+        <img
+          alt="simon's avatar"
+          className="e k l m"
+          onLoad={[Function]}
+          src="url&s=180"
+          theme={Object {}}
+          width={90}
+        />
+        <svg />
+      </div>
     </div>
-  </div>
-  <p
-    className="User_username_rnfkwd"
-  >
-    simon
-  </p>
-</a>
+    <p
+      className="d"
+    >
+      simon
+    </p>
+  </a>,
+  "styles": "
+    .a{color:inherit}
+    .b{display:flex}
+    .c{margin-right:15px}
+    .d{font-size:20px}
+    .e{border-radius:8px}
+    .f{position:relative}
+    .g{left:50%}
+    .h{top:50%}
+    .i{position:absolute}
+    .j{transform:translate(-50%, -50%)}
+    .k{display:block}
+    .l{min-width:100%}
+    .m{height:auto}",
+}
 `;

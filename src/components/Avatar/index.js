@@ -1,23 +1,21 @@
 // @flow
 
 import React from 'react';
-import {
-  StyleSheet,
-  css,
-} from 'aphrodite/no-important';
 import Image from 'components/Image';
+import {connect} from 'react-fela';
 
 type Props = {
   url: string,
   name: string | null,
   width: number,
+  styles: Object,
 };
 
-export default function Avatar({url, name, width}: Props) {
+function Avatar({url, name, width, styles}: Props) {
   const alt = name ? `${name}'s avatar` : 'User avatar';
   return (
     <Image
-      className={css(styles.Avatar)}
+      className={styles.avatar}
       src={`${url}&s=${width * 2}`}
       alt={alt}
       width={width}
@@ -25,8 +23,10 @@ export default function Avatar({url, name, width}: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  Avatar: {
-    borderRadius: 8,
-  },
-});
+const styles = {
+  avatar: () => ({
+    borderRadius: '8px',
+  }),
+};
+
+export default connect(styles)(Avatar);
