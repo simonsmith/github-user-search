@@ -1,24 +1,13 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {
-  StyleSheetTestUtils,
-} from 'aphrodite';
+import felaSnapshot from 'test-util/fela-snapshot';
 
-import ItemList from 'components/ItemList';
+import ItemList from './ItemList';
 
 function FakeComponent({login}) { // eslint-disable-line
   return <p>{login}</p>;
 }
 
 describe('Component: ItemList', () => {
-
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   it('should render components in a list', () => {
     const entities = {
@@ -29,7 +18,7 @@ describe('Component: ItemList', () => {
         login: 'john',
       },
     };
-    const component = renderer.create(
+    const component = felaSnapshot(
       <ItemList
         entities={entities}
         ids={[123, 456]}
@@ -41,7 +30,7 @@ describe('Component: ItemList', () => {
   });
 
   it('should display a message when no items exist', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <ItemList
         entities={{}}
         ids={[]}
@@ -53,7 +42,7 @@ describe('Component: ItemList', () => {
   });
 
   it('should render a Loading component when isPending', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <ItemList
         entities={{}}
         ids={[]}

@@ -8,7 +8,7 @@ import {
 } from 'aphrodite/no-important';
 import Container from 'components/Container';
 import ProfileHeader from 'components/ProfileHeader';
-import ItemList from 'components/ItemList';
+import ItemList from 'components/ItemList/ItemList';
 import User from 'components/User/User';
 import Repo from 'components/Repo';
 import Loading from 'components/Loading';

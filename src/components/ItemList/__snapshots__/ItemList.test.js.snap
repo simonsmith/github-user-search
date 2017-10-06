@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ItemList should display a message when no items exist 1`] = `
+Object {
+  "component": <p>
+    No items to display
+  </p>,
+  "styles": "
+    .a{border-bottom:1px solid #ddd}
+    .b{margin-bottom:20px}
+    .c{padding-bottom:20px}
+    .d:last-child{margin-bottom:0}
+    .e:last-child{padding-bottom:0}
+    .f:last-child{border-bottom:0}",
+}
+`;
+
+exports[`Component: ItemList should render a Loading component when isPending 1`] = `
+Object {
+  "component": <div
+    className="u-flex u-flexJustifyCenter u-flexAlignItemsCenter"
+  >
+    <svg />
+  </div>,
+  "styles": "
+    .a{border-bottom:1px solid #ddd}
+    .b{margin-bottom:20px}
+    .c{padding-bottom:20px}
+    .d:last-child{margin-bottom:0}
+    .e:last-child{padding-bottom:0}
+    .f:last-child{border-bottom:0}",
+}
+`;
+
+exports[`Component: ItemList should render components in a list 1`] = `
+Object {
+  "component": <ul>
+    <li
+      className="a b c d e f"
+    >
+      <p>
+        simon
+      </p>
+    </li>
+    <li
+      className="a b c d e f"
+    >
+      <p>
+        john
+      </p>
+    </li>
+  </ul>,
+  "styles": "
+    .a{border-bottom:1px solid #ddd}
+    .b{margin-bottom:20px}
+    .c{padding-bottom:20px}
+    .d:last-child{margin-bottom:0}
+    .e:last-child{padding-bottom:0}
+    .f:last-child{border-bottom:0}",
+}
+`;
