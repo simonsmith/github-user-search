@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ProfileTitle should render 1`] = `
+Object {
+  "component": <div
+    className="a b c"
+  >
+    <h1
+      className="e f"
+    >
+      Simon
+    </h1>
+    <p
+      className="d"
+    >
+      <a
+        href="http://simonsmith.io"
+      >
+        @
+        simonsmith
+      </a>
+    </p>
+  </div>,
+  "styles": "
+    .a{display:flex}
+    .b{flex-wrap:wrap}
+    .c{align-items:baseline}
+    .d{color:#555}
+    .e{margin-right:5px}
+    .f{font-size:28px}",
+}
+`;

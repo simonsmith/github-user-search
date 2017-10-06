@@ -12,7 +12,7 @@ import Avatar from 'components/Avatar';
 import Bio from 'components/Bio/Bio';
 import ProfileInfo from 'components/ProfileInfo';
 import Stats from 'components/Stats/Stats';
-import ProfileTitle from 'components/ProfileTitle';
+import ProfileTitle from 'components/ProfileTitle/ProfileTitle';
 import {viewport} from 'theme';
 
 type Props = {
