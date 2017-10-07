@@ -4,17 +4,17 @@ import {
 } from 'react-router-dom';
 import felaSnapshot from 'test-util/fela-snapshot';
 
-import SearchResults from './SearchResults';
+import UserList from './UserList';
 
 function createComponent(props) {
   return felaSnapshot(
     <Router context={{}}>
-      <SearchResults {...props} />
+      <UserList {...props} />
     </Router>
   );
 }
 
-describe('Component: SearchResults', () => {
+describe('Component: UserList', () => {
 
   describe('when given a set of results and entities', () => {
     it('should render them with a message', () => {

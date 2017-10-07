@@ -11,13 +11,13 @@ type Props = {
   styles: Object,
 };
 
-function SearchResults({entities, ids, styles}: Props) {
+function UserList({entities, ids, styles}: Props) {
   return (
-    <ul className={styles.SearchResults_root}>
+    <ul className={styles.UserList_root}>
       {map(item => {
         const {id} = entities[item];
         return (
-          <li key={id} className={styles.SearchResults_item}>
+          <li key={id} className={styles.UserList_item}>
             <User {...entities[id]} />
           </li>
         );
@@ -29,7 +29,7 @@ function SearchResults({entities, ids, styles}: Props) {
 const MQ = '@media (min-width: 600px)';
 
 const styles = {
-  SearchResults_root: () => ({
+  UserList_root: () => ({
     paddingLeft: '3px',
 
     [MQ]: {
@@ -38,7 +38,7 @@ const styles = {
     },
   }),
 
-  SearchResults_item: () => ({
+  UserList_item: () => ({
     marginBottom: '15px',
 
     [MQ]: {
@@ -47,4 +47,4 @@ const styles = {
   }),
 };
 
-export default connect(styles)(SearchResults);
+export default connect(styles)(UserList);

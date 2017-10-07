@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: SearchResults when given a one result should render a correctly worded message 1`] = `
+exports[`Component: UserList when given a one result should render a correctly worded message 1`] = `
 Object {
   "component": <ul
     className="a b c"
@@ -65,7 +65,7 @@ Object {
 }
 `;
 
-exports[`Component: SearchResults when given a set of results and entities should render them with a message 1`] = `
+exports[`Component: UserList when given a set of results and entities should render them with a message 1`] = `
 Object {
   "component": <ul
     className="a b c"
@@ -167,7 +167,7 @@ Object {
 }
 `;
 
-exports[`Component: SearchResults when the results are 0 should not render a message 1`] = `
+exports[`Component: UserList when the results are 0 should not render a message 1`] = `
 Object {
   "component": <ul
     className="a b c"
