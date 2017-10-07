@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Component: SearchResultsContainer when the searchTerm is falsey should not render the pagination or results 1`] = `null`;

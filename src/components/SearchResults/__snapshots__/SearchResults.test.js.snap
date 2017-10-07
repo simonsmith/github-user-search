@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: SearchResults when isPending is true should render a Loading component 1`] = `
+Object {
+  "component": <div
+    className="c"
+  >
+    <div
+      className="u-flex u-flexJustifyCenter u-flexAlignItemsCenter"
+    >
+      <svg />
+    </div>
+  </div>,
+  "styles": "
+    .a{margin-bottom:30}
+    .b{margin-top:15}
+    .c{margin-top:25}",
+}
+`;
+
+exports[`Component: SearchResults when the searchTerm is falsey should not render the pagination or results 1`] = `
+Object {
+  "component": null,
+  "styles": "
+    .a{margin-bottom:30}
+    .b{margin-top:15}
+    .c{margin-top:25}",
+}
+`;

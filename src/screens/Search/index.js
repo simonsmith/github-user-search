@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import SearchResultsContainer from 'containers/SearchResults';
+import SearchResultsContainer from 'containers/SearchResults/SearchResultsContainer';
 import pageTitle from 'util/page-title';
 import qs from 'query-string';
 import isEmpty from 'lodash/fp/isEmpty';

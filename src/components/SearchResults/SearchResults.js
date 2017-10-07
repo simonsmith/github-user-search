@@ -1,17 +1,13 @@
 // @flow
 
 import React from 'react';
-import {
-  css,
-  StyleSheet,
-} from 'aphrodite/no-important';
-import SearchResults from 'components/SearchResults/SearchResults';
+import {connect} from 'react-fela';
+import UserList from 'components/UserList/UserList';
 import Pagination from 'components/Pagination';
 import ResultsMessage from 'components/ResultsMessage';
 import ErrorBoundary from 'components/ErrorBoundary';
 import Loading from 'components/Loading';
 import Container from 'components/Container';
-import connect from './connect';
 
 type Props = {
   isPending: boolean,
@@ -20,9 +16,10 @@ type Props = {
   totalResults: number,
   userEntities: Object,
   userIds: Array<number>,
+  styles: Object,
 };
 
-export function SearchResultsContainer(props: Props) {
+export function SearchResults(props: Props) {
   const {
     isPending,
     pagination,
@@ -30,13 +27,14 @@ export function SearchResultsContainer(props: Props) {
     totalResults,
     userEntities,
     userIds,
+    styles,
   } = props;
 
   if (!searchTerm) {return null;}
 
   if (isPending) {
     return (
-      <div className={css(styles.SearchResultsContainer_wrapLoading)}>
+      <div className={styles.SearchResults_loading}>
         <Loading />
       </div>
     );
@@ -45,10 +43,7 @@ export function SearchResultsContainer(props: Props) {
   return (
     <Container>
       <div
-        className={css(
-          styles.SearchResultsContainer_item,
-          styles.SearchResultsContainer_wrapResultsMessage
-        )}
+        className={styles.SearchResults_resultsMessage}
       >
         <ErrorBoundary>
           <ResultsMessage
@@ -58,9 +53,9 @@ export function SearchResultsContainer(props: Props) {
           />
         </ErrorBoundary>
       </div>
-      <div className={css(styles.SearchResultsContainer_item)}>
+      <div className={styles.SearchResults_item}>
         <ErrorBoundary>
-          <SearchResults
+          <UserList
             searchTerm={searchTerm}
             ids={userIds}
             entities={userEntities}
@@ -68,7 +63,7 @@ export function SearchResultsContainer(props: Props) {
           />
         </ErrorBoundary>
       </div>
-      <div className={css(styles.SearchResultsContainer_item)}>
+      <div className={styles.SearchResults_item}>
         <ErrorBoundary>
           <Pagination {...pagination} />
         </ErrorBoundary>
@@ -77,23 +72,24 @@ export function SearchResultsContainer(props: Props) {
   );
 }
 
-SearchResultsContainer.defaultProps = {
+SearchResults.defaultProps = {
   pagination: {},
   searchTerm: '',
 };
 
-const styles = StyleSheet.create({
-  SearchResultsContainer_wrapResultsMessage: {
+const styles = {
+  SearchResults_resultsMessage: () => ({
     marginBottom: 30,
-  },
-
-  SearchResultsContainer_wrapLoading: {
-    marginTop: 25,
-  },
-
-  SearchResultsContainer_item: {
     marginTop: 15,
-  },
-});
+  }),
 
-export default connect(SearchResultsContainer);
+  SearchResults_loading: () => ({
+    marginTop: 25,
+  }),
+
+  SearchResults_item: () => ({
+    marginTop: 15,
+  }),
+};
+
+export default connect(styles)(SearchResults);
