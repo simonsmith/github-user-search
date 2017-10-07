@@ -1,23 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {
-  StyleSheetTestUtils,
-} from 'aphrodite';
+import felaSnapshot from 'test-util/fela-snapshot';
 
-import ResultsMessage from 'components/ResultsMessage';
+import ResultsMessage from './ResultsMessage';
 
 describe('Component: ResultsMessage', () => {
 
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
-
   it('should render', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <ResultsMessage
         searchTerm={'test'}
         pageTotal={10}
@@ -28,7 +17,7 @@ describe('Component: ResultsMessage', () => {
   });
 
   it('should handle single results', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <ResultsMessage
         searchTerm={'test'}
         pageTotal={1}

@@ -4,7 +4,7 @@ import React from 'react';
 import {connect} from 'react-fela';
 import UserList from 'components/UserList/UserList';
 import Pagination from 'components/Pagination';
-import ResultsMessage from 'components/ResultsMessage';
+import ResultsMessage from 'components/ResultsMessage/ResultsMessage';
 import ErrorBoundary from 'components/ErrorBoundary';
 import Loading from 'components/Loading';
 import Container from 'components/Container';
