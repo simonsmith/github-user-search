@@ -1,8 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import SearchScreen from 'screens/Search';
 import DocumentTitle from 'react-document-title';
-import SearchResultsContainer from 'containers/SearchResults';
+import SearchResultsContainer from 'containers/SearchResults/SearchResultsContainer';
+import SearchScreen from './SearchScreen';
 
 describe('Screen: SearchScreen', () => {
   it('should create a document title', () => {

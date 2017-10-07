@@ -6,7 +6,7 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import SearchScreen from 'screens/Search';
+import SearchScreen from 'screens/Search/SearchScreen';
 import Profile from 'screens/Profile';
 import DefaultLayout from 'screens/Default';
 
