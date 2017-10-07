@@ -7,7 +7,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import SearchScreen from 'screens/Search/SearchScreen';
-import Profile from 'screens/Profile';
+import Profile from 'screens/Profile/ProfileScreen';
 import DefaultLayout from 'screens/Default';
 
 export default function App() {
