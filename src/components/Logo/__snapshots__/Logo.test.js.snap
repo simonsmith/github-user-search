@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Logo should render 1`] = `
+Object {
+  "component": <div>
+    <h1
+      className="b"
+    >
+      <a
+        className="c d e"
+        href="/"
+        onClick={[Function]}
+      >
+        <svg />
+        GitHub User Search
+      </a>
+    </h1>
+    <p
+      className="f g"
+    >
+      Browse users and their profiles via 
+      <a
+        href="https://developer.github.com/v3/"
+      >
+        the GitHub API
+      </a>
+    </p>
+  </div>,
+  "styles": "
+    .a{margin-right:8px}
+    .b{font-size:25px}
+    .c{display:flex}
+    .d{text-decoration:none}
+    .e{color:inherit}
+    .f{margin-top:5px}
+    .g{font-size:14px}",
+}
+`;

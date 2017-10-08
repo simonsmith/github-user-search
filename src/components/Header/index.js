@@ -6,7 +6,7 @@ import {
   css,
 } from 'aphrodite/no-important';
 import SearchForm from 'components/SearchForm/SearchForm';
-import Logo from 'components/Logo';
+import Logo from 'components/Logo/Logo';
 import {viewport} from 'theme';
 import 'suitcss-utils-flex/lib/flex-sm.css';
 
