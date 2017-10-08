@@ -6,7 +6,7 @@ import {
   css,
   StyleSheet,
 } from 'aphrodite/no-important';
-import Container from 'components/Container';
+import Container from 'components/Container/Container';
 import ProfileHeader from 'components/ProfileHeader';
 import ItemList from 'components/ItemList/ItemList';
 import User from 'components/User/User';

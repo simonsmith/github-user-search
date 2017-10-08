@@ -3,11 +3,7 @@
 import React, {
   Component,
 } from 'react';
-import {
-  StyleSheet,
-} from 'aphrodite/no-important';
-import Header from 'components/Header';
-import Container from 'components/Container';
+import Header from 'components/Header/Header';
 import connect from './connect';
 
 type Props = {
@@ -46,23 +42,13 @@ export class HeaderContainer extends Component {
     } = this.props;
 
     return (
-      <Container rootStyle={styles.HeaderContainer}>
-        <Header
-          onSubmit={onSubmit}
-          searchTerm={searchTerm}
-        />
-      </Container>
+      <Header
+        onSubmit={onSubmit}
+        searchTerm={searchTerm}
+      />
     );
   }
 
 }
-
-const styles = StyleSheet.create({
-  HeaderContainer: {
-    backgroundColor: '#f4f4f4',
-    borderBottom: '1px solid #aaa',
-    boxShadow: '0px 0px 2px 1px rgba(0, 0, 0, .2)',
-  },
-});
 
 export default connect(HeaderContainer);

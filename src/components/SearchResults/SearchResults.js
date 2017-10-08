@@ -7,7 +7,7 @@ import Pagination from 'components/Pagination';
 import ResultsMessage from 'components/ResultsMessage/ResultsMessage';
 import ErrorBoundary from 'components/ErrorBoundary';
 import Loading from 'components/Loading';
-import Container from 'components/Container';
+import Container from 'components/Container/Container';
 
 type Props = {
   isPending: boolean,

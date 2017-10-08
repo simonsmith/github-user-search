@@ -1,18 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {StyleSheetTestUtils} from 'aphrodite';
 
-import {HeaderContainer} from 'containers/Header';
+import {HeaderContainer} from './HeaderContainer';
 
 describe('Component: HeaderContainer', () => {
-
-  beforeAll(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-
-  afterAll(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   describe('when the searchQuery prop is not present', () => {
     it('should not call the search action', () => {

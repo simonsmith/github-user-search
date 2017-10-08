@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Header should render 1`] = `
+Object {
+  "component": <div
+    className="m g h i"
+  >
+    <div
+      className="n o"
+    >
+      <div
+        className="a b c d e"
+      >
+        <div
+          className="f"
+        >
+          <div>
+            <h1
+              className="t"
+            >
+              <a
+                className="u v w"
+                href="/"
+                onClick={[Function]}
+              >
+                <svg />
+                GitHub User Search
+              </a>
+            </h1>
+            <p
+              className="x y"
+            >
+              Browse users and their profiles via 
+              <a
+                href="https://developer.github.com/v3/"
+              >
+                the GitHub API
+              </a>
+            </p>
+          </div>
+        </div>
+        <div
+          className="j k l"
+        >
+          <form
+            className="z"
+            onSubmit={[Function]}
+          >
+            <label
+              className="u-hiddenVisually"
+              htmlFor="searchInput"
+            >
+              Search for a user
+            </label>
+            <input
+              className="ab ac ae af ag"
+              id="searchInput"
+              onChange={[Function]}
+              placeholder="Search for a user, e.g. simonsmith"
+              type="text"
+              value="test"
+            />
+            <button
+              className="ah ai aj ak"
+              type="submit"
+            >
+              <svg />
+              <span
+                className="u-hiddenVisually"
+              >
+                Submit
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "styles": "
+    .a{padding-top:15px}
+    .b{padding-bottom:15px}
+    .f{flex-grow:2}
+    .g{background-color:#f4f4f4}
+    .h{border-bottom:1px solid #aaa}
+    .i{box-shadow:0px 0px 2px 1px rgba(0, 0, 0, .2)}
+    .j{margin-top:20px}
+    .m{margin:0}
+    .n{margin:0 auto}
+    .o{max-width:1020}
+    .p{padding-left:10}
+    .q{padding-right:10}
+    .s{margin-right:8px}
+    .t{font-size:25px}
+    .u{display:flex}
+    .v{text-decoration:none}
+    .w{color:inherit}
+    .x{margin-top:5px}
+    .y{font-size:14px}
+    .z{position:relative}
+    .ab{padding:8px}
+    .ac{padding-right:40px}
+    .ae{width:100%}
+    .af{border:1px solid #bbb}
+    .ag{box-shadow:inset 0 2px 2px rgba(0, 0, 0, .1);}
+    .ah{padding:3px 14px}
+    .ai{position:absolute}
+    .aj{top:4px}
+    .ak{right:0}@media (min-width: 600px){
+    .c{display:flex}
+    .d{justify-content:space-between}
+    .e{align-items:center}
+    .k{margin:0}
+    .l{flex-grow:1}}@media (min-width: 1050px){
+    .r{padding:0}}",
+}
+`;

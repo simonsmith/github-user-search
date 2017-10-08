@@ -8,9 +8,9 @@ import {
   css,
   StyleSheet,
 } from 'aphrodite/no-important';
-import HeaderContainer from 'containers/Header';
+import HeaderContainer from 'containers/Header/HeaderContainer';
 import RateLimitContainer from 'containers/RateLimit';
-import Container from 'components/Container';
+import Container from 'components/Container/Container';
 import {PER_PAGE} from 'store/api';
 import 'suitcss-utils-flex/lib/flex.css';
 

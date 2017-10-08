@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Container should render 1`] = `
+Object {
+  "component": <div
+    className="a"
+  >
+    <div
+      className="b c"
+    >
+      <div>
+        inner component
+      </div>
+    </div>
+  </div>,
+  "styles": "
+    .a{margin:0}
+    .b{margin:0 auto}
+    .c{max-width:1020}
+    .d{padding-left:10}
+    .e{padding-right:10}@media (min-width: 1050px){
+    .f{padding:0}}",
+}
+`;
+
+exports[`Component: Container should render style overrides 1`] = `
+Object {
+  "component": <div
+    className="a test"
+  >
+    <div
+      className="b c"
+    >
+      <div>
+        inner component
+      </div>
+    </div>
+  </div>,
+  "styles": "
+    .a{margin:0}
+    .b{margin:0 auto}
+    .c{max-width:1020}
+    .d{padding-left:10}
+    .e{padding-right:10}@media (min-width: 1050px){
+    .f{padding:0}}",
+}
+`;
