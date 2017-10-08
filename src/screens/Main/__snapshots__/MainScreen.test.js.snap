@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen: MainScreen pushUrlQuery function should push a search query on the URL 1`] = `
+Array [
+  Object {
+    "pathname": "/search",
+    "search": "per_page=42&page=1&q=testing",
+  },
+]
+`;
+
+exports[`Screen: MainScreen when passed a component should render it in the default layout 1`] = `null`;

@@ -7,15 +7,15 @@ import {
   Switch,
 } from 'react-router-dom';
 import SearchScreen from 'screens/Search/SearchScreen';
-import Profile from 'screens/Profile/ProfileScreen';
-import DefaultLayout from 'screens/Default';
+import ProfileScreen from 'screens/Profile/ProfileScreen';
+import MainScreen from 'screens/Main/MainScreen';
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <DefaultLayout exact={true} path="/search" component={SearchScreen} />
-        <DefaultLayout exact={true} path="/:username" component={Profile} />
+        <MainScreen exact={true} path="/search" component={SearchScreen} />
+        <MainScreen exact={true} path="/:username" component={ProfileScreen} />
         <Redirect to="/search" />
       </Switch>
     </Router>
