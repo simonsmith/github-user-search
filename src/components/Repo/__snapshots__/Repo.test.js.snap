@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Repo should not render anything for optional data items 1`] = `
+Object {
+  "component": <div>
+    <p
+      className="l m b n"
+    >
+      <a
+        href="https://github.com"
+      >
+        some repo
+      </a>
+    </p>
+    <div
+      className="e f g b h c"
+    >
+      <div
+        className="a b c"
+      >
+        <svg />
+        <p>
+          10
+        </p>
+      </div>
+      <div
+        className="a b c"
+      >
+        <svg />
+        <p>
+          2
+        </p>
+      </div>
+      <p
+        className="k"
+      >
+        last push 
+        3 days
+         ago
+      </p>
+    </div>
+  </div>,
+  "styles": "
+    .a{margin-right:12px}
+    .b{display:flex}
+    .c{align-items:center}
+    .d{margin-right:3px}
+    .e{color:#666}
+    .f{margin-top:35px}
+    .g{font-size:13px}
+    .h{flex-wrap:wrap}
+    .i{font-size:12px}
+    .j{margin-left:5px}
+    .k{margin-left:auto}
+    .l{margin-bottom:10px}
+    .m{font-size:18px}
+    .n{align-items:baseline}
+    .o{font-size:14px}
+    .p{line-height:1.4}",
+}
+`;
+
+exports[`Component: Repo should render all data items 1`] = `
+Object {
+  "component": <div>
+    <p
+      className="l m b n"
+    >
+      <a
+        href="https://github.com"
+      >
+        some repo
+      </a>
+      <span
+        className="i j e"
+      >
+        (fork)
+      </span>
+    </p>
+    <p
+      className="o p"
+    >
+      A description
+    </p>
+    <div
+      className="e f g b h c"
+    >
+      <p
+        className="a b c"
+      >
+        JS
+      </p>
+      <div
+        className="a b c"
+      >
+        <svg />
+        <p>
+          10
+        </p>
+      </div>
+      <div
+        className="a b c"
+      >
+        <svg />
+        <p>
+          2
+        </p>
+      </div>
+      <p
+        className="k"
+      >
+        last push 
+        3 days
+         ago
+      </p>
+    </div>
+  </div>,
+  "styles": "
+    .a{margin-right:12px}
+    .b{display:flex}
+    .c{align-items:center}
+    .d{margin-right:3px}
+    .e{color:#666}
+    .f{margin-top:35px}
+    .g{font-size:13px}
+    .h{flex-wrap:wrap}
+    .i{font-size:12px}
+    .j{margin-left:5px}
+    .k{margin-left:auto}
+    .l{margin-bottom:10px}
+    .m{font-size:18px}
+    .n{align-items:baseline}
+    .o{font-size:14px}
+    .p{line-height:1.4}",
+}
+`;

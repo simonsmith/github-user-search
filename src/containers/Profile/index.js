@@ -10,7 +10,7 @@ import Container from 'components/Container/Container';
 import ProfileHeader from 'components/ProfileHeader';
 import ItemList from 'components/ItemList/ItemList';
 import User from 'components/User/User';
-import Repo from 'components/Repo';
+import Repo from 'components/Repo/Repo';
 import Loading from 'components/Loading';
 import ErrorBoundary from 'components/ErrorBoundary';
 import {viewport} from 'theme';

@@ -1,26 +1,21 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import MockDate from 'mockdate';
-import {
-  StyleSheetTestUtils,
-} from 'aphrodite';
+import felaSnapshot from 'test-util/fela-snapshot';
 
-import Repo from 'components/Repo';
+import Repo from './Repo';
 
 describe('Component: Repo', () => {
 
   beforeAll(() => {
     MockDate.set(new Date('2017-04-04T09:00:00Z'));
-    StyleSheetTestUtils.suppressStyleInjection();
   });
 
   afterAll(() => {
     MockDate.reset();
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
   });
 
   it('should render all data items', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <Repo
         description="A description"
         fork={true}
@@ -36,7 +31,7 @@ describe('Component: Repo', () => {
   });
 
   it('should not render anything for optional data items', () => {
-    const component = renderer.create(
+    const component = felaSnapshot(
       <Repo
         fork={false}
         html_url="https://github.com"
