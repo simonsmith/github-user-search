@@ -86,9 +86,9 @@ Object {
     .j{margin-top:20px}
     .m{margin:0}
     .n{margin:0 auto}
-    .o{max-width:1020}
-    .p{padding-left:10}
-    .q{padding-right:10}
+    .o{max-width:1020px}
+    .p{padding-left:10px}
+    .q{padding-right:10px}
     .s{margin-right:8px}
     .t{font-size:25px}
     .u{display:flex}

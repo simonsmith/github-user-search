@@ -40,12 +40,12 @@ const styles = {
 
   Container_inner: () => ({
     margin: '0 auto',
-    maxWidth: 1020,
+    maxWidth: '1020px',
   }),
 
   Container_padding: () => ({
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: '10px',
+    paddingRight: '10px',
 
     '@media (min-width: 1050px)': {
       padding: 0,

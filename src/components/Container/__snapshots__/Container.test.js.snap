@@ -16,9 +16,9 @@ Object {
   "styles": "
     .a{margin:0}
     .b{margin:0 auto}
-    .c{max-width:1020}
-    .d{padding-left:10}
-    .e{padding-right:10}@media (min-width: 1050px){
+    .c{max-width:1020px}
+    .d{padding-left:10px}
+    .e{padding-right:10px}@media (min-width: 1050px){
     .f{padding:0}}",
 }
 `;
@@ -39,9 +39,9 @@ Object {
   "styles": "
     .a{margin:0}
     .b{margin:0 auto}
-    .c{max-width:1020}
-    .d{padding-left:10}
-    .e{padding-right:10}@media (min-width: 1050px){
+    .c{max-width:1020px}
+    .d{padding-left:10px}
+    .e{padding-right:10px}@media (min-width: 1050px){
     .f{padding:0}}",
 }
 `;
